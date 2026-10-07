@@ -74,7 +74,7 @@
   <!-- Arcade Top Badge -->
   <g transform="translate(600, 72)" text-anchor="middle">
     <rect x="-140" y="-18" width="280" height="28" rx="14" fill="rgba(0, 255, 204, 0.12)" stroke="#00ffcc" stroke-width="1"/>
-    <text x="0" y="2" fill="#00ffcc" font-family="'Courier New', monospace" font-size="11" font-weight="900" letter-spacing="3.5">★ RETRO ARCADE SYSTEM ★</text>
+    <text x="0" y="2" fill="#00ffcc" font-family="'Courier New', monospace" font-size="11" font-weight="900" letter-spacing="3.5">â˜… RETRO ARCADE SYSTEM â˜…</text>
   </g>
 
   <!-- Big Title -->
@@ -84,7 +84,7 @@
 
   <!-- Subtitle -->
   <text x="600" y="210" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="17" letter-spacing="3" fill="#cbd5e1">
-    63+ CLASSIC TITLES  ·  BOX ARTWORK  ·  CRT SCANLINES  ·  INSTANT IN-BROWSER EMULATION
+    86+ CLASSIC TITLES  Â·  BOX ARTWORK  Â·  CRT SCANLINES  Â·  INSTANT IN-BROWSER EMULATION
   </text>
 
   <!-- Feature Tags / System Badges -->
@@ -92,38 +92,38 @@
     <!-- PS1 Badge -->
     <g transform="translate(-460, 0)">
       <rect x="0" y="0" width="165" height="42" rx="8" fill="#181f33" stroke="#3b82f6" stroke-width="1.5"/>
-      <text x="82" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#93c5fd">🎮 PS1 (18 Games)</text>
+      <text x="82" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#93c5fd">ðŸŽ® PS1 (24 Games)</text>
     </g>
 
     <!-- GBA Badge -->
     <g transform="translate(-275, 0)">
       <rect x="0" y="0" width="165" height="42" rx="8" fill="#181f33" stroke="#a855f7" stroke-width="1.5"/>
-      <text x="82" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#d8b4fe">⚡ GBA (11 Games)</text>
+      <text x="82" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#d8b4fe">âš¡ GBA (16 Games)</text>
     </g>
 
     <!-- NDS Badge -->
     <g transform="translate(-90, 0)">
       <rect x="0" y="0" width="165" height="42" rx="8" fill="#181f33" stroke="#06b6d4" stroke-width="1.5"/>
-      <text x="82" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#67e8f9">📜 NDS (12 Games)</text>
+      <text x="82" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#67e8f9">ðŸ“œ NDS (15 Games)</text>
     </g>
 
     <!-- SNES Badge -->
     <g transform="translate(95, 0)">
       <rect x="0" y="0" width="165" height="42" rx="8" fill="#181f33" stroke="#eab308" stroke-width="1.5"/>
-      <text x="82" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#fde047">🏰 SNES (10 Games)</text>
+      <text x="82" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#fde047">ðŸ° SNES (14 Games)</text>
     </g>
 
     <!-- SEGA Badge -->
     <g transform="translate(280, 0)">
       <rect x="0" y="0" width="175" height="42" rx="8" fill="#181f33" stroke="#ec4899" stroke-width="1.5"/>
-      <text x="87" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#f472b6">🦔 SEGA (12 Games)</text>
+      <text x="87" y="26" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#f472b6">ðŸ¦” SEGA (17 Games)</text>
     </g>
   </g>
 
   <!-- Bottom Details bar -->
   <g transform="translate(600, 375)" text-anchor="middle">
     <text x="0" y="0" fill="#64748b" font-family="'Courier New', monospace" font-size="11" letter-spacing="2">
-      PURE VANILLA HTML5 / CSS3 / JAVASCRIPT  ·  LOCALSTORAGE SYNC  ·  STANDALONE &amp; PORTABLE
+      PURE VANILLA HTML5 / CSS3 / JAVASCRIPT  Â·  LOCALSTORAGE SYNC  Â·  STANDALONE &amp; PORTABLE
     </text>
   </g>
 </svg>
