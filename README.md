@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://lin4cre.github.io/retro-arcade-vault/"><img src="https://img.shields.io/badge/Live%20Demo-Play%20Now-00ffcc?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Live Demo"></a>
-  <a href="#-curated-game-library"><img src="https://img.shields.io/badge/Games%20Preloaded-86%20Titles-ff2a85?style=for-the-badge&logo=gamepad" alt="Games Preloaded"></a>
+  <a href="#-curated-game-library"><img src="https://img.shields.io/badge/Games%20Preloaded-87%20Titles-ff2a85?style=for-the-badge&logo=gamepad" alt="Games Preloaded"></a>
   <a href="#license"><img src="https://img.shields.io/badge/License-MIT-8b5cf6?style=for-the-badge" alt="License"></a>
   <img src="https://img.shields.io/badge/Gamepad-API%20Supported-00e5ff?style=for-the-badge&logo=target" alt="Gamepad Supported">
   <img src="https://img.shields.io/badge/Stack-Vanilla%20HTML5%2FCSS3%2FJS-ffd000?style=for-the-badge&logo=html5&logoColor=black" alt="Vanilla Stack">
@@ -12,45 +12,46 @@
 
 ---
 
-## ðŸ“– Overview
+## 📖 Overview
 
-**Retro Arcade Vault** is an ultra-fast, standalone retro gaming hub and emulator frontend designed for instant browser play. Preloaded with **86 hand-curated classics** across PlayStation 1, Game Boy Advance, Nintendo DS, Super Nintendo, and Sega Genesis.
+**Retro Arcade Vault** is an ultra-fast, standalone retro gaming hub and emulator frontend designed for instant browser play. Preloaded with **87 hand-curated classics** across PlayStation 1, Game Boy Advance, Nintendo DS, Super Nintendo, and Sega Genesis.
 
 Zero installation required. Zero dependencies. Completely self-contained in a single responsive web client with zero build pipelines.
 
-ðŸ‘‰ **Play Live**: **[https://lin4cre.github.io/retro-arcade-vault/](https://lin4cre.github.io/retro-arcade-vault/)**
+👉 **Play Live**: **[https://lin4cre.github.io/retro-arcade-vault/](https://lin4cre.github.io/retro-arcade-vault/)**
 
 ---
 
-## âœ¨ Features & Upgrades
+## ✨ Features & Upgrades
 
-### ðŸŽ® Quality & Controls Improvements
-- **ðŸ•¹ï¸ Native Gamepad API Support**: Plug in any USB or Bluetooth controller (Xbox Wireless, DualShock/DualSense, 8BitDo, Nintendo Switch Pro). The arcade detects your controller in real time, displays its name in the top badge, and allows D-Pad/Thumbstick navigation through your library.
-- **ðŸ“– On-Screen Controls Reference Modal**: Integrated `[ðŸ•¹ï¸ CONTROLS]` reference dialog documenting default keyboard mappings and gamepad equivalents across all 5 console platforms.
-- **ðŸ“ Pixel-Perfect Aspect Ratio Switcher**: Eliminates distorted or stretched pixels! Automatically adjusts display ratios depending on console:
+### 🎮 Quality & Controls Improvements
+- **🕹️ Native Gamepad API Support**: Plug in any USB or Bluetooth controller (Xbox Wireless, DualShock/DualSense, 8BitDo, Nintendo Switch Pro). The arcade detects your controller in real time, displays its name in the top badge, and allows D-Pad/Thumbstick navigation through your library.
+- **📖 On-Screen Controls Reference Modal**: Integrated `[🕹️ CONTROLS]` reference dialog documenting default keyboard mappings, gamepad equivalents, and emulator hotkeys across all 5 console platforms.
+- **📐 Pixel-Perfect Aspect Ratio Switcher**: Eliminates distorted or stretched pixels! Automatically adjusts display ratios depending on console:
   - **GBA**: Native `3:2` handheld ratio
   - **PS1 / SNES / Sega**: Native `4:3` CRT television ratio
   - **Manual Modes**: Toggle between **Auto**, **4:3**, **3:2**, or **16:9 Wide**.
-- **â­ Favorites & Recents**: Pin your favorite titles with the â­ button. Filter on the fly with **â­ Favorites** or **ðŸ•’ Recently Played** quick-pills. Persisted locally in `localStorage`.
-- **ðŸŒˆ Dynamic Ambient Bias Lighting**: Immersion halo glow behind the CRT bezel that dynamically shifts tint to match the active console's iconic aesthetic (PlayStation Blue, GBA Purple, DS Teal, SNES Violet, Sega Crimson).
-- **ðŸ”Š 8-Bit Web Audio Synthesizer**: Built-in procedural chiptune sound effects for menu interactions, game launching, and starring (with one-click mute toggle).
-- **ðŸ›¡ï¸ Anti-Popup Iframe Sandboxing**: Restricts external embeds to stop intrusive popups, tab hijacking, and click-redirects.
-- **ðŸ“º Authentic CRT Shader**: Realistic phosphor scanlines and soft curvature vignette toggle.
+- **🎲 Instant Shuffle / Random Game Picker**: Unsure what to play? Click **🎲 Shuffle** to launch an instant surprise classic from the library.
+- **⭐ Favorites & Recents**: Pin your favorite titles with the ⭐ button. Filter on the fly with **⭐ Favorites** or **🕒 Recently Played** quick-pills. Persisted locally in `localStorage`.
+- **🌈 Dynamic Ambient Bias Lighting**: Immersion halo glow behind the CRT bezel that dynamically shifts tint to match the active console's iconic aesthetic (PlayStation Blue, GBA Purple, DS Teal, SNES Violet, Sega Crimson).
+- **🔊 8-Bit Web Audio Synthesizer**: Built-in procedural chiptune sound effects for menu interactions, game launching, and starring (with one-click mute toggle).
+- **🛡️ Anti-Popup Iframe Sandboxing**: Restricts external embeds to stop intrusive popups, tab hijacking, and click-redirects.
+- **📺 Authentic CRT Shader**: Realistic phosphor scanlines and soft curvature vignette toggle.
 
 ---
 
-## ðŸ•¹ï¸ Controls Reference Guide
+## 🕹️ Controls Reference Guide
 
-Click the **ðŸ•¹ï¸ CONTROLS** button on the top bar at any time to inspect the mappings:
+Click the **🕹️ CONTROLS** button on the top bar at any time to inspect the mappings:
 
 ### Keyboard Mappings (RetroGames.cc Default)
 | Action / Button | RetroGames Keyboard Key | Gamepad (Standard Layout) |
 | :--- | :---: | :---: |
-| **D-Pad Up / Down / Left / Right** | <kbd>â†‘</kbd> <kbd>â†“</kbd> <kbd>â†</kbd> <kbd>â†’</kbd> Arrow Keys | D-Pad / Left Analog Stick |
-| **A / Cross (âœ•) / Confirm** | <kbd>X</kbd> | Bottom Face Button (<kbd>A</kbd> / <kbd>âœ•</kbd>) |
-| **B / Circle (â—‹) / Cancel** | <kbd>Z</kbd> | Right Face Button (<kbd>B</kbd> / <kbd>â—‹</kbd>) |
-| **X / Square (â–¡)** | <kbd>S</kbd> | Left Face Button (<kbd>X</kbd> / <kbd>â–¡</kbd>) |
-| **Y / Triangle (â–³)** | <kbd>A</kbd> | Top Face Button (<kbd>Y</kbd> / <kbd>â–³</kbd>) |
+| **D-Pad Up / Down / Left / Right** | <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> Arrow Keys | D-Pad / Left Analog Stick |
+| **A / Cross (✕) / Confirm** | <kbd>X</kbd> | Bottom Face Button (<kbd>A</kbd> / <kbd>✕</kbd>) |
+| **B / Circle (○) / Cancel** | <kbd>Z</kbd> | Right Face Button (<kbd>B</kbd> / <kbd>○</kbd>) |
+| **X / Square (□)** | <kbd>S</kbd> | Left Face Button (<kbd>X</kbd> / <kbd>□</kbd>) |
+| **Y / Triangle (△)** | <kbd>A</kbd> | Top Face Button (<kbd>Y</kbd> / <kbd>△</kbd>) |
 | **Left Shoulder (L1 / L)** | <kbd>Q</kbd> | Left Bumper / Trigger (<kbd>LB</kbd> / <kbd>L1</kbd>) |
 | **Right Shoulder (R1 / R)** | <kbd>W</kbd> | Right Bumper / Trigger (<kbd>RB</kbd> / <kbd>R1</kbd>) |
 | **Select / Back** | <kbd>Shift</kbd> | Back / View / Share |
@@ -61,6 +62,7 @@ Click the **ðŸ•¹ï¸ CONTROLS** button on the top bar at any time to insp
 | :---: | :--- |
 | <kbd>F</kbd> | Toggle Fullscreen Theater Mode |
 | <kbd>R</kbd> | Reload / Restart current game |
+| <kbd>Esc</kbd> | Close dialog modals |
 | **CRT FX** | Toggle scanline overlay filter |
 | **RATIO** | Cycle between Auto, 4:3, 3:2, and 16:9 |
 | **SFX** | Mute or unmute 8-bit interface sound effects |
@@ -70,10 +72,10 @@ Click the **ðŸ•¹ï¸ CONTROLS** button on the top bar at any time to insp
 
 ---
 
-## ðŸ•¹ï¸ Curated Game Library (86 Titles)
+## 🕹️ Curated Game Library (87 Titles)
 
 <details open>
-<summary><b>ðŸŽ® PlayStation 1 (24 Titles)</b></summary>
+<summary><b>🎮 PlayStation 1 (24 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -105,7 +107,7 @@ Click the **ðŸ•¹ï¸ CONTROLS** button on the top bar at any time to insp
 </details>
 
 <details>
-<summary><b>âš¡ Game Boy Advance (16 Titles)</b></summary>
+<summary><b>⚡ Game Boy Advance (16 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -129,7 +131,7 @@ Click the **ðŸ•¹ï¸ CONTROLS** button on the top bar at any time to insp
 </details>
 
 <details>
-<summary><b>ðŸ“œ Nintendo DS (15 Titles)</b></summary>
+<summary><b>📜 Nintendo DS (15 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -152,7 +154,7 @@ Click the **ðŸ•¹ï¸ CONTROLS** button on the top bar at any time to insp
 </details>
 
 <details>
-<summary><b>ðŸ„ Super Nintendo / SNES (14 Titles)</b></summary>
+<summary><b>🍄 Super Nintendo / SNES (14 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -174,7 +176,7 @@ Click the **ðŸ•¹ï¸ CONTROLS** button on the top bar at any time to insp
 </details>
 
 <details>
-<summary><b>ðŸ¦” Sega Genesis (17 Titles)</b></summary>
+<summary><b>🦔 Sega Genesis (18 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -185,6 +187,7 @@ Click the **ðŸ•¹ï¸ CONTROLS** button on the top bar at any time to insp
 | **Shining Force II** | Tactical Strategy RPG | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shining%20Force%20II%20(USA).png) |
 | **Phantasy Star IV** | Sci-Fi JRPG | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Phantasy%20Star%20IV%20(USA).png) |
 | **Streets of Rage 2** | Beat 'em Up | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%202%20(USA).png) |
+| **Streets of Rage 3** | Beat 'em Up | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%203%20(USA).png) |
 | **Gunstar Heroes** | Run and Gun | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Gunstar%20Heroes%20(USA).png) |
 | **Castlevania: Bloodlines** | Action Platformer | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Castlevania%20-%20Bloodlines%20(USA).png) |
 | **Beyond Oasis** | Action RPG | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Beyond%20Oasis%20(USA).png) |
@@ -200,11 +203,11 @@ Click the **ðŸ•¹ï¸ CONTROLS** button on the top bar at any time to insp
 
 ---
 
-## ðŸš€ Quick Start
+## 🚀 Quick Start
 
 ### Option 1: Play Online
 Visit the live hosted GitHub Pages deployment:
-ðŸ‘‰ **[https://lin4cre.github.io/retro-arcade-vault/](https://lin4cre.github.io/retro-arcade-vault/)**
+👉 **[https://lin4cre.github.io/retro-arcade-vault/](https://lin4cre.github.io/retro-arcade-vault/)**
 
 ### Option 2: Run Locally (Standalone)
 No build process, NodeJS, or web server needed:
@@ -216,7 +219,7 @@ No build process, NodeJS, or web server needed:
 
 ---
 
-## âž• How to Add Custom Games
+## ➕ How to Add Custom Games
 
 ### From the Web Interface:
 1. Click the **"+ Add Game"** button in the top navigation bar.
@@ -227,7 +230,7 @@ No build process, NodeJS, or web server needed:
 
 ---
 
-## ðŸ› ï¸ Tech Stack
+## 🛠️ Tech Stack
 
 - **Frontend**: 100% Vanilla HTML5, modern CSS3 (Custom Properties, Flexbox, Grid, CSS animations), ES6+ JavaScript.
 - **Controller Layer**: HTML5 Gamepad API with polling loop and dynamic button detection.
@@ -238,8 +241,8 @@ No build process, NodeJS, or web server needed:
 
 ---
 
-## ðŸ“„ License
+## 📄 License
 
 Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
 
-Developed with â¤ï¸ by [David Linacre (LIN4CRE)](https://github.com/LIN4CRE).
+Developed with ❤️ by [David Linacre (LIN4CRE)](https://github.com/LIN4CRE).
