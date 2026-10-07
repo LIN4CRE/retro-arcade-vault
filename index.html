@@ -1,0 +1,1697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retro Arcade Vault</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0d0f18;
+      --bg-surface: #151928;
+      --bg-card: #1c2237;
+      --bg-card-hover: #262e4a;
+      --accent-neon: #00ffcc;
+      --accent-pink: #ff2a85;
+      --accent-purple: #8b5cf6;
+      --accent-yellow: #ffd000;
+      --text-main: #f0f4fc;
+      --text-muted: #8b9bb4;
+      --border-color: #2b3553;
+      --glow-neon: 0 0 15px rgba(0, 255, 204, 0.4);
+      --glow-pink: 0 0 15px rgba(255, 42, 133, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: 'Rajdhani', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(0, 255, 204, 0.08) 0%, transparent 40%);
+    }
+
+    /* Top Navigation */
+    header {
+      background: rgba(21, 25, 40, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--border-color);
+      padding: 0.85rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      font-size: 1.8rem;
+      filter: drop-shadow(0 0 8px var(--accent-neon));
+    }
+
+    .brand-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(90deg, var(--accent-neon), var(--accent-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 8px 16px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-pink), #e00067);
+      color: #fff;
+      box-shadow: var(--glow-pink);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 22px rgba(255, 42, 133, 0.7);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: var(--border-color);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent-neon);
+      color: var(--accent-neon);
+      background: rgba(0, 255, 204, 0.08);
+    }
+
+    /* Main Layout */
+    .app-container {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      flex: 1;
+      min-height: calc(100vh - 72px);
+    }
+
+    @media (max-width: 1040px) {
+      .app-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Sidebar / Game Library */
+    aside.sidebar {
+      background: var(--bg-surface);
+      border-right: 2px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 72px);
+      position: sticky;
+      top: 72px;
+    }
+
+    @media (max-width: 1040px) {
+      aside.sidebar {
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 2px solid var(--border-color);
+      }
+    }
+
+    .sidebar-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 12px;
+    }
+
+    .search-input {
+      width: 100%;
+      background: var(--bg-base);
+      border: 1px solid var(--border-color);
+      padding: 8px 12px 8px 34px;
+      border-radius: 6px;
+      color: var(--text-main);
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .search-input:focus {
+      border-color: var(--accent-neon);
+      box-shadow: 0 0 8px rgba(0, 255, 204, 0.2);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .filter-tags {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+    }
+
+    .tag-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 20px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .tag-btn.active, .tag-btn:hover {
+      background: rgba(0, 255, 204, 0.15);
+      border-color: var(--accent-neon);
+      color: var(--accent-neon);
+    }
+
+    .game-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .game-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: var(--bg-card);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .game-item:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(0, 255, 204, 0.3);
+      transform: translateX(4px);
+    }
+
+    .game-item.active {
+      background: rgba(0, 255, 204, 0.12);
+      border-color: var(--accent-neon);
+      box-shadow: inset 3px 0 0 var(--accent-neon);
+    }
+
+    /* Artwork box art thumbnail */
+    .game-thumb-wrap {
+      width: 48px;
+      height: 58px;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #111420;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .game-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.2s;
+    }
+
+    .game-item:hover .game-thumb {
+      transform: scale(1.08);
+    }
+
+    .game-thumb-placeholder {
+      font-size: 1.5rem;
+    }
+
+    .game-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .game-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .game-item.active .game-title {
+      color: var(--accent-neon);
+    }
+
+    .game-sub {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .game-platform {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-weight: 700;
+      color: #9eb5d8;
+    }
+
+    .game-item.active .game-platform {
+      background: rgba(0, 255, 204, 0.15);
+      color: var(--accent-neon);
+    }
+
+    .game-delete-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 4px 6px;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      opacity: 0;
+      transition: all 0.2s;
+    }
+
+    .game-item:hover .game-delete-btn {
+      opacity: 1;
+    }
+
+    .game-delete-btn:hover {
+      color: var(--accent-pink);
+      background: rgba(255, 42, 133, 0.15);
+    }
+
+    /* Main Game Theater View */
+    main.stage {
+      padding: 24px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 1400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .stage-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      padding: 12px 20px;
+      border-radius: 10px;
+    }
+
+    .stage-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .stage-cover-preview {
+      width: 44px;
+      height: 52px;
+      border-radius: 6px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--border-color);
+    }
+
+    .stage-game-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stage-tag {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-neon);
+      background: rgba(0, 255, 204, 0.12);
+      border: 1px solid var(--accent-neon);
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .stage-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Screen Frame */
+    .screen-container {
+      position: relative;
+      background: #000;
+      border: 3px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      max-height: 740px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* CRT scanline effect */
+    .crt-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+      background-size: 100% 3px, 6px 100%;
+      z-index: 5;
+      display: none;
+    }
+
+    .crt-active .crt-overlay {
+      display: block;
+    }
+
+    .crt-glow {
+      position: absolute;
+      inset: 0;
+      box-shadow: inset 0 0 50px rgba(0, 255, 204, 0.15);
+      pointer-events: none;
+      z-index: 6;
+      display: none;
+    }
+
+    .crt-active .crt-glow {
+      display: block;
+    }
+
+    .game-iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #000;
+    }
+
+    /* Bottom Info & Quick Instructions */
+    .screen-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding: 4px 8px;
+    }
+
+    .footer-help {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .kbd {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 0.78rem;
+      color: var(--text-main);
+      font-family: monospace;
+    }
+
+    /* Modal / Form */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 7, 13, 0.85);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      padding: 16px;
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal {
+      background: var(--bg-surface);
+      border: 2px solid var(--accent-neon);
+      box-shadow: 0 0 30px rgba(0, 255, 204, 0.25);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 560px;
+      overflow: hidden;
+      transform: translateY(20px) scale(0.97);
+      transition: all 0.25s ease;
+    }
+
+    .modal-backdrop.open .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.85rem;
+      color: var(--accent-neon);
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      color: #fff;
+    }
+
+    .modal-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-height: 75vh;
+      overflow-y: auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-muted);
+    }
+
+    .form-input, .form-select, .form-textarea {
+      background: var(--bg-base);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px 14px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 85px;
+      font-family: monospace;
+      font-size: 0.85rem;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--accent-neon);
+      box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+    }
+
+    .form-hint {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+    }
+
+    .empty-icon {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <header>
+    <div class="brand">
+      <span class="brand-icon">🕹️</span>
+      <span class="brand-title">RETRO ARCADE VAULT</span>
+    </div>
+
+    <div class="header-actions">
+      <button class="btn btn-outline" id="toggleCrtBtn" title="Toggle CRT Retro Filter">
+        📺 CRT FX: <span id="crtStatus" style="color:var(--text-muted)">OFF</span>
+      </button>
+      <button class="btn btn-primary" id="openAddModalBtn">
+        <span>+</span> Add Game
+      </button>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-container">
+    <!-- Left Sidebar: Game Library -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search games...">
+        </div>
+        <div class="filter-tags" id="categoryFilters">
+          <button class="tag-btn active" data-category="ALL">ALL (<span id="totalCount">0</span>)</button>
+          <button class="tag-btn" data-category="PS1">PS1 (<span id="countPS1">0</span>)</button>
+          <button class="tag-btn" data-category="GBA">GBA (<span id="countGBA">0</span>)</button>
+          <button class="tag-btn" data-category="NDS">NDS (<span id="countNDS">0</span>)</button>
+          <button class="tag-btn" data-category="SNES">SNES (<span id="countSNES">0</span>)</button>
+          <button class="tag-btn" data-category="SEGA">Sega (<span id="countSEGA">0</span>)</button>
+        </div>
+      </div>
+
+      <div class="game-list" id="gameList">
+        <!-- Rendered by JS -->
+      </div>
+    </aside>
+
+    <!-- Main Game Screen Area -->
+    <main class="stage">
+      <div class="stage-bar">
+        <div class="stage-title-wrap">
+          <img id="currentCover" class="stage-cover-preview" src="" alt="Game Box Art" style="display:none;">
+          <span id="currentEmoji" style="font-size: 1.4rem;">⚔️</span>
+          <div>
+            <h2 class="stage-game-title" id="currentTitle">Might & Magic: Clash of Heroes</h2>
+            <span class="stage-tag" id="currentPlatform">Nintendo DS</span>
+          </div>
+        </div>
+
+        <div class="stage-controls">
+          <button class="btn btn-outline" id="reloadGameBtn" title="Restart Game">
+            🔄 Restart
+          </button>
+          <button class="btn btn-outline" id="fullscreenBtn" title="Fullscreen Mode">
+            ⛶ Fullscreen
+          </button>
+        </div>
+      </div>
+
+      <!-- Arcade Screen Frame -->
+      <div class="screen-container" id="screenContainer">
+        <div class="crt-overlay"></div>
+        <div class="crt-glow"></div>
+        <iframe 
+          id="gameFrame" 
+          class="game-iframe"
+          src="" 
+          frameborder="0" 
+          scrolling="no" 
+          allowfullscreen="true" 
+          webkitallowfullscreen="true" 
+          mozallowfullscreen="true" 
+          allow="cross-origin-isolated; autoplay; gamepad">
+        </iframe>
+      </div>
+
+      <!-- Info Footer -->
+      <div class="screen-footer">
+        <div class="footer-help">
+          <span>Tip: Click screen to focus audio & controls</span>
+          <span><span class="kbd">F</span> Fullscreen</span>
+          <span><span class="kbd">R</span> Reload</span>
+        </div>
+        <div>
+          <span>Saved locally in your browser</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add New Game Modal -->
+  <div class="modal-backdrop" id="addModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">ADD NEW RETRO GAME</h3>
+        <button class="modal-close" id="closeAddModalBtn">&times;</button>
+      </div>
+      <form id="addGameForm">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="gameNameInput">Game Title *</label>
+            <input type="text" id="gameNameInput" class="form-input" placeholder="e.g. Castlevania - Aria of Sorrow" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="gamePlatformInput">System / Platform</label>
+            <select id="gamePlatformInput" class="form-select">
+              <option value="PS1">PlayStation 1 (PS1)</option>
+              <option value="GBA">Game Boy Advance (GBA)</option>
+              <option value="NDS">Nintendo DS (NDS)</option>
+              <option value="SNES">Super Nintendo (SNES)</option>
+              <option value="SEGA">Sega Genesis / Mega Drive</option>
+              <option value="OTHER">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="gameEmbedInput">Embed Code or URL *</label>
+            <textarea id="gameEmbedInput" class="form-textarea" placeholder='Paste either the full <iframe>...</iframe> tag or directly the URL (https://...)' required></textarea>
+            <span class="form-hint">You can paste the raw iframe embed from retrogames.cc or any other retro site!</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="gameCoverInput">Box Art / Artwork URL (Optional)</label>
+            <input type="url" id="gameCoverInput" class="form-input" placeholder="https://... cover image URL">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="gameEmojiInput">Icon / Emoji (Optional Fallback)</label>
+            <input type="text" id="gameEmojiInput" class="form-input" placeholder="🎮, ⚔️, 🦔, 🐲" value="🎮" maxlength="4">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="cancelModalBtn">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add to Library</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    /**
+     * RETRO GAMES VAULT MASTER LIBRARY
+     * Curated with 10+ legendary titles for every console + High-Resolution Box Artwork!
+     */
+    const DEFAULT_GAMES = [
+      /* ==========================================================================
+         PLAYSTATION 1 (PS1) - Tactical RPGs, JRPGs & Classics
+         ========================================================================== */
+      {
+        id: "vandal-hearts",
+        title: "Vandal Hearts",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/45537-vcandal-hearts-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Vandal%20Hearts%20(USA).png",
+        emoji: "⚔️"
+      },
+      {
+        id: "vandal-hearts-ii",
+        title: "Vandal Hearts II",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/40179-vandal-hearts-ii.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Vandal%20Hearts%20II%20(USA).png",
+        emoji: "⚔️"
+      },
+      {
+        id: "final-fantasy-tactics",
+        title: "Final Fantasy Tactics",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/41787-final-fantasy-tactics.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20Tactics%20(USA).png",
+        emoji: "🏰"
+      },
+      {
+        id: "final-fantasy-vii-d1",
+        title: "Final Fantasy VII (Disc 1)",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/43658-final-fantasy-vii-usa-disc-1.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20VII%20(USA).png",
+        emoji: "🗡️"
+      },
+      {
+        id: "final-fantasy-vii-d2",
+        title: "Final Fantasy VII (Disc 2)",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/43659-final-fantasy-vii-usa-disc-2.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20VII%20(USA).png",
+        emoji: "🗡️"
+      },
+      {
+        id: "final-fantasy-origins",
+        title: "Final Fantasy Origins (FF I & II)",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/41786-final-fantasy-origins.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20Origins%20(USA).png",
+        emoji: "🔮"
+      },
+      {
+        id: "final-fantasy-chronicles",
+        title: "Final Fantasy Chronicles (FF IV & Chrono Trigger)",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/40145-final-fantasy-chronicles.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20Chronicles%20(USA).png",
+        emoji: "⏳"
+      },
+      {
+        id: "chrono-cross",
+        title: "Chrono Cross",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/41785-chrono-cross.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Chrono%20Cross%20(USA).png",
+        emoji: "🌊"
+      },
+      {
+        id: "suikoden-ii",
+        title: "Suikoden II",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/41793-suikoden-ii.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Suikoden%20II%20(USA).png",
+        emoji: "🛡️"
+      },
+      {
+        id: "castlevania-sotn",
+        title: "Castlevania: Symphony of the Night",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/41504-castlevania-symphony-of-the-night.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Castlevania%20-%20Symphony%20of%20the%20Night%20(USA).png",
+        emoji: "🦇"
+      },
+      {
+        id: "xenogears",
+        title: "Xenogears",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/43086-xenogears-disc-1.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Xenogears%20(USA).png",
+        emoji: "🤖"
+      },
+      {
+        id: "breath-of-fire-iii",
+        title: "Breath of Fire III",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/40143-breath-of-fire-iii.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Breath%20of%20Fire%20III%20(USA).png",
+        emoji: "🔥"
+      },
+      {
+        id: "breath-of-fire-iv",
+        title: "Breath of Fire IV",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/44355-breath-of-fire-iv-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Breath%20of%20Fire%20IV%20(USA).png",
+        emoji: "🐉"
+      },
+      {
+        id: "digimon-world",
+        title: "Digimon World",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/44551-digimon-world-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20World%20(USA).png",
+        emoji: "🦖"
+      },
+      {
+        id: "digimon-world-2",
+        title: "Digimon World 2",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/41732-digimon-world-2.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20World%202%20(USA).png",
+        emoji: "🤖"
+      },
+      {
+        id: "digimon-world-3",
+        title: "Digimon World 3",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/43049-digimon-world-3.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20World%203%20(USA).png",
+        emoji: "🐲"
+      },
+      {
+        id: "digimon-digital-card-battle",
+        title: "Digimon Digital Card Battle",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/40150-digimon-digital-card-battle.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20Digital%20Card%20Battle%20(USA).png",
+        emoji: "🎴"
+      },
+      {
+        id: "yu-gi-oh-forbidden-memories",
+        title: "Yu-Gi-Oh! Forbidden Memories (15 Card Mod)",
+        system: "PlayStation 1",
+        category: "PS1",
+        src: "https://www.retrogames.cc/embed/46876-yu-gi-oh-forbidden-memories-15-card-mod.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Yu-Gi-Oh!%20-%20Forbidden%20Memories%20(USA).png",
+        emoji: "🃏"
+      },
+
+      /* ==========================================================================
+         GAME BOY ADVANCE (GBA) - Rom Hacks & Legendary RPGs
+         ========================================================================== */
+      {
+        id: "pokemon-quetzal",
+        title: "Pokemon Quetzal (Alpha 0.6.9)",
+        system: "Game Boy Advance",
+        category: "GBA",
+        src: "https://www.retrogames.cc/embed/45227-pokemon-quetzal-alpha-0-6-9.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20Emerald%20Version%20(USA%2C%20Europe).png",
+        emoji: "⚡"
+      },
+      {
+        id: "pokemon-hyper-emerald",
+        title: "Pokemon Hyper Emerald v5.7 Lost Artifacts",
+        system: "Game Boy Advance",
+        category: "GBA",
+        src: "https://www.retrogames.cc/embed/46988-pokemon-hyper-emerald-v5-7-lost-artifacts.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20Emerald%20Version%20(USA%2C%20Europe).png",
+        emoji: "💎"
+      },
+      {
+        id: "pokemon-radical-red",
+        title: "Pokemon Radical Red v4.1",
+        system: "Game Boy Advance",
+        category: "GBA",
+        src: "https://www.retrogames.cc/embed/46552-pokemon-radical-red-v4-1.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20FireRed%20Version%20(USA%2C%20Europe).png",
+        emoji: "🔥"
+      },
+      {
+        id: "pokemon-unbound",
+        title: "Pokemon Unbound v2.1.1.1",
+        system: "Game Boy Advance",
+        category: "GBA",
+        src: "https://www.retrogames.cc/embed/44803-pokemon-unbound-v2-1-1-1.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20FireRed%20Version%20(USA%2C%20Europe).png",
+        emoji: "🌌"
+      },
+      {
+        id: "pokemon-emerald-rogue",
+        title: "Pokemon Emerald Rogue (Vanilla 1.2.0)",
+        system: "Game Boy Advance",
+        category: "GBA",
+        src: "https://www.retrogames.cc/embed/43563-pokemon-emerald-rogue-vanilla-1-2-0.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20Emerald%20Version%20(USA%2C%20Europe).png",
+        emoji: "🎲"
+      },
+      {
+        id: "final-fantasy-tactics-advance",
+        title: "Final Fantasy Tactics Advance",
+        system: "Game Boy Advance",
+        category: "GBA",
+        src: "https://www.retrogames.cc/embed/17590-final-fantasy-tactics-advance-e-surplus.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Final%20Fantasy%20Tactics%20Advance%20(USA).png",
+        emoji: "⚔️"
+      },
+      {
+        id: "golden-sun",
+        title: "Golden Sun",
+        system: "Game Boy Advance",
+        category: "GBA",
+        src: "https://www.retrogames.cc/embed/28662-golden-sun-s-independent.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Golden%20Sun%20(USA%2C%20Europe).png",
+        emoji: "☀️"
+      },
+      {
+        id: "golden-sun-the-lost-age",
+        title: "Golden Sun: The Lost Age",
+        system: "Game Boy Advance",
+        category: "GBA",
+        src: "https://www.retrogames.cc/embed/29462-golden-sun-2-the-lost-age-u-megaroms.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Golden%20Sun%20-%20The%20Lost%20Age%20(USA%2C%20Europe).png",
+        emoji: "🌋"
+      },
+      {
+        id: "castlevania-aria-of-sorrow",
+        title: "Castlevania: Aria of Sorrow",
+        system: "Game Boy Advance",
+        category: "GBA",
+        src: "https://www.retrogames.cc/embed/29282-castlevania-aria-of-sorrow-u-gbatemp.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Castlevania%20-%20Aria%20of%20Sorrow%20(USA).png",
+        emoji: "🦇"
+      },
+      {
+        id: "fire-emblem",
+        title: "Fire Emblem: The Blazing Blade",
+        system: "Game Boy Advance",
+        category: "GBA",
+        src: "https://www.retrogames.cc/embed/26620-fire-emblem-e-independent.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Fire%20Emblem%20(USA%2C%20Australia).png",
+        emoji: "🛡️"
+      },
+      {
+        id: "megaman-battle-network-6",
+        title: "Mega Man Battle Network 6 - Cybeast Falzar",
+        system: "Game Boy Advance",
+        category: "GBA",
+        src: "https://www.retrogames.cc/embed/27799-megaman-battle-network-6-cybeast-falzar-u-independent.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Mega%20Man%20Battle%20Network%206%20-%20Cybeast%20Falzar%20(USA).png",
+        emoji: "⚡"
+      },
+
+      /* ==========================================================================
+         NINTENDO DS (NDS) - Touch, Dual Screen RPGs & Adventures
+         ========================================================================== */
+      {
+        id: "might-and-magic-clash-of-heroes",
+        title: "Might & Magic - Clash of Heroes",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/39651-might-magic-clash-of-heroes-usa-en-fr-es.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Might%20%26%20Magic%20-%20Clash%20of%20Heroes%20(USA)%20(En%2CFr%2CEs).png",
+        emoji: "⚔️"
+      },
+      {
+        id: "chrono-trigger-ds",
+        title: "Chrono Trigger (DS Edition)",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/38194-chrono-trigger-usa-en-fr.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Chrono%20Trigger%20(USA)%20(En%2CFr).png",
+        emoji: "⏳"
+      },
+      {
+        id: "radiant-historia",
+        title: "Radiant Historia",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/45033-radiant-historia-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Radiant%20Historia%20(USA).png",
+        emoji: "📖"
+      },
+      {
+        id: "final-fantasy-tactics-a2",
+        title: "Final Fantasy Tactics A2: Grimoire of the Rift",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/37523-final-fantasy-tactics-a2-grimoire-of-the-rift-usa-en-fr-es.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Final%20Fantasy%20Tactics%20A2%20-%20Grimoire%20of%20the%20Rift%20(USA)%20(En%2CFr%2CEs).png",
+        emoji: "📜"
+      },
+      {
+        id: "castlevania-dawn-of-sorrow",
+        title: "Castlevania: Dawn of Sorrow",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/35260-castlevania-dawn-of-sorrow-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Castlevania%20-%20Dawn%20of%20Sorrow%20(USA).png",
+        emoji: "🦇"
+      },
+      {
+        id: "castlevania-order-of-ecclesia",
+        title: "Castlevania: Order of Ecclesia",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/37948-castlevania-order-of-ecclesia-usa-en-fr.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Castlevania%20-%20Order%20of%20Ecclesia%20(USA)%20(En%2CFr).png",
+        emoji: "🌙"
+      },
+      {
+        id: "pokemon-platinum",
+        title: "Pokemon - Platinum Version",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/43044-pokemon-platinum-version-usa-rev-1.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Pokemon%20-%20Platinum%20Version%20(USA).png",
+        emoji: "🐉"
+      },
+      {
+        id: "pokemon-heartgold",
+        title: "Pokemon - HeartGold Version",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/39307-pocket-monsters-heartgold-japan.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Pokemon%20-%20HeartGold%20Version%20(USA).png",
+        emoji: "🌟"
+      },
+      {
+        id: "dragon-quest-ix",
+        title: "Dragon Quest IX: Sentinels of the Starry Skies",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/43135-dragon-quest-ix-sentinels-of-the-starry-skies-usa-en-fr-es.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Dragon%20Quest%20IX%20-%20Sentinels%20of%20the%20Starry%20Skies%20(USA)%20(En%2CFr%2CEs).png",
+        emoji: "✨"
+      },
+      {
+        id: "dragon-quest-v",
+        title: "Dragon Quest V: Hand of the Heavenly Bride",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/38563-dragon-quest-v-hand-of-the-heavenly-bride-usa-en-fr-es.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Dragon%20Quest%20V%20-%20Hand%20of%20the%20Heavenly%20Bride%20(USA)%20(En%2CFr%2CEs).png",
+        emoji: "👰"
+      },
+      {
+        id: "golden-sun-dark-dawn",
+        title: "Golden Sun: Dark Dawn",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/43571-golden-sun-dark-dawn-usa-en-es.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Golden%20Sun%20-%20Dark%20Dawn%20(USA)%20(En%2CEs).png",
+        emoji: "☀️"
+      },
+      {
+        id: "phoenix-wright",
+        title: "Phoenix Wright: Ace Attorney",
+        system: "Nintendo DS",
+        category: "NDS",
+        src: "https://www.retrogames.cc/embed/35266-phoenix-wright-ace-attorney-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Phoenix%20Wright%20-%20Ace%20Attorney%20(USA).png",
+        emoji: "⚖️"
+      },
+
+      /* ==========================================================================
+         SUPER NINTENDO (SNES) - 16-Bit Golden Era
+         ========================================================================== */
+      {
+        id: "chrono-trigger-snes",
+        title: "Chrono Trigger",
+        system: "Super Nintendo",
+        category: "SNES",
+        src: "https://www.retrogames.cc/embed/22857-chrono-trigger-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Chrono%20Trigger%20(USA).png",
+        emoji: "⏳"
+      },
+      {
+        id: "final-fantasy-iii-snes",
+        title: "Final Fantasy III (VI)",
+        system: "Super Nintendo",
+        category: "SNES",
+        src: "https://www.retrogames.cc/embed/24569-final-fantasy-iii-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Final%20Fantasy%20III%20(USA).png",
+        emoji: "🏰"
+      },
+      {
+        id: "super-mario-world",
+        title: "Super Mario World",
+        system: "Super Nintendo",
+        category: "SNES",
+        src: "https://www.retrogames.cc/embed/44986-super-mario-world.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Mario%20World%20(USA).png",
+        emoji: "🍄"
+      },
+      {
+        id: "super-metroid",
+        title: "Super Metroid",
+        system: "Super Nintendo",
+        category: "SNES",
+        src: "https://www.retrogames.cc/embed/24192-super-metroid-europe-en-fr-de.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Metroid%20(Japan%2C%20USA)%20(En%2CJa).png",
+        emoji: "👾"
+      },
+      {
+        id: "earthbound",
+        title: "EarthBound",
+        system: "Super Nintendo",
+        category: "SNES",
+        src: "https://www.retrogames.cc/embed/24789-earthbound-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/EarthBound%20(USA).png",
+        emoji: "🛸"
+      },
+      {
+        id: "secret-of-mana",
+        title: "Secret of Mana",
+        system: "Super Nintendo",
+        category: "SNES",
+        src: "https://www.retrogames.cc/embed/16823-secret-of-mana-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Secret%20of%20Mana%20(USA).png",
+        emoji: "🗡️"
+      },
+      {
+        id: "super-mario-rpg",
+        title: "Super Mario RPG: Legend of the Seven Stars",
+        system: "Super Nintendo",
+        category: "SNES",
+        src: "https://www.retrogames.cc/embed/45027-super-mario-rpg-enhanced.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Mario%20RPG%20-%20Legend%20of%20the%20Seven%20Stars%20(USA).png",
+        emoji: "⭐"
+      },
+      {
+        id: "zelda-link-to-the-past",
+        title: "The Legend of Zelda: A Link to the Past",
+        system: "Super Nintendo",
+        category: "SNES",
+        src: "https://www.retrogames.cc/embed/44785-the-legend-of-zelda-a-link-to-the-past-title-skip-and-full-hearts.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20to%20the%20Past%20(USA).png",
+        emoji: "🛡️"
+      },
+      {
+        id: "mega-man-x",
+        title: "Mega Man X",
+        system: "Super Nintendo",
+        category: "SNES",
+        src: "https://www.retrogames.cc/embed/46388-mega-man-x-complete-edition.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Mega%20Man%20X%20(USA).png",
+        emoji: "🤖"
+      },
+      {
+        id: "yoshis-island",
+        title: "Super Mario World 2: Yoshi's Island",
+        system: "Super Nintendo",
+        category: "SNES",
+        src: "https://www.retrogames.cc/embed/44541-yoshis-island-no-crying-improved-sfx-and-red-coins.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Mario%20World%202%20-%20Yoshi%27s%20Island%20(USA).png",
+        emoji: "🦖"
+      },
+
+      /* ==========================================================================
+         SEGA GENESIS - 16-Bit Blast Processing Hits
+         ========================================================================== */
+      {
+        id: "sonic-the-hedgehog",
+        title: "Sonic The Hedgehog",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/30899-sonic-the-hedgehog-usa-europe.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%20(USA%2C%20Europe).png",
+        emoji: "🦔"
+      },
+      {
+        id: "sonic-the-hedgehog-2",
+        title: "Sonic The Hedgehog 2",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/17236-sonic-the-hedgehog-2-world-rev-a.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%202%20(World).png",
+        emoji: "🦔"
+      },
+      {
+        id: "sonic-3-knuckles",
+        title: "Sonic & Knuckles + Sonic 3",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/29209-sonic-knuckles-sonic-the-hedgehog-3-world.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20%26%20Knuckles%20(World).png",
+        emoji: "🥊"
+      },
+      {
+        id: "shining-force",
+        title: "Shining Force",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/30304-shining-force-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shining%20Force%20(USA).png",
+        emoji: "⚔️"
+      },
+      {
+        id: "shining-force-ii",
+        title: "Shining Force II",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/30156-shining-force-ii-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shining%20Force%20II%20(USA).png",
+        emoji: "🏰"
+      },
+      {
+        id: "phantasy-star-iv",
+        title: "Phantasy Star IV",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/28283-phantasy-star-iv-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Phantasy%20Star%20IV%20(USA).png",
+        emoji: "🌌"
+      },
+      {
+        id: "streets-of-rage-2",
+        title: "Streets of Rage 2",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/28481-streets-of-rage-2-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%202%20(USA).png",
+        emoji: "🥊"
+      },
+      {
+        id: "gunstar-heroes",
+        title: "Gunstar Heroes",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/28311-gunstar-heroes-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Gunstar%20Heroes%20(USA).png",
+        emoji: "💥"
+      },
+      {
+        id: "castlevania-bloodlines",
+        title: "Castlevania: Bloodlines",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/30108-castlevania-bloodlines-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Castlevania%20-%20Bloodlines%20(USA).png",
+        emoji: "🦇"
+      },
+      {
+        id: "beyond-oasis",
+        title: "Beyond Oasis",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/30357-beyond-oasis-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Beyond%20Oasis%20(USA).png",
+        emoji: "🏺"
+      },
+      {
+        id: "shinobi-iii",
+        title: "Shinobi III: Return of the Ninja Master",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/30503-shinobi-iii-return-of-the-ninja-master-usa.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shinobi%20III%20-%20Return%20of%20the%20Ninja%20Master%20(USA).png",
+        emoji: "🥷"
+      },
+      {
+        id: "golden-axe",
+        title: "Golden Axe",
+        system: "Sega Genesis",
+        category: "SEGA",
+        src: "https://www.retrogames.cc/embed/16712-golden-axe-world.html",
+        cover: "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Golden%20Axe%20(World).png",
+        emoji: "🪓"
+      }
+    ];
+
+    // Storage Key (incremented to version 2 for the massive curated expansion)
+    const STORAGE_KEY = "retro_arcade_vault_games_v2";
+
+    // Application State
+    let games = [];
+    let activeGameId = null;
+    let selectedCategory = "ALL";
+    let searchQuery = "";
+    let isCrtEnabled = false;
+
+    // Elements
+    const gameListEl = document.getElementById("gameList");
+    const gameFrameEl = document.getElementById("gameFrame");
+    const currentTitleEl = document.getElementById("currentTitle");
+    const currentPlatformEl = document.getElementById("currentPlatform");
+    const currentEmojiEl = document.getElementById("currentEmoji");
+    const currentCoverEl = document.getElementById("currentCover");
+    const totalCountEl = document.getElementById("totalCount");
+    const countPS1El = document.getElementById("countPS1");
+    const countGBAEl = document.getElementById("countGBA");
+    const countNDSEl = document.getElementById("countNDS");
+    const countSNESEl = document.getElementById("countSNES");
+    const countSEGAEl = document.getElementById("countSEGA");
+    const searchInput = document.getElementById("searchInput");
+    const categoryFilters = document.getElementById("categoryFilters");
+    const screenContainer = document.getElementById("screenContainer");
+    const toggleCrtBtn = document.getElementById("toggleCrtBtn");
+    const crtStatus = document.getElementById("crtStatus");
+    const reloadGameBtn = document.getElementById("reloadGameBtn");
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+    // Modal Elements
+    const addModal = document.getElementById("addModal");
+    const openAddModalBtn = document.getElementById("openAddModalBtn");
+    const closeAddModalBtn = document.getElementById("closeAddModalBtn");
+    const cancelModalBtn = document.getElementById("cancelModalBtn");
+    const addGameForm = document.getElementById("addGameForm");
+
+    // Initialize
+    function init() {
+      loadGames();
+      setupEventListeners();
+      
+      // Select first game by default
+      if (games.length > 0) {
+        selectGame(games[0].id);
+      }
+      renderGameList();
+    }
+
+    // Load games from localStorage or defaults
+    function loadGames() {
+      try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+          games = JSON.parse(stored);
+          // Sync any new default games from code that aren't yet in storage
+          DEFAULT_GAMES.forEach(defaultGame => {
+            if (!games.some(g => g.id === defaultGame.id || g.src === defaultGame.src)) {
+              games.push(defaultGame);
+            }
+          });
+          // Update covers/attributes for existing games if missing
+          games.forEach(g => {
+            const def = DEFAULT_GAMES.find(dg => dg.id === g.id || dg.src === g.src);
+            if (def && !g.cover && def.cover) {
+              g.cover = def.cover;
+            }
+          });
+          saveGames();
+        } else {
+          games = [...DEFAULT_GAMES];
+          saveGames();
+        }
+      } catch (e) {
+        console.error("Failed to read from localStorage:", e);
+        games = [...DEFAULT_GAMES];
+      }
+      updateCounts();
+    }
+
+    function saveGames() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(games));
+      } catch (e) {
+        console.error("Failed to save to localStorage:", e);
+      }
+      updateCounts();
+    }
+
+    function updateCounts() {
+      totalCountEl.textContent = games.length;
+      if (countPS1El) countPS1El.textContent = games.filter(g => g.category === 'PS1').length;
+      if (countGBAEl) countGBAEl.textContent = games.filter(g => g.category === 'GBA').length;
+      if (countNDSEl) countNDSEl.textContent = games.filter(g => g.category === 'NDS').length;
+      if (countSNESEl) countSNESEl.textContent = games.filter(g => g.category === 'SNES').length;
+      if (countSEGAEl) countSEGAEl.textContent = games.filter(g => g.category === 'SEGA').length;
+    }
+
+    // Render Sidebar Game List
+    function renderGameList() {
+      const filtered = games.filter(g => {
+        const matchesCategory = selectedCategory === "ALL" || (g.category && g.category.toUpperCase() === selectedCategory.toUpperCase());
+        const matchesSearch = g.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                              (g.system && g.system.toLowerCase().includes(searchQuery.toLowerCase()));
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        gameListEl.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">🕹️</div>
+            <div>No games found.</div>
+          </div>
+        `;
+        return;
+      }
+
+      gameListEl.innerHTML = filtered.map(game => {
+        const isActive = game.id === activeGameId;
+        const coverHtml = game.cover ? `
+          <img class="game-thumb" src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\\'game-thumb-placeholder\\'>${game.emoji || '🎮'}</span>'">
+        ` : `
+          <span class="game-thumb-placeholder">${game.emoji || '🎮'}</span>
+        `;
+
+        return `
+          <div class="game-item ${isActive ? 'active' : ''}" data-id="${game.id}">
+            <div class="game-thumb-wrap">
+              ${coverHtml}
+            </div>
+            <div class="game-meta">
+              <div class="game-title" title="${escapeHtml(game.title)}">${escapeHtml(game.title)}</div>
+              <div class="game-sub">
+                <span class="game-platform">${escapeHtml(game.system || 'Arcade')}</span>
+              </div>
+            </div>
+            ${games.length > 1 ? `
+              <button class="game-delete-btn" data-delete-id="${game.id}" title="Remove game">&times;</button>
+            ` : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Select and load a game in the iframe
+    function selectGame(id) {
+      const game = games.find(g => g.id === id);
+      if (!game) return;
+
+      activeGameId = id;
+      currentTitleEl.textContent = game.title;
+      currentPlatformEl.textContent = game.system || "Arcade";
+      
+      if (game.cover) {
+        currentCoverEl.src = game.cover;
+        currentCoverEl.style.display = "block";
+        currentEmojiEl.style.display = "none";
+      } else {
+        currentCoverEl.style.display = "none";
+        currentEmojiEl.style.display = "block";
+        currentEmojiEl.textContent = game.emoji || "🎮";
+      }
+
+      // Update iframe source only if different
+      if (gameFrameEl.src !== game.src) {
+        gameFrameEl.src = game.src;
+      }
+
+      renderGameList();
+    }
+
+    // Extract URL if the user pasted full <iframe> code
+    function extractSrc(input) {
+      const trimmed = input.trim();
+      const match = trimmed.match(/src=["']([^"']+)["']/i);
+      if (match && match[1]) {
+        return match[1];
+      }
+      return trimmed;
+    }
+
+    // Event Listeners
+    function setupEventListeners() {
+      // Sidebar click delegation
+      gameListEl.addEventListener("click", (e) => {
+        const deleteBtn = e.target.closest("[data-delete-id]");
+        if (deleteBtn) {
+          e.stopPropagation();
+          const idToDelete = deleteBtn.getAttribute("data-delete-id");
+          if (confirm("Are you sure you want to remove this game?")) {
+            games = games.filter(g => g.id !== idToDelete);
+            saveGames();
+            if (activeGameId === idToDelete && games.length > 0) {
+              selectGame(games[0].id);
+            }
+            renderGameList();
+          }
+          return;
+        }
+
+        const item = e.target.closest(".game-item");
+        if (item) {
+          const id = item.getAttribute("data-id");
+          selectGame(id);
+        }
+      });
+
+      // Search input
+      searchInput.addEventListener("input", (e) => {
+        searchQuery = e.target.value;
+        renderGameList();
+      });
+
+      // Category filter buttons
+      categoryFilters.addEventListener("click", (e) => {
+        const btn = e.target.closest(".tag-btn");
+        if (!btn) return;
+        categoryFilters.querySelectorAll(".tag-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        selectedCategory = btn.getAttribute("data-category");
+        renderGameList();
+      });
+
+      // Restart Game button
+      reloadGameBtn.addEventListener("click", () => {
+        const currentSrc = gameFrameEl.src;
+        gameFrameEl.src = "";
+        setTimeout(() => {
+          gameFrameEl.src = currentSrc;
+        }, 80);
+      });
+
+      // Fullscreen
+      fullscreenBtn.addEventListener("click", toggleFullscreen);
+
+      // CRT Scanline Toggle
+      toggleCrtBtn.addEventListener("click", () => {
+        isCrtEnabled = !isCrtEnabled;
+        screenContainer.classList.toggle("crt-active", isCrtEnabled);
+        crtStatus.textContent = isCrtEnabled ? "ON" : "OFF";
+        crtStatus.style.color = isCrtEnabled ? "var(--accent-neon)" : "var(--text-muted)";
+      });
+
+      // Modal Controls
+      openAddModalBtn.addEventListener("click", () => {
+        addModal.classList.add("open");
+        document.getElementById("gameNameInput").focus();
+      });
+
+      const closeModal = () => addModal.classList.remove("open");
+      closeAddModalBtn.addEventListener("click", closeModal);
+      cancelModalBtn.addEventListener("click", closeModal);
+      addModal.addEventListener("click", (e) => {
+        if (e.target === addModal) closeModal();
+      });
+
+      // Add Game Form Submission
+      addGameForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const title = document.getElementById("gameNameInput").value.trim();
+        const platformSelect = document.getElementById("gamePlatformInput");
+        const category = platformSelect.value;
+        const system = platformSelect.options[platformSelect.selectedIndex].text;
+        const rawEmbed = document.getElementById("gameEmbedInput").value.trim();
+        const cover = document.getElementById("gameCoverInput").value.trim();
+        const emoji = document.getElementById("gameEmojiInput").value.trim() || "🎮";
+
+        const src = extractSrc(rawEmbed);
+
+        if (!src.startsWith("http://") && !src.startsWith("https://")) {
+          alert("Please enter a valid URL or <iframe> embed code.");
+          return;
+        }
+
+        const newGame = {
+          id: "game-" + Date.now(),
+          title,
+          system,
+          category,
+          src,
+          cover,
+          emoji
+        };
+
+        games.unshift(newGame);
+        saveGames();
+        selectGame(newGame.id);
+        renderGameList();
+
+        addGameForm.reset();
+        closeModal();
+      });
+
+      // Keyboard Shortcuts
+      window.addEventListener("keydown", (e) => {
+        if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+        if (e.key === "f" || e.key === "F") {
+          e.preventDefault();
+          toggleFullscreen();
+        } else if (e.key === "r" || e.key === "R") {
+          e.preventDefault();
+          reloadGameBtn.click();
+        }
+      });
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        if (screenContainer.requestFullscreen) {
+          screenContainer.requestFullscreen();
+        } else if (screenContainer.webkitRequestFullscreen) {
+          screenContainer.webkitRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return "";
+      return str.replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+    }
+
+    // Launch
+    window.addEventListener("DOMContentLoaded", init);
+  </script>
+</body>
+</html>
