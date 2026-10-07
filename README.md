@@ -4,38 +4,38 @@
 
 <p align="center">
   <a href="https://lin4cre.github.io/retro-arcade-vault/"><img src="https://img.shields.io/badge/Live%20Demo-Play%20Now-00ffcc?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Live Demo"></a>
-  <a href="#-curated-game-library"><img src="https://img.shields.io/badge/Games%20Preloaded-63%20Titles-ff2a85?style=for-the-badge&logo=gamepad" alt="Games Preloaded"></a>
+  <a href="#-curated-game-library"><img src="https://img.shields.io/badge/Games%20Preloaded-86%20Titles-ff2a85?style=for-the-badge&logo=gamepad" alt="Games Preloaded"></a>
   <a href="#license"><img src="https://img.shields.io/badge/License-MIT-8b5cf6?style=for-the-badge" alt="License"></a>
   <img src="https://img.shields.io/badge/Stack-Vanilla%20HTML5%2FCSS3%2FJS-ffd000?style=for-the-badge&logo=html5&logoColor=black" alt="Vanilla Stack">
 </p>
 
 ---
 
-## 📖 Overview
+## ðŸ“– Overview
 
-**Retro Arcade Vault** is a sleek, self-contained web arcade and game manager designed for instant browser-based retro gaming. Pre-loaded with **63 iconic titles** spanning tactical RPGs, classic JRPGs, monster collection, card battlers, and golden-era platformers across PlayStation 1, Game Boy Advance, Nintendo DS, Super Nintendo, and Sega Genesis.
+**Retro Arcade Vault** is a sleek, self-contained web arcade and game manager designed for instant browser-based retro gaming. Pre-loaded with **86 iconic titles** spanning tactical RPGs, classic JRPGs, monster collection, card battlers, and golden-era platformers across PlayStation 1, Game Boy Advance, Nintendo DS, Super Nintendo, and Sega Genesis.
 
 Zero installs, zero dependencies, and 100% client-side. Open [`index.html`](index.html) or visit the [Live GitHub Pages Deployment](https://lin4cre.github.io/retro-arcade-vault/) to play immediately.
 
 ---
 
-## ✨ Features
+## âœ¨ Features
 
-- 🎮 **Preloaded With 63 Curated Classics**: Includes *Vandal Hearts 1 & 2*, *Final Fantasy Tactics*, *Final Fantasy VII*, *Chrono Trigger*, *Suikoden II*, *Castlevania: Symphony of the Night*, *Golden Sun*, *Pokemon ROM hacks*, and more.
-- 🎨 **Official Box Artwork**: High-resolution cover art for every game with smart fallback badges.
-- 📺 **CRT Scanline Simulation**: Toggleable retro scanline and phosphor glow shader effects.
-- ⛶ **Fullscreen Theater Mode**: Dedicated stage with automatic aspect ratio scaling and distraction-free gaming.
-- 💾 **Persistent Local Storage**: Add games directly from the UI; your collection is preserved in `localStorage`.
-- 🔍 **Instant Search & Category Filters**: Search across all titles or filter by console (PS1, GBA, NDS, SNES, Sega).
-- ➕ **Smart Embed Parser**: Add new games with either raw URLs or complete `<iframe>` embed codes.
-- ⌨️ **Keyboard Controls**: Press <kbd>F</kbd> for fullscreen, <kbd>R</kbd> to restart/reload current game.
+- ðŸŽ® **Preloaded With 86 Curated Classics**: Includes *Vandal Hearts 1 & 2*, *Final Fantasy Tactics*, *Final Fantasy VII*, *Chrono Trigger*, *Suikoden II*, *Castlevania: Symphony of the Night*, *Golden Sun*, *Pokemon ROM hacks*, and more.
+- ðŸŽ¨ **Official Box Artwork**: High-resolution cover art for every game with smart fallback badges.
+- ðŸ“º **CRT Scanline Simulation**: Toggleable retro scanline and phosphor glow shader effects.
+- â›¶ **Fullscreen Theater Mode**: Dedicated stage with automatic aspect ratio scaling and distraction-free gaming.
+- ðŸ’¾ **Persistent Local Storage**: Add games directly from the UI; your collection is preserved in `localStorage`.
+- ðŸ” **Instant Search & Category Filters**: Search across all titles or filter by console (PS1, GBA, NDS, SNES, Sega).
+- âž• **Smart Embed Parser**: Add new games with either raw URLs or complete `<iframe>` embed codes.
+- âŒ¨ï¸ **Keyboard Controls**: Press <kbd>F</kbd> for fullscreen, <kbd>R</kbd> to restart/reload current game.
 
 ---
 
-## 🕹️ Curated Game Library
+## ðŸ•¹ï¸ Curated Game Library
 
 <details open>
-<summary><b>🎮 PlayStation 1 (18 Titles)</b></summary>
+<summary><b>ðŸŽ® PlayStation 1 (24 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -61,7 +61,7 @@ Zero installs, zero dependencies, and 100% client-side. Open [`index.html`](inde
 </details>
 
 <details>
-<summary><b>⚡ Game Boy Advance (11 Titles)</b></summary>
+<summary><b>âš¡ Game Boy Advance (16 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -80,7 +80,7 @@ Zero installs, zero dependencies, and 100% client-side. Open [`index.html`](inde
 </details>
 
 <details>
-<summary><b>📜 Nintendo DS (12 Titles)</b></summary>
+<summary><b>ðŸ“œ Nintendo DS (15 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -100,7 +100,7 @@ Zero installs, zero dependencies, and 100% client-side. Open [`index.html`](inde
 </details>
 
 <details>
-<summary><b>🏰 Super Nintendo / SNES (10 Titles)</b></summary>
+<summary><b>ðŸ° Super Nintendo / SNES (14 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -118,7 +118,7 @@ Zero installs, zero dependencies, and 100% client-side. Open [`index.html`](inde
 </details>
 
 <details>
-<summary><b>🦔 Sega Genesis (12 Titles)</b></summary>
+<summary><b>ðŸ¦” Sega Genesis (17 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -139,11 +139,11 @@ Zero installs, zero dependencies, and 100% client-side. Open [`index.html`](inde
 
 ---
 
-## 🚀 Quick Start
+## ðŸš€ Quick Start
 
 ### Option 1: Play Online
 Visit the live hosted version:
-👉 **[https://lin4cre.github.io/retro-arcade-vault/](https://lin4cre.github.io/retro-arcade-vault/)**
+ðŸ‘‰ **[https://lin4cre.github.io/retro-arcade-vault/](https://lin4cre.github.io/retro-arcade-vault/)**
 
 ### Option 2: Run Locally (Standalone)
 No build process or web server required!
@@ -155,7 +155,7 @@ No build process or web server required!
 
 ---
 
-## ➕ How to Add Custom Games
+## âž• How to Add Custom Games
 
 ### From the Web UI:
 1. Click the **"+ Add Game"** button in the top navigation bar.
@@ -174,24 +174,24 @@ Edit the `DEFAULT_GAMES` array inside `index.html`:
   category: "PS1",
   src: "https://www.retrogames.cc/embed/...",
   cover: "https://.../boxart.png",
-  emoji: "🎮"
+  emoji: "ðŸŽ®"
 }
 ```
 
 ---
 
-## ⌨️ Controls & Shortcuts
+## âŒ¨ï¸ Controls & Shortcuts
 
 | Key | Action |
 | :---: | :--- |
 | <kbd>F</kbd> | Toggle Fullscreen screen mode |
 | <kbd>R</kbd> | Reload / Restart current game |
-| **📺 CRT FX** | Toggle CRT phosphor scanline filter overlay |
+| **ðŸ“º CRT FX** | Toggle CRT phosphor scanline filter overlay |
 | **Left Click** | Focus game container for audio & keyboard/gamepad capture |
 
 ---
 
-## 🛠️ Tech Stack
+## ðŸ› ï¸ Tech Stack
 
 - **Frontend**: Vanilla HTML5, modern CSS3 (Custom Properties, Flexbox, Grid), ES6+ JavaScript.
 - **Styling**: Cyberpunk / Dark Neon Arcade theme with Google Fonts (*Press Start 2P*, *Rajdhani*).
@@ -201,8 +201,8 @@ Edit the `DEFAULT_GAMES` array inside `index.html`:
 
 ---
 
-## 📄 License
+## ðŸ“„ License
 
 Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
 
-Developed with ❤️ by [David Linacre (LIN4CRE)](https://github.com/LIN4CRE).
+Developed with â¤ï¸ by [David Linacre (LIN4CRE)](https://github.com/LIN4CRE).
