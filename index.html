@@ -861,9 +861,368 @@
       font-size: 2.5rem;
       margin-bottom: 8px;
     }
+
+    /* === UPGRADED ARCADE FEATURES === */
+
+    /* 1. Sidebar Tools: Sort Select & Backup */
+    .sidebar-tools {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .sort-select {
+      flex: 1;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-main);
+      padding: 6px 10px;
+      font-size: 0.82rem;
+      font-family: inherit;
+      outline: none;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+
+    .sort-select:focus, .sort-select:hover {
+      border-color: var(--accent-neon);
+    }
+
+    .tool-icon-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .tool-icon-btn:hover {
+      border-color: var(--accent-neon);
+      color: var(--accent-neon);
+      background: rgba(0, 255, 204, 0.1);
+    }
+
+    /* 2. Genre Filter Pills */
+    .genre-chips {
+      display: flex;
+      gap: 5px;
+      overflow-x: auto;
+      padding: 6px 0 2px 0;
+      scrollbar-width: none;
+    }
+    .genre-chips::-webkit-scrollbar {
+      display: none;
+    }
+
+    .genre-chip {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 3px 8px;
+      font-size: 0.74rem;
+      font-weight: 600;
+      border-radius: 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .genre-chip:hover {
+      border-color: var(--accent-neon);
+      color: var(--text-main);
+    }
+
+    .genre-chip.active {
+      background: rgba(255, 42, 133, 0.18);
+      border-color: var(--accent-pink);
+      color: #fff;
+      box-shadow: 0 0 10px rgba(255, 42, 133, 0.35);
+    }
+
+    /* Playcount Badge on Game Item */
+    .game-playcount {
+      font-size: 0.68rem;
+      color: var(--accent-yellow);
+      background: rgba(255, 208, 0, 0.12);
+      border: 1px solid rgba(255, 208, 0, 0.25);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* 3. Multi-Shader Retro Filters */
+    .filter-crt .crt-overlay {
+      display: block;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%),
+                  linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.04));
+      background-size: 100% 3px, 6px 100%;
+    }
+
+    .filter-glow .crt-overlay {
+      display: block;
+      background: radial-gradient(circle at 50% 50%, transparent 62%, rgba(0,0,0,0.48) 100%),
+                  linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%),
+                  linear-gradient(90deg, rgba(255, 120, 0, 0.03), rgba(0, 255, 180, 0.02), rgba(0, 120, 255, 0.03));
+      background-size: 100% 100%, 100% 3px, 6px 100%;
+    }
+    .filter-glow .crt-glow {
+      display: block;
+      box-shadow: inset 0 0 75px rgba(0, 255, 204, 0.22), inset 0 0 25px rgba(255, 42, 133, 0.14);
+    }
+
+    .filter-lcd .crt-overlay {
+      display: block;
+      background: linear-gradient(rgba(0, 0, 0, 0.14) 50%, transparent 50%),
+                  linear-gradient(90deg, rgba(0, 0, 0, 0.14) 50%, transparent 50%);
+      background-size: 3px 3px;
+      backdrop-filter: contrast(1.04) saturate(1.1);
+    }
+    .filter-lcd .crt-glow {
+      display: block;
+      box-shadow: inset 0 0 40px rgba(0, 220, 120, 0.1);
+    }
+
+    /* 4. Authentic CRT Power-On Animation */
+    @keyframes crtTurnOn {
+      0% {
+        filter: brightness(4) contrast(2);
+        transform: scaleY(0.015) scaleX(0.85);
+      }
+      40% {
+        filter: brightness(2.2) contrast(1.6);
+        transform: scaleY(0.025) scaleX(1);
+      }
+      70% {
+        filter: brightness(1.3) contrast(1.2);
+        transform: scaleY(1.02) scaleX(1);
+      }
+      100% {
+        filter: brightness(1) contrast(1);
+        transform: scaleY(1) scaleX(1);
+      }
+    }
+    .screen-container.powering-on {
+      animation: crtTurnOn 0.28s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+    }
+
+    /* 5. Theater / Cinema Mode */
+    body.theater-active header {
+      transform: translateY(-100%);
+      transition: transform 0.35s ease;
+    }
+    body.theater-active .sidebar {
+      transform: translateX(-100%);
+      transition: transform 0.35s ease;
+      position: absolute;
+      z-index: 99;
+    }
+    body.theater-active .stage {
+      max-width: 100vw;
+      padding: 10px 18px;
+    }
+    body.theater-active .screen-container {
+      max-height: 86vh;
+    }
+    .theater-exit-btn {
+      display: none;
+      position: fixed;
+      top: 14px;
+      right: 18px;
+      z-index: 150;
+      background: rgba(19, 23, 38, 0.92);
+      border: 1px solid var(--accent-neon);
+      color: var(--accent-neon);
+      box-shadow: var(--glow-neon);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+    }
+    body.theater-active .theater-exit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* 6. Interactive Gamepad Tester HUD in Modal */
+    .gamepad-tester-card {
+      background: rgba(15, 18, 29, 0.95);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+    .tester-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tester-status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .tester-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+    }
+    .controller-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 8px;
+      padding: 12px;
+      border: 1px dashed var(--border-color);
+    }
+    .pad-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .pad-triggers {
+      justify-content: center;
+      gap: 12px;
+    }
+    .pad-spacer {
+      width: 40px;
+    }
+    .pad-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 5px 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: center;
+      transition: all 0.08s ease;
+      min-width: 42px;
+      user-select: none;
+    }
+    .pad-btn.active-press {
+      background: var(--accent-neon);
+      border-color: #fff;
+      color: #0b0e17;
+      box-shadow: 0 0 14px var(--accent-neon);
+      transform: scale(1.08);
+    }
+    .face-btn.active-press {
+      background: var(--accent-pink);
+      border-color: #fff;
+      color: #fff;
+      box-shadow: 0 0 14px var(--accent-pink);
+      transform: scale(1.08);
+    }
+    .pad-main {
+      justify-content: space-around;
+      align-items: center;
+      padding: 6px 0;
+    }
+    .dpad-box, .face-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .dpad-mid, .face-mid {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .dpad-center {
+      width: 20px;
+      height: 20px;
+    }
+    .center-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .center-buttons {
+      display: flex;
+      gap: 10px;
+    }
+    .center-btn {
+      font-size: 0.68rem;
+      padding: 3px 8px;
+      border-radius: 12px;
+    }
+    .sticks-row {
+      display: flex;
+      gap: 20px;
+    }
+    .stick-widget {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 2px solid var(--border-color);
+      background: #0d101a;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .stick-label {
+      position: absolute;
+      bottom: -15px;
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+    .stick-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #2a3454;
+      border: 1px solid var(--border-color);
+      transition: transform 0.05s ease, background 0.1s ease;
+    }
+    .stick-dot.active-tilt {
+      background: var(--accent-neon);
+      box-shadow: 0 0 8px var(--accent-neon);
+    }
+
+    /* Hotkey reminder pills */
+    .hotkey-pill {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 0.78rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
   </style>
 </head>
 <body>
+  <button class="theater-exit-btn" id="exitTheaterBtn">✕ Exit Theater</button>
 
   <!-- Top Navigation Header -->
   <header>
@@ -897,8 +1256,8 @@
       </button>
 
       <!-- CRT Shader -->
-      <button class="btn btn-outline" id="toggleCrtBtn" title="Toggle CRT Retro Filter">
-        📺 CRT FX: <span id="crtStatus" style="color:var(--text-muted)">OFF</span>
+      <button class="btn btn-outline" id="toggleFilterBtn" title="Cycle Display Filters (Clean HD, CRT Arcade, Trinitron Glow, Handheld LCD)">
+        📺 Filter: <span id="filterLabel" style="color:var(--accent-neon)">Clean HD</span>
       </button>
 
       <!-- Add Game -->
@@ -928,6 +1287,29 @@
           <button class="tag-btn" data-category="NDS">NDS (<span id="countNDS">0</span>)</button>
           <button class="tag-btn" data-category="SNES">SNES (<span id="countSNES">0</span>)</button>
           <button class="tag-btn" data-category="SEGA">Sega (<span id="countSEGA">0</span>)</button>
+        </div>
+
+        <div class="sidebar-tools">
+          <select id="sortSelect" class="sort-select" title="Sort Game Library">
+            <option value="default">↕ Sort: Curated</option>
+            <option value="az">🔤 Title: A → Z</option>
+            <option value="za">🔤 Title: Z → A</option>
+            <option value="platform">🕹️ System / Platform</option>
+            <option value="most-played">🔥 Most Played</option>
+            <option value="recent">🕒 Recently Played</option>
+          </select>
+          <button id="exportBtn" class="tool-icon-btn" title="Backup Library & Favorites to JSON">💾 Backup</button>
+          <label for="importFileInput" class="tool-icon-btn" title="Restore Library Backup from JSON" style="margin:0; cursor:pointer;">📂 Restore</label>
+          <input type="file" id="importFileInput" accept=".json" style="display:none;">
+        </div>
+
+        <div class="genre-chips" id="genreChips">
+          <button class="genre-chip active" data-genre="ALL">All Genres</button>
+          <button class="genre-chip" data-genre="RPG">⚔️ RPG & Tactics</button>
+          <button class="genre-chip" data-genre="ACTION">⚡ Action / Platform</button>
+          <button class="genre-chip" data-genre="POKEMON">⚡ Pokémon</button>
+          <button class="genre-chip" data-genre="FIGHTING">🥊 Fighting</button>
+          <button class="genre-chip" data-genre="RACING">🏎️ Racing</button>
         </div>
 
         <div class="search-match-info" id="searchMatchInfo">
@@ -967,7 +1349,10 @@
           <button class="btn btn-outline" id="reloadGameBtn" title="Restart Game">
             🔄 Restart
           </button>
-          <button class="btn btn-outline" id="fullscreenBtn" title="Fullscreen Theater Mode">
+          <button class="btn btn-outline" id="theaterBtn" title="Cinema / Theater Focus Mode">
+            🎭 Theater
+          </button>
+          <button class="btn btn-outline" id="fullscreenBtn" title="Fullscreen Mode">
             ⛶ Fullscreen
           </button>
         </div>
@@ -997,10 +1382,11 @@
       <!-- Screen Footer -->
       <div class="screen-footer">
         <div class="footer-help">
-          <span>Tip: Click screen to focus audio & controls</span>
-          <span><span class="kbd">F</span> Fullscreen</span>
-          <span><span class="kbd">R</span> Reload</span>
-          <span><span class="kbd">Esc</span> Close Dialogs</span>
+          <span class="hotkey-pill" title="Click anywhere on screen to focus emulator controls"><span class="kbd">Click</span> Focus Audio & Pad</span>
+          <span class="hotkey-pill" title="Quick Save state in retrogames emulator"><span class="kbd">Shift</span> + <span class="kbd">F2</span> Save State</span>
+          <span class="hotkey-pill" title="Quick Load state in retrogames emulator"><span class="kbd">Shift</span> + <span class="kbd">F4</span> Load State</span>
+          <span class="hotkey-pill" title="Pause Game Emulator"><span class="kbd">P</span> Pause</span>
+          <span class="hotkey-pill" title="Toggle Fullscreen Mode"><span class="kbd">F11</span> Fullscreen</span>
         </div>
         <div class="ad-tip">
           <span>🛡️ Ad-free tip: Enable <b>uBlock Origin</b> or <b>Brave</b> to skip emulator pre-rolls</span>
@@ -1017,7 +1403,70 @@
         <button class="modal-close" id="closeControlsModalBtn">&times;</button>
       </div>
       <div class="modal-body">
-        <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.4;">
+        <div class="gamepad-tester-card" id="gamepadTester">
+          <div class="tester-header">
+            <div class="tester-status" id="testerStatusText">
+              <span class="gamepad-dot" id="testerDot"></span>
+              <span id="testerTitle">Interactive Gamepad Tester</span>
+            </div>
+            <span class="tester-badge" id="testerPadModel">Standby</span>
+          </div>
+
+          <div class="controller-diagram">
+            <!-- Bumpers & Triggers -->
+            <div class="pad-row pad-triggers">
+              <div class="pad-btn" id="gp-btn-6">LT / L2</div>
+              <div class="pad-btn" id="gp-btn-4">LB / L1</div>
+              <div class="pad-spacer"></div>
+              <div class="pad-btn" id="gp-btn-5">RB / R1</div>
+              <div class="pad-btn" id="gp-btn-7">RT / R2</div>
+            </div>
+
+            <!-- Face & D-Pad Row -->
+            <div class="pad-row pad-main">
+              <!-- D-Pad -->
+              <div class="dpad-box">
+                <div class="pad-btn dpad-btn" id="gp-btn-12">▲</div>
+                <div class="dpad-mid">
+                  <div class="pad-btn dpad-btn" id="gp-btn-14">◀</div>
+                  <div class="dpad-center"></div>
+                  <div class="pad-btn dpad-btn" id="gp-btn-15">▶</div>
+                </div>
+                <div class="pad-btn dpad-btn" id="gp-btn-13">▼</div>
+              </div>
+
+              <!-- Center & Sticks -->
+              <div class="center-box">
+                <div class="center-buttons">
+                  <div class="pad-btn center-btn" id="gp-btn-8">SELECT</div>
+                  <div class="pad-btn center-btn" id="gp-btn-9">START</div>
+                </div>
+                <div class="sticks-row">
+                  <div class="stick-widget" id="gp-stick-l">
+                    <span class="stick-label">L-STICK</span>
+                    <div class="stick-dot" id="gp-stick-dot-l"></div>
+                  </div>
+                  <div class="stick-widget" id="gp-stick-r">
+                    <span class="stick-label">R-STICK</span>
+                    <div class="stick-dot" id="gp-stick-dot-r"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Face Buttons -->
+              <div class="face-box">
+                <div class="pad-btn face-btn" id="gp-btn-3">Y / △</div>
+                <div class="face-mid">
+                  <div class="pad-btn face-btn" id="gp-btn-2">X / □</div>
+                  <div class="pad-btn face-btn" id="gp-btn-1">B / ○</div>
+                </div>
+                <div class="pad-btn face-btn" id="gp-btn-0">A / ✕</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.4; margin-top:8px;">
           The web emulator binds both keyboard keys and standard USB/Bluetooth gamepads automatically:
         </p>
 
@@ -1932,16 +2381,25 @@
     const FAVS_KEY = "retro_vault_favs_v2";
     const RECENTS_KEY = "retro_vault_recents_v2";
     const SFX_KEY = "retro_vault_sfx_v2";
+    const FILTER_KEY = "retro_vault_filter_v2";
+    const STATS_KEY = "retro_vault_stats_v2";
+    const SORT_KEY = "retro_vault_sort_v2";
 
     // Application State
     let games = [];
     let favorites = new Set();
     let recentGames = [];
+    let playStats = {}; // { [id]: count }
     let activeGameId = null;
     let selectedCategory = "ALL";
+    let selectedGenre = "ALL";
+    let sortMode = "default";
     let searchQuery = "";
-    let isCrtEnabled = false;
     let isSfxEnabled = true;
+    let isTheaterMode = false;
+    let filterModes = ["Clean HD", "CRT Arcade", "CRT Trinitron Glow", "Handheld LCD Grid"];
+    let filterClasses = ["filter-clean", "filter-crt", "filter-glow", "filter-lcd"];
+    let currentFilterIdx = 0;
     let currentRatioMode = "Auto"; // "Auto", "4:3", "3:2", "16:9"
     const ratioModes = ["Auto", "4:3", "3:2", "16:9"];
 
@@ -1975,8 +2433,14 @@
     const categoryFilters = document.getElementById("categoryFilters");
     const screenContainer = document.getElementById("screenContainer");
     const ambientGlow = document.getElementById("ambientGlow");
-    const toggleCrtBtn = document.getElementById("toggleCrtBtn");
-    const crtStatus = document.getElementById("crtStatus");
+    const toggleFilterBtn = document.getElementById("toggleFilterBtn");
+    const filterLabel = document.getElementById("filterLabel");
+    const theaterBtn = document.getElementById("theaterBtn");
+    const exitTheaterBtn = document.getElementById("exitTheaterBtn");
+    const sortSelect = document.getElementById("sortSelect");
+    const genreChips = document.getElementById("genreChips");
+    const exportBtn = document.getElementById("exportBtn");
+    const importFileInput = document.getElementById("importFileInput");
     const reloadGameBtn = document.getElementById("reloadGameBtn");
     const fullscreenBtn = document.getElementById("fullscreenBtn");
     const stageStarBtn = document.getElementById("stageStarBtn");
@@ -2013,30 +2477,53 @@
         if (audioCtx.state === 'suspended') {
           audioCtx.resume();
         }
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
         const now = audioCtx.currentTime;
 
         if (type === 'select') {
-          osc.type = 'square';
-          osc.frequency.setValueAtTime(440, now);
-          osc.frequency.exponentialRampToValueAtTime(880, now + 0.08);
-          gain.gain.setValueAtTime(0.08, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
-          osc.start(now);
-          osc.stop(now + 0.08);
-        } else if (type === 'star') {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
           osc.type = 'triangle';
-          osc.frequency.setValueAtTime(587, now);
-          osc.frequency.setValueAtTime(880, now + 0.08);
-          osc.frequency.setValueAtTime(1174, now + 0.16);
-          gain.gain.setValueAtTime(0.12, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+          osc.frequency.setValueAtTime(523.25, now);
+          osc.frequency.exponentialRampToValueAtTime(1046.50, now + 0.07);
+          gain.gain.setValueAtTime(0.09, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
           osc.start(now);
-          osc.stop(now + 0.25);
+          osc.stop(now + 0.07);
+        } else if (type === 'star') {
+          // Retro 4-note arpeggio (C5 - E5 - G5 - C6)
+          const notes = [523.25, 659.25, 783.99, 1046.50];
+          notes.forEach((freq, idx) => {
+            const o = audioCtx.createOscillator();
+            const g = audioCtx.createGain();
+            o.connect(g);
+            g.connect(audioCtx.destination);
+            o.type = 'square';
+            o.frequency.setValueAtTime(freq, now + idx * 0.06);
+            g.gain.setValueAtTime(0.05, now + idx * 0.06);
+            g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.06 + 0.06);
+            o.start(now + idx * 0.06);
+            o.stop(now + idx * 0.06 + 0.06);
+          });
+        } else if (type === 'beam') {
+          // Tube TV CRT beam flash tone
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(160, now);
+          osc.frequency.exponentialRampToValueAtTime(45, now + 0.16);
+          gain.gain.setValueAtTime(0.06, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+          osc.start(now);
+          osc.stop(now + 0.16);
         } else if (type === 'shuffle') {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
           osc.type = 'sawtooth';
           osc.frequency.setValueAtTime(260, now);
           osc.frequency.setValueAtTime(520, now + 0.05);
@@ -2046,13 +2533,17 @@
           osc.start(now);
           osc.stop(now + 0.18);
         } else if (type === 'click') {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
           osc.type = 'sine';
-          osc.frequency.setValueAtTime(320, now);
-          osc.frequency.exponentialRampToValueAtTime(160, now + 0.05);
-          gain.gain.setValueAtTime(0.06, now);
-          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
+          osc.frequency.setValueAtTime(400, now);
+          osc.frequency.exponentialRampToValueAtTime(200, now + 0.04);
+          gain.gain.setValueAtTime(0.05, now);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
           osc.start(now);
-          osc.stop(now + 0.05);
+          osc.stop(now + 0.04);
         }
       } catch (e) {}
     }
@@ -2187,6 +2678,40 @@
       if (countRecentsEl) countRecentsEl.textContent = recentGames.length;
     }
 
+    // Genre Classifier Helper
+    function matchesGenre(game, genre) {
+      if (genre === "ALL") return true;
+      const t = (game.title + " " + (game.system || "")).toLowerCase();
+      if (genre === "POKEMON") return t.includes("pokemon") || t.includes("pokémon");
+      if (genre === "RPG") {
+        return t.includes("tactics") || t.includes("vandal hearts") || t.includes("final fantasy") ||
+               t.includes("breath of fire") || t.includes("chrono") || t.includes("dragon quest") ||
+               t.includes("golden sun") || t.includes("fire emblem") || t.includes("suikoden") ||
+               t.includes("star ocean") || t.includes("xenogears") || t.includes("phantasy star") ||
+               t.includes("shining force") || t.includes("valkyrie") || t.includes("mana") ||
+               t.includes("earthbound") || t.includes("pokemon") || t.includes("advance wars") ||
+               t.includes("zelda") || t.includes("lufia") || t.includes("alundra");
+      }
+      if (genre === "ACTION") {
+        return t.includes("mario") || t.includes("sonic") || t.includes("castlevania") ||
+               t.includes("metroid") || t.includes("crash") || t.includes("spyro") ||
+               t.includes("mega man") || t.includes("donkey kong") || t.includes("contra") ||
+               t.includes("metal slug") || t.includes("gunstar") || t.includes("shinobi") ||
+               t.includes("rayman") || t.includes("earthworm");
+      }
+      if (genre === "FIGHTING") {
+        return t.includes("tekken") || t.includes("street fighter") || t.includes("mortal kombat") ||
+               t.includes("rival schools") || t.includes("bloody roar") || t.includes("streets of rage") ||
+               t.includes("king of fighters") || t.includes("fatal fury");
+      }
+      if (genre === "RACING") {
+        return t.includes("kart") || t.includes("gran turismo") || t.includes("ridge racer") ||
+               t.includes("wipeout") || t.includes("f-zero") || t.includes("road rash") ||
+               t.includes("outrun");
+      }
+      return true;
+    }
+
     // Render Game List
     function renderGameList() {
       let filtered = games.filter(g => {
@@ -2201,15 +2726,26 @@
           matchesCategory = g.category && g.category.toUpperCase() === selectedCategory.toUpperCase();
         }
 
+        const matchesGen = matchesGenre(g, selectedGenre);
+
         const q = searchQuery.toLowerCase().trim();
         const matchesSearch = !q || 
           g.title.toLowerCase().includes(q) || 
           (g.system && g.system.toLowerCase().includes(q));
 
-        return matchesCategory && matchesSearch;
+        return matchesCategory && matchesGen && matchesSearch;
       });
 
-      if (selectedCategory === "RECENT") {
+      // Sorting
+      if (sortMode === "az") {
+        filtered.sort((a, b) => a.title.localeCompare(b.title));
+      } else if (sortMode === "za") {
+        filtered.sort((a, b) => b.title.localeCompare(a.title));
+      } else if (sortMode === "platform") {
+        filtered.sort((a, b) => (a.system || "").localeCompare(b.system || "") || a.title.localeCompare(b.title));
+      } else if (sortMode === "most-played") {
+        filtered.sort((a, b) => (playStats[b.id] || 0) - (playStats[a.id] || 0));
+      } else if (sortMode === "recent" || selectedCategory === "RECENT") {
         filtered.sort((a, b) => recentGames.indexOf(a.id) - recentGames.indexOf(b.id));
       }
 
@@ -2217,11 +2753,12 @@
       if (searchQuery.trim()) {
         searchMatchInfo.textContent = "Found " + filtered.length + (filtered.length === 1 ? " match" : " matches") + " for \"" + searchQuery + "\"";
       } else {
-        searchMatchInfo.textContent = "Showing " + filtered.length + (filtered.length === 1 ? " game" : " games");
+        const genreLabel = selectedGenre === "ALL" ? "" : " • " + selectedGenre;
+        searchMatchInfo.textContent = "Showing " + filtered.length + (filtered.length === 1 ? " game" : " games") + genreLabel;
       }
 
       if (filtered.length === 0) {
-        let emptyMsg = "No games found matching search.";
+        let emptyMsg = "No games found matching criteria.";
         if (selectedCategory === "FAVORITES") emptyMsg = "No favorites yet. Click the ★ on any game!";
         if (selectedCategory === "RECENT") emptyMsg = "No recently played games yet.";
 
@@ -2232,6 +2769,8 @@
       gameListEl.innerHTML = filtered.map(game => {
         const isActive = game.id === activeGameId;
         const isStarred = favorites.has(game.id);
+        const count = playStats[game.id] || 0;
+        const playBadge = count > 0 ? '<span class="game-playcount" title="Played ' + count + ' times">🎮 ' + count + '</span>' : '';
         const coverHtml = game.cover ? 
           '<img class="game-thumb" src="' + escapeHtml(game.cover) + '" alt="' + escapeHtml(game.title) + '" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML=\'<span class=\\\'game-thumb-placeholder\\\'>' + (game.emoji || '🎮') + '</span>\'">' : 
           '<span class="game-thumb-placeholder">' + (game.emoji || '🎮') + '</span>';
@@ -2242,6 +2781,7 @@
               '<div class="game-title" title="' + escapeHtml(game.title) + '">' + escapeHtml(game.title) + '</div>' +
               '<div class="game-sub">' +
                 '<span class="game-platform">' + escapeHtml(game.system || 'Arcade') + '</span>' +
+                playBadge +
               '</div>' +
             '</div>' +
             '<button class="star-btn ' + (isStarred ? 'starred' : '') + '" data-star-id="' + game.id + '" title="' + (isStarred ? 'Remove from favorites' : 'Add to favorites') + '">★</button>' +
@@ -2365,6 +2905,151 @@
         .replace(/'/g, '&#39;');
     }
 
+
+    // Multi-Shader Filter Management
+    function applyFilter(idx) {
+      currentFilterIdx = idx % filterModes.length;
+      filterClasses.forEach(cls => screenContainer.classList.remove(cls));
+      screenContainer.classList.add(filterClasses[currentFilterIdx]);
+      if (filterLabel) {
+        filterLabel.textContent = filterModes[currentFilterIdx];
+      }
+      try {
+        localStorage.setItem(FILTER_KEY, filterModes[currentFilterIdx]);
+      } catch (e) {}
+    }
+
+    function cycleFilter() {
+      playSfx('click');
+      applyFilter(currentFilterIdx + 1);
+    }
+
+    // Theater / Cinema Mode Toggle
+    function toggleTheater(force) {
+      playSfx('click');
+      isTheaterMode = force !== undefined ? force : !isTheaterMode;
+      document.body.classList.toggle("theater-active", isTheaterMode);
+      if (theaterBtn) {
+        theaterBtn.innerHTML = isTheaterMode ? "🎭 Exit Theater" : "🎭 Theater";
+      }
+    }
+
+    // Export & Backup Library
+    function exportLibrary() {
+      playSfx('click');
+      const backupData = {
+        exportedAt: new Date().toISOString(),
+        version: "2.1",
+        favorites: [...favorites],
+        recentGames: recentGames,
+        playStats: playStats,
+        games: games
+      };
+      const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "retro-arcade-vault-backup.json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Import Library Backup
+    function importLibrary(file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        try {
+          const data = JSON.parse(e.target.result);
+          if (Array.isArray(data.games)) {
+            games = data.games;
+            saveGames();
+          }
+          if (Array.isArray(data.favorites)) {
+            favorites = new Set(data.favorites);
+            saveFavorites();
+          }
+          if (Array.isArray(data.recentGames)) {
+            recentGames = data.recentGames;
+            saveRecents();
+          }
+          if (data.playStats && typeof data.playStats === 'object') {
+            playStats = data.playStats;
+            savePlayStats();
+          }
+          playSfx('star');
+          alert("Backup successfully restored! (" + games.length + " games)");
+          renderGameList();
+          updateCounts();
+        } catch (err) {
+          alert("Invalid backup file: " + err.message);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    // Interactive Gamepad Tester RAF Loop
+    let testerRaf = null;
+    function startGamepadTester() {
+      function loop() {
+        if (!controlsModal.classList.contains("open")) return;
+        const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
+        let gp = null;
+        for (let i = 0; i < gamepads.length; i++) {
+          if (gamepads[i] && gamepads[i].connected) { gp = gamepads[i]; break; }
+        }
+        const testerDot = document.getElementById("testerDot");
+        const testerTitle = document.getElementById("testerTitle");
+        const testerPadModel = document.getElementById("testerPadModel");
+        if (gp) {
+          if (testerDot) testerDot.style.background = "var(--accent-neon)";
+          if (testerTitle) testerTitle.textContent = "Live Controller Tester: Press any button!";
+          if (testerPadModel) {
+            testerPadModel.textContent = gp.id.split('(')[0].trim().substring(0, 22);
+            testerPadModel.style.color = "var(--accent-neon)";
+          }
+
+          // Button highlights
+          for (let b = 0; b < 16; b++) {
+            const el = document.getElementById("gp-btn-" + b);
+            if (el) {
+              const pressed = gp.buttons[b] && (gp.buttons[b].pressed || gp.buttons[b].value > 0.15);
+              el.classList.toggle("active-press", pressed);
+            }
+          }
+          // Sticks deflection
+          const dotL = document.getElementById("gp-stick-dot-l");
+          if (dotL && gp.axes.length >= 2) {
+            const x = Math.max(-1, Math.min(1, gp.axes[0])) * 14;
+            const y = Math.max(-1, Math.min(1, gp.axes[1])) * 14;
+            dotL.style.transform = "translate(" + x + "px, " + y + "px)";
+            dotL.classList.toggle("active-tilt", Math.abs(x) > 3 || Math.abs(y) > 3);
+          }
+          const dotR = document.getElementById("gp-stick-dot-r");
+          if (dotR && gp.axes.length >= 4) {
+            const x = Math.max(-1, Math.min(1, gp.axes[2])) * 14;
+            const y = Math.max(-1, Math.min(1, gp.axes[3])) * 14;
+            dotR.style.transform = "translate(" + x + "px, " + y + "px)";
+            dotR.classList.toggle("active-tilt", Math.abs(x) > 3 || Math.abs(y) > 3);
+          }
+        } else {
+          if (testerDot) testerDot.style.background = "#555";
+          if (testerTitle) testerTitle.textContent = "No Controller Connected — Plug in any gamepad to test";
+          if (testerPadModel) {
+            testerPadModel.textContent = "Standby";
+            testerPadModel.style.color = "var(--text-muted)";
+          }
+        }
+        testerRaf = requestAnimationFrame(loop);
+      }
+      cancelAnimationFrame(testerRaf);
+      loop();
+    }
+    function stopGamepadTester() {
+      if (testerRaf) cancelAnimationFrame(testerRaf);
+    }
+
     // Event Listeners Setup
     function setupEventListeners() {
       setupGamepad();
@@ -2444,10 +3129,14 @@
 
       // Controls Reference Modal
       openControlsModalBtn.addEventListener("click", () => {
+        startGamepadTester();
         playSfx('click');
         controlsModal.classList.add("open");
       });
-      const closeControlsModal = () => controlsModal.classList.remove("open");
+      const closeControlsModal = () => {
+        stopGamepadTester();
+        controlsModal.classList.remove("open");
+      };
       closeControlsModalBtn.addEventListener("click", closeControlsModal);
       closeControlsModalBtn2.addEventListener("click", closeControlsModal);
       controlsModal.addEventListener("click", (e) => {
@@ -2489,6 +3178,54 @@
         playSfx('click');
       });
 
+      // Multi-Shader Filter Cycle
+      if (toggleFilterBtn) {
+        toggleFilterBtn.addEventListener("click", cycleFilter);
+      }
+
+      // Theater Mode Buttons
+      if (theaterBtn) {
+        theaterBtn.addEventListener("click", () => toggleTheater());
+      }
+      if (exitTheaterBtn) {
+        exitTheaterBtn.addEventListener("click", () => toggleTheater(false));
+      }
+
+      // Sort Select
+      if (sortSelect) {
+        sortSelect.addEventListener("change", (e) => {
+          sortMode = e.target.value;
+          try { localStorage.setItem(SORT_KEY, sortMode); } catch (err) {}
+          playSfx('click');
+          renderGameList();
+        });
+      }
+
+      // Genre Filter Chips
+      if (genreChips) {
+        genreChips.addEventListener("click", (e) => {
+          const chip = e.target.closest(".genre-chip");
+          if (!chip) return;
+          playSfx('click');
+          genreChips.querySelectorAll(".genre-chip").forEach(c => c.classList.remove("active"));
+          chip.classList.add("active");
+          selectedGenre = chip.getAttribute("data-genre");
+          renderGameList();
+        });
+      }
+
+      // Export & Import Backup
+      if (exportBtn) {
+        exportBtn.addEventListener("click", exportLibrary);
+      }
+      if (importFileInput) {
+        importFileInput.addEventListener("change", (e) => {
+          if (e.target.files && e.target.files[0]) {
+            importLibrary(e.target.files[0]);
+          }
+        });
+      }
+
       // Reload Game Frame
       reloadGameBtn.addEventListener("click", () => {
         playSfx('click');
@@ -2520,6 +3257,7 @@
         if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
 
         if (e.key === "Escape") {
+          if (isTheaterMode) toggleTheater(false);
           if (controlsModal.classList.contains("open")) closeControlsModal();
           if (addModal.classList.contains("open")) closeAddModal();
         }
