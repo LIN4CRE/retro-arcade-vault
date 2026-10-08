@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Retro Arcade Vault | 100 Curated Retro Classics</title>
+  <title>Retro Arcade Vault | 125 Curated Retro Classics</title>
   
   <!-- Open Graph & Meta -->
   <meta name="description" content="Instant browser-based retro gaming hub for PS1, GBA, NDS, SNES, and Sega Genesis with Gamepad support, CRT filters, and box artwork.">
-  <meta property="og:title" content="Retro Arcade Vault | 100 Curated Retro Classics">
+  <meta property="og:title" content="Retro Arcade Vault | 125 Curated Retro Classics">
   <meta property="og:description" content="Instant browser-based retro gaming hub for PS1, GBA, NDS, SNES, and Sega Genesis with Gamepad support, CRT filters, and box artwork.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lin4cre.github.io/retro-arcade-vault/">
@@ -1710,7 +1710,7 @@
   <div class="attract-screensaver" id="attractScreensaver">
     <div style="font-size:3.5rem;">🕹️</div>
     <div class="attract-title">RETRO ARCADE VAULT</div>
-    <div class="attract-sub">100 MASTERPIECES READY TO PLAY</div>
+    <div class="attract-sub">125 MASTERPIECES READY TO PLAY</div>
     <div class="attract-prompt">► PRESS ANY KEY OR CLICK TO RESUME ◄</div>
   </div>
 
@@ -1783,7 +1783,7 @@
       <div class="sidebar-header">
         <div class="search-box">
           <span class="search-icon">🔍</span>
-          <input type="text" id="searchInput" class="search-input" placeholder="Search 100 games...">
+          <input type="text" id="searchInput" class="search-input" placeholder="Search 125 games... (Press /)">
           <button class="clear-search-btn" id="clearSearchBtn" title="Clear Search">&times;</button>
         </div>
 
@@ -2117,908 +2117,1132 @@
      * Preloaded with 87+ curated classics across PS1, GBA, NDS, SNES, and Sega Genesis
      */
     const DEFAULT_GAMES = [
-      {
-            "id": "vandal-hearts",
-            "title": "Vandal Hearts",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/45537-vcandal-hearts-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Vandal%20Hearts%20(USA).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "vandal-hearts-ii",
-            "title": "Vandal Hearts II",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/40179-vandal-hearts-ii.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Vandal%20Hearts%20II%20(USA).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "final-fantasy-tactics",
-            "title": "Final Fantasy Tactics",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/41787-final-fantasy-tactics.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20Tactics%20(USA).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "final-fantasy-vii-d1",
-            "title": "Final Fantasy VII (Disc 1)",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/43658-final-fantasy-vii-usa-disc-1.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20VII%20(USA).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "final-fantasy-vii-d2",
-            "title": "Final Fantasy VII (Disc 2)",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/43659-final-fantasy-vii-usa-disc-2.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20VII%20(USA).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "final-fantasy-origins",
-            "title": "Final Fantasy Origins (FF I & II)",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/41786-final-fantasy-origins.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20Origins%20(USA).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "final-fantasy-chronicles",
-            "title": "Final Fantasy Chronicles (FF IV & Chrono Trigger)",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/40145-final-fantasy-chronicles.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20Chronicles%20(USA).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "chrono-cross",
-            "title": "Chrono Cross",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/41785-chrono-cross.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Chrono%20Cross%20(USA).png",
-            "emoji": "⏳"
-      },
-      {
-            "id": "suikoden-ii",
-            "title": "Suikoden II",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/41793-suikoden-ii.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Suikoden%20II%20(USA).png",
-            "emoji": "🛡️"
-      },
-      {
-            "id": "castlevania-sotn",
-            "title": "Castlevania: Symphony of the Night",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/41504-castlevania-symphony-of-the-night.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Castlevania%20-%20Symphony%20of%20the%20Night%20(USA).png",
-            "emoji": "🦇"
-      },
-      {
-            "id": "xenogears",
-            "title": "Xenogears",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/43086-xenogears-disc-1.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Xenogears%20(USA).png",
-            "emoji": "🛡️"
-      },
-      {
-            "id": "breath-of-fire-iii",
-            "title": "Breath of Fire III",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/40143-breath-of-fire-iii.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Breath%20of%20Fire%20III%20(USA).png",
-            "emoji": "🛡️"
-      },
-      {
-            "id": "breath-of-fire-iv",
-            "title": "Breath of Fire IV",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/44355-breath-of-fire-iv-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Breath%20of%20Fire%20IV%20(USA).png",
-            "emoji": "🛡️"
-      },
-      {
-            "id": "digimon-world",
-            "title": "Digimon World",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/44551-digimon-world-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20World%20(USA).png",
-            "emoji": "🦖"
-      },
-      {
-            "id": "digimon-world-2",
-            "title": "Digimon World 2",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/41732-digimon-world-2.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20World%202%20(USA).png",
-            "emoji": "🦖"
-      },
-      {
-            "id": "digimon-world-3",
-            "title": "Digimon World 3",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/43049-digimon-world-3.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20World%203%20(USA).png",
-            "emoji": "🦖"
-      },
-      {
-            "id": "digimon-digital-card-battle",
-            "title": "Digimon Digital Card Battle",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/40150-digimon-digital-card-battle.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20Digital%20Card%20Battle%20(USA).png",
-            "emoji": "🦖"
-      },
-      {
-            "id": "yu-gi-oh-forbidden-memories",
-            "title": "Yu-Gi-Oh! Forbidden Memories (15 Card Mod)",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/46876-yu-gi-oh-forbidden-memories-15-card-mod.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Yu-Gi-Oh!%20-%20Forbidden%20Memories%20(USA).png",
-            "emoji": "🃏"
-      },
-      {
-            "id": "tekken-3",
-            "title": "Tekken 3",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/40238-tekken-3.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Tekken%203%20(USA).png",
-            "emoji": "🥊"
-      },
-      {
-            "id": "crash-bandicoot",
-            "title": "Crash Bandicoot",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/40784-crash-bandicoot.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Crash%20Bandicoot%20(USA).png",
-            "emoji": "💎"
-      },
-      {
-            "id": "crash-team-racing",
-            "title": "Crash Team Racing (CTR)",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/41687-crash-team-racing.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Crash%20Team%20Racing%20(USA).png",
-            "emoji": "💎"
-      },
-      {
-            "id": "spyro-the-dragon",
-            "title": "Spyro the Dragon",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/40796-spyro-the-dragon.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Spyro%20the%20Dragon%20(USA).png",
-            "emoji": "💎"
-      },
-      {
-            "id": "metal-gear-solid",
-            "title": "Metal Gear Solid (Disc 1)",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/43266-metal-gear-solid-disc-1.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Metal%20Gear%20Solid%20(USA).png",
-            "emoji": "💥"
-      },
-      {
-            "id": "tony-hawk-pro-skater",
-            "title": "Tony Hawk's Pro Skater",
-            "system": "PlayStation 1",
-            "category": "PS1",
-            "src": "https://www.retrogames.cc/embed/42152-tony-hawks-pro-skater.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Tony%20Hawk%27s%20Pro%20Skater%20(USA).png",
-            "emoji": "🛹"
-      },
-      {
-            "id": "pokemon-quetzal",
-            "title": "Pokemon Quetzal (Alpha 0.6.9)",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/45227-pokemon-quetzal-alpha-0-6-9.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20Emerald%20Version%20(USA%2C%20Europe).png",
-            "emoji": "⚡"
-      },
-      {
-            "id": "pokemon-hyper-emerald",
-            "title": "Pokemon Hyper Emerald v5.7 Lost Artifacts",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/46988-pokemon-hyper-emerald-v5-7-lost-artifacts.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20Emerald%20Version%20(USA%2C%20Europe).png",
-            "emoji": "⚡"
-      },
-      {
-            "id": "pokemon-radical-red",
-            "title": "Pokemon Radical Red v4.1",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/46552-pokemon-radical-red-v4-1.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20FireRed%20Version%20(USA%2C%20Europe).png",
-            "emoji": "⚡"
-      },
-      {
-            "id": "pokemon-unbound",
-            "title": "Pokemon Unbound v2.1.1.1",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/44803-pokemon-unbound-v2-1-1-1.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20FireRed%20Version%20(USA%2C%20Europe).png",
-            "emoji": "⚡"
-      },
-      {
-            "id": "pokemon-emerald-rogue",
-            "title": "Pokemon Emerald Rogue (Vanilla 1.2.0)",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/43563-pokemon-emerald-rogue-vanilla-1-2-0.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20Emerald%20Version%20(USA%2C%20Europe).png",
-            "emoji": "⚡"
-      },
-      {
-            "id": "final-fantasy-tactics-advance",
-            "title": "Final Fantasy Tactics Advance",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/17590-final-fantasy-tactics-advance-e-surplus.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Final%20Fantasy%20Tactics%20Advance%20(USA).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "golden-sun",
-            "title": "Golden Sun",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/28662-golden-sun-s-independent.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Golden%20Sun%20(USA%2C%20Europe).png",
-            "emoji": "🛡️"
-      },
-      {
-            "id": "golden-sun-the-lost-age",
-            "title": "Golden Sun: The Lost Age",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/29462-golden-sun-2-the-lost-age-u-megaroms.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Golden%20Sun%20-%20The%20Lost%20Age%20(USA%2C%20Europe).png",
-            "emoji": "🛡️"
-      },
-      {
-            "id": "castlevania-aria-of-sorrow",
-            "title": "Castlevania: Aria of Sorrow",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/29282-castlevania-aria-of-sorrow-u-gbatemp.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Castlevania%20-%20Aria%20of%20Sorrow%20(USA).png",
-            "emoji": "🦇"
-      },
-      {
-            "id": "fire-emblem",
-            "title": "Fire Emblem: The Blazing Blade",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/26620-fire-emblem-e-independent.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Fire%20Emblem%20(USA%2C%20Australia).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "megaman-battle-network-6",
-            "title": "Mega Man Battle Network 6 - Cybeast Falzar",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/27799-megaman-battle-network-6-cybeast-falzar-u-independent.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Mega%20Man%20Battle%20Network%206%20-%20Cybeast%20Falzar%20(USA).png",
-            "emoji": "🤖"
-      },
-      {
-            "id": "metroid-fusion",
-            "title": "Metroid Fusion",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/26543-metroid-fusion-e-flashadvance.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Metroid%20Fusion%20(USA%2C%20Australia).png",
-            "emoji": "🚀"
-      },
-      {
-            "id": "mario-kart-super-circuit",
-            "title": "Mario Kart: Super Circuit XXL",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/46320-mario-kart-super-circuit-xxl.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Mario%20Kart%20-%20Super%20Circuit%20(USA).png",
-            "emoji": "🍄"
-      },
-      {
-            "id": "advance-wars",
-            "title": "Advance Wars",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/29225-advance-wars-e-arrogance.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Advance%20Wars%20(USA%2C%20Australia).png",
-            "emoji": "🎖️"
-      },
-      {
-            "id": "advance-wars-2",
-            "title": "Advance Wars 2: Black Hole Rising",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/27948-advance-wars-2-black-hole-rising-e-surplus.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Advance%20Wars%202%20-%20Black%20Hole%20Rising%20(USA%2C%20Australia).png",
-            "emoji": "🎖️"
-      },
-      {
-            "id": "super-street-fighter-ii-gba",
-            "title": "Super Street Fighter II Turbo Revival",
-            "system": "Game Boy Advance",
-            "category": "GBA",
-            "src": "https://www.retrogames.cc/embed/26858-super-street-fighter-ii-turbo-revival-u-nobody.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Super%20Street%20Fighter%20II%20Turbo%20Revival%20(USA).png",
-            "emoji": "⚡"
-      },
-      {
-            "id": "might-and-magic-clash-of-heroes",
-            "title": "Might & Magic - Clash of Heroes",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/39651-might-magic-clash-of-heroes-usa-en-fr-es.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Might%20%26%20Magic%20-%20Clash%20of%20Heroes%20(USA)%20(En%2CFr%2CEs).png",
-            "emoji": "🧩"
-      },
-      {
-            "id": "chrono-trigger-ds",
-            "title": "Chrono Trigger (DS Edition)",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/38194-chrono-trigger-usa-en-fr.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Chrono%20Trigger%20(USA)%20(En%2CFr).png",
-            "emoji": "⏳"
-      },
-      {
-            "id": "radiant-historia",
-            "title": "Radiant Historia",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/45033-radiant-historia-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Radiant%20Historia%20(USA).png",
-            "emoji": "⏳"
-      },
-      {
-            "id": "final-fantasy-tactics-a2",
-            "title": "Final Fantasy Tactics A2: Grimoire of the Rift",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/37523-final-fantasy-tactics-a2-grimoire-of-the-rift-usa-en-fr-es.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Final%20Fantasy%20Tactics%20A2%20-%20Grimoire%20of%20the%20Rift%20(USA)%20(En%2CFr%2CEs).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "castlevania-dawn-of-sorrow",
-            "title": "Castlevania: Dawn of Sorrow",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/35260-castlevania-dawn-of-sorrow-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Castlevania%20-%20Dawn%20of%20Sorrow%20(USA).png",
-            "emoji": "🦇"
-      },
-      {
-            "id": "castlevania-order-of-ecclesia",
-            "title": "Castlevania: Order of Ecclesia",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/37948-castlevania-order-of-ecclesia-usa-en-fr.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Castlevania%20-%20Order%20of%20Ecclesia%20(USA)%20(En%2CFr).png",
-            "emoji": "🦇"
-      },
-      {
-            "id": "pokemon-platinum",
-            "title": "Pokemon - Platinum Version",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/43044-pokemon-platinum-version-usa-rev-1.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Pokemon%20-%20Platinum%20Version%20(USA).png",
-            "emoji": "⚡"
-      },
-      {
-            "id": "pokemon-heartgold",
-            "title": "Pokemon - HeartGold Version",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/39307-pocket-monsters-heartgold-japan.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Pokemon%20-%20HeartGold%20Version%20(USA).png",
-            "emoji": "⚡"
-      },
-      {
-            "id": "dragon-quest-ix",
-            "title": "Dragon Quest IX: Sentinels of the Starry Skies",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/43135-dragon-quest-ix-sentinels-of-the-starry-skies-usa-en-fr-es.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Dragon%20Quest%20IX%20-%20Sentinels%20of%20the%20Starry%20Skies%20(USA)%20(En%2CFr%2CEs).png",
-            "emoji": "🛡️"
-      },
-      {
-            "id": "dragon-quest-v",
-            "title": "Dragon Quest V: Hand of the Heavenly Bride",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/38563-dragon-quest-v-hand-of-the-heavenly-bride-usa-en-fr-es.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Dragon%20Quest%20V%20-%20Hand%20of%20the%20Heavenly%20Bride%20(USA)%20(En%2CFr%2CEs).png",
-            "emoji": "🛡️"
-      },
-      {
-            "id": "golden-sun-dark-dawn",
-            "title": "Golden Sun: Dark Dawn",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/43571-golden-sun-dark-dawn-usa-en-es.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Golden%20Sun%20-%20Dark%20Dawn%20(USA)%20(En%2CEs).png",
-            "emoji": "🛡️"
-      },
-      {
-            "id": "phoenix-wright",
-            "title": "Phoenix Wright: Ace Attorney",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/35266-phoenix-wright-ace-attorney-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Phoenix%20Wright%20-%20Ace%20Attorney%20(USA).png",
-            "emoji": "⚖️"
-      },
-      {
-            "id": "mario-kart-ds",
-            "title": "New Mario Kart DS",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/46291-new-mario-kart-ds.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Mario%20Kart%20DS%20(USA).png",
-            "emoji": "🍄"
-      },
-      {
-            "id": "advance-wars-dual-strike",
-            "title": "Advance Wars: Dual Strike",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/35227-advance-wars-dual-strike-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Advance%20Wars%20-%20Dual%20Strike%20(USA).png",
-            "emoji": "🎖️"
-      },
-      {
-            "id": "advance-wars-days-of-ruin",
-            "title": "Advance Wars: Days of Ruin",
-            "system": "Nintendo DS",
-            "category": "NDS",
-            "src": "https://www.retrogames.cc/embed/37103-advance-wars-days-of-ruin-usa-en-fr-es.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Advance%20Wars%20-%20Days%20of%20Ruin%20(USA)%20(En%2CFr%2CEs).png",
-            "emoji": "🎖️"
-      },
-      {
-            "id": "chrono-trigger-snes",
-            "title": "Chrono Trigger",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/22857-chrono-trigger-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Chrono%20Trigger%20(USA).png",
-            "emoji": "⏳"
-      },
-      {
-            "id": "final-fantasy-iii-snes",
-            "title": "Final Fantasy III (VI)",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/24569-final-fantasy-iii-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Final%20Fantasy%20III%20(USA).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "super-mario-world",
-            "title": "Super Mario World",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/44986-super-mario-world.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Mario%20World%20(USA).png",
-            "emoji": "🍄"
-      },
-      {
-            "id": "super-metroid",
-            "title": "Super Metroid",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/24192-super-metroid-europe-en-fr-de.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Metroid%20(Japan%2C%20USA)%20(En%2CJa).png",
-            "emoji": "🚀"
-      },
-      {
-            "id": "earthbound",
-            "title": "EarthBound",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/24789-earthbound-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/EarthBound%20(USA).png",
-            "emoji": "🍄"
-      },
-      {
-            "id": "secret-of-mana",
-            "title": "Secret of Mana",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/16823-secret-of-mana-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Secret%20of%20Mana%20(USA).png",
-            "emoji": "🍄"
-      },
-      {
-            "id": "super-mario-rpg",
-            "title": "Super Mario RPG: Legend of the Seven Stars",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/45027-super-mario-rpg-enhanced.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Mario%20RPG%20-%20Legend%20of%20the%20Seven%20Stars%20(USA).png",
-            "emoji": "🍄"
-      },
-      {
-            "id": "zelda-link-to-the-past",
-            "title": "The Legend of Zelda: A Link to the Past",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/44785-the-legend-of-zelda-a-link-to-the-past-title-skip-and-full-hearts.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20to%20the%20Past%20(USA).png",
-            "emoji": "🗡️"
-      },
-      {
-            "id": "mega-man-x",
-            "title": "Mega Man X",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/46388-mega-man-x-complete-edition.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Mega%20Man%20X%20(USA).png",
-            "emoji": "🤖"
-      },
-      {
-            "id": "yoshis-island",
-            "title": "Super Mario World 2: Yoshi's Island",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/44541-yoshis-island-no-crying-improved-sfx-and-red-coins.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Mario%20World%202%20-%20Yoshi%27s%20Island%20(USA).png",
-            "emoji": "🍄"
-      },
-      {
-            "id": "tmnt-turtles-in-time",
-            "title": "TMNT IV: Turtles in Time",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/24621-teenage-mutant-ninja-turtles-iv-turtles-in-time-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Teenage%20Mutant%20Ninja%20Turtles%20IV%20-%20Turtles%20in%20Time%20(USA).png",
-            "emoji": "🍄"
-      },
-      {
-            "id": "donkey-kong-country",
-            "title": "Donkey Kong Country",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/23005-donkey-kong-country-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Donkey%20Kong%20Country%20(USA).png",
-            "emoji": "🍄"
-      },
-      {
-            "id": "donkey-kong-country-2",
-            "title": "Donkey Kong Country 2: Diddy's Kong Quest",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/44701-donkey-kong-country-2-diddys-kong-quest-us-en-fr-ixkz-hack-v1-1-beta03.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Donkey%20Kong%20Country%202%20-%20Diddy%27s%20Kong%20Quest%20(USA)%20(En%2CFr).png",
-            "emoji": "🍄"
-      },
-      {
-            "id": "super-mario-all-stars",
-            "title": "Super Mario All-Stars Enhanced",
-            "system": "Super Nintendo",
-            "category": "SNES",
-            "src": "https://www.retrogames.cc/embed/46302-super-mario-all-stars-enhanced.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Mario%20All-Stars%20(USA).png",
-            "emoji": "🍄"
-      },
-      {
-            "id": "sonic-the-hedgehog",
-            "title": "Sonic The Hedgehog",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/30899-sonic-the-hedgehog-usa-europe.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%20(USA%2C%20Europe).png",
-            "emoji": "🦔"
-      },
-      {
-            "id": "sonic-the-hedgehog-2",
-            "title": "Sonic The Hedgehog 2",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/17236-sonic-the-hedgehog-2-world-rev-a.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%202%20(World).png",
-            "emoji": "🦔"
-      },
-      {
-            "id": "sonic-3-knuckles",
-            "title": "Sonic & Knuckles + Sonic 3",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/29209-sonic-knuckles-sonic-the-hedgehog-3-world.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20%26%20Knuckles%20(World).png",
-            "emoji": "🦔"
-      },
-      {
-            "id": "shining-force",
-            "title": "Shining Force",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/30304-shining-force-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shining%20Force%20(USA).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "shining-force-ii",
-            "title": "Shining Force II",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/30156-shining-force-ii-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shining%20Force%20II%20(USA).png",
-            "emoji": "⚔️"
-      },
-      {
-            "id": "phantasy-star-iv",
-            "title": "Phantasy Star IV",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/28283-phantasy-star-iv-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Phantasy%20Star%20IV%20(USA).png",
-            "emoji": "🛡️"
-      },
-      {
-            "id": "streets-of-rage-2",
-            "title": "Streets of Rage 2",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/28481-streets-of-rage-2-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%202%20(USA).png",
-            "emoji": "🥊"
-      },
-      {
-            "id": "gunstar-heroes",
-            "title": "Gunstar Heroes",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/28311-gunstar-heroes-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Gunstar%20Heroes%20(USA).png",
-            "emoji": "💥"
-      },
-      {
-            "id": "castlevania-bloodlines",
-            "title": "Castlevania: Bloodlines",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/30108-castlevania-bloodlines-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Castlevania%20-%20Bloodlines%20(USA).png",
-            "emoji": "🦇"
-      },
-      {
-            "id": "beyond-oasis",
-            "title": "Beyond Oasis",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/30357-beyond-oasis-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Beyond%20Oasis%20(USA).png",
-            "emoji": "🛡️"
-      },
-      {
-            "id": "shinobi-iii",
-            "title": "Shinobi III: Return of the Ninja Master",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/30503-shinobi-iii-return-of-the-ninja-master-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shinobi%20III%20-%20Return%20of%20the%20Ninja%20Master%20(USA).png",
-            "emoji": "🥷"
-      },
-      {
-            "id": "golden-axe",
-            "title": "Golden Axe",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/16712-golden-axe-world.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Golden%20Axe%20(World).png",
-            "emoji": "🌀"
-      },
-      {
-            "id": "comix-zone",
-            "title": "Comix Zone",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/29773-comix-zone-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Comix%20Zone%20(USA).png",
-            "emoji": "🎨"
-      },
-      {
-            "id": "earthworm-jim",
-            "title": "Earthworm Jim",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/30211-earthworm-jim-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Earthworm%20Jim%20(USA).png",
-            "emoji": "🌀"
-      },
-      {
-            "id": "earthworm-jim-2",
-            "title": "Earthworm Jim 2",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/16973-earthworm-jim-2-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Earthworm%20Jim%202%20(USA).png",
-            "emoji": "🌀"
-      },
-      {
-            "id": "disney-aladdin",
-            "title": "Disney's Aladdin",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/16687-aladdin-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Disney%27s%20Aladdin%20(USA).png",
-            "emoji": "🌀"
-      },
-      {
-            "id": "road-rash-ii",
-            "title": "Road Rash II",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/30167-road-rash-ii-usa-europe-v1-2.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Road%20Rash%20II%20(USA%2C%20Europe).png",
-            "emoji": "🌀"
-      },
-      {
-            "id": "streets-of-rage-3",
-            "title": "Streets of Rage 3",
-            "system": "Sega Genesis",
-            "category": "SEGA",
-            "src": "https://www.retrogames.cc/embed/16812-streets-of-rage-3-usa.html",
-            "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%203%20(USA).png",
-            "emoji": "🥊"
-      }
-,
-      {
-        "id": "suikoden-ii",
-        "title": "Suikoden II",
-        "system": "PlayStation 1",
-        "category": "PS1",
-        "src": "https://www.retrogames.cc/embed/42600-suikoden-ii.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Suikoden%20II%20(USA).png",
-        "emoji": "⚔️"
-},
-      {
-        "id": "castlevania-sotn",
-        "title": "Castlevania: Symphony of the Night",
-        "system": "PlayStation 1",
-        "category": "PS1",
-        "src": "https://www.retrogames.cc/embed/41551-castlevania-symphony-of-the-night.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Castlevania%20-%20Symphony%20of%20the%20Night%20(USA).png",
-        "emoji": "🧛"
-},
-      {
-        "id": "xenogears",
-        "title": "Xenogears",
-        "system": "PlayStation 1",
-        "category": "PS1",
-        "src": "https://www.retrogames.cc/embed/43389-xenogears.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Xenogears%20(USA).png",
-        "emoji": "🤖"
-},
-      {
-        "id": "chrono-cross",
-        "title": "Chrono Cross",
-        "system": "PlayStation 1",
-        "category": "PS1",
-        "src": "https://www.retrogames.cc/embed/41595-chrono-cross.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Chrono%20Cross%20(USA).png",
-        "emoji": "⏳"
-},
-      {
-        "id": "parasite-eve",
-        "title": "Parasite Eve",
-        "system": "PlayStation 1",
-        "category": "PS1",
-        "src": "https://www.retrogames.cc/embed/42438-parasite-eve.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Parasite%20Eve%20(USA).png",
-        "emoji": "🧬"
-},
-      {
-        "id": "metal-gear-solid",
-        "title": "Metal Gear Solid",
-        "system": "PlayStation 1",
-        "category": "PS1",
-        "src": "https://www.retrogames.cc/embed/42220-metal-gear-solid.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Metal%20Gear%20Solid%20(USA).png",
-        "emoji": "📦"
-},
-      {
-        "id": "golden-sun-lost-age",
-        "title": "Golden Sun: The Lost Age",
-        "system": "Game Boy Advance",
-        "category": "GBA",
-        "src": "https://www.retrogames.cc/embed/45664-golden-sun-the-lost-age-usa-europe.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Golden%20Sun%20-%20The%20Lost%20Age%20(USA%2C%20Europe).png",
-        "emoji": "☀️"
-},
-      {
-        "id": "advance-wars-2",
-        "title": "Advance Wars 2: Black Hole Rising",
-        "system": "Game Boy Advance",
-        "category": "GBA",
-        "src": "https://www.retrogames.cc/embed/44585-advance-wars-2-black-hole-rising-usa.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Advance%20Wars%202%20-%20Black%20Hole%20Rising%20(USA).png",
-        "emoji": "🎖️"
-},
-      {
-        "id": "mega-man-battle-network-3",
-        "title": "Mega Man Battle Network 3 Blue",
-        "system": "Game Boy Advance",
-        "category": "GBA",
-        "src": "https://www.retrogames.cc/embed/45318-mega-man-battle-network-3-blue-version-usa.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Mega%20Man%20Battle%20Network%203%20-%20Blue%20Version%20(USA).png",
-        "emoji": "⚡"
-},
-      {
-        "id": "castlevania-aria-of-sorrow",
-        "title": "Castlevania: Aria of Sorrow",
-        "system": "Game Boy Advance",
-        "category": "GBA",
-        "src": "https://www.retrogames.cc/embed/44883-castlevania-aria-of-sorrow-usa.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Castlevania%20-%20Aria%20of%20Sorrow%20(USA).png",
-        "emoji": "🦇"
-},
-      {
-        "id": "pokemon-mystery-dungeon-sky",
-        "title": "Pokémon Mystery Dungeon: Explorers of Sky",
-        "system": "Nintendo DS",
-        "category": "NDS",
-        "src": "https://www.retrogames.cc/embed/34827-pokemon-mystery-dungeon-explorers-of-sky.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Pokemon%20Mystery%20Dungeon%20-%20Explorers%20of%20Sky%20(USA).png",
-        "emoji": "⚡"
-},
-      {
-        "id": "the-world-ends-with-you",
-        "title": "The World Ends With You",
-        "system": "Nintendo DS",
-        "category": "NDS",
-        "src": "https://www.retrogames.cc/embed/35474-the-world-ends-with-you.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/The%20World%20Ends%20with%20You%20(USA).png",
-        "emoji": "🎧"
-},
-      {
-        "id": "sonic-3-and-knuckles",
-        "title": "Sonic 3 & Knuckles",
-        "system": "Sega Genesis",
-        "category": "SEGA",
-        "src": "https://www.retrogames.cc/embed/17395-sonic-3-knuckles.html",
-        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20%26%20Knuckles%20%2B%20Sonic%20The%20Hedgehog%203%20(Europe).png",
-        "emoji": "🦔"
-}
-    ];
+  {
+    "id": "vandal-hearts",
+    "title": "Vandal Hearts",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/45537-vcandal-hearts-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Vandal%20Hearts%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "vandal-hearts-ii",
+    "title": "Vandal Hearts II",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/40179-vandal-hearts-ii.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Vandal%20Hearts%20II%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "final-fantasy-tactics",
+    "title": "Final Fantasy Tactics",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41787-final-fantasy-tactics.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20Tactics%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "final-fantasy-vii-d1",
+    "title": "Final Fantasy VII (Disc 1)",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/43658-final-fantasy-vii-usa-disc-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20VII%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "final-fantasy-vii-d2",
+    "title": "Final Fantasy VII (Disc 2)",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/43659-final-fantasy-vii-usa-disc-2.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20VII%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "final-fantasy-origins",
+    "title": "Final Fantasy Origins (FF I & II)",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41786-final-fantasy-origins.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20Origins%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "final-fantasy-chronicles",
+    "title": "Final Fantasy Chronicles (FF IV & Chrono Trigger)",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/40145-final-fantasy-chronicles.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20Chronicles%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "chrono-cross",
+    "title": "Chrono Cross",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41785-chrono-cross.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Chrono%20Cross%20(USA).png",
+    "emoji": "⏳"
+  },
+  {
+    "id": "suikoden-ii",
+    "title": "Suikoden II",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41793-suikoden-ii.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Suikoden%20II%20(USA).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "castlevania-sotn",
+    "title": "Castlevania: Symphony of the Night",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41504-castlevania-symphony-of-the-night.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Castlevania%20-%20Symphony%20of%20the%20Night%20(USA).png",
+    "emoji": "🦇"
+  },
+  {
+    "id": "xenogears",
+    "title": "Xenogears",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/43086-xenogears-disc-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Xenogears%20(USA).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "breath-of-fire-iii",
+    "title": "Breath of Fire III",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/40143-breath-of-fire-iii.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Breath%20of%20Fire%20III%20(USA).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "breath-of-fire-iv",
+    "title": "Breath of Fire IV",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/44355-breath-of-fire-iv-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Breath%20of%20Fire%20IV%20(USA).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "digimon-world",
+    "title": "Digimon World",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/44551-digimon-world-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20World%20(USA).png",
+    "emoji": "🦖"
+  },
+  {
+    "id": "digimon-world-2",
+    "title": "Digimon World 2",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41732-digimon-world-2.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20World%202%20(USA).png",
+    "emoji": "🦖"
+  },
+  {
+    "id": "digimon-world-3",
+    "title": "Digimon World 3",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/43049-digimon-world-3.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20World%203%20(USA).png",
+    "emoji": "🦖"
+  },
+  {
+    "id": "digimon-digital-card-battle",
+    "title": "Digimon Digital Card Battle",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/40150-digimon-digital-card-battle.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20Digital%20Card%20Battle%20(USA).png",
+    "emoji": "🦖"
+  },
+  {
+    "id": "yu-gi-oh-forbidden-memories",
+    "title": "Yu-Gi-Oh! Forbidden Memories (15 Card Mod)",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/46876-yu-gi-oh-forbidden-memories-15-card-mod.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Yu-Gi-Oh!%20-%20Forbidden%20Memories%20(USA).png",
+    "emoji": "🃏"
+  },
+  {
+    "id": "tekken-3",
+    "title": "Tekken 3",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/40238-tekken-3.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Tekken%203%20(USA).png",
+    "emoji": "🥊"
+  },
+  {
+    "id": "crash-bandicoot",
+    "title": "Crash Bandicoot",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/40784-crash-bandicoot.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Crash%20Bandicoot%20(USA).png",
+    "emoji": "💎"
+  },
+  {
+    "id": "crash-team-racing",
+    "title": "Crash Team Racing (CTR)",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41687-crash-team-racing.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Crash%20Team%20Racing%20(USA).png",
+    "emoji": "💎"
+  },
+  {
+    "id": "spyro-the-dragon",
+    "title": "Spyro the Dragon",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/40796-spyro-the-dragon.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Spyro%20the%20Dragon%20(USA).png",
+    "emoji": "💎"
+  },
+  {
+    "id": "metal-gear-solid",
+    "title": "Metal Gear Solid (Disc 1)",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/43266-metal-gear-solid-disc-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Metal%20Gear%20Solid%20(USA).png",
+    "emoji": "💥"
+  },
+  {
+    "id": "tony-hawk-pro-skater",
+    "title": "Tony Hawk's Pro Skater",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/42152-tony-hawks-pro-skater.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Tony%20Hawk%27s%20Pro%20Skater%20(USA).png",
+    "emoji": "🛹"
+  },
+  {
+    "id": "pokemon-quetzal",
+    "title": "Pokemon Quetzal (Alpha 0.6.9)",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/45227-pokemon-quetzal-alpha-0-6-9.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20Emerald%20Version%20(USA%2C%20Europe).png",
+    "emoji": "⚡"
+  },
+  {
+    "id": "pokemon-hyper-emerald",
+    "title": "Pokemon Hyper Emerald v5.7 Lost Artifacts",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/46988-pokemon-hyper-emerald-v5-7-lost-artifacts.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20Emerald%20Version%20(USA%2C%20Europe).png",
+    "emoji": "⚡"
+  },
+  {
+    "id": "pokemon-radical-red",
+    "title": "Pokemon Radical Red v4.1",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/46552-pokemon-radical-red-v4-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20FireRed%20Version%20(USA%2C%20Europe).png",
+    "emoji": "⚡"
+  },
+  {
+    "id": "pokemon-unbound",
+    "title": "Pokemon Unbound v2.1.1.1",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/44803-pokemon-unbound-v2-1-1-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20FireRed%20Version%20(USA%2C%20Europe).png",
+    "emoji": "⚡"
+  },
+  {
+    "id": "pokemon-emerald-rogue",
+    "title": "Pokemon Emerald Rogue (Vanilla 1.2.0)",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/43563-pokemon-emerald-rogue-vanilla-1-2-0.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Pokemon%20-%20Emerald%20Version%20(USA%2C%20Europe).png",
+    "emoji": "⚡"
+  },
+  {
+    "id": "final-fantasy-tactics-advance",
+    "title": "Final Fantasy Tactics Advance",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/17590-final-fantasy-tactics-advance-e-surplus.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Final%20Fantasy%20Tactics%20Advance%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "golden-sun",
+    "title": "Golden Sun",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/28662-golden-sun-s-independent.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Golden%20Sun%20(USA%2C%20Europe).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "golden-sun-the-lost-age",
+    "title": "Golden Sun: The Lost Age",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/29462-golden-sun-2-the-lost-age-u-megaroms.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Golden%20Sun%20-%20The%20Lost%20Age%20(USA%2C%20Europe).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "castlevania-aria-of-sorrow",
+    "title": "Castlevania: Aria of Sorrow",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/29282-castlevania-aria-of-sorrow-u-gbatemp.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Castlevania%20-%20Aria%20of%20Sorrow%20(USA).png",
+    "emoji": "🦇"
+  },
+  {
+    "id": "fire-emblem",
+    "title": "Fire Emblem: The Blazing Blade",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/26620-fire-emblem-e-independent.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Fire%20Emblem%20(USA%2C%20Australia).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "megaman-battle-network-6",
+    "title": "Mega Man Battle Network 6 - Cybeast Falzar",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/27799-megaman-battle-network-6-cybeast-falzar-u-independent.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Mega%20Man%20Battle%20Network%206%20-%20Cybeast%20Falzar%20(USA).png",
+    "emoji": "🤖"
+  },
+  {
+    "id": "metroid-fusion",
+    "title": "Metroid Fusion",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/26543-metroid-fusion-e-flashadvance.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Metroid%20Fusion%20(USA%2C%20Australia).png",
+    "emoji": "🚀"
+  },
+  {
+    "id": "mario-kart-super-circuit",
+    "title": "Mario Kart: Super Circuit XXL",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/46320-mario-kart-super-circuit-xxl.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Mario%20Kart%20-%20Super%20Circuit%20(USA).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "advance-wars",
+    "title": "Advance Wars",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/29225-advance-wars-e-arrogance.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Advance%20Wars%20(USA%2C%20Australia).png",
+    "emoji": "🎖️"
+  },
+  {
+    "id": "advance-wars-2",
+    "title": "Advance Wars 2: Black Hole Rising",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/27948-advance-wars-2-black-hole-rising-e-surplus.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Advance%20Wars%202%20-%20Black%20Hole%20Rising%20(USA%2C%20Australia).png",
+    "emoji": "🎖️"
+  },
+  {
+    "id": "super-street-fighter-ii-gba",
+    "title": "Super Street Fighter II Turbo Revival",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/26858-super-street-fighter-ii-turbo-revival-u-nobody.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Super%20Street%20Fighter%20II%20Turbo%20Revival%20(USA).png",
+    "emoji": "⚡"
+  },
+  {
+    "id": "might-and-magic-clash-of-heroes",
+    "title": "Might & Magic - Clash of Heroes",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/39651-might-magic-clash-of-heroes-usa-en-fr-es.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Might%20%26%20Magic%20-%20Clash%20of%20Heroes%20(USA)%20(En%2CFr%2CEs).png",
+    "emoji": "🧩"
+  },
+  {
+    "id": "chrono-trigger-ds",
+    "title": "Chrono Trigger (DS Edition)",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/38194-chrono-trigger-usa-en-fr.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Chrono%20Trigger%20(USA)%20(En%2CFr).png",
+    "emoji": "⏳"
+  },
+  {
+    "id": "radiant-historia",
+    "title": "Radiant Historia",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/45033-radiant-historia-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Radiant%20Historia%20(USA).png",
+    "emoji": "⏳"
+  },
+  {
+    "id": "final-fantasy-tactics-a2",
+    "title": "Final Fantasy Tactics A2: Grimoire of the Rift",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/37523-final-fantasy-tactics-a2-grimoire-of-the-rift-usa-en-fr-es.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Final%20Fantasy%20Tactics%20A2%20-%20Grimoire%20of%20the%20Rift%20(USA)%20(En%2CFr%2CEs).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "castlevania-dawn-of-sorrow",
+    "title": "Castlevania: Dawn of Sorrow",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/35260-castlevania-dawn-of-sorrow-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Castlevania%20-%20Dawn%20of%20Sorrow%20(USA).png",
+    "emoji": "🦇"
+  },
+  {
+    "id": "castlevania-order-of-ecclesia",
+    "title": "Castlevania: Order of Ecclesia",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/37948-castlevania-order-of-ecclesia-usa-en-fr.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Castlevania%20-%20Order%20of%20Ecclesia%20(USA)%20(En%2CFr).png",
+    "emoji": "🦇"
+  },
+  {
+    "id": "pokemon-platinum",
+    "title": "Pokemon - Platinum Version",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/43044-pokemon-platinum-version-usa-rev-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Pokemon%20-%20Platinum%20Version%20(USA).png",
+    "emoji": "⚡"
+  },
+  {
+    "id": "pokemon-heartgold",
+    "title": "Pokemon - HeartGold Version",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/39307-pocket-monsters-heartgold-japan.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Pokemon%20-%20HeartGold%20Version%20(USA).png",
+    "emoji": "⚡"
+  },
+  {
+    "id": "dragon-quest-ix",
+    "title": "Dragon Quest IX: Sentinels of the Starry Skies",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/43135-dragon-quest-ix-sentinels-of-the-starry-skies-usa-en-fr-es.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Dragon%20Quest%20IX%20-%20Sentinels%20of%20the%20Starry%20Skies%20(USA)%20(En%2CFr%2CEs).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "dragon-quest-v",
+    "title": "Dragon Quest V: Hand of the Heavenly Bride",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/38563-dragon-quest-v-hand-of-the-heavenly-bride-usa-en-fr-es.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Dragon%20Quest%20V%20-%20Hand%20of%20the%20Heavenly%20Bride%20(USA)%20(En%2CFr%2CEs).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "golden-sun-dark-dawn",
+    "title": "Golden Sun: Dark Dawn",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/43571-golden-sun-dark-dawn-usa-en-es.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Golden%20Sun%20-%20Dark%20Dawn%20(USA)%20(En%2CEs).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "phoenix-wright",
+    "title": "Phoenix Wright: Ace Attorney",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/35266-phoenix-wright-ace-attorney-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Phoenix%20Wright%20-%20Ace%20Attorney%20(USA).png",
+    "emoji": "⚖️"
+  },
+  {
+    "id": "mario-kart-ds",
+    "title": "New Mario Kart DS",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/46291-new-mario-kart-ds.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Mario%20Kart%20DS%20(USA).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "advance-wars-dual-strike",
+    "title": "Advance Wars: Dual Strike",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/35227-advance-wars-dual-strike-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Advance%20Wars%20-%20Dual%20Strike%20(USA).png",
+    "emoji": "🎖️"
+  },
+  {
+    "id": "advance-wars-days-of-ruin",
+    "title": "Advance Wars: Days of Ruin",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/37103-advance-wars-days-of-ruin-usa-en-fr-es.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Advance%20Wars%20-%20Days%20of%20Ruin%20(USA)%20(En%2CFr%2CEs).png",
+    "emoji": "🎖️"
+  },
+  {
+    "id": "chrono-trigger-snes",
+    "title": "Chrono Trigger",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/22857-chrono-trigger-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Chrono%20Trigger%20(USA).png",
+    "emoji": "⏳"
+  },
+  {
+    "id": "final-fantasy-iii-snes",
+    "title": "Final Fantasy III (VI)",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/24569-final-fantasy-iii-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Final%20Fantasy%20III%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "super-mario-world",
+    "title": "Super Mario World",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/44986-super-mario-world.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Mario%20World%20(USA).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "super-metroid",
+    "title": "Super Metroid",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/24192-super-metroid-europe-en-fr-de.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Metroid%20(Japan%2C%20USA)%20(En%2CJa).png",
+    "emoji": "🚀"
+  },
+  {
+    "id": "earthbound",
+    "title": "EarthBound",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/24789-earthbound-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/EarthBound%20(USA).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "secret-of-mana",
+    "title": "Secret of Mana",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/16823-secret-of-mana-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Secret%20of%20Mana%20(USA).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "super-mario-rpg",
+    "title": "Super Mario RPG: Legend of the Seven Stars",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/45027-super-mario-rpg-enhanced.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Mario%20RPG%20-%20Legend%20of%20the%20Seven%20Stars%20(USA).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "zelda-link-to-the-past",
+    "title": "The Legend of Zelda: A Link to the Past",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/44785-the-legend-of-zelda-a-link-to-the-past-title-skip-and-full-hearts.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20A%20Link%20to%20the%20Past%20(USA).png",
+    "emoji": "🗡️"
+  },
+  {
+    "id": "mega-man-x",
+    "title": "Mega Man X",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/46388-mega-man-x-complete-edition.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Mega%20Man%20X%20(USA).png",
+    "emoji": "🤖"
+  },
+  {
+    "id": "yoshis-island",
+    "title": "Super Mario World 2: Yoshi's Island",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/44541-yoshis-island-no-crying-improved-sfx-and-red-coins.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Mario%20World%202%20-%20Yoshi%27s%20Island%20(USA).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "tmnt-turtles-in-time",
+    "title": "TMNT IV: Turtles in Time",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/24621-teenage-mutant-ninja-turtles-iv-turtles-in-time-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Teenage%20Mutant%20Ninja%20Turtles%20IV%20-%20Turtles%20in%20Time%20(USA).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "donkey-kong-country",
+    "title": "Donkey Kong Country",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/23005-donkey-kong-country-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Donkey%20Kong%20Country%20(USA).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "donkey-kong-country-2",
+    "title": "Donkey Kong Country 2: Diddy's Kong Quest",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/44701-donkey-kong-country-2-diddys-kong-quest-us-en-fr-ixkz-hack-v1-1-beta03.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Donkey%20Kong%20Country%202%20-%20Diddy%27s%20Kong%20Quest%20(USA)%20(En%2CFr).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "super-mario-all-stars",
+    "title": "Super Mario All-Stars Enhanced",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/46302-super-mario-all-stars-enhanced.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Super%20Mario%20All-Stars%20(USA).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "sonic-the-hedgehog",
+    "title": "Sonic The Hedgehog",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/30899-sonic-the-hedgehog-usa-europe.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%20(USA%2C%20Europe).png",
+    "emoji": "🦔"
+  },
+  {
+    "id": "sonic-the-hedgehog-2",
+    "title": "Sonic The Hedgehog 2",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/17236-sonic-the-hedgehog-2-world-rev-a.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20The%20Hedgehog%202%20(World).png",
+    "emoji": "🦔"
+  },
+  {
+    "id": "sonic-3-knuckles",
+    "title": "Sonic & Knuckles + Sonic 3",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/29209-sonic-knuckles-sonic-the-hedgehog-3-world.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20%26%20Knuckles%20(World).png",
+    "emoji": "🦔"
+  },
+  {
+    "id": "shining-force",
+    "title": "Shining Force",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/30304-shining-force-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shining%20Force%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "shining-force-ii",
+    "title": "Shining Force II",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/30156-shining-force-ii-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shining%20Force%20II%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "phantasy-star-iv",
+    "title": "Phantasy Star IV",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/28283-phantasy-star-iv-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Phantasy%20Star%20IV%20(USA).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "streets-of-rage-2",
+    "title": "Streets of Rage 2",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/28481-streets-of-rage-2-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%202%20(USA).png",
+    "emoji": "🥊"
+  },
+  {
+    "id": "gunstar-heroes",
+    "title": "Gunstar Heroes",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/28311-gunstar-heroes-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Gunstar%20Heroes%20(USA).png",
+    "emoji": "💥"
+  },
+  {
+    "id": "castlevania-bloodlines",
+    "title": "Castlevania: Bloodlines",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/30108-castlevania-bloodlines-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Castlevania%20-%20Bloodlines%20(USA).png",
+    "emoji": "🦇"
+  },
+  {
+    "id": "beyond-oasis",
+    "title": "Beyond Oasis",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/30357-beyond-oasis-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Beyond%20Oasis%20(USA).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "shinobi-iii",
+    "title": "Shinobi III: Return of the Ninja Master",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/30503-shinobi-iii-return-of-the-ninja-master-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shinobi%20III%20-%20Return%20of%20the%20Ninja%20Master%20(USA).png",
+    "emoji": "🥷"
+  },
+  {
+    "id": "golden-axe",
+    "title": "Golden Axe",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/16712-golden-axe-world.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Golden%20Axe%20(World).png",
+    "emoji": "🌀"
+  },
+  {
+    "id": "comix-zone",
+    "title": "Comix Zone",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/29773-comix-zone-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Comix%20Zone%20(USA).png",
+    "emoji": "🎨"
+  },
+  {
+    "id": "earthworm-jim",
+    "title": "Earthworm Jim",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/30211-earthworm-jim-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Earthworm%20Jim%20(USA).png",
+    "emoji": "🌀"
+  },
+  {
+    "id": "earthworm-jim-2",
+    "title": "Earthworm Jim 2",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/16973-earthworm-jim-2-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Earthworm%20Jim%202%20(USA).png",
+    "emoji": "🌀"
+  },
+  {
+    "id": "disney-aladdin",
+    "title": "Disney's Aladdin",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/16687-aladdin-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Disney%27s%20Aladdin%20(USA).png",
+    "emoji": "🌀"
+  },
+  {
+    "id": "road-rash-ii",
+    "title": "Road Rash II",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/30167-road-rash-ii-usa-europe-v1-2.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Road%20Rash%20II%20(USA%2C%20Europe).png",
+    "emoji": "🌀"
+  },
+  {
+    "id": "streets-of-rage-3",
+    "title": "Streets of Rage 3",
+    "system": "Sega Genesis",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/16812-streets-of-rage-3-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%203%20(USA).png",
+    "emoji": "🥊"
+  },
+  {
+    "id": "parasite-eve",
+    "title": "Parasite Eve",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/42438-parasite-eve.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Parasite%20Eve%20(USA).png",
+    "emoji": "🧬"
+  },
+  {
+    "id": "mega-man-battle-network-3",
+    "title": "Mega Man Battle Network 3 Blue",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/45318-mega-man-battle-network-3-blue-version-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Mega%20Man%20Battle%20Network%203%20-%20Blue%20Version%20(USA).png",
+    "emoji": "⚡"
+  },
+  {
+    "id": "pokemon-mystery-dungeon-sky",
+    "title": "Pokémon Mystery Dungeon: Explorers of Sky",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/34827-pokemon-mystery-dungeon-explorers-of-sky.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Pokemon%20Mystery%20Dungeon%20-%20Explorers%20of%20Sky%20(USA).png",
+    "emoji": "⚡"
+  },
+  {
+    "id": "the-world-ends-with-you",
+    "title": "The World Ends With You",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/35474-the-world-ends-with-you.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/The%20World%20Ends%20with%20You%20(USA).png",
+    "emoji": "🎧"
+  },
+  {
+    "id": "final-fantasy-viii",
+    "title": "Final Fantasy VIII (Disc 1)",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41793-final-fantasy-viii-disc-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20VIII%20(USA).png",
+    "emoji": "🗡️"
+  },
+  {
+    "id": "final-fantasy-ix",
+    "title": "Final Fantasy IX (Disc 1)",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41797-final-fantasy-ix-disc-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20IX%20(USA).png",
+    "emoji": "🎭"
+  },
+  {
+    "id": "suikoden",
+    "title": "Suikoden",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/42602-suikoden.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Suikoden%20(USA).png",
+    "emoji": "🏰"
+  },
+  {
+    "id": "front-mission-3",
+    "title": "Front Mission 3",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41819-front-mission-3.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Front%20Mission%203%20(USA).png",
+    "emoji": "🤖"
+  },
+  {
+    "id": "tactics-ogre-luct",
+    "title": "Tactics Ogre: Let Us Cling Together",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/42646-tactics-ogre-let-us-cling-together.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Tactics%20Ogre%20(USA).png",
+    "emoji": "🛡️"
+  },
+  {
+    "id": "grandia",
+    "title": "Grandia (Disc 1)",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41857-grandia-disc-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Grandia%20(USA)%20(Disc%201).png",
+    "emoji": "🧭"
+  },
+  {
+    "id": "star-ocean-2",
+    "title": "Star Ocean: The Second Story",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/42588-star-ocean-the-second-story-disc-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Star%20Ocean%20-%20The%20Second%20Story%20(USA)%20(Disc%201).png",
+    "emoji": "✨"
+  },
+  {
+    "id": "legend-of-dragoon",
+    "title": "The Legend of Dragoon (Disc 1)",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/42079-legend-of-dragoon-disc-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Legend%20of%20Dragoon%2C%20The%20(USA)%20(Disc%201).png",
+    "emoji": "🐉"
+  },
+  {
+    "id": "valkyrie-profile",
+    "title": "Valkyrie Profile",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/42777-valkyrie-profile-disc-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Valkyrie%20Profile%20(USA)%20(Disc%201).png",
+    "emoji": "🪶"
+  },
+  {
+    "id": "lunar-silver-star-story",
+    "title": "Lunar: Silver Star Story Complete",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/42137-lunar-silver-star-story-complete-disc-1.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Lunar%20-%20Silver%20Star%20Story%20Complete%20(USA)%20(Disc%201).png",
+    "emoji": "🌙"
+  },
+  {
+    "id": "wild-arms",
+    "title": "Wild Arms",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/42795-wild-arms.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Wild%20Arms%20(USA).png",
+    "emoji": "🤠"
+  },
+  {
+    "id": "alundra",
+    "title": "Alundra",
+    "system": "PlayStation 1",
+    "category": "PS1",
+    "src": "https://www.retrogames.cc/embed/41648-alundra.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Alundra%20(USA).png",
+    "emoji": "🗡️"
+  },
+  {
+    "id": "fire-emblem-sacred-stones",
+    "title": "Fire Emblem: The Sacred Stones",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/45070-fire-emblem-the-sacred-stones-usa-australia.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Fire%20Emblem%20-%20The%20Sacred%20Stones%20(USA%2C%20Australia).png",
+    "emoji": "🔥"
+  },
+  {
+    "id": "tactics-ogre-knight-of-lodis",
+    "title": "Tactics Ogre: The Knight of Lodis",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/45607-tactics-ogre-the-knight-of-lodis-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Tactics%20Ogre%20-%20The%20Knight%20of%20Lodis%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "zelda-minish-cap",
+    "title": "The Legend of Zelda: The Minish Cap",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/45674-legend-of-zelda-the-minish-cap-the-usa-europe.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Legend%20of%20Zelda%2C%20The%20-%20The%20Minish%20Cap%20(USA).png",
+    "emoji": "🗡️"
+  },
+  {
+    "id": "mario-luigi-superstar-saga",
+    "title": "Mario & Luigi: Superstar Saga",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/45289-mario-luigi-superstar-saga-usa-australia.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Mario%20_%20Luigi%20-%20Superstar%20Saga%20(USA).png",
+    "emoji": "🍄"
+  },
+  {
+    "id": "sword-of-mana",
+    "title": "Sword of Mana",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/45601-sword-of-mana-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Sword%20of%20Mana%20(USA%2C%20Australia).png",
+    "emoji": "🗡️"
+  },
+  {
+    "id": "final-fantasy-v-advance",
+    "title": "Final Fantasy V Advance",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/45069-final-fantasy-v-advance-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Final%20Fantasy%20V%20Advance%20(USA).png",
+    "emoji": "🔮"
+  },
+  {
+    "id": "castlevania-circle-of-the-moon",
+    "title": "Castlevania: Circle of the Moon",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/44937-castlevania-circle-of-the-moon-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Castlevania%20-%20Circle%20of%20the%20Moon%20(USA).png",
+    "emoji": "🌕"
+  },
+  {
+    "id": "castlevania-harmony-of-dissonance",
+    "title": "Castlevania: Harmony of Dissonance",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/44938-castlevania-harmony-of-dissonance-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Castlevania%20-%20Harmony%20of%20Dissonance%20(USA).png",
+    "emoji": "🦇"
+  },
+  {
+    "id": "mega-man-zero",
+    "title": "Mega Man Zero",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/45293-mega-man-zero-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Mega%20Man%20Zero%20(USA%2C%20Europe).png",
+    "emoji": "⚡"
+  },
+  {
+    "id": "sonic-advance",
+    "title": "Sonic Advance",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/45561-sonic-advance-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Sonic%20Advance%20(USA)%20(En%2CJa).png",
+    "emoji": "🦔"
+  },
+  {
+    "id": "kirby-the-amazing-mirror",
+    "title": "Kirby & The Amazing Mirror",
+    "system": "Game Boy Advance",
+    "category": "GBA",
+    "src": "https://www.retrogames.cc/embed/45230-kirby-the-amazing-mirror-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Kirby%20_%20The%20Amazing%20Mirror%20(USA).png",
+    "emoji": "⭐"
+  },
+  {
+    "id": "dragon-quest-iv",
+    "title": "Dragon Quest IV: Chapters of the Chosen",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/33999-dragon-quest-iv-chapters-of-the-chosen.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Dragon%20Quest%20IV%20-%20Chapters%20of%20the%20Chosen%20(USA)%20(En%2CFr%2CEs).png",
+    "emoji": "👑"
+  },
+  {
+    "id": "dragon-quest-vi",
+    "title": "Dragon Quest VI: Realms of Revelation",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/34001-dragon-quest-vi-realms-of-revelation.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Dragon%20Quest%20VI%20-%20Realms%20of%20Revelation%20(USA)%20(En%2CFr%2CEs).png",
+    "emoji": "🏰"
+  },
+  {
+    "id": "mario-luigi-bowsers-inside-story",
+    "title": "Mario & Luigi: Bowser's Inside Story",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/34399-mario-luigi-bowsers-inside-story.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Mario%20_%20Luigi%20-%20Bowser%27s%20Inside%20Story%20(USA)%20(En%2CFr%2CEs).png",
+    "emoji": "🐢"
+  },
+  {
+    "id": "mario-luigi-partners-in-time",
+    "title": "Mario & Luigi: Partners in Time",
+    "system": "Nintendo DS",
+    "category": "NDS",
+    "src": "https://www.retrogames.cc/embed/34400-mario-luigi-partners-in-time.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Mario%20_%20Luigi%20-%20Partners%20in%20Time%20(USA).png",
+    "emoji": "⏳"
+  },
+  {
+    "id": "terranigma",
+    "title": "Terranigma",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/28771-terranigma-europe.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Terranigma%20(Europe).png",
+    "emoji": "🌍"
+  },
+  {
+    "id": "secret-of-evermore",
+    "title": "Secret of Evermore",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/28620-secret-of-evermore.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Secret%20of%20Evermore%20(USA).png",
+    "emoji": "🐕"
+  },
+  {
+    "id": "lufia-ii",
+    "title": "Lufia II: Rise of the Sinistrals",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/28410-lufia-ii-rise-of-the-sinistrals.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Lufia%20II%20-%20Rise%20of%20the%20Sinistrals%20(USA).png",
+    "emoji": "💎"
+  },
+  {
+    "id": "ogre-battle-motbq",
+    "title": "Ogre Battle: The March of the Black Queen",
+    "system": "Super Nintendo",
+    "category": "SNES",
+    "src": "https://www.retrogames.cc/embed/45398-ogre-battle-the-march-of-the-black-queen-usa.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Super_Nintendo_Entertainment_System/master/Named_Boxarts/Ogre%20Battle%20-%20The%20March%20of%20the%20Black%20Queen%20(USA).png",
+    "emoji": "👑"
+  },
+  {
+    "id": "crusader-of-centy",
+    "title": "Crusader of Centy",
+    "system": "Sega Genesis",
+    "category": "GENESIS",
+    "src": "https://www.retrogames.cc/embed/16607-crusader-of-centy.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Crusader%20of%20Centy%20(USA).png",
+    "emoji": "⚔️"
+  },
+  {
+    "id": "landstalker",
+    "title": "Landstalker: The Treasures of King Nole",
+    "system": "Sega Genesis",
+    "category": "GENESIS",
+    "src": "https://www.retrogames.cc/embed/16900-landstalker-the-treasures-of-king-nole.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Landstalker%20(USA).png",
+    "emoji": "🗺️"
+  },
+  {
+    "id": "shining-in-the-darkness",
+    "title": "Shining in the Darkness",
+    "system": "Sega Genesis",
+    "category": "GENESIS",
+    "src": "https://www.retrogames.cc/embed/17335-shining-in-the-darkness.html",
+    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shining%20in%20the%20Darkness%20(USA%2C%20Europe).png",
+    "emoji": "🕯️"
+  }
+];
 
     const STORAGE_KEY = "retro_vault_games_v2";
     const FAVS_KEY = "retro_vault_favs_v2";
@@ -3079,6 +3303,74 @@
 
     // Authentic Instruction Manuals & Story Lore
     const GAME_MANUALS = {
+      "final-fantasy-viii": {
+        year: "1999", pub: "Square", dev: "Square Product Development Division 1", genre: "Cinematic JRPG",
+        story: "In a world where military academies called Gardens train elite young mercenaries known as SeeD, Squall Leonhart endures rigorous discipline at Balamb Garden.\n\nWhen the enigmatic Sorceress Edea seizes diplomatic control of the Galbadian Empire, Squall and fellow SeeD operatives Rinoa Heartilly, Zell, and Quistis are hired by resistance fighters to halt her conquest. Across dreams of a soldier named Laguna Loire and temporal paradoxes, they battle to stop Time Compression."
+      },
+      "final-fantasy-ix": {
+        year: "2000", pub: "Square", dev: "Square", genre: "High Fantasy JRPG",
+        story: "In the misty realm of Gaia, the theater troupe Tantalus plots a daring theatrical kidnapping of Princess Garnet Til Alexandros XVII of Alexandria. To their surprise, Garnet longs to escape herself.\n\nTail-bearing thief Zidane Tribal, timid black mage Vivi Ornitier, loyal knight Adelbert Steiner, and Garnet uncover Queen Brahne's warmongering ambitions orchestrated by the shadowy arms dealer Kuja, threatening the Crystal of Life itself."
+      },
+      "suikoden": {
+        year: "1995", pub: "Konami", dev: "Konami Computer Entertainment Tokyo", genre: "Tactical JRPG",
+        story: "Tir McDohl, the youthful son of Great General Teo McDohl of the Scarlet Moon Empire, witnesses firsthand the cruelty and decadence corrupting Emperor Barbarossa's court.\n\nForced into rebellion after inheriting the cursed Soul Eater True Rune, Tir joins the nascent Toran Liberation Army, recruits the 108 Stars of Destiny, establishes a fortress on Lake Toran, and wages war against his own father."
+      },
+      "front-mission-3": {
+        year: "1999", pub: "Square", dev: "Square Product Development Division 6", genre: "Tactical Mecha RPG",
+        story: "In the year 2112, Wanzer test pilot Kazuki Takemura and his reckless buddy Ryogo Kusama are swept into a covert military conspiracy following a catastrophic test explosion at the Yokosuka military base involving the experimental WMD 'M.I.D.A.S.'.\n\nDepending on an early decision, players branch into either the USN/Emma or DHZ/Alisa campaigns, fighting tactical grid battles across Southeast Asia, China, and Japan."
+      },
+      "tactics-ogre-luct": {
+        year: "1995", pub: "Quest / Atlus", dev: "Quest Corporation (Yasumi Matsuno)", genre: "Grand Tactical RPG",
+        story: "In the Valerian Isles, eighty years of peace crumble following King Roderick's demise. The Bakram, Gargastan, and Walister ethnic factions plunge the archipelago into vicious ethnic civil war.\n\nDenam Pavel, his sister Catiua, and childhood comrade Vyce lead a Walister guerrilla resistance, facing agonizing moral choices across Law, Chaos, and Neutral branching paths where your allegiance dictates history."
+      },
+      "grandia": {
+        year: "1997", pub: "ESP Software", dev: "Game Arts", genre: "Adventure JRPG",
+        story: "Justin, an adventurous and cheerful boy from the port town of Parm, dreams of exploring unknown lands just like his late father. When he and childhood friend Sue discover a mysterious ancient holographic entity inside the Sult Ruins, they are urged to seek the truth of Angelou civilization.\n\nLeaving home behind, Justin journeys across the End of the World sea wall alongside Feena, opposing General Baal's military forces."
+      },
+      "star-ocean-2": {
+        year: "1998", pub: "Enix", dev: "tri-Ace", genre: "Sci-Fi Action RPG",
+        story: "Ensign Claude C. Kenny of the Pangalactic Federation is accidentally teleported across the cosmos to the underdeveloped fantasy world of Expel after investigating a mysterious extraterrestrial console.\n\nMistaken for the legendary 'Hero of Light' bearing the Sword of Light, Claude joins local maiden Rena Lanford on a pilgrimage to uncover the Sorcery Globe meteor threatening the planet."
+      },
+      "legend-of-dragoon": {
+        year: "1999", pub: "Sony Computer Entertainment", dev: "Japan Studio", genre: "Cinematic Turn-Based RPG",
+        story: "Returning home to Seles after five years of searching for the Black Monster, swordsman Dart finds his village burned to ash and his childhood sweetheart Shana abducted by the Imperial Sandora army.\n\nDart sets out on rescue, awakening the blazing Red-Eyed Dragoon Spirit within himself and joining the ancient Dragoon Knights to thwart Emperor Doel and the god of destruction."
+      },
+      "valkyrie-profile": {
+        year: "1999", pub: "Enix", dev: "tri-Ace", genre: "Norse Mythology Action RPG",
+        story: "Lenneth Valkyrie is awakened by the All-Father Odin as Ragnarok draws near. Dispatched to the mortal realm of Midgard, she must harvest the souls of fallen warriors (Einherjar) to fight alongside the Aesir against the Vanir.\n\nFeaturing stunning Norse mythology lore, poetic tragedy, and dynamic four-button team juggles in real-time combat."
+      },
+      "wild-arms": {
+        year: "1996", pub: "Sony Computer Entertainment", dev: "Media.Vision", genre: "Wild West Fantasy RPG",
+        story: "On the desert planet of Filgaia, three mismatched travelers cross paths in the ancient ruins: Rudy Roughknight, an orphan who wields the forbidden firearm technology ARMs; Jack Van Burace, a wandering treasure hunter accompanied by his psychic mouse Hanpan; and Cecilia Lynne Adlehyde, a crest sorceress from Curan Abbey.\n\nTogether, they awaken the elemental Guardians to combat the ancient Metal Demon invasion."
+      },
+      "fire-emblem-sacred-stones": {
+        year: "2004", pub: "Nintendo", dev: "Intelligent Systems", genre: "Tactical Turn-Based RPG",
+        story: "On the continent of Magvel, centuries of peace guaranteed by the five Sacred Stones are shattered when the Grado Empire unexpectedly launches a blitzkrieg assault on its historical ally Renais.\n\nTwin royal heirs Princess Eirika and Prince Ephraim take up arms to defend their homeland and discover the dark corruption afflicting their close friend, Prince Lyon of Grado."
+      },
+      "tactics-ogre-knight-of-lodis": {
+        year: "2001", pub: "Nintendo / Atlus", dev: "Quest Corporation", genre: "Tactical Isometric RPG",
+        story: "Alphonse Loeher, an idealistic young knight of the Holy Lodis Empire's Order of the Sacred Flame, is stationed on the volcanic island of Ovis during local unrest.\n\nAs ancient Mermaids, corrupt lords, and dark inquisitors clash, Alphonse uncovers the destiny that will transform him into the legendary figure Lans Tartare."
+      },
+      "zelda-minish-cap": {
+        year: "2004", pub: "Nintendo", dev: "Capcom / Flagship", genre: "Action Adventure",
+        story: "During Hyrule's Centennial Picori Festival, the dark sorcerer Vaati petrifies Princess Zelda into stone and shatters the sacred Picori Blade. Link sets out into the Minish Woods, where he rescues Ezlo, an eccentric talking cap who grants him the ability to shrink down to the size of a bug."
+      },
+      "terranigma": {
+        year: "1995", pub: "Enix", dev: "Quintet", genre: "Action RPG Masterpiece",
+        story: "In the subterranean village of Crysta inside Hollow Earth, mischievous youth Ark accidentally opens Pandora's Box, freezing all villagers solid. Guided by the Elder, Ark embarks on a divine quest to resurrect the surface world: first raising continents, then reviving plants, birds, animals, and ultimately humankind."
+      },
+      "lufia-ii": {
+        year: "1995", pub: "Taito / Natsume", dev: "Neverland", genre: "Dungeon Puzzle JRPG",
+        story: "Maxim, an accomplished monster hunter from the village of Elcid, investigates mysterious seismic disturbances that herald the descent of the four god-like Sinistrals: Gades, Amon, Erim, and Daos.\n\nRenowned for its ingenious Zelda-style room puzzles and the legendary 99-floor procedural Ancient Cave dungeon."
+      },
+      "crusader-of-centy": {
+        year: "1994", pub: "Sega", dev: "Nextech", genre: "Action Adventure RPG",
+        story: "On his 14th birthday, Corona receives his late father's broadsword and heads into town to train. But a curse causes him to lose his ability to speak with humans—instead, he can converse with animals and monsters, befriending animal companions with unique combat powers while discovering the moral tragedy of war."
+      },
+      "alundra": {
+        year: "1997", pub: "Psygnosis / Working Designs", dev: "Matrix Software", genre: "Action Adventure RPG",
+        story: "Alundra, an elven dreamwalker from the clan of Elna, is ship-wrecked upon the cursed village of Inoa. The villagers are plagued by terrifying nightmares orchestrated by the sinister demon Melzas.\n\nAlundra dives directly into the sleeping minds of villagers to solve intricate environmental puzzles and slay internal nightmares."
+      },
       "vandal-hearts": {
         year: "1997", pub: "Konami", dev: "Konami Computer Entertainment Tokyo", genre: "Tactical Turn-Based RPG",
         story: "The once-glorious Continent of Somerhausen was ripped apart by a bloody rebellion against the despotic Holy Ashah Dynasty fifteen years ago. In the fragile peace that followed, corrupt Chancellor Dolf and the Ministry of Security seized supreme power.\n\nAsh Lambert, a courageous captain in the Ishtarian Security Force and the son of a disgraced traitor, is dispatched with his trusted companions Diego and Clint to investigate the vanishing of General Leeg. Unbeknownst to them, their expedition will uncover the ancient, bloodthirsty legacy of the Vandal Hearts sword and ignite a war that threatens to consume the mortal realm."
@@ -3115,6 +3407,54 @@
 
     // Preloaded Secrets & Strategy Guide
     const GAME_TIPS = {
+      "final-fantasy-viii": {
+        secrets: "• Triple Triad Power: Play cards in Balamb Garden early and use Quezacotl's 'Card Mod' ability to turn cards into 100 Tornados/Quakes for invincible early HP/Str junctions!\n• Limit Break Trigger: Press R1/Enter right as Squall slashes during Renzokuken for guaranteed critical hits.\n• Zell's Loop: Chain 'Booya' and 'Heel Drop' continuously during Duel for infinite damage."
+      },
+      "final-fantasy-ix": {
+        secrets: "• Chocobo Hot & Cold: Upgrade Choco to Golden Chocobo early to dig up the ultimate weapons, including Zidane's Ultima Weapon in Shimmering Island ocean bubbles!\n• Shadow Absorb: Equip Shadow-absorbing gear on your party and cast Vivi's Doomsday for full team heals + 9999 enemy damage.\n• Excalibur II: Reach Memoria in under 12 hours."
+      },
+      "suikoden": {
+        secrets: "• Save Gremio: You MUST recruit all 108 Stars of Destiny before visiting floating Shasarazade castle! If you do, Leknaat will resurrect Gremio at the end.\n• Prosperity Rune: Farm early Sirens in Mt. Seifu for the Fortune Rune and double gold.\n• Master Clive: Clive can be found in the inn at Rockland early in the game."
+      },
+      "front-mission-3": {
+        secrets: "• Secret Battle Simulator: Access the secret in-game network site 'wam-bb' with password 'KOBAYASHI' to unlock high-tier prototype Wanzers.\n• Part Salvage: Use Eject Punch or Roar weapon skill to force enemy pilots out and capture pristine high-tier mechas.\n• Network Passwords: Read all emails carefully—embedded hidden URLs reveal experimental weapon blueprints."
+      },
+      "tactics-ogre-luct": {
+        secrets: "• Deneb the Witch: Buy 255 Glass Pumpkins from the secret shop and visit Deneb's boutique to recruit the secret witch Deneb with exclusive spells.\n• Archer Superiority: Equip Canopus with a composite bow—aerial elevation drastically increases arrow range beyond grid limits!\n• Training Mode: Put two friendly squads against each other in Training for risk-free, unlimited level and skill grinding."
+      },
+      "grandia": {
+        secrets: "• Skill Level Grinding: Repeatedly let characters take minor trap damage in dungeons and cast Heal with Feena and Justin to max out Water magic in minutes!\n• Critical Counter: Time 'Critical' attacks right when an enemy's turn counter reaches 'ACT' to completely cancel their offensive spell.\n• Mana Eggs: Thoroughly search every dungeon corner; there are 18 total Mana Eggs to unlock all magic schools."
+      },
+      "star-ocean-2": {
+        secrets: "• Orchestra & Item Creation: Learn all 8 instruments, play Orchestra, and perform Item Creation for guaranteed 100% success rate on ultimate gear!\n• Claude's Eternal Sphere: Forge Deadly Edge with Mithril using Customization in Lacuer to get Claude's ultimate weapon on Disc 1.\n• Limiter Off: In the final save point, access the Fun City arena to fight the true form of Gabriel."
+      },
+      "legend-of-dragoon": {
+        secrets: "• Addition Rhythm: Watch the blue hit marker shrink—press X exactly as the square matches the center for full multi-hit Additions.\n• Phantom Shield: Defeat the secret boss Magician Faust in the Tower of Flanvel for the Phantom Shield (reduces all damage by 50%).\n• Stardust: Collect all 50 Stardust across the world to obtain the Vanishing Stone."
+      },
+      "valkyrie-profile": {
+        secrets: "• Hard Mode is Essential: Play on Hard Mode! It unlocks extra dungeons, all sacred relics, and the post-game Seraphic Gate with Freya.\n• Seal Rating: Send only 1-2 Einherjar per chapter and remove the Nibelung Ring to drop Seal Rating below 35 for the legendary Ending A.\n• Celestial Slash: Chain Arngrim's Final Blast into Lenneth's Nibelung Valesti for max hit multipliers."
+      },
+      "fire-emblem-sacred-stones": {
+        secrets: "• Super Trainees: Level Ross, Amelia, and Ewan to level 10 Trainee, then promote them to Level 10 again for god-tier stat growth!\n• Tower of Valni: Infinite exp and gold grinding can be done anytime between story chapters without penalty.\n• Secret Characters: Complete Tower of Valni multiple times to unlock Lyon, Joshua's mother Ismaire, and Selena Fluorspar."
+      },
+      "tactics-ogre-knight-of-lodis": {
+        secrets: "• War God Emblem: Slay 5 enemies in a single battle with a melee unit to gain +30 STR boost.\n• Centurion Emblem: Defeat 100 enemies with a single unit for permanent +20 Agility.\n• Snapdragon Spell: Turn an allied unit into a sentient, all-powerful legendary sword with inherited stats."
+      },
+      "zelda-minish-cap": {
+        secrets: "• Mirror Shield: Complete the Goron Kinstone quest to awaken Biggoron on Veil Falls, then feed him your Small Shield after beating Vaati.\n• Tiger Scrolls: Visit Master Swiftblade in Hyrule Town with different tools to learn all 8 secret sword techniques, including Great Spin Attack.\n• Red & Blue Rings: Fuse Kinstones with the Forest Minish to double your attack power and defense."
+      },
+      "terranigma": {
+        secrets: "• Bloody Mary Strategy: Keep distance, use the Wind Slicer magic, and dash-attack right when her protective mirrors orbit outwards.\n• Town Expansion: Invest gold and mail letters between the inventors in Loire, Goldforest, and Suncoast to evolve medieval towns into modern metropolises!\n• Hero Pike: Check the secret waterfall cave in Tibet for the strongest piercing spear in the game."
+      },
+      "lufia-ii": {
+        secrets: "• The Ancient Cave: A 99-floor procedural dungeon where you start at Level 1 with no gear! Blue Chest items can be brought back to the surface.\n• Iris Treasures: Collect all 10 Iris items on floors 80-99 of Ancient Cave to prove mastery to the Master of the Cave.\n• Decoris: Feed your Capsule Monsters unwanted weapons and armor to trigger their 4th Master evolution form."
+      },
+      "crusader-of-centy": {
+        secrets: "• Animal Combos: Equip Diel (Cheetah) + Choux (Armadillo) for lightning-fast ricocheting sword throws!\n• Leviathan: Befriend the sea serpent Leviathan by solving the underwater palace riddle to gain the ultimate jump glide.\n• Sound Test: Stand in front of the fountain in Soleil and swing your sword 100 times to unlock the hidden music room."
+      },
+      "alundra": {
+        secrets: "• Secret Holy Sword: Collect all 50 Gilded Falcons hidden in nightmares across Inoa to trade with King Snow for the legendary Holy Sword.\n• Spirit Wand: Charge your magic attacks to unleash screen-clearing elemental summons that damage bosses even during immunity frames.\n• Nava's Charm: Visit the beach cabin south of Inoa to obtain water-breathing and damage reduction."
+      },
       "vandal-hearts": {
         secrets: "• Secret Vandalier Class: Collect all 6 Key items across Chapters 1-5 and pass the 6 trials in Dojo to unlock Ash's legendary Vandalier class.\n• Secret Chests: Cast spell on tile (X:3, Y:8) in Church Ruins for Mage Gem.\n• Combat Synergy: Hawknights decimate enemy spellcasters, but keep them far away from Archers!"
       },
@@ -3377,20 +3717,11 @@
       try {
         const stored = localStorage.getItem(STORAGE_KEY);
         if (stored) {
-          games = JSON.parse(stored);
-          DEFAULT_GAMES.forEach(defaultGame => {
-            if (!games.some(g => g.id === defaultGame.id || g.src === defaultGame.src)) {
-              games.push(defaultGame);
-            }
-          });
-          // Update missing covers/emojis
-          games.forEach(g => {
-            const def = DEFAULT_GAMES.find(dg => dg.id === g.id || dg.src === g.src);
-            if (def) {
-              if (!g.cover && def.cover) g.cover = def.cover;
-              if (!g.emoji) g.emoji = def.emoji;
-            }
-          });
+          const parsed = JSON.parse(stored);
+          const defaultIds = new Set(DEFAULT_GAMES.map(dg => dg.id));
+          // Preserve any custom games user added through "+ Add Game" modal
+          const userCustom = parsed.filter(g => !defaultIds.has(g.id) && !DEFAULT_GAMES.some(dg => dg.src === g.src));
+          games = [...DEFAULT_GAMES, ...userCustom];
           saveGames();
         } else {
           games = [...DEFAULT_GAMES];
@@ -4252,6 +4583,10 @@
         favorites: [...favorites],
         recentGames: recentGames,
         playStats: playStats,
+        highScores: typeof highScores !== "undefined" ? highScores : [],
+        unlockedTrophies: typeof unlockedTrophies !== "undefined" ? [...unlockedTrophies] : [],
+        customNotes: typeof customNotes !== "undefined" ? customNotes : {},
+        playTimes: typeof playTimes !== "undefined" ? playTimes : {},
         games: games
       };
       const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" });
@@ -4804,7 +5139,7 @@
       </div>
       <div class="modal-body">
         <p style="font-size:0.88rem; color:var(--text-muted);">
-          Unlock arcade milestones as you explore, play, and master the 100 retro classics!
+          Unlock arcade milestones as you explore, play, and master the 125 retro classics!
         </p>
         <div class="trophy-grid" id="trophyGrid">
           <!-- Dynamically populated -->
