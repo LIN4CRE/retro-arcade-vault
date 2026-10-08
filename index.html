@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Retro Vault">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0b0e17">
   <title>Retro Arcade Vault | 125 Curated Retro Classics</title>
   
   <!-- Open Graph & Meta -->
@@ -75,6 +80,208 @@
     }
     ::-webkit-scrollbar-thumb:hover {
       background: var(--accent-neon);
+    }
+
+    
+    /* ==========================================================
+       UNIVERSAL FULLSCREEN & IMMERSIVE PLAY MODE
+       ========================================================== */
+    body.fullscreen-active {
+      overflow: hidden !important;
+      position: fixed !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+    }
+
+    body.fullscreen-active header,
+    body.fullscreen-active .sidebar,
+    body.fullscreen-active .sidebar-backdrop,
+    body.fullscreen-active .stage-bar,
+    body.fullscreen-active .screen-footer,
+    body.fullscreen-active .ambient-glow,
+    body.fullscreen-active .orientation-toast,
+    body.fullscreen-active .mobile-float-fs-btn {
+      display: none !important;
+    }
+
+    body.fullscreen-active .app-container {
+      grid-template-columns: 1fr !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    body.fullscreen-active main.stage {
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: 100vw !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: #000 !important;
+    }
+
+    body.fullscreen-active .screen-wrapper {
+      position: fixed !important;
+      inset: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      z-index: 999990 !important;
+      background: #000 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    body.fullscreen-active .screen-container {
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      max-height: none !important;
+      max-width: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      background: #000 !important;
+    }
+
+    body.fullscreen-active .game-iframe {
+      width: 100% !important;
+      height: 100% !important;
+      border: none !important;
+    }
+
+    /* Native Fullscreen Pseudo-classes */
+    .screen-container:fullscreen,
+    .screen-container:-webkit-full-screen,
+    .screen-container:-moz-full-screen {
+      width: 100vw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      max-height: none !important;
+      max-width: none !important;
+      border: none !important;
+      border-radius: 0 !important;
+      background: #000 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    .screen-container:fullscreen .game-iframe,
+    .screen-container:-webkit-full-screen .game-iframe,
+    .screen-container:-moz-full-screen .game-iframe {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* Floating Exit Fullscreen Button */
+    .fullscreen-exit-btn {
+      display: none;
+      position: fixed;
+      top: 14px;
+      right: 18px;
+      z-index: 999999;
+      background: rgba(15, 18, 29, 0.88);
+      border: 1px solid var(--accent-neon);
+      color: var(--accent-neon);
+      box-shadow: var(--glow-neon), 0 4px 20px rgba(0, 0, 0, 0.85);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      align-items: center;
+      gap: 6px;
+      user-select: none;
+      transition: opacity 0.4s ease, transform 0.2s ease;
+      touch-action: manipulation;
+    }
+    .fullscreen-exit-btn:hover,
+    .fullscreen-exit-btn:active {
+      background: var(--accent-neon);
+      color: #0b0e17;
+      transform: scale(1.05);
+    }
+    .fullscreen-exit-btn.dimmed {
+      opacity: 0.2;
+    }
+    body.fullscreen-active .fullscreen-exit-btn {
+      display: inline-flex;
+    }
+
+    /* Mobile Floating Quick Fullscreen Button */
+    .mobile-float-fs-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+      background: rgba(15, 18, 29, 0.78);
+      border: 1px solid rgba(0, 255, 204, 0.5);
+      color: var(--accent-neon);
+      border-radius: 20px;
+      padding: 6px 12px;
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 0.76rem;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s;
+      user-select: none;
+      touch-action: manipulation;
+    }
+    .mobile-float-fs-btn:hover,
+    .mobile-float-fs-btn:active {
+      background: var(--accent-neon);
+      color: #0b0e17;
+      border-color: #fff;
+      box-shadow: 0 0 15px var(--accent-neon);
+    }
+
+    /* Orientation Toast */
+    .orientation-toast {
+      position: fixed;
+      bottom: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(19, 23, 38, 0.94);
+      border: 1px solid var(--accent-neon);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
+      z-index: 500;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      backdrop-filter: blur(8px);
+      white-space: nowrap;
+    }
+    .orientation-toast-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 0 4px;
+    }
+    .orientation-toast-close:hover {
+      color: #fff;
     }
 
     /* Top Navigation Header */
@@ -231,22 +438,312 @@
       min-height: calc(100vh - 65px);
     }
 
-    @media (max-width: 1040px) {
+    /* ==========================================================
+       MOBILE RESPONSIVENESS & OFF-CANVAS DRAWER (TABLETS & PHONES)
+       ========================================================== */
+    @media (max-width: 1024px) {
       .app-container {
         grid-template-columns: 1fr;
+        position: relative;
       }
+
       .mobile-menu-btn {
         display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(0, 255, 204, 0.12);
+        border: 1px solid var(--accent-neon);
+        color: var(--accent-neon);
+        font-family: 'Rajdhani', sans-serif;
+        font-size: 0.86rem;
+        font-weight: 700;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        touch-action: manipulation;
+        transition: all 0.2s;
+        box-shadow: 0 0 10px rgba(0, 255, 204, 0.15);
       }
+      .mobile-menu-btn:hover,
+      .mobile-menu-btn:active {
+        background: var(--accent-neon);
+        color: #0b0e17;
+      }
+
+      /* Slide-out Off-Canvas Drawer */
       aside.sidebar {
-        display: none;
-        height: auto;
-        position: static;
-        border-right: none;
-        border-bottom: 2px solid var(--border-color);
-      }
-      aside.sidebar.mobile-open {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: min(360px, 86vw);
+        height: 100vh;
+        height: 100dvh;
+        z-index: 1050;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         display: flex !important;
+        box-shadow: none;
+        border-right: 2px solid var(--border-color);
+        background: #0d111d;
+        overflow-y: hidden;
+      }
+
+      aside.sidebar.mobile-open {
+        transform: translateX(0);
+        box-shadow: 12px 0 50px rgba(0, 0, 0, 0.88);
+      }
+
+      .sidebar-drawer-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 16px;
+        border-bottom: 1px solid var(--border-color);
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .sidebar-drawer-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: var(--text-main);
+      }
+      .sidebar-drawer-badge {
+        font-size: 0.72rem;
+        background: rgba(0, 255, 204, 0.15);
+        color: var(--accent-neon);
+        padding: 2px 7px;
+        border-radius: 10px;
+        border: 1px solid var(--accent-neon);
+      }
+      .sidebar-drawer-close {
+        background: transparent;
+        border: none;
+        color: var(--text-muted);
+        font-size: 1.6rem;
+        cursor: pointer;
+        line-height: 1;
+        padding: 4px 8px;
+        border-radius: 6px;
+        transition: all 0.2s;
+        touch-action: manipulation;
+      }
+      .sidebar-drawer-close:hover {
+        color: var(--accent-pink);
+        background: rgba(255, 42, 133, 0.12);
+      }
+
+      .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.75);
+        backdrop-filter: blur(4px);
+        z-index: 1040;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+      .sidebar-backdrop.active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      body.sidebar-drawer-open {
+        overflow: hidden;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .sidebar-drawer-header {
+        display: none !important;
+      }
+      .sidebar-backdrop {
+        display: none !important;
+      }
+    }
+
+    /* Small Mobile Phones (<= 768px) */
+    @media (max-width: 768px) {
+      header {
+        padding: 8px 12px;
+        gap: 8px;
+      }
+
+      .brand {
+        gap: 8px;
+      }
+
+      .brand-title {
+        font-size: 0.78rem;
+        letter-spacing: -0.5px;
+      }
+
+      .brand-icon {
+        font-size: 1.35rem;
+      }
+
+      .brand-version {
+        display: none; /* Hide version to preserve space */
+      }
+
+      .gamepad-badge {
+        display: none; /* Accessible in Controls modal */
+      }
+
+      /* Horizontal scrolling track for header tools */
+      .header-actions {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 6px;
+        padding-bottom: 2px;
+      }
+      .header-actions::-webkit-scrollbar {
+        display: none;
+      }
+
+      .btn {
+        padding: 6px 11px;
+        font-size: 0.76rem;
+        white-space: nowrap;
+        flex-shrink: 0;
+        touch-action: manipulation;
+      }
+
+      main.stage {
+        padding: 8px 8px 16px 8px;
+        gap: 8px;
+      }
+
+      .stage-bar {
+        padding: 8px 10px;
+        gap: 8px;
+      }
+
+      .stage-title-wrap {
+        gap: 8px;
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .stage-cover-preview {
+        width: 36px;
+        height: 44px;
+        flex-shrink: 0;
+      }
+
+      .stage-game-title {
+        font-size: 1.05rem;
+        max-width: calc(100vw - 120px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* Horizontal scrolling track for stage controls */
+      .stage-controls {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 6px;
+        padding-bottom: 2px;
+      }
+      .stage-controls::-webkit-scrollbar {
+        display: none;
+      }
+
+      .screen-container {
+        border-width: 2px;
+        border-radius: 8px;
+      }
+
+      .screen-footer {
+        padding: 4px 6px;
+        font-size: 0.76rem;
+      }
+
+      .footer-help {
+        display: none; /* Hide desktop keyboard keys (F11, Shift+F2) on mobile */
+      }
+
+      .ad-tip {
+        font-size: 0.72rem;
+        justify-content: center;
+        width: 100%;
+      }
+
+      /* Native-Feeling Bottom Sheet Modals */
+      .modal-backdrop {
+        padding: 0;
+        align-items: flex-end;
+      }
+      .modal {
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: 88vh !important;
+        max-height: 88dvh !important;
+        border-radius: 16px 16px 0 0 !important;
+        margin: 0 !important;
+        display: flex;
+        flex-direction: column;
+      }
+      .modal-header {
+        padding: 12px 16px;
+      }
+      .modal-title {
+        font-size: 0.72rem;
+      }
+      .modal-body {
+        padding: 14px 16px;
+        max-height: calc(88dvh - 58px) !important;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .drawer-tabs {
+        gap: 4px;
+      }
+      .drawer-tab {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Mobile Landscape Optimization (Phone rotated sideways) */
+    @media (max-height: 520px) and (orientation: landscape) {
+      header {
+        padding: 4px 10px;
+      }
+      .brand-title {
+        font-size: 0.72rem;
+      }
+      main.stage {
+        padding: 4px 6px;
+        gap: 4px;
+      }
+      .stage-bar {
+        padding: 4px 8px;
+      }
+      .stage-cover-preview {
+        display: none;
+      }
+      .stage-game-title {
+        font-size: 0.95rem;
+      }
+      .screen-container {
+        max-height: calc(100dvh - 80px) !important;
+      }
+      .screen-footer {
+        display: none !important;
+      }
+      .ambient-glow {
+        display: none;
       }
     }
 
@@ -1702,6 +2199,7 @@
 </head>
 <body>
   <button class="theater-exit-btn" id="exitTheaterBtn">✕ Exit Theater</button>
+  <button class="fullscreen-exit-btn" id="exitFullscreenBtn" title="Exit Fullscreen (Esc)">✕ Exit Fullscreen</button>
   
   <!-- Floating Trophy Toast Container -->
   <div class="trophy-toast-container" id="trophyToastContainer"></div>
@@ -1717,7 +2215,7 @@
   <!-- Top Navigation Header -->
   <header>
     <div class="brand">
-      <button class="mobile-menu-btn" id="mobileMenuToggle" title="Toggle Library Sidebar">☰ Library</button>
+      <button class="mobile-menu-btn" id="mobileMenuToggle" title="Open Game Library"><span>☰</span> <span>Games</span></button>
       <span class="brand-icon">🕹️</span>
       <span class="brand-title">RETRO ARCADE VAULT</span>
       <span class="brand-version">v3.5 Special Edition</span>
@@ -1780,6 +2278,13 @@
   <div class="app-container">
     <!-- Left Sidebar: Game Library -->
     <aside class="sidebar" id="sidebar">
+      <div class="sidebar-drawer-header">
+        <div class="sidebar-drawer-title">
+          <span>🎮 GAME VAULT</span>
+          <span class="sidebar-drawer-badge" id="drawerGameCount">125 Titles</span>
+        </div>
+        <button class="sidebar-drawer-close" id="sidebarCloseBtn" title="Close Library">&times;</button>
+      </div>
       <div class="sidebar-header">
         <div class="search-box">
           <span class="search-icon">🔍</span>
@@ -1831,6 +2336,7 @@
         <!-- Rendered dynamically by JS -->
       </div>
     </aside>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
     <!-- Main Game Theater Screen -->
     <main class="stage">
@@ -1886,6 +2392,7 @@
       <!-- Arcade Screen Frame with Dynamic Bias Halo -->
       <div class="screen-wrapper">
         <div class="ambient-glow" id="ambientGlow"></div>
+        <button class="mobile-float-fs-btn" id="mobileFloatFsBtn" title="Toggle Fullscreen (F11)">⛶ Fullscreen</button>
         <div class="screen-container" id="screenContainer">
           <div class="crt-overlay"></div>
           <div class="crt-glow"></div>
@@ -1918,6 +2425,11 @@
         </div>
       </div>
     </main>
+  </div>
+
+  <div class="orientation-toast" id="orientationToast">
+    <span>📱 <b>Tip:</b> Rotate phone for full arcade view!</span>
+    <button class="orientation-toast-close" id="closeOrientationToast">&times;</button>
   </div>
 
   <!-- Controls Reference Modal -->
@@ -4731,9 +5243,10 @@
           const id = item.getAttribute("data-id");
           playSfx('select');
           selectGame(id);
-          // Auto close mobile sidebar
-          if (window.innerWidth <= 1040) {
-            sidebarEl.classList.remove("mobile-open");
+          // Auto close mobile sidebar and scroll smoothly to game
+          if (window.innerWidth <= 1024) {
+            closeMobileSidebar();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
           }
         }
       });
@@ -4767,10 +5280,60 @@
       randomGameBtn.addEventListener("click", pickRandomGame);
       randomGameBtn2.addEventListener("click", pickRandomGame);
 
-      // Mobile Menu Toggle
-      mobileMenuToggle.addEventListener("click", () => {
-        sidebarEl.classList.toggle("mobile-open");
-      });
+      // Mobile Slide-Over Sidebar Drawer
+      const sidebarBackdrop = document.getElementById("sidebarBackdrop");
+      const sidebarCloseBtn = document.getElementById("sidebarCloseBtn");
+
+      function openMobileSidebar() {
+        sidebarEl.classList.add("mobile-open");
+        if (sidebarBackdrop) sidebarBackdrop.classList.add("active");
+        document.body.classList.add("sidebar-drawer-open");
+        playSfx('click');
+      }
+
+      function closeMobileSidebar() {
+        sidebarEl.classList.remove("mobile-open");
+        if (sidebarBackdrop) sidebarBackdrop.classList.remove("active");
+        document.body.classList.remove("sidebar-drawer-open");
+      }
+
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener("click", () => {
+          if (sidebarEl.classList.contains("mobile-open")) {
+            closeMobileSidebar();
+          } else {
+            openMobileSidebar();
+          }
+        });
+      }
+
+      if (sidebarCloseBtn) sidebarCloseBtn.addEventListener("click", closeMobileSidebar);
+      if (sidebarBackdrop) sidebarBackdrop.addEventListener("click", closeMobileSidebar);
+
+      // Orientation Toast Logic
+      const orientationToast = document.getElementById("orientationToast");
+      const closeOrientationToast = document.getElementById("closeOrientationToast");
+      function checkOrientation() {
+        if (!orientationToast) return;
+        const isMobile = window.innerWidth <= 768;
+        const isPortrait = window.innerHeight > window.innerWidth;
+        const dismissed = sessionStorage.getItem("orientation_toast_dismissed");
+        if (isMobile && isPortrait && !dismissed && !document.body.classList.contains("fullscreen-active")) {
+          orientationToast.style.display = "flex";
+        } else {
+          orientationToast.style.display = "none";
+        }
+      }
+      window.addEventListener("resize", checkOrientation);
+      window.addEventListener("orientationchange", checkOrientation);
+      setTimeout(checkOrientation, 1500);
+
+      if (closeOrientationToast) {
+        closeOrientationToast.addEventListener("click", () => {
+          if (orientationToast) orientationToast.style.display = "none";
+          sessionStorage.setItem("orientation_toast_dismissed", "1");
+        });
+      }
 
       // Controls Reference Modal
       openControlsModalBtn.addEventListener("click", () => {
@@ -5028,17 +5591,112 @@
         }
       });
 
-      // Fullscreen Mode
-      fullscreenBtn.addEventListener("click", () => {
+      // Universal Fullscreen & Mobile Immersive Engine
+      const exitFullscreenBtn = document.getElementById("exitFullscreenBtn");
+      const mobileFloatFsBtn = document.getElementById("mobileFloatFsBtn");
+      let fsFadeTimeout = null;
+
+      function toggleFullscreen(force) {
+        const isCurrentlyActive = document.body.classList.contains("fullscreen-active");
+        const shouldEnter = force !== undefined ? force : !isCurrentlyActive;
         playSfx('click');
-        if (!document.fullscreenElement) {
-          screenContainer.requestFullscreen().catch(err => {
-            console.error("Fullscreen request failed:", err);
-          });
+
+        if (shouldEnter) {
+          document.body.classList.add("fullscreen-active");
+          if (fullscreenBtn) fullscreenBtn.innerHTML = "⛶ Exit Fullscreen";
+
+          // 1. Try Native Element Fullscreen with all vendor prefixes
+          const elem = screenContainer || document.documentElement;
+          const req = elem.requestFullscreen || elem.webkitRequestFullscreen || elem.mozRequestFullScreen || elem.msRequestFullscreen;
+          if (req) {
+            try {
+              req.call(elem).catch(() => {
+                // Silently fallback to our robust CSS fullscreen mode
+              });
+            } catch (e) {}
+          }
+
+          // 2. Try Screen Orientation Lock for mobile devices
+          if (screen.orientation && screen.orientation.lock) {
+            try { screen.orientation.lock('landscape').catch(() => {}); } catch (e) {}
+          }
+
+          // 3. Auto-focus emulator iframe
+          try { gameFrameEl.focus(); } catch (e) {}
+
+          // Auto-dim exit button after 3.5 seconds
+          resetFsFade();
         } else {
-          document.exitFullscreen();
+          document.body.classList.remove("fullscreen-active");
+          if (fullscreenBtn) fullscreenBtn.innerHTML = "⛶ Fullscreen";
+
+          // Exit Native Fullscreen if active
+          if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement) {
+            const exit = document.exitFullscreen || document.webkitExitFullscreen || document.mozCancelFullScreen || document.msExitFullscreen;
+            if (exit) {
+              try { exit.call(document).catch(() => {}); } catch (e) {}
+            }
+          }
+
+          if (screen.orientation && screen.orientation.unlock) {
+            try { screen.orientation.unlock(); } catch (e) {}
+          }
+          if (fsFadeTimeout) clearTimeout(fsFadeTimeout);
+        }
+      }
+
+      function resetFsFade() {
+        if (!exitFullscreenBtn) return;
+        exitFullscreenBtn.classList.remove("dimmed");
+        if (fsFadeTimeout) clearTimeout(fsFadeTimeout);
+        if (document.body.classList.contains("fullscreen-active")) {
+          fsFadeTimeout = setTimeout(() => {
+            exitFullscreenBtn.classList.add("dimmed");
+          }, 3500);
+        }
+      }
+
+      window.addEventListener("mousemove", resetFsFade, { passive: true });
+      window.addEventListener("touchstart", resetFsFade, { passive: true });
+
+      if (fullscreenBtn) fullscreenBtn.addEventListener("click", () => toggleFullscreen());
+      if (exitFullscreenBtn) exitFullscreenBtn.addEventListener("click", () => toggleFullscreen(false));
+      if (mobileFloatFsBtn) mobileFloatFsBtn.addEventListener("click", () => toggleFullscreen(true));
+
+      // Synchronize native browser fullscreen changes
+      document.addEventListener("fullscreenchange", () => {
+        if (!document.fullscreenElement && document.body.classList.contains("fullscreen-active")) {
+          toggleFullscreen(false);
         }
       });
+      document.addEventListener("webkitfullscreenchange", () => {
+        if (!document.webkitFullscreenElement && document.body.classList.contains("fullscreen-active")) {
+          toggleFullscreen(false);
+        }
+      });
+
+      // Intercept F11 for true game fullscreen
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "F11") {
+          e.preventDefault();
+          toggleFullscreen();
+        }
+      });
+
+      // Mobile Touchscreen helper: Double tap on bezel to toggle fullscreen
+      let lastBezelTap = 0;
+      screenContainer.addEventListener("touchend", (e) => {
+        const now = Date.now();
+        if (now - lastBezelTap < 320) {
+          toggleFullscreen();
+        }
+        lastBezelTap = now;
+      }, { passive: true });
+
+      // Focus helper for mobile touch
+      screenContainer.addEventListener("touchstart", () => {
+        try { gameFrameEl.focus(); } catch (err) {}
+      }, { passive: true });
 
       // Focus helper so controls always route directly to emulator
       screenContainer.addEventListener("click", () => {
@@ -5050,6 +5708,7 @@
         if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
 
         if (e.key === "Escape") {
+          if (document.body.classList.contains("fullscreen-active")) toggleFullscreen(false);
           if (isTheaterMode) toggleTheater(false);
           if (controlsModal.classList.contains("open")) closeControlsModal();
           if (addModal.classList.contains("open")) closeAddModal();
