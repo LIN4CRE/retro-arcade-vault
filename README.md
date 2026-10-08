@@ -25,7 +25,7 @@ Zero installation required. Zero dependencies. Completely self-contained in a si
 ## ✨ Features & Upgrades
 
 ### 🌟 Vault v3.5 Special Edition Features
-- **🎮 Expanded 125-Game Masterpiece Vault**: 100% verified, deduplicated library featuring legendary tactical RPGs, timeless JRPGs, and iconic action platformers.
+- **📱 Universal Fullscreen & Mobile Immersive Mode**: Seamless full-viewport edge-to-edge gaming across mobile (iOS Safari, Android Chrome) and desktop (with <kbd>F11</kbd> hotkey and floating auto-dimming exit button).\n- **📱 Off-Canvas Slide-Over Mobile Library**: Touch-optimized sidebar drawer with dark blur backdrop that automatically dismisses upon game selection.\n- **📱 Mobile Bottom-Sheet Dialogs & Scroll Tracks**: Compact single-row swipeable controls, safe area insets, double-tap bezel fullscreen, and orientation helper.\n- **🎮 Expanded 125-Game Masterpiece Vault**: 100% verified, deduplicated library featuring legendary tactical RPGs, timeless JRPGs, and iconic action platformers.
 - **📖 Game Compendium & Instruction Manuals**: Dedicated 3-tab drawer containing official retro instruction manuals, release metadata, lore synopses, pro secrets, and an auto-saved personal logbook.
 - **🎵 Arcade Sound Test Mode**: Full 10-pad procedural 8-bit/16-bit soundboard (*Insert Coin*, *1-Up*, *Power-Up*, *Laser*, *8-Bit Boom*, *Secret Chime*, *Stage Clear*, *Game Over*, *Pause*, *Warp*) with keyboard hotkeys <kbd>1</kbd>-<kbd>0</kbd>.
 - **🏅 High Score & Personal Best Hall of Fame**: Log your legendary speedruns, high scores, and milestones with 3-letter arcade initials, dates, and medal ranks.
