@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Retro Arcade Vault | 87+ Curated Retro Classics</title>
+  <title>Retro Arcade Vault | 100 Curated Retro Classics</title>
   
   <!-- Open Graph & Meta -->
   <meta name="description" content="Instant browser-based retro gaming hub for PS1, GBA, NDS, SNES, and Sega Genesis with Gamepad support, CRT filters, and box artwork.">
-  <meta property="og:title" content="Retro Arcade Vault | 87+ Curated Retro Classics">
+  <meta property="og:title" content="Retro Arcade Vault | 100 Curated Retro Classics">
   <meta property="og:description" content="Instant browser-based retro gaming hub for PS1, GBA, NDS, SNES, and Sega Genesis with Gamepad support, CRT filters, and box artwork.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lin4cre.github.io/retro-arcade-vault/">
@@ -1219,10 +1219,273 @@
       gap: 4px;
     }
 
+
+    /* === VAULT V3.0 ULTIMATE FEATURES === */
+
+    /* Live Session Stopwatch Badge */
+    .session-timer-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid var(--border-color);
+      padding: 3px 10px;
+      border-radius: 14px;
+      font-size: 0.76rem;
+      font-family: monospace;
+      color: var(--accent-neon);
+      margin-left: 8px;
+    }
+    .timer-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-neon);
+      animation: timerPulse 1.2s infinite;
+    }
+    @keyframes timerPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.8); }
+    }
+
+    /* Playtime Badge on Game Cards */
+    .game-time-badge {
+      font-size: 0.68rem;
+      color: #93c5fd;
+      background: rgba(59, 130, 246, 0.12);
+      border: 1px solid rgba(59, 130, 246, 0.25);
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-left: 4px;
+    }
+
+    /* Retro TV Bezel Frame */
+    .screen-container.bezel-mode {
+      border: 12px solid #1c1d24;
+      border-radius: 28px;
+      box-shadow: 
+        inset 0 0 45px rgba(0, 0, 0, 0.95),
+        0 14px 45px rgba(0, 0, 0, 0.9),
+        0 0 0 3px #323545;
+    }
+    .screen-container.bezel-mode::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.85);
+      pointer-events: none;
+      z-index: 7;
+    }
+
+    /* Floating Trophy Achievement Toast */
+    .trophy-toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 300;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      pointer-events: none;
+    }
+    .trophy-toast {
+      background: rgba(19, 23, 38, 0.95);
+      border: 2px solid var(--accent-yellow);
+      box-shadow: 0 0 25px rgba(255, 208, 0, 0.45);
+      border-radius: 10px;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      transform: translateX(120%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(10px);
+      pointer-events: auto;
+      max-width: 340px;
+    }
+    .trophy-toast.show {
+      transform: translateX(0);
+    }
+    .trophy-toast-icon {
+      font-size: 1.8rem;
+      filter: drop-shadow(0 0 8px var(--accent-yellow));
+    }
+    .trophy-toast-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--accent-yellow);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .trophy-toast-desc {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* Trophy Modal Grid */
+    .trophy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .trophy-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: all 0.2s;
+    }
+    .trophy-card.unlocked {
+      border-color: var(--accent-yellow);
+      background: rgba(255, 208, 0, 0.08);
+      box-shadow: 0 0 12px rgba(255, 208, 0, 0.15);
+    }
+    .trophy-icon {
+      font-size: 1.8rem;
+      opacity: 0.35;
+      filter: grayscale(1);
+    }
+    .trophy-card.unlocked .trophy-icon {
+      opacity: 1;
+      filter: drop-shadow(0 0 6px var(--accent-yellow));
+    }
+    .trophy-info {
+      flex: 1;
+    }
+    .trophy-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .trophy-card.unlocked .trophy-name {
+      color: var(--accent-yellow);
+    }
+    .trophy-desc {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .trophy-status {
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      display: inline-block;
+      margin-top: 4px;
+    }
+    .trophy-card.unlocked .trophy-status {
+      background: rgba(255, 208, 0, 0.2);
+      color: var(--accent-yellow);
+    }
+
+    /* Game Strategy Notes Drawer */
+    .notes-drawer-body {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .preloaded-tips-box {
+      background: rgba(0, 255, 204, 0.05);
+      border: 1px solid rgba(0, 255, 204, 0.25);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.84rem;
+      color: #bbf7d0;
+      line-height: 1.5;
+      white-space: pre-line;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .notes-textarea {
+      width: 100%;
+      min-height: 140px;
+      background: var(--bg-base);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px;
+      color: var(--text-main);
+      font-family: inherit;
+      font-size: 0.9rem;
+      resize: vertical;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .notes-textarea:focus {
+      border-color: var(--accent-neon);
+      box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+    }
+
+    /* Attract Mode / Screensaver */
+    .attract-screensaver {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, #131726 0%, #05070d 100%);
+      z-index: 500;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+      cursor: pointer;
+    }
+    .attract-screensaver.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .attract-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 1.6rem;
+      color: var(--accent-neon);
+      text-shadow: 0 0 20px var(--accent-neon);
+      text-align: center;
+      animation: attractBlink 1.5s infinite alternate;
+    }
+    .attract-sub {
+      font-size: 1.1rem;
+      color: var(--accent-pink);
+      letter-spacing: 2px;
+      font-weight: 700;
+    }
+    .attract-prompt {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.85rem;
+      color: var(--accent-yellow);
+      animation: attractBlink 0.8s infinite alternate;
+      margin-top: 15px;
+    }
+    @keyframes attractBlink {
+      from { opacity: 0.4; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
   </style>
 </head>
 <body>
   <button class="theater-exit-btn" id="exitTheaterBtn">✕ Exit Theater</button>
+  
+  <!-- Floating Trophy Toast Container -->
+  <div class="trophy-toast-container" id="trophyToastContainer"></div>
+
+  <!-- Idle Attract Mode / Screensaver -->
+  <div class="attract-screensaver" id="attractScreensaver">
+    <div style="font-size:3.5rem;">🕹️</div>
+    <div class="attract-title">RETRO ARCADE VAULT</div>
+    <div class="attract-sub">100 MASTERPIECES READY TO PLAY</div>
+    <div class="attract-prompt">► PRESS ANY KEY OR CLICK TO RESUME ◄</div>
+  </div>
 
   <!-- Top Navigation Header -->
   <header>
@@ -1230,7 +1493,7 @@
       <button class="mobile-menu-btn" id="mobileMenuToggle" title="Toggle Library Sidebar">☰ Library</button>
       <span class="brand-icon">🕹️</span>
       <span class="brand-title">RETRO ARCADE VAULT</span>
-      <span class="brand-version">v2.0</span>
+      <span class="brand-version">v3.0 Ultimate</span>
     </div>
 
     <div class="header-actions">
@@ -1256,6 +1519,15 @@
       </button>
 
       <!-- CRT Shader -->
+      <button class="btn btn-outline" id="toggleBgmBtn" title="Toggle Procedural 8-Bit / Synthwave Arcade Radio">
+        📻 BGM: <span id="bgmLabel" style="color:var(--text-muted)">OFF</span>
+      </button>
+
+      <!-- Trophy Achievements -->
+      <button class="btn btn-outline" id="openTrophiesBtn" title="View Arcade Trophies & Milestones">
+        🏆 Trophies: <span id="trophyBadgeCount" style="color:var(--accent-yellow)">0/12</span>
+      </button>
+
       <button class="btn btn-outline" id="toggleFilterBtn" title="Cycle Display Filters (Clean HD, CRT Arcade, Trinitron Glow, Handheld LCD)">
         📺 Filter: <span id="filterLabel" style="color:var(--accent-neon)">Clean HD</span>
       </button>
@@ -1274,7 +1546,7 @@
       <div class="sidebar-header">
         <div class="search-box">
           <span class="search-icon">🔍</span>
-          <input type="text" id="searchInput" class="search-input" placeholder="Search 87+ games...">
+          <input type="text" id="searchInput" class="search-input" placeholder="Search 100 games...">
           <button class="clear-search-btn" id="clearSearchBtn" title="Clear Search">&times;</button>
         </div>
 
@@ -1296,6 +1568,7 @@
             <option value="za">🔤 Title: Z → A</option>
             <option value="platform">🕹️ System / Platform</option>
             <option value="most-played">🔥 Most Played</option>
+            <option value="most-time">⏱️ Most Time Played</option>
             <option value="recent">🕒 Recently Played</option>
           </select>
           <button id="exportBtn" class="tool-icon-btn" title="Backup Library & Favorites to JSON">💾 Backup</button>
@@ -1329,7 +1602,13 @@
           <img id="currentCover" class="stage-cover-preview" src="" alt="Game Box Art" style="display:none;">
           <span id="currentEmoji" style="font-size: 1.4rem;">⚔️</span>
           <div>
-            <h2 class="stage-game-title" id="currentTitle">Vandal Hearts</h2>
+            <div style="display:flex; align-items:center;">
+              <h2 class="stage-game-title" id="currentTitle">Vandal Hearts</h2>
+              <div class="session-timer-badge" id="sessionTimerBadge" title="Current play session duration">
+                <span class="timer-dot"></span>
+                <span id="sessionTimerDisplay">00:00</span>
+              </div>
+            </div>
             <div style="display:flex; align-items:center; gap:8px; margin-top:3px;">
               <span class="stage-tag" id="currentPlatform">PlayStation 1</span>
               <button class="stage-star-btn" id="stageStarBtn" title="Toggle Favorite">
@@ -1348,6 +1627,12 @@
           </button>
           <button class="btn btn-outline" id="reloadGameBtn" title="Restart Game">
             🔄 Restart
+          </button>
+          <button class="btn btn-outline" id="toggleBezelBtn" title="Toggle CRT Television Bezel Frame">
+            📺 Bezel: <span id="bezelLabel">Flat</span>
+          </button>
+          <button class="btn btn-outline" id="openNotesBtn" title="Strategy Tips, Cheats & Passwords">
+            📝 Cheats & Notes
           </button>
           <button class="btn btn-outline" id="theaterBtn" title="Cinema / Theater Focus Mode">
             🎭 Theater
@@ -2375,7 +2660,125 @@
             "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Streets%20of%20Rage%203%20(USA).png",
             "emoji": "🥊"
       }
-];
+,
+      {
+        "id": "suikoden-ii",
+        "title": "Suikoden II",
+        "system": "PlayStation 1",
+        "category": "PS1",
+        "src": "https://www.retrogames.cc/embed/42600-suikoden-ii.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Suikoden%20II%20(USA).png",
+        "emoji": "⚔️"
+},
+      {
+        "id": "castlevania-sotn",
+        "title": "Castlevania: Symphony of the Night",
+        "system": "PlayStation 1",
+        "category": "PS1",
+        "src": "https://www.retrogames.cc/embed/41551-castlevania-symphony-of-the-night.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Castlevania%20-%20Symphony%20of%20the%20Night%20(USA).png",
+        "emoji": "🧛"
+},
+      {
+        "id": "xenogears",
+        "title": "Xenogears",
+        "system": "PlayStation 1",
+        "category": "PS1",
+        "src": "https://www.retrogames.cc/embed/43389-xenogears.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Xenogears%20(USA).png",
+        "emoji": "🤖"
+},
+      {
+        "id": "chrono-cross",
+        "title": "Chrono Cross",
+        "system": "PlayStation 1",
+        "category": "PS1",
+        "src": "https://www.retrogames.cc/embed/41595-chrono-cross.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Chrono%20Cross%20(USA).png",
+        "emoji": "⏳"
+},
+      {
+        "id": "parasite-eve",
+        "title": "Parasite Eve",
+        "system": "PlayStation 1",
+        "category": "PS1",
+        "src": "https://www.retrogames.cc/embed/42438-parasite-eve.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Parasite%20Eve%20(USA).png",
+        "emoji": "🧬"
+},
+      {
+        "id": "metal-gear-solid",
+        "title": "Metal Gear Solid",
+        "system": "PlayStation 1",
+        "category": "PS1",
+        "src": "https://www.retrogames.cc/embed/42220-metal-gear-solid.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Metal%20Gear%20Solid%20(USA).png",
+        "emoji": "📦"
+},
+      {
+        "id": "golden-sun-lost-age",
+        "title": "Golden Sun: The Lost Age",
+        "system": "Game Boy Advance",
+        "category": "GBA",
+        "src": "https://www.retrogames.cc/embed/45664-golden-sun-the-lost-age-usa-europe.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Golden%20Sun%20-%20The%20Lost%20Age%20(USA%2C%20Europe).png",
+        "emoji": "☀️"
+},
+      {
+        "id": "advance-wars-2",
+        "title": "Advance Wars 2: Black Hole Rising",
+        "system": "Game Boy Advance",
+        "category": "GBA",
+        "src": "https://www.retrogames.cc/embed/44585-advance-wars-2-black-hole-rising-usa.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Advance%20Wars%202%20-%20Black%20Hole%20Rising%20(USA).png",
+        "emoji": "🎖️"
+},
+      {
+        "id": "mega-man-battle-network-3",
+        "title": "Mega Man Battle Network 3 Blue",
+        "system": "Game Boy Advance",
+        "category": "GBA",
+        "src": "https://www.retrogames.cc/embed/45318-mega-man-battle-network-3-blue-version-usa.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Mega%20Man%20Battle%20Network%203%20-%20Blue%20Version%20(USA).png",
+        "emoji": "⚡"
+},
+      {
+        "id": "castlevania-aria-of-sorrow",
+        "title": "Castlevania: Aria of Sorrow",
+        "system": "Game Boy Advance",
+        "category": "GBA",
+        "src": "https://www.retrogames.cc/embed/44883-castlevania-aria-of-sorrow-usa.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Castlevania%20-%20Aria%20of%20Sorrow%20(USA).png",
+        "emoji": "🦇"
+},
+      {
+        "id": "pokemon-mystery-dungeon-sky",
+        "title": "Pokémon Mystery Dungeon: Explorers of Sky",
+        "system": "Nintendo DS",
+        "category": "NDS",
+        "src": "https://www.retrogames.cc/embed/34827-pokemon-mystery-dungeon-explorers-of-sky.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Pokemon%20Mystery%20Dungeon%20-%20Explorers%20of%20Sky%20(USA).png",
+        "emoji": "⚡"
+},
+      {
+        "id": "the-world-ends-with-you",
+        "title": "The World Ends With You",
+        "system": "Nintendo DS",
+        "category": "NDS",
+        "src": "https://www.retrogames.cc/embed/35474-the-world-ends-with-you.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/The%20World%20Ends%20with%20You%20(USA).png",
+        "emoji": "🎧"
+},
+      {
+        "id": "sonic-3-and-knuckles",
+        "title": "Sonic 3 & Knuckles",
+        "system": "Sega Genesis",
+        "category": "SEGA",
+        "src": "https://www.retrogames.cc/embed/17395-sonic-3-knuckles.html",
+        "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20%26%20Knuckles%20%2B%20Sonic%20The%20Hedgehog%203%20(Europe).png",
+        "emoji": "🦔"
+}
+    ];
 
     const STORAGE_KEY = "retro_vault_games_v2";
     const FAVS_KEY = "retro_vault_favs_v2";
@@ -2384,12 +2787,21 @@
     const FILTER_KEY = "retro_vault_filter_v2";
     const STATS_KEY = "retro_vault_stats_v2";
     const SORT_KEY = "retro_vault_sort_v2";
+    const NOTES_KEY = "retro_vault_notes_v3";
+    const TROPHIES_KEY = "retro_vault_trophies_v3";
+    const TIMES_KEY = "retro_vault_times_v3";
+    const BEZEL_KEY = "retro_vault_bezel_v3";
+    const BGM_KEY = "retro_vault_bgm_v3";
 
     // Application State
     let games = [];
     let favorites = new Set();
     let recentGames = [];
     let playStats = {}; // { [id]: count }
+    let playTimes = {}; // { [id]: totalSeconds }
+    let userNotes = {}; // { [id]: string }
+    let unlockedTrophies = new Set();
+    let isBezelEnabled = false;
     let activeGameId = null;
     let selectedCategory = "ALL";
     let selectedGenre = "ALL";
@@ -2400,8 +2812,19 @@
     let filterModes = ["Clean HD", "CRT Arcade", "CRT Trinitron Glow", "Handheld LCD Grid"];
     let filterClasses = ["filter-clean", "filter-crt", "filter-glow", "filter-lcd"];
     let currentFilterIdx = 0;
-    let currentRatioMode = "Auto"; // "Auto", "4:3", "3:2", "16:9"
+    let currentRatioMode = "Auto";
     const ratioModes = ["Auto", "4:3", "3:2", "16:9"];
+
+    // Stopwatch Session State
+    let sessionStartSec = 0;
+    let sessionTimerInterval = null;
+
+    // BGM Radio State
+    let bgmStations = ["OFF", "Synthwave", "8-Bit Quest", "Cyberpunk Arp"];
+    let currentBgmIdx = 0;
+    let bgmTimer = null;
+    let bgmAudioCtx = null;
+    let bgmGain = null;
 
     // Console Ambient Lighting Glow Colors
     const CONSOLE_THEMES = {
@@ -2411,6 +2834,54 @@
       "SNES": "rgba(234, 179, 8, 0.35)",     // Super Nintendo Gold / Violet
       "SEGA": "rgba(239, 68, 68, 0.45)"      // Sonic Genesis Blast Processing Red
     };
+
+
+    // Preloaded Secrets & Strategy Guide
+    const GAME_TIPS = {
+      "vandal-hearts": {
+        secrets: "• Secret Vandalier Class: Collect all 6 Key items across Chapters 1-5 and pass the 6 trials in Dojo to unlock Ash's legendary Vandalier class.\n• Secret Chests: Cast spell on tile (X:3, Y:8) in Church Ruins for Mage Gem.\n• Combat Synergy: Hawknights decimate enemy spellcasters, but keep them far away from Archers!"
+      },
+      "vandal-hearts-ii": {
+        secrets: "• Simultaneous Turn System: Enemies move at the same time you do! Anticipate enemy moves to land flanking strikes.\n• Hidden Weapons: Inspect tree stumps in early forest battles with Nicola to find rare Daggers.\n• True Ending: Complete all optional side quests before the final siege."
+      },
+      "final-fantasy-tactics": {
+        secrets: "• Recruit Cloud Strife: Complete the Goug Machine City sidequest with Mustadio to summon Cloud from FFVII!\n• Math Skill: Arithmetician combined with Black Mage Math skills casts screen-wiping instant Holy/Flare.\n• JP Trick: Repeatedly use 'Yell' / 'Accumulate' / 'Tailwind' on your own units during safe turns."
+      },
+      "breath-of-fire-iv-usa": {
+        secrets: "• Ultimate Kaiser Form: Combine Warrior + Shadow + Force genes for the ultimate Kaiser dragon form without losing control.\n• Master System: Apprentice Ryu under Rwolf early for AP regeneration, then switch to Bunyan for physical attack.\n• Combo Magic: Chain Sever + Fireblast to cast Gigaflare for massive area damage."
+      },
+      "pokemon-quetzal-alpha-0-6-9": {
+        secrets: "• Multi-Follower: Up to 6 Pokémon can walk behind you simultaneously in the overworld!\n• Starters: Choose from ALL generation starters (Gen 1 to Gen 9) in the intro house.\n• Shiny Odds: Quetzal features boosted Shiny rates (~1/100 in default settings).\n• Mega Evolution: Obtain Mega Bracelet in Mauville City."
+      },
+      "pokemon-hyper-emerald-v5-7-lost-artifacts": {
+        secrets: "• Z-Moves & Dynamax: Both are fully functional in battle!\n• Hidden Legends: Explore Meteor Falls back cave with Waterfall to encounter Ultra Beasts.\n• Stat Scope: The scientist in Rustboro City Pokémon Center provides a full IV/EV checker."
+      },
+      "suikoden-ii": {
+        secrets: "• 108 Stars of Destiny: Recruit all 108 stars before the Rockaxe Castle battle to unlock the True Good Ending and save Nanami!\n• Double Beat Rune: Farm White Tigers in North Sparrow Pass early for the broken Double Beat Rune.\n• Clive's Timed Quest: Clive's story concludes in Sajah Village if finished under 20 hours."
+      },
+      "castlevania-sotn": {
+        secrets: "• Inverted Castle: Equip Holy Glasses during the Richter Belmont fight and attack the glowing Green Orb above him to unlock the inverted castle!\n• Crissaegrim: Farm Schmoo flying enemies in the Inverted Library for the most powerful sword in the game.\n• Luck Mode: Name save file 'X-X!V\'\'Q' for 99 Luck start."
+      },
+      "sonic-3-and-knuckles": {
+        secrets: "• Hyper Sonic: Collect all 7 Chaos Emeralds, then collect all 7 Super Emeralds in the Hidden Palace for Hyper Sonic with double-jump screen flash!\n• Level Select: Up, Up, Down, Down, Up, Up, Up, Up on Title Screen."
+      }
+    };
+
+    // 12 Arcade Achievements Definition
+    const TROPHIES_CATALOG = [
+      { id: "COIN_DROP", name: "Insert Coin", icon: "🪙", desc: "Launch and play your first retro game." },
+      { id: "TACTICS_MASTER", name: "Master Strategist", icon: "⚔️", desc: "Play 3 different RPG & Tactics games." },
+      { id: "ALL_CONSOLES", name: "Console Hopper", icon: "🕹️", desc: "Play at least 1 game from all 5 consoles." },
+      { id: "SHADER_WIZARD", name: "CRT Enthusiast", icon: "📺", desc: "Cycle through all 4 retro display filter modes." },
+      { id: "COUCH_GAMER", name: "Gamepad Verified", icon: "🎮", desc: "Open the Controls modal with a connected gamepad." },
+      { id: "CHIPTUNE_DJ", name: "8-Bit Maestro", icon: "📻", desc: "Turn on the retro chiptune BGM radio player." },
+      { id: "NIGHT_OWL", name: "Late Night Gamer", icon: "🦉", desc: "Play a retro game between 10:00 PM and 5:00 AM." },
+      { id: "TIME_TRAVELER", name: "Retro Historian", icon: "⏳", desc: "Play a single game session for over 5 minutes." },
+      { id: "COLLECTOR", name: "Master Collector", icon: "⭐", desc: "Star 5 or more games as your favorites." },
+      { id: "SHUFFLE_LUCK", name: "Lucky Roll", icon: "🎲", desc: "Launch a random game with the Shuffle button." },
+      { id: "THEATER_BUFF", name: "Cinema Mode", icon: "🎭", desc: "Experience a retro game in Theater Focus Mode." },
+      { id: "SCRIBE", name: "Tactical Notes", icon: "📝", desc: "Save a custom note or cheat code for any game." }
+    ];
 
     // DOM Elements
     const gameListEl = document.getElementById("gameList");
@@ -2442,6 +2913,28 @@
     const exportBtn = document.getElementById("exportBtn");
     const importFileInput = document.getElementById("importFileInput");
     const reloadGameBtn = document.getElementById("reloadGameBtn");
+    const toggleBgmBtn = document.getElementById("toggleBgmBtn");
+    const bgmLabel = document.getElementById("bgmLabel");
+    const openTrophiesBtn = document.getElementById("openTrophiesBtn");
+    const trophyBadgeCount = document.getElementById("trophyBadgeCount");
+    const trophiesModal = document.getElementById("trophiesModal");
+    const closeTrophiesModalBtn = document.getElementById("closeTrophiesModalBtn");
+    const closeTrophiesModalBtn2 = document.getElementById("closeTrophiesModalBtn2");
+    const trophyGrid = document.getElementById("trophyGrid");
+    const trophiesModalCount = document.getElementById("trophiesModalCount");
+    const trophyToastContainer = document.getElementById("trophyToastContainer");
+    const toggleBezelBtn = document.getElementById("toggleBezelBtn");
+    const bezelLabel = document.getElementById("bezelLabel");
+    const openNotesBtn = document.getElementById("openNotesBtn");
+    const notesModal = document.getElementById("notesModal");
+    const closeNotesModalBtn = document.getElementById("closeNotesModalBtn");
+    const closeNotesModalBtn2 = document.getElementById("closeNotesModalBtn2");
+    const saveNotesBtn = document.getElementById("saveNotesBtn");
+    const notesGameTitle = document.getElementById("notesGameTitle");
+    const preloadedTipsBox = document.getElementById("preloadedTipsBox");
+    const gameNotesTextarea = document.getElementById("gameNotesTextarea");
+    const sessionTimerDisplay = document.getElementById("sessionTimerDisplay");
+    const attractScreensaver = document.getElementById("attractScreensaver");
     const fullscreenBtn = document.getElementById("fullscreenBtn");
     const stageStarBtn = document.getElementById("stageStarBtn");
     const ratioToggleBtn = document.getElementById("ratioToggleBtn");
@@ -2491,6 +2984,22 @@
           gain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
           osc.start(now);
           osc.stop(now + 0.07);
+        
+        } else if (type === 'fanfare') {
+          // 5-note victory fanfare (G4 - C5 - E5 - G5 - C6)
+          const notes = [392.00, 523.25, 659.25, 783.99, 1046.50];
+          notes.forEach((freq, idx) => {
+            const o = audioCtx.createOscillator();
+            const g = audioCtx.createGain();
+            o.connect(g);
+            g.connect(audioCtx.destination);
+            o.type = 'triangle';
+            o.frequency.setValueAtTime(freq, now + idx * 0.08);
+            g.gain.setValueAtTime(0.08, now + idx * 0.08);
+            g.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.12);
+            o.start(now + idx * 0.08);
+            o.stop(now + idx * 0.08 + 0.12);
+          });
         } else if (type === 'star') {
           // Retro 4-note arpeggio (C5 - E5 - G5 - C6)
           const notes = [523.25, 659.25, 783.99, 1046.50];
@@ -2745,6 +3254,8 @@
         filtered.sort((a, b) => (a.system || "").localeCompare(b.system || "") || a.title.localeCompare(b.title));
       } else if (sortMode === "most-played") {
         filtered.sort((a, b) => (playStats[b.id] || 0) - (playStats[a.id] || 0));
+      } else if (sortMode === "most-time") {
+        filtered.sort((a, b) => (playTimes[b.id] || 0) - (playTimes[a.id] || 0));
       } else if (sortMode === "recent" || selectedCategory === "RECENT") {
         filtered.sort((a, b) => recentGames.indexOf(a.id) - recentGames.indexOf(b.id));
       }
@@ -2770,6 +3281,8 @@
         const isActive = game.id === activeGameId;
         const isStarred = favorites.has(game.id);
         const count = playStats[game.id] || 0;
+        const totalSecs = playTimes[game.id] || 0;
+        const timeBadge = totalSecs > 59 ? '<span class="game-time-badge" title="Total playtime: ' + formatPlaytime(totalSecs) + '">⏱️ ' + formatPlaytime(totalSecs) + '</span>' : '';
         const playBadge = count > 0 ? '<span class="game-playcount" title="Played ' + count + ' times">🎮 ' + count + '</span>' : '';
         const coverHtml = game.cover ? 
           '<img class="game-thumb" src="' + escapeHtml(game.cover) + '" alt="' + escapeHtml(game.title) + '" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML=\'<span class=\\\'game-thumb-placeholder\\\'>' + (game.emoji || '🎮') + '</span>\'">' : 
@@ -2781,7 +3294,7 @@
               '<div class="game-title" title="' + escapeHtml(game.title) + '">' + escapeHtml(game.title) + '</div>' +
               '<div class="game-sub">' +
                 '<span class="game-platform">' + escapeHtml(game.system || 'Arcade') + '</span>' +
-                playBadge +
+                playBadge + timeBadge +
               '</div>' +
             '</div>' +
             '<button class="star-btn ' + (isStarred ? 'starred' : '') + '" data-star-id="' + game.id + '" title="' + (isStarred ? 'Remove from favorites' : 'Add to favorites') + '">★</button>' +
@@ -2872,6 +3385,7 @@
     }
 
     function pickRandomGame() {
+      unlockTrophy('SHUFFLE_LUCK');
       if (games.length === 0) return;
       playSfx('shuffle');
       const randomIdx = Math.floor(Math.random() * games.length);
@@ -2906,6 +3420,90 @@
     }
 
 
+
+    // Procedural Chiptune Radio Engine (Web Audio FM Synthesizer)
+    function setupBgmEngine() {
+      if (bgmAudioCtx) return;
+      try {
+        bgmAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        bgmGain = bgmAudioCtx.createGain();
+        bgmGain.gain.setValueAtTime(0.04, bgmAudioCtx.currentTime);
+        bgmGain.connect(bgmAudioCtx.destination);
+      } catch (e) {}
+    }
+
+    let bgmStep = 0;
+    const CHIPTUNE_CHORDS = {
+      1: [261.63, 329.63, 392.00, 523.25, 329.63, 392.00, 440.00, 523.25], // Synthwave C-Maj / A-min
+      2: [220.00, 261.63, 329.63, 440.00, 293.66, 349.23, 440.00, 523.25], // 8-Bit Quest A-min / D-min
+      3: [146.83, 220.00, 293.66, 369.99, 174.61, 261.63, 349.23, 440.00]  // Cyberpunk D-min / F-maj
+    };
+
+    function startBgmRadio() {
+      setupBgmEngine();
+      if (!bgmAudioCtx) return;
+      if (bgmAudioCtx.state === 'suspended') bgmAudioCtx.resume();
+      stopBgmRadio();
+
+      bgmTimer = setInterval(() => {
+        if (currentBgmIdx === 0 || !bgmAudioCtx) return;
+        const scale = CHIPTUNE_CHORDS[currentBgmIdx] || CHIPTUNE_CHORDS[1];
+        const freq = scale[bgmStep % scale.length];
+        const now = bgmAudioCtx.currentTime;
+
+        // Lead synth blip
+        const osc = bgmAudioCtx.createOscillator();
+        const noteGain = bgmAudioCtx.createGain();
+        osc.connect(noteGain);
+        noteGain.connect(bgmGain);
+        osc.type = currentBgmIdx === 2 ? 'square' : 'triangle';
+        osc.frequency.setValueAtTime(freq, now);
+        noteGain.gain.setValueAtTime(0.06, now);
+        noteGain.gain.exponentialRampToValueAtTime(0.001, now + 0.14);
+        osc.start(now);
+        osc.stop(now + 0.14);
+
+        // Subtle bass pulse every 4 steps
+        if (bgmStep % 4 === 0) {
+          const bass = bgmAudioCtx.createOscillator();
+          const bassGain = bgmAudioCtx.createGain();
+          bass.connect(bassGain);
+          bassGain.connect(bgmGain);
+          bass.type = 'sawtooth';
+          bass.frequency.setValueAtTime(freq / 4, now);
+          bassGain.gain.setValueAtTime(0.04, now);
+          bassGain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+          bass.start(now);
+          bass.stop(now + 0.28);
+        }
+
+        bgmStep++;
+      }, 160);
+    }
+
+    function stopBgmRadio() {
+      if (bgmTimer) {
+        clearInterval(bgmTimer);
+        bgmTimer = null;
+      }
+    }
+
+    function cycleBgmRadio() {
+      currentBgmIdx = (currentBgmIdx + 1) % bgmStations.length;
+      if (bgmLabel) {
+        bgmLabel.textContent = bgmStations[currentBgmIdx];
+        bgmLabel.style.color = currentBgmIdx > 0 ? "var(--accent-neon)" : "var(--text-muted)";
+      }
+      playSfx('click');
+      if (currentBgmIdx === 0) {
+        stopBgmRadio();
+      } else {
+        startBgmRadio();
+        unlockTrophy("CHIPTUNE_DJ");
+      }
+      try { localStorage.setItem(BGM_KEY, currentBgmIdx); } catch (e) {}
+    }
+
     // Multi-Shader Filter Management
     function applyFilter(idx) {
       currentFilterIdx = idx % filterModes.length;
@@ -2920,14 +3518,177 @@
     }
 
     function cycleFilter() {
+      unlockTrophy('SHADER_WIZARD');
       playSfx('click');
       applyFilter(currentFilterIdx + 1);
+    }
+
+
+    // Trophy Milestone Checker
+    function unlockTrophy(trophyId) {
+      if (unlockedTrophies.has(trophyId)) return;
+      const t = TROPHIES_CATALOG.find(item => item.id === trophyId);
+      if (!t) return;
+      unlockedTrophies.add(trophyId);
+      saveTrophies();
+      updateTrophiesBadge();
+      playSfx('fanfare');
+
+      // Show toast
+      if (trophyToastContainer) {
+        const toast = document.createElement("div");
+        toast.className = "trophy-toast";
+        toast.innerHTML = '<span class="trophy-toast-icon">' + t.icon + '</span><div><div class="trophy-toast-title">TROPHY UNLOCKED!</div><div class="trophy-toast-desc">' + escapeHtml(t.name) + '</div></div>';
+        trophyToastContainer.appendChild(toast);
+        setTimeout(() => toast.classList.add("show"), 50);
+        setTimeout(() => {
+          toast.classList.remove("show");
+          setTimeout(() => toast.remove(), 400);
+        }, 4000);
+      }
+    }
+
+    function updateTrophiesBadge() {
+      const count = unlockedTrophies.size;
+      if (trophyBadgeCount) trophyBadgeCount.textContent = count + "/12";
+      if (trophiesModalCount) trophiesModalCount.textContent = count;
+    }
+
+    function renderTrophiesModal() {
+      if (!trophyGrid) return;
+      trophyGrid.innerHTML = TROPHIES_CATALOG.map(t => {
+        const isUnlocked = unlockedTrophies.has(t.id);
+        return '<div class="trophy-card ' + (isUnlocked ? 'unlocked' : '') + '">' +
+                 '<span class="trophy-icon">' + t.icon + '</span>' +
+                 '<div class="trophy-info">' +
+                   '<div class="trophy-name">' + escapeHtml(t.name) + '</div>' +
+                   '<div class="trophy-desc">' + escapeHtml(t.desc) + '</div>' +
+                   '<span class="trophy-status">' + (isUnlocked ? '★ UNLOCKED' : '🔒 LOCKED') + '</span>' +
+                 '</div>' +
+               '</div>';
+      }).join('');
+    }
+
+    function checkPassiveTrophies() {
+      // Check Night Owl (10 PM to 5 AM)
+      const hr = new Date().getHours();
+      if (hr >= 22 || hr < 5) unlockTrophy("NIGHT_OWL");
+      if (favorites.size >= 5) unlockTrophy("COLLECTOR");
+
+      // Check Console Hopper
+      const playedCats = new Set();
+      Object.keys(playStats).forEach(id => {
+        const g = games.find(gm => gm.id === id);
+        if (g && g.category) playedCats.add(g.category);
+      });
+      if (playedCats.size >= 5) unlockTrophy("ALL_CONSOLES");
+
+      // Check Tactics Master
+      let rpgCount = 0;
+      Object.keys(playStats).forEach(id => {
+        const g = games.find(gm => gm.id === id);
+        if (g && matchesGenre(g, "RPG")) rpgCount++;
+      });
+      if (rpgCount >= 3) unlockTrophy("TACTICS_MASTER");
+    }
+
+    // Stopwatch Play Session Timer
+    function startSessionTimer() {
+      sessionStartSec = 0;
+      if (sessionTimerInterval) clearInterval(sessionTimerInterval);
+      if (sessionTimerDisplay) sessionTimerDisplay.textContent = "00:00";
+
+      sessionTimerInterval = setInterval(() => {
+        sessionStartSec++;
+        if (activeGameId) {
+          playTimes[activeGameId] = (playTimes[activeGameId] || 0) + 1;
+        }
+        if (sessionTimerDisplay) {
+          const m = String(Math.floor(sessionStartSec / 60)).padStart(2, '0');
+          const s = String(sessionStartSec % 60).padStart(2, '0');
+          sessionTimerDisplay.textContent = m + ":" + s;
+        }
+        if (sessionStartSec >= 300) {
+          unlockTrophy("TIME_TRAVELER");
+        }
+        if (sessionStartSec % 15 === 0) {
+          savePlayTimes();
+        }
+      }, 1000);
+    }
+
+    function formatPlaytime(secs) {
+      if (!secs || secs < 60) return "< 1m";
+      const mins = Math.floor(secs / 60);
+      if (mins < 60) return mins + "m";
+      const hrs = Math.floor(mins / 60);
+      const remMins = mins % 60;
+      return hrs + "h " + (remMins > 0 ? remMins + "m" : "");
+    }
+
+    // Bezel Toggle
+    function toggleBezel() {
+      isBezelEnabled = !isBezelEnabled;
+      screenContainer.classList.toggle("bezel-mode", isBezelEnabled);
+      if (bezelLabel) {
+        bezelLabel.textContent = isBezelEnabled ? "Curved CRT" : "Flat";
+      }
+      playSfx('click');
+      try { localStorage.setItem(BEZEL_KEY, isBezelEnabled ? "1" : "0"); } catch (e) {}
+    }
+
+    // Game Notes & Cheats
+    function openNotesDrawer() {
+      playSfx('click');
+      const game = games.find(g => g.id === activeGameId);
+      if (!game) return;
+      if (notesGameTitle) notesGameTitle.textContent = game.title;
+      const tips = GAME_TIPS[game.id];
+      if (preloadedTipsBox) {
+        preloadedTipsBox.textContent = tips ? tips.secrets : "No preloaded secrets for this game. Record your own passwords, character builds, and tactics below!";
+      }
+      if (gameNotesTextarea) {
+        gameNotesTextarea.value = userNotes[game.id] || "";
+      }
+      notesModal.classList.add("open");
+    }
+
+    function saveCurrentGameNotes() {
+      if (!activeGameId) return;
+      const content = gameNotesTextarea.value.trim();
+      userNotes[activeGameId] = content;
+      saveNotes();
+      playSfx('star');
+      if (content.length > 5) unlockTrophy("SCRIBE");
+      notesModal.classList.remove("open");
+    }
+
+    // Attract Mode / Screensaver Timer
+    let idleSeconds = 0;
+    function setupAttractMode() {
+      const resetIdle = () => {
+        idleSeconds = 0;
+        if (attractScreensaver) attractScreensaver.classList.remove("active");
+      };
+      window.addEventListener("mousemove", resetIdle);
+      window.addEventListener("keydown", resetIdle);
+      window.addEventListener("click", resetIdle);
+
+      setInterval(() => {
+        idleSeconds++;
+        if (idleSeconds >= 180) { // 3 minutes idle
+          if (attractScreensaver && !document.fullscreenElement && !isTheaterMode) {
+            attractScreensaver.classList.add("active");
+          }
+        }
+      }, 1000);
     }
 
     // Theater / Cinema Mode Toggle
     function toggleTheater(force) {
       playSfx('click');
       isTheaterMode = force !== undefined ? force : !isTheaterMode;
+      if (isTheaterMode) unlockTrophy('THEATER_BUFF');
       document.body.classList.toggle("theater-active", isTheaterMode);
       if (theaterBtn) {
         theaterBtn.innerHTML = isTheaterMode ? "🎭 Exit Theater" : "🎭 Theater";
@@ -2992,6 +3753,7 @@
     // Interactive Gamepad Tester RAF Loop
     let testerRaf = null;
     function startGamepadTester() {
+      unlockTrophy('COUCH_GAMER');
       function loop() {
         if (!controlsModal.classList.contains("open")) return;
         const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
@@ -3226,6 +3988,42 @@
         });
       }
 
+      // BGM Radio Toggle
+      if (toggleBgmBtn) {
+        toggleBgmBtn.addEventListener("click", cycleBgmRadio);
+      }
+
+      // Trophies Modal
+      if (openTrophiesBtn) {
+        openTrophiesBtn.addEventListener("click", () => {
+          playSfx('click');
+          renderTrophiesModal();
+          trophiesModal.classList.add("open");
+        });
+      }
+      const closeTrophies = () => trophiesModal.classList.remove("open");
+      if (closeTrophiesModalBtn) closeTrophiesModalBtn.addEventListener("click", closeTrophies);
+      if (closeTrophiesModalBtn2) closeTrophiesModalBtn2.addEventListener("click", closeTrophies);
+      if (trophiesModal) trophiesModal.addEventListener("click", (e) => { if (e.target === trophiesModal) closeTrophies(); });
+
+      // Bezel Frame Toggle
+      if (toggleBezelBtn) {
+        toggleBezelBtn.addEventListener("click", toggleBezel);
+      }
+
+      // Notes & Cheats Drawer
+      if (openNotesBtn) {
+        openNotesBtn.addEventListener("click", openNotesDrawer);
+      }
+      const closeNotes = () => notesModal.classList.remove("open");
+      if (closeNotesModalBtn) closeNotesModalBtn.addEventListener("click", closeNotes);
+      if (closeNotesModalBtn2) closeNotesModalBtn2.addEventListener("click", closeNotes);
+      if (notesModal) notesModal.addEventListener("click", (e) => { if (e.target === notesModal) closeNotes(); });
+      if (saveNotesBtn) saveNotesBtn.addEventListener("click", saveCurrentGameNotes);
+
+      // Screensaver Attract Mode
+      setupAttractMode();
+
       // Reload Game Frame
       reloadGameBtn.addEventListener("click", () => {
         playSfx('click');
@@ -3336,5 +4134,55 @@
 
     document.addEventListener("DOMContentLoaded", initApp);
   </script>
+
+  <!-- Trophies & Achievements Modal -->
+  <div class="modal-backdrop" id="trophiesModal">
+    <div class="modal" style="max-width: 720px;">
+      <div class="modal-header">
+        <h3 class="modal-title">🏆 ARCADE TROPHIES (<span id="trophiesModalCount">0</span>/12)</h3>
+        <button class="modal-close" id="closeTrophiesModalBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.88rem; color:var(--text-muted);">
+          Unlock arcade milestones as you explore, play, and master the 100 retro classics!
+        </p>
+        <div class="trophy-grid" id="trophyGrid">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="closeTrophiesModalBtn2">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Notes & Cheats Drawer Modal -->
+  <div class="modal-backdrop" id="notesModal">
+    <div class="modal" style="max-width: 650px;">
+      <div class="modal-header">
+        <h3 class="modal-title">📝 STRATEGY & NOTES: <span id="notesGameTitle" style="color:var(--accent-pink)">Vandal Hearts</span></h3>
+        <button class="modal-close" id="closeNotesModalBtn">&times;</button>
+      </div>
+      <div class="modal-body notes-drawer-body">
+        <div>
+          <label class="form-label">⭐ Built-in Strategy Tips & Secret Cheats:</label>
+          <div class="preloaded-tips-box" id="preloadedTipsBox">
+            No preloaded tips for this title. You can record your own secrets and passwords below!
+          </div>
+        </div>
+
+        <div>
+          <label class="form-label" for="gameNotesTextarea">✍️ My Custom Notes, Passwords & Builds:</label>
+          <textarea id="gameNotesTextarea" class="notes-textarea" placeholder="Jot down character builds, secret coordinates, level passwords, or item notes..."></textarea>
+          <span class="form-hint" style="margin-top:4px; display:block;">Notes are automatically saved locally per game.</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="closeNotesModalBtn2">Cancel</button>
+        <button class="btn btn-primary" id="saveNotesBtn">Save Note</button>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
