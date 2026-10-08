@@ -1471,6 +1471,233 @@
       to { opacity: 1; transform: scale(1); }
     }
 
+
+    /* === VAULT V3.5 SPECIAL EDITION FEATURES === */
+
+    /* Custom CRT Shader Variables */
+    :root {
+      --crt-scanline-opacity: 0.3;
+      --crt-bloom-intensity: 0.22;
+      --crt-vignette-opacity: 0.48;
+      --crt-curve-radius: 28px;
+    }
+
+    /* Sound Test Modal Grid */
+    .sound-test-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .sound-pad {
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.12s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      user-select: none;
+    }
+    .sound-pad:hover {
+      border-color: var(--accent-neon);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+    }
+    .sound-pad:active, .sound-pad.playing {
+      transform: scale(0.95);
+      background: var(--accent-neon);
+      color: #0b0e17;
+      border-color: #fff;
+      box-shadow: 0 0 20px var(--accent-neon);
+    }
+    .sound-pad-icon {
+      font-size: 1.8rem;
+    }
+    .sound-pad-name {
+      font-size: 0.76rem;
+      font-weight: 700;
+    }
+    .sound-pad-key {
+      font-size: 0.65rem;
+      font-family: monospace;
+      padding: 1px 5px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      color: var(--text-muted);
+    }
+    .sound-pad.playing .sound-pad-key {
+      color: #0b0e17;
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    /* Notes Drawer Tabs */
+    .drawer-tabs {
+      display: flex;
+      gap: 6px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+      overflow-x: auto;
+    }
+    .drawer-tab {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .drawer-tab:hover {
+      color: var(--text-main);
+      border-color: var(--accent-neon);
+    }
+    .drawer-tab.active {
+      background: rgba(0, 255, 204, 0.14);
+      border-color: var(--accent-neon);
+      color: var(--accent-neon);
+      box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+    }
+    .drawer-pane {
+      display: none;
+    }
+    .drawer-pane.active {
+      display: block;
+    }
+
+    /* Manual / Lore Pane */
+    .manual-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+    .manual-thumb {
+      width: 55px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+    }
+    .manual-meta {
+      flex: 1;
+    }
+    .manual-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .manual-specs {
+      font-size: 0.78rem;
+      color: var(--accent-neon);
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .manual-body-text {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: #d1d5db;
+      white-space: pre-line;
+      max-height: 280px;
+      overflow-y: auto;
+    }
+
+    /* Hall of Fame / High Scores Modal */
+    .scores-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+      margin-top: 12px;
+    }
+    .scores-table th, .scores-table td {
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .scores-table th {
+      color: var(--accent-neon);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .scores-rank {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .scores-initials {
+      font-family: monospace;
+      font-weight: 700;
+      color: var(--accent-yellow);
+      letter-spacing: 1px;
+    }
+    .score-delete-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .score-delete-btn:hover {
+      color: var(--accent-pink);
+    }
+
+    /* Shader Tuning Popup Sliders */
+    .shader-control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .shader-label-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .shader-val {
+      color: var(--accent-neon);
+      font-family: monospace;
+    }
+    .shader-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      outline: none;
+    }
+    .shader-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent-neon);
+      cursor: pointer;
+      box-shadow: 0 0 8px var(--accent-neon);
+    }
+
   </style>
 </head>
 <body>
@@ -1493,7 +1720,7 @@
       <button class="mobile-menu-btn" id="mobileMenuToggle" title="Toggle Library Sidebar">☰ Library</button>
       <span class="brand-icon">🕹️</span>
       <span class="brand-title">RETRO ARCADE VAULT</span>
-      <span class="brand-version">v3.0 Ultimate</span>
+      <span class="brand-version">v3.5 Special Edition</span>
     </div>
 
     <div class="header-actions">
@@ -1525,7 +1752,17 @@
 
       <!-- Trophy Achievements -->
       <button class="btn btn-outline" id="openTrophiesBtn" title="View Arcade Trophies & Milestones">
-        🏆 Trophies: <span id="trophyBadgeCount" style="color:var(--accent-yellow)">0/12</span>
+        🏆 Trophies: <span id="trophyBadgeCount" style="color:var(--accent-yellow)">0/16</span>
+      </button>
+
+      <!-- Hall of Fame Records -->
+      <button class="btn btn-outline" id="openScoresBtn" title="High Score Ledger & Personal Bests">
+        🏅 Records
+      </button>
+
+      <!-- Arcade Sound Test -->
+      <button class="btn btn-outline" id="openSoundTestBtn" title="Interactive Retro Soundboard & Sound Test">
+        🎵 Sound Test
       </button>
 
       <button class="btn btn-outline" id="toggleFilterBtn" title="Cycle Display Filters (Clean HD, CRT Arcade, Trinitron Glow, Handheld LCD)">
@@ -1630,6 +1867,9 @@
           </button>
           <button class="btn btn-outline" id="toggleBezelBtn" title="Toggle CRT Television Bezel Frame">
             📺 Bezel: <span id="bezelLabel">Flat</span>
+          </button>
+          <button class="btn btn-outline" id="openShaderSettingsBtn" title="Fine-tune Scanlines, Bloom & Vignette">
+            🎛️ Shader FX
           </button>
           <button class="btn btn-outline" id="openNotesBtn" title="Strategy Tips, Cheats & Passwords">
             📝 Cheats & Notes
@@ -2836,6 +3076,43 @@
     };
 
 
+
+    // Authentic Instruction Manuals & Story Lore
+    const GAME_MANUALS = {
+      "vandal-hearts": {
+        year: "1997", pub: "Konami", dev: "Konami Computer Entertainment Tokyo", genre: "Tactical Turn-Based RPG",
+        story: "The once-glorious Continent of Somerhausen was ripped apart by a bloody rebellion against the despotic Holy Ashah Dynasty fifteen years ago. In the fragile peace that followed, corrupt Chancellor Dolf and the Ministry of Security seized supreme power.\n\nAsh Lambert, a courageous captain in the Ishtarian Security Force and the son of a disgraced traitor, is dispatched with his trusted companions Diego and Clint to investigate the vanishing of General Leeg. Unbeknownst to them, their expedition will uncover the ancient, bloodthirsty legacy of the Vandal Hearts sword and ignite a war that threatens to consume the mortal realm."
+      },
+      "vandal-hearts-ii": {
+        year: "1999", pub: "Konami", dev: "Konami", genre: "Tactical RPG",
+        story: "Set in the troubled land of Natra, young orphan Joshua and his childhood sweetheart Adele witness their homeland torn apart by civil war between nobility and rebel factions.\n\nFeaturing the revolutionary Dual-Turn battle system, where both player units and enemy squads move and strike simultaneously on the 3D isometric grid."
+      },
+      "final-fantasy-tactics": {
+        year: "1997", pub: "Squaresoft", dev: "Square Product Development Division 4", genre: "Tactical RPG",
+        story: "In the medieval kingdom of Ivalice, the conclusion of the Fifty Years' War brings drought, poverty, and political betrayal. Following the King's death, Duke Goltanna and Duke Larg plunge the kingdom into the War of the Lions.\n\nBehind the scenes, the church and the demonic Lucavi manipulate both sides with the mystical Zodiac Stones. Ramza Beoulve, the idealistic youngest son of House Beoulve, sacrifices his noble title to uncover the true heresy."
+      },
+      "final-fantasy-vii-d1": {
+        year: "1997", pub: "Square", dev: "Square", genre: "Cinematic JRPG",
+        story: "The ruthless megacorporation Shinra Electric Power Company is draining the Planet's life energy (Mako) to fuel its vast empire in the industrial metropolis of Midgar.\n\nEx-SOLDIER mercenary Cloud Strife joins the eco-terrorist resistance group AVALANCHE, led by Barret Wallace and Tifa Lockhart. What begins as a mission to destroy Mako Reactor 1 quickly escalates into an epic struggle against the legendary fallen war hero Sephiroth."
+      },
+      "breath-of-fire-iv-usa": {
+        year: "2000", pub: "Capcom", dev: "Capcom Production Studio 3", genre: "JRPG",
+        story: "In an oriental fantasy realm divided between the Western Western Empire and the Eastern Alliance, Princess Elena mysteriously vanishes near the front lines. Her sister Nina and the mercenary Cray set out into the shifting deserts to find her.\n\nDuring their trek, they encounter Ryu—an amnesiac youth who harbors the divine soul of the Dragon Brood. The game alternates between Ryu's journey and the awakening of Fou-Lu, the resurrected first Emperor of the West."
+      },
+      "suikoden-ii": {
+        year: "1998", pub: "Konami", dev: "Konami Computer Entertainment Tokyo", genre: "Strategic JRPG",
+        story: "Riou and his adopted sister Nanami, alongside best friend Jowy Atreides, serve in the Highland Kingdom's youth Unicorn Brigade. One fateful night, their villainous prince, Luca Blight, slaughters his own division to manufacture a false pretext for war with the City-States of Jowston.\n\nChosen by the twin Runes of Beginning (the Bright Shield and Black Sword Runes), Riou and Jowy find themselves leading opposing armies in one of gaming's greatest political sagas."
+      },
+      "castlevania-sotn": {
+        year: "1997", pub: "Konami", dev: "Konami Computer Entertainment Tokyo", genre: "Gothic Action Exploration",
+        story: "Five years after Richter Belmont defeated Dracula, Richter vanishes without a trace. Castlevania spontaneously reappears from the mist, but with no Belmont to defend humanity, Dracula's dhampir son, Alucard, awakens from centuries of slumber to enter his father's cursed castle."
+      },
+      "sonic-3-and-knuckles": {
+        year: "1994", pub: "Sega", dev: "Sega Technical Institute", genre: "High-Speed Platformer",
+        story: "Dr. Robotnik's orbital fortress, the Death Egg, crash-lands on the mysterious levitating Angel Island. Deceiving Knuckles the Echidna into believing Sonic and Tails are thieves aiming to steal the Master Emerald, Robotnik initiates repairs to relaunch his superweapon."
+      }
+    };
+
     // Preloaded Secrets & Strategy Guide
     const GAME_TIPS = {
       "vandal-hearts": {
@@ -2867,7 +3144,7 @@
       }
     };
 
-    // 12 Arcade Achievements Definition
+    // 16 Arcade Achievements Definition
     const TROPHIES_CATALOG = [
       { id: "COIN_DROP", name: "Insert Coin", icon: "🪙", desc: "Launch and play your first retro game." },
       { id: "TACTICS_MASTER", name: "Master Strategist", icon: "⚔️", desc: "Play 3 different RPG & Tactics games." },
@@ -2880,7 +3157,11 @@
       { id: "COLLECTOR", name: "Master Collector", icon: "⭐", desc: "Star 5 or more games as your favorites." },
       { id: "SHUFFLE_LUCK", name: "Lucky Roll", icon: "🎲", desc: "Launch a random game with the Shuffle button." },
       { id: "THEATER_BUFF", name: "Cinema Mode", icon: "🎭", desc: "Experience a retro game in Theater Focus Mode." },
-      { id: "SCRIBE", name: "Tactical Notes", icon: "📝", desc: "Save a custom note or cheat code for any game." }
+      { id: "SCRIBE", name: "Tactical Notes", icon: "📝", desc: "Save a custom note or cheat code for any game." },
+      { id: "SOUND_TESTER", name: "Sound Engineer", icon: "🎵", desc: "Test at least 3 effects in the Arcade Sound Test." },
+      { id: "LORE_MASTER", name: "Manual Reader", icon: "📖", desc: "Inspect an authentic game instruction manual and lore." },
+      { id: "HALL_OF_FAME", name: "High Roller", icon: "🏅", desc: "Submit a record to the High Score Hall of Fame." },
+      { id: "CRT_CALIBRATOR", name: "Phosphor Purist", icon: "🎛️", desc: "Calibrate scanlines and bloom in Shader FX." }
     ];
 
     // DOM Elements
@@ -3421,6 +3702,124 @@
 
 
 
+
+    // Procedural Arcade Sound Test Synthesizers
+    function playArcadeSound(soundName) {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const now = audioCtx.currentTime;
+
+      if (soundName === 'coin') {
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.connect(g); g.connect(audioCtx.destination);
+        o.type = 'sine';
+        o.frequency.setValueAtTime(987.77, now); // B5
+        o.frequency.setValueAtTime(1318.51, now + 0.08); // E6
+        g.gain.setValueAtTime(0.09, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+        o.start(now); o.stop(now + 0.35);
+      } else if (soundName === 'oneup') {
+        const notes = [330, 392, 659, 523, 587, 784];
+        notes.forEach((freq, i) => {
+          const o = audioCtx.createOscillator();
+          const g = audioCtx.createGain();
+          o.connect(g); g.connect(audioCtx.destination);
+          o.type = 'square';
+          o.frequency.setValueAtTime(freq, now + i * 0.05);
+          g.gain.setValueAtTime(0.06, now + i * 0.05);
+          g.gain.exponentialRampToValueAtTime(0.001, now + i * 0.05 + 0.08);
+          o.start(now + i * 0.05); o.stop(now + i * 0.05 + 0.08);
+        });
+      } else if (soundName === 'powerup') {
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.connect(g); g.connect(audioCtx.destination);
+        o.type = 'triangle';
+        o.frequency.setValueAtTime(300, now);
+        o.frequency.exponentialRampToValueAtTime(1200, now + 0.25);
+        g.gain.setValueAtTime(0.08, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+        o.start(now); o.stop(now + 0.25);
+      } else if (soundName === 'laser') {
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.connect(g); g.connect(audioCtx.destination);
+        o.type = 'sawtooth';
+        o.frequency.setValueAtTime(1600, now);
+        o.frequency.exponentialRampToValueAtTime(120, now + 0.18);
+        g.gain.setValueAtTime(0.09, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+        o.start(now); o.stop(now + 0.18);
+      } else if (soundName === 'explode') {
+        // Noise buffer explosion
+        const bufferSize = audioCtx.sampleRate * 0.35;
+        const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+        const data = buffer.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+        const noise = audioCtx.createBufferSource();
+        noise.buffer = buffer;
+        const filter = audioCtx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(800, now);
+        filter.frequency.exponentialRampToValueAtTime(50, now + 0.35);
+        const g = audioCtx.createGain();
+        g.gain.setValueAtTime(0.12, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.35);
+        noise.connect(filter); filter.connect(g); g.connect(audioCtx.destination);
+        noise.start(now);
+      } else if (soundName === 'secret') {
+        const notes = [659, 622, 587, 554, 523, 659, 784, 1046];
+        notes.forEach((freq, i) => {
+          const o = audioCtx.createOscillator();
+          const g = audioCtx.createGain();
+          o.connect(g); g.connect(audioCtx.destination);
+          o.type = 'sine';
+          o.frequency.setValueAtTime(freq, now + i * 0.06);
+          g.gain.setValueAtTime(0.07, now + i * 0.06);
+          g.gain.exponentialRampToValueAtTime(0.001, now + i * 0.06 + 0.1);
+          o.start(now + i * 0.06); o.stop(now + i * 0.06 + 0.1);
+        });
+      } else if (soundName === 'stageclear') {
+        playSfx('fanfare');
+      } else if (soundName === 'gameover') {
+        const notes = [440, 415, 392, 330];
+        notes.forEach((freq, i) => {
+          const o = audioCtx.createOscillator();
+          const g = audioCtx.createGain();
+          o.connect(g); g.connect(audioCtx.destination);
+          o.type = 'sawtooth';
+          o.frequency.setValueAtTime(freq, now + i * 0.12);
+          g.gain.setValueAtTime(0.06, now + i * 0.12);
+          g.gain.exponentialRampToValueAtTime(0.001, now + i * 0.12 + 0.16);
+          o.start(now + i * 0.12); o.stop(now + i * 0.12 + 0.16);
+        });
+      } else if (soundName === 'pause') {
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.connect(g); g.connect(audioCtx.destination);
+        o.type = 'square';
+        o.frequency.setValueAtTime(440, now);
+        o.frequency.setValueAtTime(660, now + 0.08);
+        g.gain.setValueAtTime(0.06, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+        o.start(now); o.stop(now + 0.22);
+      } else if (soundName === 'warp') {
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.connect(g); g.connect(audioCtx.destination);
+        o.type = 'sawtooth';
+        o.frequency.setValueAtTime(120, now);
+        o.frequency.exponentialRampToValueAtTime(1400, now + 0.22);
+        g.gain.setValueAtTime(0.08, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.22);
+        o.start(now); o.stop(now + 0.22);
+      }
+      unlockTrophy("SOUND_TESTER");
+    }
+
     // Procedural Chiptune Radio Engine (Web Audio FM Synthesizer)
     function setupBgmEngine() {
       if (bgmAudioCtx) return;
@@ -3504,6 +3903,58 @@
       try { localStorage.setItem(BGM_KEY, currentBgmIdx); } catch (e) {}
     }
 
+
+    function setupShaderCustomizer() {
+      const sScanline = document.getElementById("sliderScanline");
+      const sBloom = document.getElementById("sliderBloom");
+      const sVignette = document.getElementById("sliderVignette");
+      const sRadius = document.getElementById("sliderRadius");
+      const vScanline = document.getElementById("valScanline");
+      const vBloom = document.getElementById("valBloom");
+      const vVignette = document.getElementById("valVignette");
+      const vRadius = document.getElementById("valRadius");
+
+      const updateShaderVals = () => {
+        if (sScanline && vScanline) {
+          const val = sScanline.value;
+          vScanline.textContent = val + "%";
+          document.documentElement.style.setProperty('--crt-scanline-opacity', (val / 100).toFixed(2));
+        }
+        if (sBloom && vBloom) {
+          const val = sBloom.value;
+          vBloom.textContent = val + "%";
+          document.documentElement.style.setProperty('--crt-bloom-intensity', (val / 100).toFixed(2));
+        }
+        if (sVignette && vVignette) {
+          const val = sVignette.value;
+          vVignette.textContent = val + "%";
+          document.documentElement.style.setProperty('--crt-vignette-opacity', (val / 100).toFixed(2));
+        }
+        if (sRadius && vRadius) {
+          const val = sRadius.value;
+          vRadius.textContent = val + "px";
+          document.documentElement.style.setProperty('--crt-curve-radius', val + "px");
+        }
+        unlockTrophy("CRT_CALIBRATOR");
+      };
+
+      [sScanline, sBloom, sVignette, sRadius].forEach(slider => {
+        if (slider) slider.addEventListener("input", updateShaderVals);
+      });
+
+      const resetBtn = document.getElementById("resetShaderBtn");
+      if (resetBtn) {
+        resetBtn.addEventListener("click", () => {
+          if (sScanline) sScanline.value = 30;
+          if (sBloom) sBloom.value = 22;
+          if (sVignette) sVignette.value = 48;
+          if (sRadius) sRadius.value = 28;
+          updateShaderVals();
+          playSfx('click');
+        });
+      }
+    }
+
     // Multi-Shader Filter Management
     function applyFilter(idx) {
       currentFilterIdx = idx % filterModes.length;
@@ -3523,6 +3974,57 @@
       applyFilter(currentFilterIdx + 1);
     }
 
+
+
+    const SCORES_KEY = "retro_vault_scores_v3";
+    let highScores = [
+      { id: "1", gameId: "vandal-hearts", gameTitle: "Vandal Hearts", initials: "DAV", score: "999,990 PTS", date: "2026-10-08" },
+      { id: "2", gameId: "castlevania-sotn", gameTitle: "Castlevania: SotN", initials: "ALC", score: "200.6% MAP", date: "2026-10-07" },
+      { id: "3", gameId: "final-fantasy-tactics", gameTitle: "Final Fantasy Tactics", initials: "RMZ", score: "CH.4 CLEAR", date: "2026-10-06" },
+      { id: "4", gameId: "sonic-3-and-knuckles", gameTitle: "Sonic 3 & Knuckles", initials: "SNC", score: "HYPER UNLOCKED", date: "2026-10-05" }
+    ];
+
+    function loadHighScores() {
+      try {
+        const stored = localStorage.getItem(SCORES_KEY);
+        if (stored) highScores = JSON.parse(stored);
+      } catch (e) {}
+    }
+
+    function saveHighScores() {
+      try { localStorage.setItem(SCORES_KEY, JSON.stringify(highScores)); } catch (e) {}
+    }
+
+    function renderHighScores() {
+      const tbody = document.getElementById("scoresTableBody");
+      if (!tbody) return;
+      tbody.innerHTML = highScores.map((s, idx) => {
+        const medals = ["🥇", "🥈", "🥉"];
+        const rank = medals[idx] || "#" + (idx + 1);
+        return '<tr>' +
+                 '<td class="scores-rank">' + rank + '</td>' +
+                 '<td class="scores-initials">' + escapeHtml(s.initials) + '</td>' +
+                 '<td><b>' + escapeHtml(s.score) + '</b></td>' +
+                 '<td>' + escapeHtml(s.gameTitle) + '</td>' +
+                 '<td style="font-size:0.75rem; color:var(--text-muted);">' + escapeHtml(s.date) + '</td>' +
+                 '<td><button class="score-delete-btn" onclick="deleteScore(\'' + s.id + '\')" title="Delete">&times;</button></td>' +
+               '</tr>';
+      }).join('');
+    }
+
+    function deleteScore(id) {
+      highScores = highScores.filter(s => s.id !== id);
+      saveHighScores();
+      renderHighScores();
+      playSfx('click');
+    }
+
+    // Populate Game Select in Score Form
+    function populateScoreGameSelect() {
+      const select = document.getElementById("scoreGameSelect");
+      if (!select) return;
+      select.innerHTML = games.map(g => '<option value="' + g.id + '" ' + (g.id === activeGameId ? 'selected' : '') + '>' + escapeHtml(g.title) + '</option>').join('');
+    }
 
     // Trophy Milestone Checker
     function unlockTrophy(trophyId) {
@@ -3638,7 +4140,53 @@
     }
 
     // Game Notes & Cheats
+
+    function populateGameManual(gameId) {
+      const game = games.find(g => g.id === gameId);
+      if (!game) return;
+      const thumb = document.getElementById("manualThumb");
+      const title = document.getElementById("manualTitle");
+      const specs = document.getElementById("manualSpecs");
+      const body = document.getElementById("manualBodyText");
+
+      if (thumb) {
+        if (game.cover) {
+          thumb.src = game.cover;
+          thumb.style.display = "block";
+        } else {
+          thumb.style.display = "none";
+        }
+      }
+      if (title) title.textContent = game.title;
+      const manual = GAME_MANUALS[game.id];
+      if (manual) {
+        if (specs) specs.innerHTML = '<span>' + escapeHtml(game.system || 'Arcade') + '</span> • <span>' + manual.year + '</span> • <span>' + manual.genre + '</span> • <span>' + manual.pub + '</span>';
+        if (body) body.textContent = manual.story;
+      } else {
+        if (specs) specs.innerHTML = '<span>' + escapeHtml(game.system || 'Arcade') + '</span> • <span>Iconic Classic</span>';
+        if (body) body.textContent = "Experience the legendary gameplay of " + game.title + " on " + (game.system || "Arcade") + ".\n\nUse your controller D-Pad or Arrow Keys to navigate, confirmed with A/X, and explore the vast worlds crafted for retro hardware.\n\nRecord your custom passwords, party setups, and item coordinates in the My Logbook tab!";
+      }
+      unlockTrophy("LORE_MASTER");
+    }
+
+    // Drawer Tabs switching
+    function setupDrawerTabs() {
+      document.querySelectorAll(".drawer-tab").forEach(tab => {
+        tab.addEventListener("click", () => {
+          playSfx('click');
+          document.querySelectorAll(".drawer-tab").forEach(t => t.classList.remove("active"));
+          document.querySelectorAll(".drawer-pane").forEach(p => p.classList.remove("active"));
+          tab.classList.add("active");
+          const target = tab.getAttribute("data-tab");
+          if (target === "manual") document.getElementById("paneManual")?.classList.add("active");
+          if (target === "cheats") document.getElementById("paneCheats")?.classList.add("active");
+          if (target === "logbook") document.getElementById("paneLogbook")?.classList.add("active");
+        });
+      });
+    }
+
     function openNotesDrawer() {
+      populateGameManual(activeGameId);
       playSfx('click');
       const game = games.find(g => g.id === activeGameId);
       if (!game) return;
@@ -3940,6 +4488,118 @@
         playSfx('click');
       });
 
+      
+      // Drawer Tabs Setup
+      setupDrawerTabs();
+      setupShaderCustomizer();
+      loadHighScores();
+
+      // Sound Test Modal & Pads
+      const soundTestModal = document.getElementById("soundTestModal");
+      const openSoundTestBtn = document.getElementById("openSoundTestBtn");
+      const closeSoundTestBtn = document.getElementById("closeSoundTestBtn");
+      const closeSoundTestBtn2 = document.getElementById("closeSoundTestBtn2");
+
+      if (openSoundTestBtn) {
+        openSoundTestBtn.addEventListener("click", () => {
+          playSfx('click');
+          soundTestModal.classList.add("open");
+        });
+      }
+      const closeSoundTest = () => soundTestModal.classList.remove("open");
+      if (closeSoundTestBtn) closeSoundTestBtn.addEventListener("click", closeSoundTest);
+      if (closeSoundTestBtn2) closeSoundTestBtn2.addEventListener("click", closeSoundTest);
+      if (soundTestModal) soundTestModal.addEventListener("click", (e) => { if (e.target === soundTestModal) closeSoundTest(); });
+
+      document.querySelectorAll(".sound-pad").forEach(pad => {
+        pad.addEventListener("click", () => {
+          const sound = pad.getAttribute("data-sound");
+          pad.classList.add("playing");
+          setTimeout(() => pad.classList.remove("playing"), 200);
+          playArcadeSound(sound);
+        });
+      });
+
+      // Sound test keyboard hotkeys (1 - 0)
+      window.addEventListener("keydown", (e) => {
+        if (!soundTestModal.classList.contains("open")) return;
+        const keyMap = {
+          '1': 'coin', '2': 'oneup', '3': 'powerup', '4': 'laser', '5': 'explode',
+          '6': 'secret', '7': 'stageclear', '8': 'gameover', '9': 'pause', '0': 'warp'
+        };
+        if (keyMap[e.key]) {
+          const pad = document.querySelector('.sound-pad[data-sound="' + keyMap[e.key] + '"]');
+          if (pad) {
+            pad.classList.add("playing");
+            setTimeout(() => pad.classList.remove("playing"), 200);
+          }
+          playArcadeSound(keyMap[e.key]);
+        }
+      });
+
+      // Scores / Hall of Fame Modal
+      const scoresModal = document.getElementById("scoresModal");
+      const openScoresBtn = document.getElementById("openScoresBtn");
+      const closeScoresBtn = document.getElementById("closeScoresBtn");
+      const closeScoresBtn2 = document.getElementById("closeScoresBtn2");
+      const addScoreForm = document.getElementById("addScoreForm");
+
+      if (openScoresBtn) {
+        openScoresBtn.addEventListener("click", () => {
+          playSfx('click');
+          populateScoreGameSelect();
+          renderHighScores();
+          scoresModal.classList.add("open");
+        });
+      }
+      const closeScores = () => scoresModal.classList.remove("open");
+      if (closeScoresBtn) closeScoresBtn.addEventListener("click", closeScores);
+      if (closeScoresBtn2) closeScoresBtn2.addEventListener("click", closeScores);
+      if (scoresModal) scoresModal.addEventListener("click", (e) => { if (e.target === scoresModal) closeScores(); });
+
+      if (addScoreForm) {
+        addScoreForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const gId = document.getElementById("scoreGameSelect").value;
+          const gObj = games.find(g => g.id === gId);
+          const initials = document.getElementById("scoreInitialsInput").value.trim().toUpperCase() || "DAV";
+          const val = document.getElementById("scoreValueInput").value.trim();
+          if (!val) return;
+
+          const newScore = {
+            id: String(Date.now()),
+            gameId: gId,
+            gameTitle: gObj ? gObj.title : "Retro Classic",
+            initials: initials,
+            score: val,
+            date: new Date().toISOString().split('T')[0]
+          };
+          highScores.unshift(newScore);
+          saveHighScores();
+          renderHighScores();
+          playSfx('star');
+          unlockTrophy("HALL_OF_FAME");
+          document.getElementById("scoreValueInput").value = "";
+        });
+      }
+
+      // Shader Customizer Modal
+      const shaderModal = document.getElementById("shaderModal");
+      const openShaderSettingsBtn = document.getElementById("openShaderSettingsBtn");
+      const closeShaderBtn = document.getElementById("closeShaderBtn");
+      const closeShaderBtn2 = document.getElementById("closeShaderBtn2");
+
+      if (openShaderSettingsBtn) {
+        openShaderSettingsBtn.addEventListener("click", () => {
+          playSfx('click');
+          shaderModal.classList.add("open");
+        });
+      }
+      const closeShader = () => shaderModal.classList.remove("open");
+      if (closeShaderBtn) closeShaderBtn.addEventListener("click", closeShader);
+      if (closeShaderBtn2) closeShaderBtn2.addEventListener("click", closeShader);
+      if (shaderModal) shaderModal.addEventListener("click", (e) => { if (e.target === shaderModal) closeShader(); });
+
       // Multi-Shader Filter Cycle
       if (toggleFilterBtn) {
         toggleFilterBtn.addEventListener("click", cycleFilter);
@@ -4156,30 +4816,182 @@
     </div>
   </div>
 
-  <!-- Game Notes & Cheats Drawer Modal -->
+  <!-- Game Manual, Cheats & Notes Drawer Modal -->
   <div class="modal-backdrop" id="notesModal">
-    <div class="modal" style="max-width: 650px;">
+    <div class="modal" style="max-width: 700px;">
       <div class="modal-header">
-        <h3 class="modal-title">📝 STRATEGY & NOTES: <span id="notesGameTitle" style="color:var(--accent-pink)">Vandal Hearts</span></h3>
+        <h3 class="modal-title">📖 COMPENDIUM: <span id="notesGameTitle" style="color:var(--accent-pink)">Vandal Hearts</span></h3>
         <button class="modal-close" id="closeNotesModalBtn">&times;</button>
       </div>
       <div class="modal-body notes-drawer-body">
-        <div>
-          <label class="form-label">⭐ Built-in Strategy Tips & Secret Cheats:</label>
-          <div class="preloaded-tips-box" id="preloadedTipsBox">
-            No preloaded tips for this title. You can record your own secrets and passwords below!
+        <div class="drawer-tabs">
+          <button class="drawer-tab active" data-tab="manual">📖 Instruction Manual & Lore</button>
+          <button class="drawer-tab" data-tab="cheats">⭐ Cheats & Secrets</button>
+          <button class="drawer-tab" data-tab="logbook">✍️ My Logbook & Passwords</button>
+        </div>
+
+        <!-- Tab 1: Instruction Manual & Lore -->
+        <div class="drawer-pane active" id="paneManual">
+          <div class="manual-header">
+            <img class="manual-thumb" id="manualThumb" src="" alt="Cover Artwork">
+            <div class="manual-meta">
+              <div class="manual-title" id="manualTitle">Vandal Hearts</div>
+              <div class="manual-specs" id="manualSpecs">
+                <span>PlayStation 1</span> • <span>1997</span> • <span>Tactical RPG</span> • <span>Konami</span>
+              </div>
+            </div>
+          </div>
+          <label class="form-label">📜 Story Synopsis & Combat Guide:</label>
+          <div class="manual-body-text" id="manualBodyText">
+            Loading official instruction manual & game lore...
           </div>
         </div>
 
-        <div>
-          <label class="form-label" for="gameNotesTextarea">✍️ My Custom Notes, Passwords & Builds:</label>
-          <textarea id="gameNotesTextarea" class="notes-textarea" placeholder="Jot down character builds, secret coordinates, level passwords, or item notes..."></textarea>
-          <span class="form-hint" style="margin-top:4px; display:block;">Notes are automatically saved locally per game.</span>
+        <!-- Tab 2: Built-in Cheats & Secrets -->
+        <div class="drawer-pane" id="paneCheats">
+          <label class="form-label">⭐ Pro Walkthrough Secrets & Secret Codes:</label>
+          <div class="preloaded-tips-box" id="preloadedTipsBox">
+            No preloaded tips for this title. You can record your own secrets and passwords in My Logbook!
+          </div>
+        </div>
+
+        <!-- Tab 3: User Logbook & Notes -->
+        <div class="drawer-pane" id="paneLogbook">
+          <label class="form-label" for="gameNotesTextarea">✍️ My Personal Logbook, Passwords & Builds:</label>
+          <textarea id="gameNotesTextarea" class="notes-textarea" placeholder="Record level passwords, character job builds, boss tactics, coordinates, or cheats here..."></textarea>
+          <span class="form-hint" style="margin-top:4px; display:block;">Notes are saved automatically per game in your browser.</span>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline" id="closeNotesModalBtn2">Cancel</button>
-        <button class="btn btn-primary" id="saveNotesBtn">Save Note</button>
+        <button class="btn btn-outline" id="closeNotesModalBtn2">Close</button>
+        <button class="btn btn-primary" id="saveNotesBtn">Save Logbook Note</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arcade Sound Test Modal -->
+  <div class="modal-backdrop" id="soundTestModal">
+    <div class="modal" style="max-width: 650px;">
+      <div class="modal-header">
+        <h3 class="modal-title">🎵 ARCADE SOUND TEST</h3>
+        <button class="modal-close" id="closeSoundTestBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.86rem; color:var(--text-muted);">
+          Trigger authentic procedural 8-bit / 16-bit sound effects. Press on-screen pads or number keys <kbd>1</kbd> through <kbd>0</kbd>!
+        </p>
+        <div class="sound-test-grid" id="soundTestGrid">
+          <div class="sound-pad" data-sound="coin"><span class="sound-pad-icon">🪙</span><span class="sound-pad-name">Insert Coin</span><span class="sound-pad-key">Key 1</span></div>
+          <div class="sound-pad" data-sound="oneup"><span class="sound-pad-icon">🍄</span><span class="sound-pad-name">1-Up Stinger</span><span class="sound-pad-key">Key 2</span></div>
+          <div class="sound-pad" data-sound="powerup"><span class="sound-pad-icon">⭐</span><span class="sound-pad-name">Power-Up</span><span class="sound-pad-key">Key 3</span></div>
+          <div class="sound-pad" data-sound="laser"><span class="sound-pad-icon">🔫</span><span class="sound-pad-name">Laser Blast</span><span class="sound-pad-key">Key 4</span></div>
+          <div class="sound-pad" data-sound="explode"><span class="sound-pad-icon">💥</span><span class="sound-pad-name">8-Bit Boom</span><span class="sound-pad-key">Key 5</span></div>
+          <div class="sound-pad" data-sound="secret"><span class="sound-pad-icon">🚪</span><span class="sound-pad-name">Secret Chime</span><span class="sound-pad-key">Key 6</span></div>
+          <div class="sound-pad" data-sound="stageclear"><span class="sound-pad-icon">🏁</span><span class="sound-pad-name">Stage Clear</span><span class="sound-pad-key">Key 7</span></div>
+          <div class="sound-pad" data-sound="gameover"><span class="sound-pad-icon">💀</span><span class="sound-pad-name">Game Over</span><span class="sound-pad-key">Key 8</span></div>
+          <div class="sound-pad" data-sound="pause"><span class="sound-pad-icon">⏸️</span><span class="sound-pad-name">Pause Beep</span><span class="sound-pad-key">Key 9</span></div>
+          <div class="sound-pad" data-sound="warp"><span class="sound-pad-icon">🌀</span><span class="sound-pad-name">Warp Slide</span><span class="sound-pad-key">Key 0</span></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="closeSoundTestBtn2">Exit Sound Test</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hall of Fame Records Modal -->
+  <div class="modal-backdrop" id="scoresModal">
+    <div class="modal" style="max-width: 680px;">
+      <div class="modal-header">
+        <h3 class="modal-title">🏅 HIGH SCORE & RECORD LEDGER</h3>
+        <button class="modal-close" id="closeScoresBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="addScoreForm" style="display:flex; gap:8px; flex-wrap:wrap; background:rgba(0,0,0,0.3); padding:10px; border-radius:8px; border:1px solid var(--border-color); align-items:flex-end;">
+          <div style="flex:1; min-width:140px;">
+            <label class="form-label">Game:</label>
+            <select id="scoreGameSelect" class="form-select" style="padding:6px; font-size:0.84rem;"></select>
+          </div>
+          <div style="width:70px;">
+            <label class="form-label">Initials:</label>
+            <input type="text" id="scoreInitialsInput" class="form-input" maxlength="3" placeholder="DAV" style="text-transform:uppercase; padding:6px; font-family:monospace; font-weight:700;" required>
+          </div>
+          <div style="flex:1; min-width:130px;">
+            <label class="form-label">Score / Time / Goal:</label>
+            <input type="text" id="scoreValueInput" class="form-input" placeholder="e.g. 999,990 PTS" style="padding:6px;" required>
+          </div>
+          <button type="submit" class="btn btn-primary" style="padding:8px 14px;">Log Record</button>
+        </form>
+
+        <table class="scores-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Initials</th>
+              <th>Record / Score</th>
+              <th>Game</th>
+              <th>Date</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="scoresTableBody">
+            <!-- Dynamically rendered -->
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="closeScoresBtn2">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CRT Shader Customizer Modal -->
+  <div class="modal-backdrop" id="shaderModal">
+    <div class="modal" style="max-width: 520px;">
+      <div class="modal-header">
+        <h3 class="modal-title">🎛️ CRT SHADER CALIBRATOR</h3>
+        <button class="modal-close" id="closeShaderBtn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.86rem; color:var(--text-muted); margin-bottom:12px;">
+          Fine-tune the analog phosphor look to match your favorite retro television or arcade monitor:
+        </p>
+
+        <div class="shader-control-group">
+          <div class="shader-label-row">
+            <span>Scanline Darkness</span>
+            <span class="shader-val" id="valScanline">30%</span>
+          </div>
+          <input type="range" class="shader-slider" id="sliderScanline" min="0" max="80" value="30">
+        </div>
+
+        <div class="shader-control-group">
+          <div class="shader-label-row">
+            <span>Phosphor Bloom Glow</span>
+            <span class="shader-val" id="valBloom">22%</span>
+          </div>
+          <input type="range" class="shader-slider" id="sliderBloom" min="0" max="60" value="22">
+        </div>
+
+        <div class="shader-control-group">
+          <div class="shader-label-row">
+            <span>Vignette Edge Shadow</span>
+            <span class="shader-val" id="valVignette">48%</span>
+          </div>
+          <input type="range" class="shader-slider" id="sliderVignette" min="0" max="80" value="48">
+        </div>
+
+        <div class="shader-control-group">
+          <div class="shader-label-row">
+            <span>Bezel Curvature Radius</span>
+            <span class="shader-val" id="valRadius">28px</span>
+          </div>
+          <input type="range" class="shader-slider" id="sliderRadius" min="0" max="45" value="28">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="resetShaderBtn">Reset Defaults</button>
+        <button class="btn btn-primary" id="closeShaderBtn2">Apply & Save</button>
       </div>
     </div>
   </div>
