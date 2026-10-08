@@ -4269,8 +4269,46 @@
         const storedSfx = localStorage.getItem(SFX_KEY);
         if (storedSfx !== null) {
           isSfxEnabled = storedSfx === "true";
-          sfxStatus.textContent = isSfxEnabled ? "ON" : "OFF";
-          sfxStatus.style.color = isSfxEnabled ? "var(--accent-neon)" : "var(--text-muted)";
+          if (sfxStatus) {
+            sfxStatus.textContent = isSfxEnabled ? "ON" : "OFF";
+            sfxStatus.style.color = isSfxEnabled ? "var(--accent-neon)" : "var(--text-muted)";
+          }
+        }
+      } catch (e) {}
+
+      // Load Play Stats & Times
+      loadPlayStats();
+      loadPlayTimes();
+
+      // Load Trophies & Notes
+      loadTrophies();
+      loadNotes();
+
+      // Load Bezel Mode
+      try {
+        const storedBezel = localStorage.getItem(BEZEL_KEY);
+        if (storedBezel === "1") {
+          isBezelEnabled = true;
+          if (screenContainer) screenContainer.classList.add("bezel-mode");
+          if (bezelLabel) bezelLabel.textContent = "Curved CRT";
+        }
+      } catch (e) {}
+
+      // Load Shader Filter
+      try {
+        const storedFilter = localStorage.getItem(FILTER_KEY);
+        if (storedFilter) {
+          const idx = filterModes.indexOf(storedFilter);
+          if (idx !== -1) applyFilter(idx);
+        }
+      } catch (e) {}
+
+      // Load Sort Mode
+      try {
+        const storedSort = localStorage.getItem(SORT_KEY);
+        if (storedSort && sortSelect) {
+          sortMode = storedSort;
+          sortSelect.value = sortMode;
         }
       } catch (e) {}
 
@@ -4298,6 +4336,68 @@
         localStorage.setItem(RECENTS_KEY, JSON.stringify(recentGames));
       } catch (e) {}
       updateCounts();
+    }
+
+    function loadPlayStats() {
+      try {
+        const stored = localStorage.getItem(STATS_KEY);
+        if (stored) playStats = JSON.parse(stored);
+      } catch (e) {
+        playStats = {};
+      }
+    }
+
+    function savePlayStats() {
+      try {
+        localStorage.setItem(STATS_KEY, JSON.stringify(playStats));
+      } catch (e) {}
+    }
+
+    function loadPlayTimes() {
+      try {
+        const stored = localStorage.getItem(TIMES_KEY);
+        if (stored) playTimes = JSON.parse(stored);
+      } catch (e) {
+        playTimes = {};
+      }
+    }
+
+    function savePlayTimes() {
+      try {
+        localStorage.setItem(TIMES_KEY, JSON.stringify(playTimes));
+      } catch (e) {}
+    }
+
+    function loadTrophies() {
+      try {
+        const stored = localStorage.getItem(TROPHIES_KEY);
+        if (stored) unlockedTrophies = new Set(JSON.parse(stored));
+      } catch (e) {
+        unlockedTrophies = new Set();
+      }
+      updateTrophiesBadge();
+    }
+
+    function saveTrophies() {
+      try {
+        localStorage.setItem(TROPHIES_KEY, JSON.stringify(Array.from(unlockedTrophies)));
+      } catch (e) {}
+      updateTrophiesBadge();
+    }
+
+    function loadNotes() {
+      try {
+        const stored = localStorage.getItem(NOTES_KEY);
+        if (stored) userNotes = JSON.parse(stored);
+      } catch (e) {
+        userNotes = {};
+      }
+    }
+
+    function saveNotes() {
+      try {
+        localStorage.setItem(NOTES_KEY, JSON.stringify(userNotes));
+      } catch (e) {}
     }
 
     function updateCounts() {
@@ -5198,13 +5298,20 @@
             testerPadModel.style.color = "var(--text-muted)";
           }
         }
-        testerRaf = requestAnimationFrame(loop);
+        if (typeof requestAnimationFrame !== 'undefined') {
+          testerRaf = requestAnimationFrame(loop);
+        }
       }
-      cancelAnimationFrame(testerRaf);
+      if (typeof cancelAnimationFrame !== 'undefined' && testerRaf) {
+        cancelAnimationFrame(testerRaf);
+      }
       loop();
     }
     function stopGamepadTester() {
-      if (testerRaf) cancelAnimationFrame(testerRaf);
+      if (testerRaf && typeof cancelAnimationFrame !== 'undefined') {
+        cancelAnimationFrame(testerRaf);
+        testerRaf = null;
+      }
     }
 
     // Event Listeners Setup
@@ -5376,17 +5483,6 @@
         selectedCategory = btn.getAttribute("data-category");
         renderGameList();
       });
-
-      // CRT Scanline Shader Toggle
-      toggleCrtBtn.addEventListener("click", () => {
-        isCrtEnabled = !isCrtEnabled;
-        screenContainer.classList.toggle("crt-active", isCrtEnabled);
-        crtStatus.textContent = isCrtEnabled ? "ON" : "OFF";
-        crtStatus.style.color = isCrtEnabled ? "var(--accent-neon)" : "var(--text-muted)";
-        playSfx('click');
-      });
-
-      
       // Drawer Tabs Setup
       setupDrawerTabs();
       setupShaderCustomizer();
@@ -5583,13 +5679,15 @@
       setupAttractMode();
 
       // Reload Game Frame
-      reloadGameBtn.addEventListener("click", () => {
-        playSfx('click');
-        const activeGame = games.find(g => g.id === activeGameId);
-        if (activeGame) {
-          gameFrameEl.src = activeGame.src;
-        }
-      });
+      if (reloadGameBtn) {
+        reloadGameBtn.addEventListener("click", () => {
+          playSfx('click');
+          const activeGame = games.find(g => g.id === activeGameId);
+          if (activeGame) {
+            gameFrameEl.src = activeGame.src;
+          }
+        });
+      }
 
       // Universal Fullscreen & Mobile Immersive Engine
       const exitFullscreenBtn = document.getElementById("exitFullscreenBtn");
@@ -5716,25 +5814,31 @@
       });
 
       // Add Game Modal
-      openAddModalBtn.addEventListener("click", () => {
-        playSfx('click');
-        addModal.classList.add("open");
-        document.getElementById("gameNameInput").focus();
-      });
+      if (openAddModalBtn) {
+        openAddModalBtn.addEventListener("click", () => {
+          playSfx('click');
+          if (addModal) addModal.classList.add("open");
+          const nameIn = document.getElementById("gameNameInput");
+          if (nameIn) nameIn.focus();
+        });
+      }
 
       const closeAddModal = () => {
-        addModal.classList.remove("open");
-        addGameForm.reset();
+        if (addModal) addModal.classList.remove("open");
+        if (addGameForm && typeof addGameForm.reset === 'function') addGameForm.reset();
       };
 
-      closeAddModalBtn.addEventListener("click", closeAddModal);
-      cancelModalBtn.addEventListener("click", closeAddModal);
-      addModal.addEventListener("click", (e) => {
-        if (e.target === addModal) closeAddModal();
-      });
+      if (closeAddModalBtn) closeAddModalBtn.addEventListener("click", closeAddModal);
+      if (cancelModalBtn) cancelModalBtn.addEventListener("click", closeAddModal);
+      if (addModal) {
+        addModal.addEventListener("click", (e) => {
+          if (e.target === addModal) closeAddModal();
+        });
+      }
 
       // Add Game Submission
-      addGameForm.addEventListener("submit", (e) => {
+      if (addGameForm) {
+        addGameForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const title = document.getElementById("gameNameInput").value.trim();
         const category = document.getElementById("gamePlatformInput").value;
@@ -5772,6 +5876,7 @@
         selectGame(newGame.id);
         playSfx('star');
       });
+      }
     }
 
     // App Initialization
