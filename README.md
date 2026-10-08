@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://lin4cre.github.io/retro-arcade-vault/"><img src="https://img.shields.io/badge/Live%20Demo-Play%20Now-00ffcc?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Live Demo"></a>
-  <a href="#-curated-game-library"><img src="https://img.shields.io/badge/Games%20Preloaded-87%20Titles-ff2a85?style=for-the-badge&logo=gamepad" alt="Games Preloaded"></a>
+  <a href="#-curated-game-library"><img src="https://img.shields.io/badge/Games%20Preloaded-100%20Titles-ff2a85?style=for-the-badge&logo=gamepad" alt="Games Preloaded"></a>
   <a href="#license"><img src="https://img.shields.io/badge/License-MIT-8b5cf6?style=for-the-badge" alt="License"></a>
   <img src="https://img.shields.io/badge/Gamepad-API%20Supported-00e5ff?style=for-the-badge&logo=target" alt="Gamepad Supported">
   <img src="https://img.shields.io/badge/Stack-Vanilla%20HTML5%2FCSS3%2FJS-ffd000?style=for-the-badge&logo=html5&logoColor=black" alt="Vanilla Stack">
@@ -14,7 +14,7 @@
 
 ## 📖 Overview
 
-**Retro Arcade Vault** is an ultra-fast, standalone retro gaming hub and emulator frontend designed for instant browser play. Preloaded with **87 hand-curated classics** across PlayStation 1, Game Boy Advance, Nintendo DS, Super Nintendo, and Sega Genesis.
+**Retro Arcade Vault** is an ultra-fast, standalone retro gaming hub and emulator frontend designed for instant browser play. Preloaded with **100 hand-curated masterpieces** across PlayStation 1, Game Boy Advance, Nintendo DS, Super Nintendo, and Sega Genesis.
 
 Zero installation required. Zero dependencies. Completely self-contained in a single responsive web client with zero build pipelines.
 
@@ -23,6 +23,21 @@ Zero installation required. Zero dependencies. Completely self-contained in a si
 ---
 
 ## ✨ Features & Upgrades
+
+### 🌟 Vault v3.0 Ultimate Features
+- **📻 Procedural 8-Bit / Synthwave Arcade BGM Radio**: Built-in client-side Web Audio synthesizer radio that procedurally generates 8-bit & synthwave chiptune arpeggios (*Synthwave*, *8-Bit Quest*, *Cyberpunk Arp*) for authentic arcade ambiance with one-click mute.
+- **⏱️ Live Session Stopwatch & Total Playtime Tracker**: Real-time retro LED session stopwatch (*00:00*) plus persistent total playtime recording per game (*⏳ 25m*, *⏳ 1h 10m*).
+- **📝 Slide-Out Strategy Cheats & Custom Notes Drawer**: Access preloaded secret codes and walkthrough tips for top games (e.g. *Vandal Hearts* secret Vandalier class, *Final Fantasy Tactics* Cloud recruit & JP trick, *Pokémon Quetzal* starter options, *Sonic 3* level select) and keep your own custom build notes saved locally per game.
+- **🏆 Arcade Achievements / Trophy Cabinet (12 Milestones)**: Unlock retro pixel trophies (*Insert Coin*, *Master Strategist*, *Console Hopper*, *Shader Wizard*, *8-Bit Maestro*, *Late Night Gamer*, *Time Traveler*) complete with celebratory fanfare and animated toast notifications.
+- **📺 Curved CRT Television Bezel Mode**: Switch between a sleek frameless modern view and an authentic dark CRT television chassis with curved glass reflections and vignette shadows.
+- **🕹️ Arcade Attract Mode / Screensaver**: When left idle for 3 minutes, an animated retro synthwave attract mode screensaver kicks in with glowing marquee banners and cycling game highlights.
+- **🕹️ Live Gamepad Input Tester & Visualizer**: Interactive controller HUD inside the Controls dialog that illuminates buttons and analog sticks in real-time.
+- **📺 Multi-Shader Retro Filters (4 Modes)**: Instant switching between *Clean HD*, *CRT Arcade*, *CRT Trinitron Glow*, and *Handheld LCD Grid*.
+- **🎭 Cinema / Theater Focus Mode**: One-click distraction-free full-window gameplay.
+- **⚡ CRT Power-On Animation**: 200ms horizontal beam-on flare and degauss harmonic chime on every game launch.
+- **⚔️ Quick Genre Filter Chips**: One-click filtering for *RPG & Tactics*, *Action / Platform*, *Pokémon*, *Fighting*, and *Racing*.
+- **↕️ Smart Library Sorting**: Sort by Curated, Title (A-Z / Z-A), Platform, *Most Played*, or *Most Time Played*.
+- **💾 JSON Backup & Restore**: Full library export and import for seamless cloud/desktop synchronization.
 
 ### 🎮 Quality & Controls Improvements
 - **🕹️ Native Gamepad API & Live Visual Tester**: Plug in any USB or Bluetooth controller (Xbox Wireless, DualShock/DualSense, 8BitDo, Nintendo Switch Pro). The arcade detects your controller in real time, displays its name in the top badge, and features a **Live Interactive Controller Tester** inside the Controls modal that illuminates every button press and thumbstick tilt in real-time.
@@ -84,7 +99,7 @@ Click the **🕹️ CONTROLS** button on the top bar at any time to inspect mapp
 ## 🕹️ Curated Game Library (87 Titles)
 
 <details open>
-<summary><b>🎮 PlayStation 1 (24 Titles)</b></summary>
+<summary><b>🎮 PlayStation 1 (30 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -116,7 +131,7 @@ Click the **🕹️ CONTROLS** button on the top bar at any time to inspect mapp
 </details>
 
 <details>
-<summary><b>⚡ Game Boy Advance (16 Titles)</b></summary>
+<summary><b>⚡ Game Boy Advance (20 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -140,7 +155,7 @@ Click the **🕹️ CONTROLS** button on the top bar at any time to inspect mapp
 </details>
 
 <details>
-<summary><b>📜 Nintendo DS (15 Titles)</b></summary>
+<summary><b>📜 Nintendo DS (17 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
@@ -185,7 +200,7 @@ Click the **🕹️ CONTROLS** button on the top bar at any time to inspect mapp
 </details>
 
 <details>
-<summary><b>🦔 Sega Genesis (18 Titles)</b></summary>
+<summary><b>🦔 Sega Genesis (19 Titles)</b></summary>
 
 | Game Title | Genre | Artwork |
 | :--- | :--- | :---: |
