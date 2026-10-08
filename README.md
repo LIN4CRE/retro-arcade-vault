@@ -25,24 +25,31 @@ Zero installation required. Zero dependencies. Completely self-contained in a si
 ## ✨ Features & Upgrades
 
 ### 🎮 Quality & Controls Improvements
-- **🕹️ Native Gamepad API Support**: Plug in any USB or Bluetooth controller (Xbox Wireless, DualShock/DualSense, 8BitDo, Nintendo Switch Pro). The arcade detects your controller in real time, displays its name in the top badge, and allows D-Pad/Thumbstick navigation through your library.
+- **🕹️ Native Gamepad API & Live Visual Tester**: Plug in any USB or Bluetooth controller (Xbox Wireless, DualShock/DualSense, 8BitDo, Nintendo Switch Pro). The arcade detects your controller in real time, displays its name in the top badge, and features a **Live Interactive Controller Tester** inside the Controls modal that illuminates every button press and thumbstick tilt in real-time.
+- **🎯 100% Dedicated Controller Gameplay**: Full controller pass-through directly to emulators without window event hijacking or accidental library switching during in-game movement.
+- **📺 Multi-Shader Retro Display Filters**: Cycle between 4 authentic visual display modes with one click:
+  - **Clean HD**: Crisp digital, unfiltered pixel-perfect presentation.
+  - **CRT Arcade**: Classic arcade scanlines with RGB phosphor mask.
+  - **CRT Trinitron Glow**: Scanlines with tube bloom, vignette, and phosphor warmth.
+  - **Handheld LCD Grid**: Authentic pixel matrix grid designed for Game Boy Advance & Nintendo DS.
+- **🎭 Cinema / Theater Focus Mode**: Dedicated Theater button that smoothly hides the header and sidebar, centering the arcade screen with enhanced full-width ambient backlighting.
+- **⚡ Authentic CRT Power-On Animation**: Authentic 200ms horizontal beam-on flare and degauss harmonic chime whenever switching games.
+- **⚔️ Smart Genre & Franchise Filtering**: Quick one-click filter chips for **⚔️ RPG & Tactics**, **⚡ Action / Platform**, **⚡ Pokémon**, **🥊 Fighting**, and **🏎️ Racing**.
+- **↕️ Library Sorting & Play Tracker**: Sort by Curated, Title (A-Z / Z-A), System, or **🔥 Most Played** with persistent play count badges.
+- **💾 Library Backup & Restore**: Export your customized favorites and game library to `.json` or restore anytime.
 - **📖 On-Screen Controls Reference Modal**: Integrated `[🕹️ CONTROLS]` reference dialog documenting default keyboard mappings, gamepad equivalents, and emulator hotkeys across all 5 console platforms.
-- **📐 Pixel-Perfect Aspect Ratio Switcher**: Eliminates distorted or stretched pixels! Automatically adjusts display ratios depending on console:
-  - **GBA**: Native `3:2` handheld ratio
-  - **PS1 / SNES / Sega**: Native `4:3` CRT television ratio
-  - **Manual Modes**: Toggle between **Auto**, **4:3**, **3:2**, or **16:9 Wide**.
-- **🎲 Instant Shuffle / Random Game Picker**: Unsure what to play? Click **🎲 Shuffle** to launch an instant surprise classic from the library.
+- **📐 Pixel-Perfect Aspect Ratio Switcher**: Automatically adjusts display ratios depending on console (GBA 3:2, PS1/SNES/Sega 4:3, or manual 16:9).
+- **🎲 Instant Shuffle / Random Game Picker**: Click **🎲 Shuffle** to launch an instant surprise classic from the library.
 - **⭐ Favorites & Recents**: Pin your favorite titles with the ⭐ button. Filter on the fly with **⭐ Favorites** or **🕒 Recently Played** quick-pills. Persisted locally in `localStorage`.
 - **🌈 Dynamic Ambient Bias Lighting**: Immersion halo glow behind the CRT bezel that dynamically shifts tint to match the active console's iconic aesthetic (PlayStation Blue, GBA Purple, DS Teal, SNES Violet, Sega Crimson).
-- **🔊 8-Bit Web Audio Synthesizer**: Built-in procedural chiptune sound effects for menu interactions, game launching, and starring (with one-click mute toggle).
+- **🔊 8-Bit Web Audio Synthesizer**: Built-in procedural chiptune sound effects for menu interactions, game launching, arpeggio starring, and degauss beam audio.
 - **🛡️ Anti-Popup Iframe Sandboxing**: Restricts external embeds to stop intrusive popups, tab hijacking, and click-redirects.
-- **📺 Authentic CRT Shader**: Realistic phosphor scanlines and soft curvature vignette toggle.
 
 ---
 
 ## 🕹️ Controls Reference Guide
 
-Click the **🕹️ CONTROLS** button on the top bar at any time to inspect the mappings:
+Click the **🕹️ CONTROLS** button on the top bar at any time to inspect mappings and test your controller:
 
 ### Keyboard Mappings (RetroGames.cc Default)
 | Action / Button | RetroGames Keyboard Key | Gamepad (Standard Layout) |
@@ -57,15 +64,17 @@ Click the **🕹️ CONTROLS** button on the top bar at any time to inspect the 
 | **Select / Back** | <kbd>Shift</kbd> | Back / View / Share |
 | **Start / Pause** | <kbd>Enter</kbd> | Start / Menu / Options |
 
-### Arcade Shortcuts
-| Key | Action |
-| :---: | :--- |
-| <kbd>F</kbd> | Toggle Fullscreen Theater Mode |
-| <kbd>R</kbd> | Reload / Restart current game |
-| <kbd>Esc</kbd> | Close dialog modals |
-| **CRT FX** | Toggle scanline overlay filter |
-| **RATIO** | Cycle between Auto, 4:3, 3:2, and 16:9 |
-| **SFX** | Mute or unmute 8-bit interface sound effects |
+### Emulator Hotkeys & Shortcuts
+| Action | Hotkey / Control |
+| :--- | :--- |
+| **Save State** | <kbd>Shift</kbd> + <kbd>F2</kbd> (in emulator) |
+| **Load State** | <kbd>Shift</kbd> + <kbd>F4</kbd> (in emulator) |
+| **Pause Emulator** | <kbd>P</kbd> |
+| **Toggle Theater Mode** | <kbd>🎭 Theater</kbd> Button / <kbd>Esc</kbd> to exit |
+| **Fullscreen** | <kbd>⛶ Fullscreen</kbd> Button |
+| **Cycle Display Filters** | <kbd>📺 Filter</kbd> Button (Clean HD → CRT Arcade → Trinitron Glow → LCD Grid) |
+| **Cycle Aspect Ratio** | <kbd>📐 RATIO</kbd> Button (Auto → 4:3 → 3:2 → 16:9) |
+| **Sound FX** | <kbd>🔊 SFX</kbd> Button (Toggle audio synthesizer) |
 
 > [!TIP]
 > **Ad-Free Tip**: To bypass third-party video ads inside game embeds, use an ad-blocker like **uBlock Origin** or the **Brave Browser**, which blocks ad server requests before they reach the game canvas.
