@@ -24,13 +24,16 @@ Zero installation required. Zero dependencies. Completely self-contained in a si
 
 ## ✨ Features & Upgrades
 
-### 🌟 Vault v3.0 Ultimate Features
-- **📻 Procedural 8-Bit / Synthwave Arcade BGM Radio**: Built-in client-side Web Audio synthesizer radio that procedurally generates 8-bit & synthwave chiptune arpeggios (*Synthwave*, *8-Bit Quest*, *Cyberpunk Arp*) for authentic arcade ambiance with one-click mute.
+### 🌟 Vault v3.5 Special Edition Features
+- **📖 Game Compendium & Instruction Manuals**: Dedicated 3-tab drawer containing official retro instruction manuals, release metadata, lore synopses, pro secrets, and an auto-saved personal logbook.
+- **🎵 Arcade Sound Test Mode**: Full 10-pad procedural 8-bit/16-bit soundboard (*Insert Coin*, *1-Up*, *Power-Up*, *Laser*, *8-Bit Boom*, *Secret Chime*, *Stage Clear*, *Game Over*, *Pause*, *Warp*) with keyboard hotkeys <kbd>1</kbd>-<kbd>0</kbd>.
+- **🏅 High Score & Personal Best Hall of Fame**: Log your legendary speedruns, high scores, and milestones with 3-letter arcade initials, dates, and medal ranks.
+- **🎛️ CRT Display Shader Calibrator**: Real-time slider fine-tuning for Scanline Darkness, Phosphor Bloom Glow, Vignette Shadow, and Tube Curvature.
+- **🏆 Expanded Trophies (16 Milestones)**: Unlock retro pixel achievements (*Insert Coin*, *Master Strategist*, *Console Hopper*, *Shader Wizard*, *Sound Engineer*, *Manual Reader*, *High Roller*, *Phosphor Purist*) with fanfare and toast popups.
+- **📻 Procedural 8-Bit / Synthwave Arcade BGM Radio**: Built-in client-side Web Audio synthesizer radio generating chill retro chiptune arpeggios (*Synthwave*, *8-Bit Quest*, *Cyberpunk Arp*) for authentic arcade ambiance.
 - **⏱️ Live Session Stopwatch & Total Playtime Tracker**: Real-time retro LED session stopwatch (*00:00*) plus persistent total playtime recording per game (*⏳ 25m*, *⏳ 1h 10m*).
-- **📝 Slide-Out Strategy Cheats & Custom Notes Drawer**: Access preloaded secret codes and walkthrough tips for top games (e.g. *Vandal Hearts* secret Vandalier class, *Final Fantasy Tactics* Cloud recruit & JP trick, *Pokémon Quetzal* starter options, *Sonic 3* level select) and keep your own custom build notes saved locally per game.
-- **🏆 Arcade Achievements / Trophy Cabinet (12 Milestones)**: Unlock retro pixel trophies (*Insert Coin*, *Master Strategist*, *Console Hopper*, *Shader Wizard*, *8-Bit Maestro*, *Late Night Gamer*, *Time Traveler*) complete with celebratory fanfare and animated toast notifications.
-- **📺 Curved CRT Television Bezel Mode**: Switch between a sleek frameless modern view and an authentic dark CRT television chassis with curved glass reflections and vignette shadows.
-- **🕹️ Arcade Attract Mode / Screensaver**: When left idle for 3 minutes, an animated retro synthwave attract mode screensaver kicks in with glowing marquee banners and cycling game highlights.
+- **📺 Curved CRT Television Bezel Mode**: Switch between a sleek modern frameless view and an authentic dark CRT television chassis with curved glass reflections.
+- **🕹️ Arcade Attract Mode / Screensaver**: When left idle for 3 minutes, an animated retro synthwave attract mode screensaver kicks in with glowing marquee banners.
 - **🕹️ Live Gamepad Input Tester & Visualizer**: Interactive controller HUD inside the Controls dialog that illuminates buttons and analog sticks in real-time.
 - **📺 Multi-Shader Retro Filters (4 Modes)**: Instant switching between *Clean HD*, *CRT Arcade*, *CRT Trinitron Glow*, and *Handheld LCD Grid*.
 - **🎭 Cinema / Theater Focus Mode**: One-click distraction-free full-window gameplay.
