@@ -2057,62 +2057,38 @@
       } catch (e) {}
     }
 
-    // Gamepad API Detection & Polling
+    // Gamepad API Detection & Status
     function setupGamepad() {
+      const updateConnectedPad = () => {
+        const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
+        let found = null;
+        for (let i = 0; i < gamepads.length; i++) {
+          if (gamepads[i] && gamepads[i].connected) {
+            found = gamepads[i];
+            break;
+          }
+        }
+        if (found) {
+          gamepadBadge.classList.add("connected");
+          const name = found.id.includes("Xbox") ? "Xbox Controller" : (found.id.includes("PlayStation") || found.id.includes("Wireless") ? "PlayStation Controller" : "Controller Active");
+          gamepadLabel.textContent = "Gamepad: " + name;
+        } else {
+          gamepadBadge.classList.remove("connected");
+          gamepadLabel.textContent = "Gamepad: Ready";
+        }
+      };
+
       window.addEventListener("gamepadconnected", (e) => {
-        const gp = e.gamepad;
-        gamepadBadge.classList.add("connected");
-        const name = gp.id.includes("Xbox") ? "Xbox" : (gp.id.includes("PlayStation") || gp.id.includes("Wireless") ? "PlayStation" : "Connected");
-        gamepadLabel.textContent = "Gamepad: " + name;
+        updateConnectedPad();
         playSfx('select');
       });
 
       window.addEventListener("gamepaddisconnected", () => {
-        gamepadBadge.classList.remove("connected");
-        gamepadLabel.textContent = "Gamepad: Ready";
+        updateConnectedPad();
       });
 
-      // Polling loop for library navigation with D-Pad
-      let lastDpadTime = 0;
-      function pollGamepad() {
-        const gamepads = navigator.getGamepads ? navigator.getGamepads() : [];
-        for (let i = 0; i < gamepads.length; i++) {
-          const gp = gamepads[i];
-          if (gp && gp.connected) {
-            const now = Date.now();
-            if (now - lastDpadTime > 220) {
-              // D-pad Up (12) or Axis Up
-              if ((gp.buttons[12] && gp.buttons[12].pressed) || (gp.axes[1] && gp.axes[1] < -0.6)) {
-                navigateGames(-1);
-                lastDpadTime = now;
-              }
-              // D-pad Down (13) or Axis Down
-              else if ((gp.buttons[13] && gp.buttons[13].pressed) || (gp.axes[1] && gp.axes[1] > 0.6)) {
-                navigateGames(1);
-                lastDpadTime = now;
-              }
-            }
-          }
-        }
-        requestAnimationFrame(pollGamepad);
-      }
-      requestAnimationFrame(pollGamepad);
-    }
-
-    function navigateGames(direction) {
-      if (games.length === 0) return;
-      const idx = games.findIndex(g => g.id === activeGameId);
-      let nextIdx = idx + direction;
-      if (nextIdx < 0) nextIdx = games.length - 1;
-      if (nextIdx >= games.length) nextIdx = 0;
-      selectGame(games[nextIdx].id);
-      playSfx('click');
-
-      // Scroll active item into view
-      setTimeout(() => {
-        const activeEl = document.querySelector('.game-item.active');
-        if (activeEl) activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }, 50);
+      // Check on initial load
+      updateConnectedPad();
     }
 
     // Storage Management
@@ -2534,15 +2510,16 @@
         }
       });
 
+      // Focus helper so controls always route directly to emulator
+      screenContainer.addEventListener("click", () => {
+        try { gameFrameEl.focus(); } catch (err) {}
+      });
+
       // Keyboard Shortcuts
       window.addEventListener("keydown", (e) => {
         if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
 
-        if (e.key === "f" || e.key === "F") {
-          fullscreenBtn.click();
-        } else if (e.key === "r" || e.key === "R") {
-          reloadGameBtn.click();
-        } else if (e.key === "Escape") {
+        if (e.key === "Escape") {
           if (controlsModal.classList.contains("open")) closeControlsModal();
           if (addModal.classList.contains("open")) closeAddModal();
         }
