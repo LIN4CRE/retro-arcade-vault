@@ -108,6 +108,7 @@
     body.fullscreen-active .screen-footer,
     body.fullscreen-active .ambient-glow,
     body.fullscreen-active .orientation-toast,
+    body.fullscreen-active .cabinet-marquee,
     body.fullscreen-active .mobile-float-fs-btn {
       display: none !important;
     }
@@ -1524,6 +1525,7 @@
       transform: translateY(-100%);
       transition: transform 0.35s ease;
     }
+    body.theater-active .cabinet-marquee { display: none !important; }
     body.theater-active .sidebar {
       transform: translateX(-100%);
       transition: transform 0.35s ease;
@@ -2845,6 +2847,451 @@
       .cabinet-toast { max-width: none; }
     }
 
+    /* =========================================================
+       UI FINISH — glass, type, CRT housing, compact chrome
+       ========================================================= */
+    :root {
+      --radius-xs: 6px;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-pill: 999px;
+      --header-h: 58px;
+      --glass: rgba(14, 18, 32, 0.78);
+      --hairline: rgba(0, 255, 204, 0.16);
+    }
+
+    html { color-scheme: dark; }
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      letter-spacing: 0.01em;
+    }
+    ::selection {
+      background: var(--accent-neon);
+      color: #07110e;
+    }
+    button, input, select, textarea { font-family: inherit; }
+
+    /* Film grain (doesn't block clicks) */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9;
+      opacity: 0.04;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.55'/></svg>");
+    }
+
+    /* ----- Header ----- */
+    header {
+      flex-wrap: nowrap !important;
+      min-height: var(--header-h);
+      padding: 0 1rem 0 1.1rem !important;
+      background: var(--glass) !important;
+      backdrop-filter: blur(22px) saturate(1.35);
+      -webkit-backdrop-filter: blur(22px) saturate(1.35);
+      border-bottom: 1px solid var(--hairline) !important;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+      gap: 16px !important;
+    }
+    .brand { gap: 10px; min-width: 0; }
+    .brand-icon {
+      font-size: 1.45rem !important;
+      filter: drop-shadow(0 0 10px var(--accent-neon));
+    }
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      min-width: 0;
+    }
+    .brand-title {
+      font-family: 'Rajdhani', sans-serif !important;
+      font-weight: 700 !important;
+      font-size: 1.08rem !important;
+      letter-spacing: 0.16em !important;
+      line-height: 1.1;
+      white-space: nowrap;
+      background: linear-gradient(90deg, var(--accent-neon), #f8fbff 48%, var(--accent-pink)) !important;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brand-version {
+      align-self: flex-start;
+      font-size: 0.62rem !important;
+      letter-spacing: 0.14em;
+      padding: 1px 7px !important;
+      border-radius: var(--radius-pill) !important;
+      background: rgba(0,255,204,0.1) !important;
+    }
+
+    .header-actions {
+      flex-wrap: nowrap !important;
+      overflow-x: auto;
+      scrollbar-width: none;
+      gap: 6px !important;
+      mask-image: linear-gradient(90deg, #000 0%, #000 88%, transparent 100%);
+      padding-right: 4px;
+    }
+    .header-actions::-webkit-scrollbar { display: none; }
+
+    .btn {
+      height: 34px;
+      padding: 0 12px !important;
+      border-radius: var(--radius-pill) !important;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      line-height: 1;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+    }
+    .btn:active { transform: scale(0.97) !important; }
+    .btn-outline {
+      background: rgba(255,255,255,0.035) !important;
+      border-color: rgba(255,255,255,0.08) !important;
+    }
+    .btn-outline:hover {
+      background: rgba(0,255,204,0.1) !important;
+      border-color: var(--accent-neon) !important;
+      box-shadow: 0 0 0 1px rgba(0,255,204,0.15), 0 0 18px rgba(0,255,204,0.12);
+    }
+    .btn-primary {
+      border: none !important;
+      box-shadow: 0 6px 18px rgba(255,42,133,0.28), var(--glow-pink);
+    }
+    .btn-primary:hover { transform: translateY(-1px) !important; }
+
+    .gamepad-badge {
+      height: 34px;
+      padding: 0 12px !important;
+      background: rgba(255,255,255,0.03) !important;
+    }
+
+    @media (max-width: 1320px) {
+      header .btn-label { display: none; }
+      header .btn { padding: 0 10px !important; min-width: 36px; justify-content: center; }
+    }
+
+    /* ----- Marquee as LED trough ----- */
+    .cabinet-marquee {
+      height: 22px !important;
+      background: #05070c !important;
+      border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+      box-shadow: inset 0 8px 12px rgba(0,0,0,0.55);
+    }
+    .marquee-track {
+      font-size: 0.68rem !important;
+      letter-spacing: 0.22em !important;
+      color: var(--accent-neon) !important;
+      text-shadow: 0 0 8px var(--accent-neon);
+      opacity: 0.85;
+    }
+
+    /* ----- Layout ----- */
+    .app-container {
+      grid-template-columns: 340px 1fr !important;
+      min-height: calc(100vh - 80px);
+    }
+
+    aside.sidebar {
+      background: linear-gradient(180deg, #101624 0%, #0a0e18 100%) !important;
+      border-right: 1px solid rgba(255,255,255,0.06) !important;
+      height: calc(100vh - 80px);
+    }
+    .sidebar-header {
+      padding: 12px 12px 8px !important;
+      gap: 8px !important;
+    }
+    .search-input {
+      height: 38px;
+      border-radius: 10px !important;
+      padding-left: 36px !important;
+      background: rgba(0,0,0,0.35) !important;
+      border-color: rgba(255,255,255,0.07) !important;
+      font-size: 0.9rem !important;
+    }
+    .search-input:focus {
+      border-color: var(--accent-neon) !important;
+      box-shadow: 0 0 0 3px rgba(0,255,204,0.12) !important;
+    }
+    .filter-tags { gap: 4px !important; }
+    .tag-btn {
+      padding: 3px 9px !important;
+      font-size: 0.7rem !important;
+      border-radius: var(--radius-pill) !important;
+      background: rgba(255,255,255,0.03) !important;
+    }
+    .genre-chip {
+      padding: 3px 8px !important;
+      font-size: 0.68rem !important;
+      border-radius: var(--radius-pill) !important;
+    }
+    .sidebar-tools { gap: 4px !important; }
+    .sort-select, .tool-icon-btn {
+      height: 32px;
+      border-radius: 8px !important;
+      font-size: 0.74rem !important;
+    }
+
+    .spotlight-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 7px;
+    }
+    .spotlight-row .continue-card,
+    .spotlight-row .gotd-card {
+      min-height: 64px;
+      padding: 6px 8px !important;
+      margin: 0;
+    }
+    .gotd-title { max-width: 110px !important; font-size: 0.74rem !important; }
+    .gotd-thumb, .continue-card img { width: 30px !important; height: 38px !important; }
+    .collection-meter {
+      padding: 6px 8px !important;
+      border-radius: 8px !important;
+    }
+    .collection-label { font-size: 0.64rem !important; margin-bottom: 4px !important; }
+    .collection-track { height: 5px !important; }
+    #statsBar { display: none !important; }
+    .search-match-info { font-size: 0.68rem !important; opacity: 0.75; }
+
+    /* ----- Game cards ----- */
+    .game-list { padding: 8px 10px 18px !important; gap: 6px !important; }
+    .game-item {
+      padding: 6px 8px !important;
+      border-radius: 10px !important;
+      background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.018)) !important;
+      border: 1px solid rgba(255,255,255,0.04) !important;
+      gap: 10px !important;
+    }
+    .game-item:hover {
+      transform: translateX(3px) !important;
+      border-color: rgba(0,255,204,0.28) !important;
+      background: rgba(0,255,204,0.06) !important;
+    }
+    .game-item.active {
+      background: rgba(0,255,204,0.1) !important;
+      border-color: var(--accent-neon) !important;
+      box-shadow: inset 3px 0 0 var(--accent-neon), 0 0 18px rgba(0,255,204,0.08) !important;
+    }
+    .game-thumb-wrap {
+      width: 42px !important;
+      height: 52px !important;
+      border-radius: 7px !important;
+      position: relative;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.1);
+    }
+    .game-thumb-wrap::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(165deg, rgba(255,255,255,0.22) 0%, transparent 42%);
+      pointer-events: none;
+    }
+    .game-title { font-size: 0.86rem !important; font-weight: 700; }
+    .game-platform {
+      font-size: 0.64rem !important;
+      letter-spacing: 0.04em;
+      border: 1px solid transparent;
+    }
+    .game-item[data-cat="PS1"] .game-platform { color: #93c5fd; background: rgba(59,130,246,0.16); }
+    .game-item[data-cat="GBA"] .game-platform { color: #d8b4fe; background: rgba(168,85,247,0.16); }
+    .game-item[data-cat="NDS"] .game-platform { color: #67e8f9; background: rgba(6,182,212,0.16); }
+    .game-item[data-cat="SNES"] .game-platform { color: #fde047; background: rgba(234,179,8,0.14); }
+    .game-item[data-cat="SEGA"] .game-platform { color: #f9a8d4; background: rgba(236,72,153,0.16); }
+
+    .game-list.binder-mode .game-thumb-wrap {
+      height: 124px !important;
+      border-radius: 8px 8px 2px 2px !important;
+    }
+    .game-list.binder-mode .game-item {
+      background: #161b2c !important;
+      padding: 6px 6px 8px !important;
+      box-shadow: 0 10px 18px rgba(0,0,0,0.4);
+    }
+    .game-list.binder-mode .game-item:hover { transform: translateY(-4px) !important; }
+
+    /* ----- Stage HUD ----- */
+    main.stage {
+      padding: 16px 22px 18px !important;
+      gap: 12px !important;
+    }
+    .stage-bar {
+      background: var(--glass) !important;
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.06) !important;
+      border-radius: 14px !important;
+      padding: 10px 14px !important;
+    }
+    .stage-game-title {
+      font-size: 1.22rem !important;
+      letter-spacing: 0.02em;
+      font-weight: 700;
+    }
+    .stage-cover-preview {
+      width: 40px !important;
+      height: 50px !important;
+      border-radius: 7px !important;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.5);
+    }
+    .stage-controls .btn { height: 32px; font-size: 0.74rem !important; }
+    @media (max-width: 1100px) {
+      .stage-controls .btn-label { display: none; }
+    }
+
+    .session-timer-badge {
+      background: rgba(0,0,0,0.45) !important;
+      border-color: rgba(0,255,204,0.25) !important;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ----- CRT monitor housing ----- */
+    .screen-wrapper { padding: 8px 4px 4px; }
+    .screen-container {
+      border: 1px solid rgba(255,255,255,0.08) !important;
+      border-radius: 16px !important;
+      background: #050608 !important;
+      box-shadow:
+        0 0 0 7px #171b27,
+        0 0 0 8px rgba(0,255,204,0.22),
+        0 28px 70px rgba(0,0,0,0.72),
+        inset 0 0 60px rgba(0,0,0,0.55) !important;
+    }
+    .screen-container::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 7;
+      background: linear-gradient(165deg, rgba(255,255,255,0.07) 0%, transparent 36%);
+      border-radius: inherit;
+    }
+    .crt-led {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-neon);
+      box-shadow: 0 0 8px var(--accent-neon);
+      z-index: 9;
+      pointer-events: none;
+      animation: timerPulse 1.8s infinite;
+    }
+    .crt-screw {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #6b7280, #1f2433 70%);
+      z-index: 9;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    .crt-screw.tl { top: 8px; left: 8px; }
+    .crt-screw.tr { top: 8px; right: 8px; }
+    .crt-screw.bl { bottom: 8px; left: 8px; }
+    .crt-screw.br { bottom: 8px; right: 22px; }
+
+    .ambient-glow {
+      opacity: 0.7 !important;
+      filter: blur(34px) !important;
+    }
+
+    .screen-footer {
+      padding: 2px 4px 0 !important;
+      opacity: 0.8;
+    }
+    .kbd {
+      border-radius: 5px !important;
+      background: rgba(255,255,255,0.06) !important;
+      border-color: rgba(255,255,255,0.12) !important;
+      font-size: 0.68rem !important;
+    }
+    .hotkey-pill {
+      border-radius: 999px !important;
+      padding: 3px 9px !important;
+      font-size: 0.72rem !important;
+    }
+
+    /* ----- Modals ----- */
+    .modal-backdrop {
+      background: rgba(4, 6, 12, 0.72) !important;
+      backdrop-filter: blur(14px) saturate(1.2) !important;
+      z-index: 420 !important;
+    }
+    .modal {
+      background: linear-gradient(180deg, #161c2e, #101524) !important;
+      border: 1px solid var(--hairline) !important;
+      border-radius: 16px !important;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.04), 0 0 40px rgba(0,255,204,0.08) !important;
+    }
+    .modal-title {
+      font-family: 'Rajdhani', sans-serif !important;
+      font-size: 0.95rem !important;
+      letter-spacing: 0.14em !important;
+      font-weight: 700;
+    }
+    .modal-header { padding: 14px 18px !important; }
+    .modal-body { padding: 16px 18px !important; }
+    .modal-footer { padding: 12px 18px !important; }
+    .form-input, .form-select, .form-textarea, .notes-textarea {
+      border-radius: 10px !important;
+    }
+
+    /* ----- Boot ----- */
+    .boot-splash {
+      background:
+        radial-gradient(ellipse at 50% 40%, rgba(0,255,204,0.08), transparent 42%),
+        radial-gradient(circle at 50% 40%, #1a1030 0%, #05070d 62%) !important;
+    }
+    .boot-title {
+      font-size: clamp(0.85rem, 2.6vw, 1.35rem) !important;
+      line-height: 1.45;
+      filter: drop-shadow(0 0 18px rgba(0,255,204,0.35));
+    }
+    .boot-insert {
+      border: 1px solid rgba(255,208,0,0.45);
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: rgba(255,208,0,0.06);
+    }
+
+    /* Attract */
+    .attract-title {
+      font-size: clamp(0.9rem, 3vw, 1.5rem) !important;
+    }
+    .attract-cover {
+      width: 140px !important;
+      height: 176px !important;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55), 0 0 0 2px var(--accent-neon);
+    }
+
+    /* Toasts */
+    .trophy-toast, .cabinet-toast {
+      border-radius: 12px !important;
+      backdrop-filter: blur(12px);
+    }
+
+    @media (max-width: 1024px) {
+      .app-container { grid-template-columns: 1fr !important; }
+      .spotlight-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      header { flex-wrap: wrap !important; min-height: 0; }
+      .brand-title { font-size: 0.92rem !important; letter-spacing: 0.08em !important; }
+      .header-actions { mask-image: none; width: 100%; }
+      main.stage { padding: 8px !important; }
+      .screen-container { box-shadow: 0 0 0 4px #171b27, 0 16px 40px rgba(0,0,0,0.6) !important; }
+      .crt-screw, .crt-led { display: none; }
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -2910,9 +3357,11 @@
   <header>
     <div class="brand">
       <button class="mobile-menu-btn" id="mobileMenuToggle" title="Open Game Library"><span>☰</span> <span>Games</span></button>
-      <span class="brand-icon">🕹️</span>
-      <span class="brand-title">RETRO ARCADE VAULT</span>
-      <span class="brand-version">v4.1 Operator</span>
+      <span class="brand-icon" aria-hidden="true">🕹️</span>
+      <span class="brand-copy">
+        <span class="brand-title">RETRO ARCADE VAULT</span>
+        <span class="brand-version">v4.1 OPERATOR</span>
+      </span>
     </div>
 
     <div class="header-actions">
@@ -2924,37 +3373,37 @@
 
       <!-- Controls Guide Modal Button -->
       <button class="btn btn-outline" id="openControlsModalBtn" title="View Key & Controller Mappings">
-        🕹️ Controls
+        🕹️ <span class="btn-label">Controls</span>
       </button>
 
       <!-- Random Game Button -->
       <button class="btn btn-outline" id="randomGameBtn" title="Launch a Random Game">
-        🎲 Random
+        🎲 <span class="btn-label">Random</span>
       </button>
 
       <!-- Sound Toggle -->
       <button class="btn btn-outline" id="toggleSfxBtn" title="Toggle Chiptune Web Audio FX">
-        🔊 SFX: <span id="sfxStatus" style="color:var(--accent-neon)">ON</span>
+        🔊 <span class="btn-label">SFX:</span> <span id="sfxStatus" style="color:var(--accent-neon)">ON</span>
       </button>
 
       <!-- CRT Shader -->
       <button class="btn btn-outline" id="toggleBgmBtn" title="Toggle Procedural 8-Bit / Synthwave Arcade Radio">
-        📻 BGM: <span id="bgmLabel" style="color:var(--text-muted)">OFF</span>
+        📻 <span class="btn-label">BGM:</span> <span id="bgmLabel" style="color:var(--text-muted)">OFF</span>
       </button>
 
       <!-- Trophy Achievements -->
       <button class="btn btn-outline" id="openTrophiesBtn" title="View Arcade Trophies & Milestones">
-        🏆 Trophies: <span id="trophyBadgeCount" style="color:var(--accent-yellow)">0/22</span>
+        🏆 <span class="btn-label">Cups</span> <span id="trophyBadgeCount" style="color:var(--accent-yellow)">0/22</span>
       </button>
 
       <button class="btn btn-outline" id="openCmdPaletteBtn" title="Jump to any game (Ctrl+K)">
-        ⚡ Jump
+        ⚡ <span class="btn-label">Jump</span>
       </button>
       <button class="btn btn-outline" id="openLabBtn" title="Operator's Lab (Ctrl+,)">
-        ⚙️ Lab
+        ⚙️ <span class="btn-label">Lab</span>
       </button>
-      <button class="btn btn-primary" id="openAddModalBtn">
-        <span>+</span> Add Game
+      <button class="btn btn-primary" id="openAddModalBtn" title="Add a custom game">
+        <span>+</span> <span class="btn-label">Add</span>
       </button>
     </div>
   </header>
@@ -3017,8 +3466,10 @@
           <button class="genre-chip" data-genre="STRATEGY">🎖️ Strategy</button>
         </div>
 
-        <div class="continue-card" id="continueCard" title="Resume last session"></div>
-        <div class="gotd-card" id="gotdCard" title="Play today's featured classic"></div>
+        <div class="spotlight-row">
+          <div class="continue-card" id="continueCard" title="Resume last session"></div>
+          <div class="gotd-card" id="gotdCard" title="Play today's featured classic"></div>
+        </div>
         <div class="collection-meter" id="collectionMeter">
           <div class="collection-label">
             <span id="collectionLabel">COLLECTION</span>
@@ -3063,31 +3514,31 @@
 
         <div class="stage-controls">
           <button class="btn btn-outline" id="ratioToggleBtn" title="Cycle Aspect Ratio">
-            📐 <span id="ratioLabel">Auto (4:3)</span>
+            📐 <span class="btn-label" id="ratioLabel">Auto (4:3)</span>
           </button>
           <button class="btn btn-outline" id="randomGameBtn2" title="Pick Random Game">
-            🎲 Shuffle
+            🎲 <span class="btn-label">Shuffle</span>
           </button>
           <button class="btn btn-outline" id="reloadGameBtn" title="Restart Game">
-            🔄 Restart
+            🔄 <span class="btn-label">Restart</span>
           </button>
           <button class="btn btn-outline" id="toggleBezelBtn" title="Toggle CRT Television Bezel Frame">
-            📺 Bezel: <span id="bezelLabel">Flat</span>
+            📺 <span class="btn-label">Bezel:</span> <span id="bezelLabel">Flat</span>
           </button>
           <button class="btn btn-outline" id="openShaderSettingsBtn" title="Fine-tune Scanlines, Bloom & Vignette">
-            🎛️ Shader FX
+            🎛️ <span class="btn-label">Shader</span>
           </button>
           <button class="btn btn-outline" id="openNotesBtn" title="Strategy Tips, Cheats & Passwords">
-            📝 Cheats & Notes
+            📝 <span class="btn-label">Notes</span>
           </button>
           <button class="btn btn-outline" id="theaterBtn" title="Cinema / Theater Focus Mode">
-            🎭 Theater
+            🎭 <span class="btn-label">Theater</span>
           </button>
           <button class="btn btn-outline" id="shareGameBtn" title="Copy a shareable #play/ link">
-            🔗 Share
+            🔗 <span class="btn-label">Share</span>
           </button>
           <button class="btn btn-outline" id="fullscreenBtn" title="Fullscreen Mode">
-            ⛶ Fullscreen
+            ⛶ <span class="btn-label">Full</span>
           </button>
         </div>
       </div>
@@ -3097,6 +3548,11 @@
         <div class="ambient-glow" id="ambientGlow"></div>
         <button class="mobile-float-fs-btn" id="mobileFloatFsBtn" title="Toggle Fullscreen (F11)">⛶ Fullscreen</button>
         <div class="screen-container" id="screenContainer">
+          <span class="crt-screw tl"></span>
+          <span class="crt-screw tr"></span>
+          <span class="crt-screw bl"></span>
+          <span class="crt-screw br"></span>
+          <span class="crt-led" title="Power"></span>
           <div class="crt-overlay"></div>
           <div class="crt-glow"></div>
           <div class="screen-boot-osd" id="screenBootOsd">
@@ -6998,7 +7454,7 @@
       if (isTheaterMode) unlockTrophy('THEATER_BUFF');
       document.body.classList.toggle("theater-active", isTheaterMode);
       if (theaterBtn) {
-        theaterBtn.innerHTML = isTheaterMode ? "🎭 Exit Theater" : "🎭 Theater";
+        theaterBtn.innerHTML = isTheaterMode ? '🎭 <span class="btn-label">Exit</span>' : '🎭 <span class="btn-label">Theater</span>';
       }
     }
 
@@ -7518,7 +7974,7 @@
 
         if (shouldEnter) {
           document.body.classList.add("fullscreen-active");
-          if (fullscreenBtn) fullscreenBtn.innerHTML = "⛶ Exit Fullscreen";
+          if (fullscreenBtn) fullscreenBtn.innerHTML = '⛶ <span class="btn-label">Exit</span>';
 
           // 1. Try Native Element Fullscreen with all vendor prefixes
           const elem = screenContainer || document.documentElement;
@@ -7543,7 +7999,7 @@
           resetFsFade();
         } else {
           document.body.classList.remove("fullscreen-active");
-          if (fullscreenBtn) fullscreenBtn.innerHTML = "⛶ Fullscreen";
+          if (fullscreenBtn) fullscreenBtn.innerHTML = '⛶ <span class="btn-label">Full</span>';
 
           // Exit Native Fullscreen if active
           if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement) {
@@ -7932,7 +8388,7 @@
           ? '<img class="game-thumb" src="' + escapeHtml(game.cover) + '" alt="' + escapeHtml(game.title) + '" loading="lazy">'
           : '<span class="game-thumb-placeholder">' + (game.emoji || '🎮') + '</span>';
         const isCustom = String(game.id).indexOf("custom-") === 0;
-        return '<div class="game-item ' + (isActive ? 'active' : '') + '" data-id="' + game.id + '" tabindex="0" role="button" aria-pressed="' + isActive + '">' +
+        return '<div class="game-item ' + (isActive ? 'active' : '') + '" data-id="' + game.id + '" data-cat="' + escapeHtml(game.category || '') + '" tabindex="0" role="button" aria-pressed="' + isActive + '">' +
             '<div class="game-thumb-wrap">' + coverHtml + '</div>' +
             '<div class="game-meta">' +
               '<div class="game-title" title="' + escapeHtml(game.title) + '">' + escapeHtml(game.title) + '</div>' +
