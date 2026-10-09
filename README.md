@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://lin4cre.github.io/retro-arcade-vault/"><img src="https://img.shields.io/badge/Live%20Demo-Play%20Now-00ffcc?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Live Demo"></a>
-  <a href="#-curated-game-library-125-titles"><img src="https://img.shields.io/badge/Games%20Preloaded-125%20Titles-ff2a85?style=for-the-badge&logo=gamepad" alt="Games Preloaded"></a>
+  <a href="#-curated-game-library-124-titles"><img src="https://img.shields.io/badge/Games%20Preloaded-124%20Titles-ff2a85?style=for-the-badge&logo=gamepad" alt="Games Preloaded"></a>
   <a href="#license"><img src="https://img.shields.io/badge/License-MIT-8b5cf6?style=for-the-badge" alt="License"></a>
   <img src="https://img.shields.io/badge/Gamepad-API%20Supported-00e5ff?style=for-the-badge&logo=target" alt="Gamepad Supported">
   <img src="https://img.shields.io/badge/Stack-Vanilla%20HTML5%2FCSS3%2FJS-ffd000?style=for-the-badge&logo=html5&logoColor=black" alt="Vanilla Stack">
@@ -15,7 +15,7 @@
 
 ## 📖 Overview
 
-**Retro Arcade Vault** is a standalone neon arcade cabinet that lives in your browser. Insert a coin, pick from **125 hand-curated classics** across PlayStation 1, Game Boy Advance, Nintendo DS, Super Nintendo, and Sega Genesis, and play instantly — no install, no build step, no framework.
+**Retro Arcade Vault** is a standalone neon arcade cabinet that lives in your browser. Insert a coin, pick from **124 hand-curated classics** across PlayStation 1, Game Boy Advance, Nintendo DS, Super Nintendo, and Sega Genesis, and play instantly — no install, no build step, no framework.
 
 Zero dependencies. One HTML file, a handful of assets, and your save data in `localStorage`.
 
@@ -28,7 +28,7 @@ Zero dependencies. One HTML file, a handful of assets, and your save data in `lo
 ### New in v4.1
 - **Operator's Lab**: Themes (Neon / Phosphor / Amber / Ice), radio volume, 3-letter operator tag, and a decluttered header. <kbd>Ctrl</kbd>+<kbd>,</kbd>
 - **Deep links**: Every game is `#play/chrono-trigger-snes`. Share copies a cabinet URL; arriving via hash unlocks *Linked Cabinet*.
-- **Collection meter + Continue card**: See how much of the 125 you've actually launched; resume last session in one tap.
+- **Collection meter + Continue card**: See how much of the 124 you've actually launched; resume last session in one tap.
 - **Radio ducks in-game**: Chiptune BGM drops under the emulator so it doesn't fight the soundtrack (toggle in Lab).
 - **Cabinet toasts** instead of `alert()` / `confirm()` — wipe memory, restore backup, and delete custom games stay in-universe.
 - **22 trophies**: *Floor Manager*, *Linked Cabinet*, *Cabinet Painter*, *Ten Credits* join the board.
@@ -106,7 +106,7 @@ Click the **🕹️ CONTROLS** button on the top bar at any time to inspect mapp
 
 ---
 
-## 🕹️ Curated Game Library (125 Titles)
+## 🕹️ Curated Game Library (124 Titles)
 
 <details open>
 <summary><b>🎮 PlayStation 1 (37 Titles)</b></summary>
@@ -209,7 +209,6 @@ Click the **🕹️ CONTROLS** button on the top bar at any time to inspect mapp
 | 🍄 **New Mario Kart DS** | Nintendo DS | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Mario%20Kart%20DS%20(USA).png) |
 | 🎖️ **Advance Wars: Dual Strike** | Nintendo DS | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Advance%20Wars%20-%20Dual%20Strike%20(USA).png) |
 | 🎖️ **Advance Wars: Days of Ruin** | Nintendo DS | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Advance%20Wars%20-%20Days%20of%20Ruin%20(USA)%20(En%2CFr%2CEs).png) |
-| ⚡ **Pokémon Mystery Dungeon: Explorers of Sky** | Nintendo DS | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Pokemon%20Mystery%20Dungeon%20-%20Explorers%20of%20Sky%20(USA).png) |
 | 🎧 **The World Ends With You** | Nintendo DS | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/The%20World%20Ends%20with%20You%20(USA).png) |
 | 👑 **Dragon Quest IV: Chapters of the Chosen** | Nintendo DS | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Dragon%20Quest%20IV%20-%20Chapters%20of%20the%20Chosen%20(USA)%20(En%2CFr%2CEs).png) |
 | 🏰 **Dragon Quest VI: Realms of Revelation** | Nintendo DS | [Cover](https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Dragon%20Quest%20VI%20-%20Realms%20of%20Revelation%20(USA)%20(En%2CFr%2CEs).png) |
@@ -305,7 +304,7 @@ On Chromium mobile/desktop, **Install** / **Add to Home Screen**. The PWA launch
 
 | Path | What |
 | :--- | :--- |
-| `index.html` | The whole cabinet: UI, 125-game library, Web Audio, trophies |
+| `index.html` | The whole cabinet: UI, 124-game library, Web Audio, trophies |
 | `assets/banner.svg` | README / Open Graph banner |
 | `assets/icon.svg` | Favicon / PWA / apple-touch icon |
 | `manifest.webmanifest` | Add-to-home-screen manifest |
