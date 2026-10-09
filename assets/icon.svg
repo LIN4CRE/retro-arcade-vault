@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Retro Arcade Vault">
+  <defs>
+    <linearGradient id="cab" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1b2138"/>
+      <stop offset="100%" stop-color="#0b0e17"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#00ffcc"/>
+      <stop offset="100%" stop-color="#ff2a85"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#131726"/>
+  <rect x="22" y="18" width="84" height="92" rx="10" fill="url(#cab)" stroke="url(#neon)" stroke-width="3"/>
+  <rect x="34" y="30" width="60" height="38" rx="4" fill="#05070d" stroke="#00ffcc" stroke-width="2"/>
+  <rect x="34" y="32" width="60" height="4" fill="#00ffcc" opacity="0.35"/>
+  <circle cx="48" cy="84" r="7" fill="#00ffcc"/>
+  <circle cx="68" cy="84" r="7" fill="#ffd000"/>
+  <rect x="84" y="76" width="10" height="16" rx="3" fill="#ff2a85"/>
+  <path d="M40 22h48" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round"/>
+</svg>

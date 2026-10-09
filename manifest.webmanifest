@@ -1,0 +1,19 @@
+{
+  "name": "Retro Arcade Vault",
+  "short_name": "Arcade Vault",
+  "description": "125 curated retro classics in a neon browser cabinet. CRT shaders, trophies, and instant play.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0e17",
+  "theme_color": "#0b0e17",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

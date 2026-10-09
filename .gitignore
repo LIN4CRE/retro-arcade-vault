@@ -4,3 +4,5 @@ Thumbs.db
 *.bak
 .vscode/
 .idea/
+_patch/
+.cache/
