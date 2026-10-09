@@ -8,17 +8,17 @@
   <meta name="apple-mobile-web-app-title" content="Retro Vault">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#0b0e17">
-  <title>Retro Arcade Vault v4.0 | 125 Curated Retro Classics</title>
+  <title>Retro Arcade Vault v4.1 | 125 Curated Retro Classics</title>
   
   <!-- Open Graph & Meta -->
   <meta name="description" content="A standalone neon arcade cabinet in your browser. 125 curated PS1, GBA, NDS, SNES and Sega Genesis classics with CRT shaders, trophies, chiptune radio, and instant play.">
-  <meta property="og:title" content="Retro Arcade Vault v4.0 | Cabinet Edition">
+  <meta property="og:title" content="Retro Arcade Vault v4.1 | Cabinet Edition">
   <meta property="og:description" content="A standalone neon arcade cabinet in your browser. 125 curated PS1, GBA, NDS, SNES and Sega Genesis classics with CRT shaders, trophies, chiptune radio, and instant play.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lin4cre.github.io/retro-arcade-vault/">
   <meta property="og:image" content="https://lin4cre.github.io/retro-arcade-vault/assets/banner.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Retro Arcade Vault v4.0">
+  <meta name="twitter:title" content="Retro Arcade Vault v4.1">
   <meta name="twitter:description" content="125 curated retro classics. Instant browser play. CRT cabinet included.">
   <meta name="twitter:image" content="https://lin4cre.github.io/retro-arcade-vault/assets/banner.svg">
   <link rel="canonical" href="https://lin4cre.github.io/retro-arcade-vault/">
@@ -2657,6 +2657,194 @@
       .cabinet-marquee { display: none; }
     }
 
+    /* =========================================================
+       VAULT v4.1 OPERATOR'S CUT
+       ========================================================= */
+    body[data-theme="phosphor"] {
+      --bg-base: #031006;
+      --bg-surface: #071a0c;
+      --bg-card: #0d2414;
+      --bg-card-hover: #16351e;
+      --accent-neon: #7cff4a;
+      --accent-pink: #c8ff00;
+      --accent-purple: #3d9a4a;
+      --accent-yellow: #d4ff4a;
+      --text-main: #e9ffe9;
+      --text-muted: #7aaa7a;
+      --border-color: #1c3d24;
+      --glow-neon: 0 0 16px rgba(124, 255, 74, 0.45);
+      --glow-pink: 0 0 16px rgba(200, 255, 0, 0.35);
+    }
+    body[data-theme="amber"] {
+      --bg-base: #140c04;
+      --bg-surface: #1c1208;
+      --bg-card: #2a1a0c;
+      --bg-card-hover: #3a2410;
+      --accent-neon: #ffb000;
+      --accent-pink: #ff6a00;
+      --accent-purple: #c45c12;
+      --accent-yellow: #ffe089;
+      --text-main: #fff3dc;
+      --text-muted: #c4a070;
+      --border-color: #4a3014;
+      --glow-neon: 0 0 16px rgba(255, 176, 0, 0.45);
+      --glow-pink: 0 0 16px rgba(255, 106, 0, 0.4);
+    }
+    body[data-theme="ice"] {
+      --bg-base: #070b14;
+      --bg-surface: #0c1220;
+      --bg-card: #141c30;
+      --bg-card-hover: #1c2740;
+      --accent-neon: #7dd3fc;
+      --accent-pink: #a78bfa;
+      --accent-purple: #6366f1;
+      --accent-yellow: #e0f2fe;
+      --text-main: #f0f9ff;
+      --text-muted: #8ba3c4;
+      --border-color: #243044;
+      --glow-neon: 0 0 16px rgba(125, 211, 252, 0.45);
+      --glow-pink: 0 0 16px rgba(167, 139, 250, 0.4);
+    }
+
+    .collection-meter {
+      background: rgba(0,0,0,0.28);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 8px 10px;
+    }
+    .collection-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .collection-track {
+      height: 7px;
+      border-radius: 99px;
+      background: #0a0d16;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    .collection-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent-neon), var(--accent-pink));
+      box-shadow: 0 0 10px var(--accent-neon);
+      transition: width 0.45s ease;
+    }
+
+    .continue-card {
+      display: none;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0, 255, 204, 0.07);
+      border: 1px solid rgba(0, 255, 204, 0.28);
+      border-radius: 10px;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+    .continue-card.show { display: flex; }
+    .continue-card:hover { box-shadow: 0 0 14px rgba(0,255,204,0.2); }
+    .continue-card img {
+      width: 36px; height: 44px; object-fit: cover; border-radius: 4px;
+    }
+    .continue-kicker {
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      color: var(--accent-neon);
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .theme-swatch {
+      border: 2px solid var(--border-color);
+      background: var(--bg-card);
+      border-radius: 10px;
+      padding: 10px 6px 8px;
+      cursor: pointer;
+      text-align: center;
+      color: var(--text-main);
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+    .theme-swatch.active {
+      border-color: var(--accent-neon);
+      box-shadow: 0 0 12px rgba(0,255,204,0.25);
+    }
+    .theme-dots { display: flex; justify-content: center; gap: 4px; margin-bottom: 6px; }
+    .theme-dots span {
+      width: 10px; height: 10px; border-radius: 50%; display: inline-block;
+    }
+
+    .lab-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cabinet-toast-stack {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 360;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+    .cabinet-toast {
+      background: rgba(19, 23, 38, 0.95);
+      border: 1px solid var(--accent-neon);
+      box-shadow: var(--glow-neon);
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transform: translateX(-120%);
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+      pointer-events: auto;
+      max-width: 320px;
+    }
+    .cabinet-toast.show { transform: translateX(0); }
+
+    .coin-layer {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .falling-coin {
+      position: absolute;
+      top: -20px;
+      font-size: 1.1rem;
+      animation: coinFall 2.8s linear infinite;
+      opacity: 0.7;
+    }
+    @keyframes coinFall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.8; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    .share-copied {
+      color: var(--accent-neon) !important;
+    }
+
+    @media (max-width: 768px) {
+      .theme-grid { grid-template-columns: repeat(2, 1fr); }
+      .cabinet-toast-stack { left: 12px; right: 12px; bottom: 12px; }
+      .cabinet-toast { max-width: none; }
+    }
+
   </style>
 
   <script type="application/ld+json">
@@ -2683,9 +2871,10 @@
 
   <div class="boot-splash" id="bootSplash" role="dialog" aria-label="Insert coin to start">
     <div class="boot-scan"></div>
+    <div class="coin-layer" id="coinLayer"></div>
     <div class="boot-cabinet">🕹️</div>
     <div class="boot-title">RETRO ARCADE VAULT</div>
-    <div class="boot-sub">CABINET EDITION  ·  v4.0  ·  125 TITLES</div>
+    <div class="boot-sub">OPERATOR'S CUT  ·  v4.1  ·  125 TITLES</div>
     <div class="boot-insert">► INSERT COIN / PRESS START ◄</div>
     <div class="boot-sub" style="font-size:0.78rem;opacity:.7;">Click, Enter, or Space</div>
   </div>
@@ -2700,6 +2889,7 @@
   
   <!-- Floating Trophy Toast Container -->
   <div class="trophy-toast-container" id="trophyToastContainer"></div>
+  <div class="cabinet-toast-stack" id="cabinetToastStack"></div>
 
   <!-- Idle Attract Mode / Screensaver -->
   <div class="attract-screensaver" id="attractScreensaver">
@@ -2722,7 +2912,7 @@
       <button class="mobile-menu-btn" id="mobileMenuToggle" title="Open Game Library"><span>☰</span> <span>Games</span></button>
       <span class="brand-icon">🕹️</span>
       <span class="brand-title">RETRO ARCADE VAULT</span>
-      <span class="brand-version">v4.0 Cabinet</span>
+      <span class="brand-version">v4.1 Operator</span>
     </div>
 
     <div class="header-actions">
@@ -2754,36 +2944,21 @@
 
       <!-- Trophy Achievements -->
       <button class="btn btn-outline" id="openTrophiesBtn" title="View Arcade Trophies & Milestones">
-        🏆 Trophies: <span id="trophyBadgeCount" style="color:var(--accent-yellow)">0/18</span>
+        🏆 Trophies: <span id="trophyBadgeCount" style="color:var(--accent-yellow)">0/22</span>
       </button>
 
-      <!-- Hall of Fame Records -->
-      <button class="btn btn-outline" id="openScoresBtn" title="High Score Ledger & Personal Bests">
-        🏅 Records
-      </button>
-
-      <!-- Arcade Sound Test -->
-      <button class="btn btn-outline" id="openSoundTestBtn" title="Interactive Retro Soundboard & Sound Test">
-        🎵 Sound Test
-      </button>
-
-      <button class="btn btn-outline" id="toggleFilterBtn" title="Cycle Display Filters (Clean HD, CRT Arcade, Trinitron Glow, Handheld LCD)">
-        📺 Filter: <span id="filterLabel" style="color:var(--accent-neon)">Clean HD</span>
-      </button>
-
-      <!-- Add Game -->
       <button class="btn btn-outline" id="openCmdPaletteBtn" title="Jump to any game (Ctrl+K)">
         ⚡ Jump
       </button>
-      <button class="btn btn-outline" id="openShortcutsBtn" title="Keyboard shortcuts (?)">
-        ❓ Keys
+      <button class="btn btn-outline" id="openLabBtn" title="Operator's Lab (Ctrl+,)">
+        ⚙️ Lab
       </button>
       <button class="btn btn-primary" id="openAddModalBtn">
         <span>+</span> Add Game
       </button>
     </div>
   </header>
-  <div class="cabinet-marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack">RETRO ARCADE VAULT v4.0  ·  125 MASTERPIECES  ·  INSERT COIN  ·  </div></div>
+  <div class="cabinet-marquee" aria-hidden="true"><div class="marquee-track" id="marqueeTrack">RETRO ARCADE VAULT v4.1  ·  125 MASTERPIECES  ·  INSERT COIN  ·  </div></div>
 
   <!-- App Layout -->
   <div class="app-container">
@@ -2842,7 +3017,15 @@
           <button class="genre-chip" data-genre="STRATEGY">🎖️ Strategy</button>
         </div>
 
+        <div class="continue-card" id="continueCard" title="Resume last session"></div>
         <div class="gotd-card" id="gotdCard" title="Play today's featured classic"></div>
+        <div class="collection-meter" id="collectionMeter">
+          <div class="collection-label">
+            <span id="collectionLabel">COLLECTION</span>
+            <span id="collectionSub">0 / 125 played</span>
+          </div>
+          <div class="collection-track"><div class="collection-fill" id="collectionFill"></div></div>
+        </div>
         <div class="stats-bar" id="statsBar"></div>
         <div class="search-match-info" id="searchMatchInfo">
           <span>Showing all library games</span>
@@ -2899,6 +3082,9 @@
           </button>
           <button class="btn btn-outline" id="theaterBtn" title="Cinema / Theater Focus Mode">
             🎭 Theater
+          </button>
+          <button class="btn btn-outline" id="shareGameBtn" title="Copy a shareable #play/ link">
+            🔗 Share
           </button>
           <button class="btn btn-outline" id="fullscreenBtn" title="Fullscreen Mode">
             ⛶ Fullscreen
@@ -3161,7 +3347,7 @@
   <div class="modal-backdrop" id="trophiesModal">
     <div class="modal" style="max-width: 720px;">
       <div class="modal-header">
-        <h3 class="modal-title">🏆 ARCADE TROPHIES (<span id="trophiesModalCount">0</span>/<span id="trophiesTotalLabel">18</span>)</h3>
+        <h3 class="modal-title">🏆 ARCADE TROPHIES (<span id="trophiesModalCount">0</span>/<span id="trophiesTotalLabel">22</span>)</h3>
         <button class="modal-close" id="closeTrophiesModalBtn">&times;</button>
       </div>
       <div class="modal-body">
@@ -3388,6 +3574,8 @@
           <div class="hotkey-row"><span>Save state</span><span><kbd>Shift</kbd>+<kbd>F2</kbd></span></div>
           <div class="hotkey-row"><span>Load state</span><span><kbd>Shift</kbd>+<kbd>F4</kbd></span></div>
           <div class="hotkey-row"><span>Library arrows</span><span><kbd>↑</kbd> <kbd>↓</kbd> <kbd>Enter</kbd></span></div>
+          <div class="hotkey-row"><span>Operator's Lab</span><span><kbd>Ctrl</kbd>+<kbd>,</kbd></span></div>
+          <div class="hotkey-row"><span>Deep link</span><span><code>#play/game-id</code></span></div>
           <div class="hotkey-row"><span>Secret code</span><span>↑ ↑ ↓ ↓ ← → ← → B A</span></div>
         </div>
       </div>
@@ -3397,6 +3585,87 @@
     </div>
   </div>
 
+
+
+  <!-- Operator's Lab -->
+  <div class="modal-backdrop" id="labModal">
+    <div class="modal" style="max-width: 640px;">
+      <div class="modal-header">
+        <h3 class="modal-title">⚙️ OPERATOR'S LAB</h3>
+        <button class="modal-close" id="closeLabBtn" type="button">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label" for="operatorInput">Operator tag (3 letters)</label>
+          <input id="operatorInput" class="form-input" maxlength="3" placeholder="YOU" style="text-transform:uppercase; font-family:monospace; font-weight:800; max-width:120px;">
+          <span class="form-hint">Stamped on the marquee and used as default high-score initials.</span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Cabinet skin</label>
+          <div class="theme-grid">
+            <button type="button" class="theme-swatch active" data-theme="neon">
+              <div class="theme-dots"><span style="background:#00ffcc"></span><span style="background:#ff2a85"></span><span style="background:#8b5cf6"></span></div>
+              Neon
+            </button>
+            <button type="button" class="theme-swatch" data-theme="phosphor">
+              <div class="theme-dots"><span style="background:#7cff4a"></span><span style="background:#c8ff00"></span><span style="background:#0d2414"></span></div>
+              Phosphor
+            </button>
+            <button type="button" class="theme-swatch" data-theme="amber">
+              <div class="theme-dots"><span style="background:#ffb000"></span><span style="background:#ff6a00"></span><span style="background:#2a1a0c"></span></div>
+              Amber
+            </button>
+            <button type="button" class="theme-swatch" data-theme="ice">
+              <div class="theme-dots"><span style="background:#7dd3fc"></span><span style="background:#a78bfa"></span><span style="background:#141c30"></span></div>
+              Ice
+            </button>
+          </div>
+        </div>
+
+        <div class="shader-control-group">
+          <div class="shader-label-row">
+            <span>Radio volume</span>
+            <span class="shader-val" id="volVal">70%</span>
+          </div>
+          <input type="range" class="shader-slider" id="radioVolume" min="0" max="100" value="70">
+        </div>
+
+        <label class="form-label" style="display:flex; gap:8px; align-items:center; cursor:pointer; text-transform:none; letter-spacing:0;">
+          <input type="checkbox" id="duckBgmCheck" checked>
+          Duck the radio while a game is loaded
+        </label>
+
+        <div class="lab-tools" style="margin-top:8px;">
+          <button class="btn btn-outline" id="openScoresBtn" type="button" title="High Score Ledger">🏅 Records</button>
+          <button class="btn btn-outline" id="openSoundTestBtn" type="button" title="Arcade soundboard">🎵 Sound Test</button>
+          <button class="btn btn-outline" id="toggleFilterBtn" type="button" title="Cycle display filters">📺 Filter: <span id="filterLabel" style="color:var(--accent-neon)">Clean HD</span></button>
+          <button class="btn btn-outline" id="openShortcutsBtn" type="button">❓ Keys</button>
+          <button class="btn btn-outline" id="shareGameBtnLab" type="button">🔗 Copy cabinet link</button>
+        </div>
+        <p class="form-hint" style="margin-top:8px;">Tip: <kbd>Ctrl</kbd>+<kbd>,</kbd> opens this lab. Deep-link any title with <code>#play/game-id</code>.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="resetCabinetBtn" type="button">Wipe memory</button>
+        <button class="btn btn-primary" id="closeLabBtn2" type="button">Close Lab</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="confirmModal">
+    <div class="modal" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3 class="modal-title">⚠️ CONFIRM</h3>
+      </div>
+      <div class="modal-body">
+        <p id="confirmMessage" style="font-size:1rem; line-height:1.5;">Are you sure?</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="confirmNo" type="button">Cancel</button>
+        <button class="btn btn-primary" id="confirmYes" type="button">Yes</button>
+      </div>
+    </div>
+  </div>
 
   <script>
     /**
@@ -6782,11 +7051,11 @@
             savePlayStats();
           }
           playSfx('star');
-          alert("Backup successfully restored! (" + games.length + " games)");
+          cabinetToast("Backup restored · " + games.length + " games", "💾");
           renderGameList();
           updateCounts();
         } catch (err) {
-          alert("Invalid backup file: " + err.message);
+          cabinetToast("Invalid backup file", "⚠️");
         }
       };
       reader.readAsText(file);
@@ -6879,7 +7148,7 @@
         if (deleteBtn) {
           e.stopPropagation();
           const idToDelete = deleteBtn.getAttribute("data-delete-id");
-          if (confirm("Are you sure you want to remove this game?")) {
+          cabinetConfirm("Remove this custom game from the cabinet?", function () {
             games = games.filter(g => g.id !== idToDelete);
             favorites.delete(idToDelete);
             saveGames();
@@ -6888,7 +7157,8 @@
               selectGame(games[0].id);
             }
             renderGameList();
-          }
+            cabinetToast("Game removed", "🗑️");
+          });
           return;
         }
 
@@ -7394,7 +7664,7 @@
 
         const src = parseEmbedInput(embedRaw);
         if (!src) {
-          alert("Invalid URL or embed code! Please provide a valid web embed or URL.");
+          cabinetToast("Invalid URL or embed code", "⚠️");
           return;
         }
 
@@ -7515,7 +7785,7 @@
       if (!track) return;
       const g = games.find(x => x.id === activeGameId);
       const now = g ? ('NOW PLAYING ★ ' + g.title + ' ★ ' + (g.system || '') + ' ★ SESSION ' + (sessionTimerDisplay ? sessionTimerDisplay.textContent : '00:00')) : 'INSERT COIN';
-      const extra = '  ·  RETRO ARCADE VAULT v4.0  ·  ' + games.length + ' MASTERPIECES  ·  GAME OF THE DAY: ' + ((gameOfTheDay() || {}).title || '???') + '  ·  PRESS / TO SEARCH  ·  CTRL+K TO JUMP  ·  KONAMI CODE LIVES HERE  ·  ';
+      const extra = '  ·  RETRO ARCADE VAULT v4.1  ·  OPERATOR ' + (typeof operatorTag !== 'undefined' ? operatorTag : 'YOU') + '  ·  ' + games.length + ' MASTERPIECES  ·  GAME OF THE DAY: ' + ((gameOfTheDay() || {}).title || '???') + '  ·  PRESS / TO SEARCH  ·  CTRL+K TO JUMP  ·  LAB: CTRL+,  ·  KONAMI CODE LIVES HERE  ·  ';
       track.textContent = (now + extra + now + extra);
     }
 
@@ -7743,6 +8013,12 @@
       updateMarquee();
       updateStatsBar();
       updateCounts();
+      try {
+        if (history.replaceState) history.replaceState(null, "", "#play/" + encodeURIComponent(id));
+      } catch (e) {}
+      if (typeof duckBgm === "function") duckBgm(true);
+      if (typeof updateContinueCard === "function") updateContinueCard();
+      if (typeof updateCollectionMeter === "function") updateCollectionMeter();
     }
 
     function startSessionTimer(reset) {
@@ -7975,12 +8251,12 @@
           if (notes && typeof notes === "object") { userNotes = notes; saveNotes(); }
           playSfx("star");
           announce("Backup restored");
-          alert("Backup successfully restored! (" + games.length + " games)");
+          cabinetToast("Backup restored · " + games.length + " games", "💾");
           renderGameList();
           updateCounts();
           updateTrophiesBadge();
         } catch (err) {
-          alert("Invalid backup file: " + err.message);
+          cabinetToast("Invalid backup file", "⚠️");
         }
       };
       reader.readAsText(file);
@@ -8358,6 +8634,328 @@
 
     window.deleteScore = deleteScore;
 
-  </script>
+
+    /* =========================================================
+       VAULT v4.1 OPERATOR'S CUT
+       ========================================================= */
+    const THEME_KEY = "retro_vault_theme_v41";
+    const OP_KEY = "retro_vault_operator_v41";
+    const VOL_KEY = "retro_vault_volume_v41";
+    const DUCK_KEY = "retro_vault_duck_v41";
+
+    let cabinetTheme = "neon";
+    let operatorTag = "YOU";
+    let radioVolume = 0.7;
+    let duckBgmEnabled = true;
+    let pendingConfirm = null;
+
+    try {
+      TROPHIES_CATALOG.push(
+        { id: "OPERATOR", name: "Floor Manager", icon: "🪪", desc: "Stamp your 3-letter operator tag on the cabinet." },
+        { id: "DEEP_LINK", name: "Linked Cabinet", icon: "🔗", desc: "Arrive via a shareable #play/ deep link." },
+        { id: "SKIN_SWAP", name: "Cabinet Painter", icon: "🎨", desc: "Switch the cabinet to Phosphor, Amber, or Ice." },
+        { id: "TEN_CREDITS", name: "Ten Credits", icon: "🔟", desc: "Launch 10 different titles on this cabinet." }
+      );
+    } catch (e) {}
+
+    function cabinetToast(msg, icon) {
+      const stack = document.getElementById("cabinetToastStack");
+      if (!stack) {
+        try { console.log(msg); } catch (e) {}
+        return;
+      }
+      const el = document.createElement("div");
+      el.className = "cabinet-toast";
+      el.textContent = (icon ? icon + "  " : "") + msg;
+      stack.appendChild(el);
+      requestAnimationFrame(() => el.classList.add("show"));
+      setTimeout(() => {
+        el.classList.remove("show");
+        setTimeout(() => el.remove(), 350);
+      }, 2800);
+      announce(msg);
+    }
+
+    function cabinetConfirm(msg, onYes) {
+      const modal = document.getElementById("confirmModal");
+      const text = document.getElementById("confirmMessage");
+      if (!modal || !text) {
+        if (window.confirm(msg) && onYes) onYes();
+        return;
+      }
+      text.textContent = msg;
+      pendingConfirm = onYes;
+      modal.classList.add("open");
+      const yes = document.getElementById("confirmYes");
+      if (yes) yes.focus();
+    }
+
+    function applyCabinetTheme(name, fromUser) {
+      const allowed = ["neon", "phosphor", "amber", "ice"];
+      cabinetTheme = allowed.indexOf(name) !== -1 ? name : "neon";
+      if (cabinetTheme === "neon") document.body.removeAttribute("data-theme");
+      else document.body.setAttribute("data-theme", cabinetTheme);
+      document.querySelectorAll(".theme-swatch").forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-theme") === cabinetTheme);
+      });
+      try { localStorage.setItem(THEME_KEY, cabinetTheme); } catch (e) {}
+      if (fromUser && cabinetTheme !== "neon") unlockTrophy("SKIN_SWAP");
+    }
+
+    function setRadioVolume(v) {
+      radioVolume = Math.max(0, Math.min(1, Number(v)));
+      try { localStorage.setItem(VOL_KEY, String(radioVolume)); } catch (e) {}
+      if (bgmGain && bgmAudioCtx) {
+        const ducked = duckBgmEnabled && !!activeGameId;
+        const target = (ducked ? 0.008 : 0.045) * radioVolume;
+        try { bgmGain.gain.setTargetAtTime(target, bgmAudioCtx.currentTime, 0.05); } catch (e) {
+          bgmGain.gain.value = target;
+        }
+      }
+      const val = document.getElementById("volVal");
+      if (val) val.textContent = Math.round(radioVolume * 100) + "%";
+    }
+
+    function duckBgm(playing) {
+      if (!bgmGain || !bgmAudioCtx) return;
+      const ducked = duckBgmEnabled && playing;
+      const target = (ducked ? 0.008 : 0.045) * radioVolume;
+      try { bgmGain.gain.setTargetAtTime(target, bgmAudioCtx.currentTime, 0.08); } catch (e) {
+        bgmGain.gain.value = target;
+      }
+    }
+
+    function updateCollectionMeter() {
+      const fill = document.getElementById("collectionFill");
+      const label = document.getElementById("collectionLabel");
+      const sub = document.getElementById("collectionSub");
+      const played = Object.keys(playStats || {}).filter(id => (playStats[id] || 0) > 0).length;
+      const total = games.length || 125;
+      const pct = total ? Math.round((played / total) * 100) : 0;
+      if (fill) fill.style.width = pct + "%";
+      if (label) label.textContent = "COLLECTION";
+      if (sub) sub.textContent = played + " / " + total + " played";
+      if (played >= 10) unlockTrophy("TEN_CREDITS");
+    }
+
+    function updateContinueCard() {
+      const card = document.getElementById("continueCard");
+      if (!card) return;
+      let last = null;
+      try { last = localStorage.getItem(LAST_GAME_KEY); } catch (e) {}
+      const g = games.find(x => x.id === last);
+      if (!g) { card.classList.remove("show"); card.innerHTML = ""; return; }
+      const img = g.cover ? '<img src="' + escapeHtml(g.cover) + '" alt="">' : '<span style="font-size:1.4rem;">' + (g.emoji || "🎮") + '</span>';
+      card.innerHTML = img + '<div style="min-width:0;"><div class="continue-kicker">Continue</div><div class="gotd-title">' + escapeHtml(g.title) + '</div><div style="font-size:0.72rem;color:var(--text-muted);">' + escapeHtml(g.system || "") + '</div></div>';
+      card.classList.add("show");
+      card.onclick = () => selectGame(g.id, { restore: true });
+    }
+
+    function shareCurrentGame() {
+      if (!activeGameId) return;
+      const url = location.href.split("#")[0] + "#play/" + encodeURIComponent(activeGameId);
+      const done = () => {
+        cabinetToast("Cabinet link copied", "🔗");
+        const btn = document.getElementById("shareGameBtn");
+        if (btn) {
+          btn.classList.add("share-copied");
+          btn.textContent = "✓ Copied";
+          setTimeout(() => { btn.classList.remove("share-copied"); btn.textContent = "🔗 Share"; }, 1600);
+        }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(() => {
+          window.prompt("Copy this cabinet link:", url);
+        });
+      } else {
+        window.prompt("Copy this cabinet link:", url);
+      }
+    }
+
+    function saveOperatorTag(raw) {
+      const tag = String(raw || "YOU").replace(/[^A-Za-z0-9]/g, "").slice(0, 3).toUpperCase() || "YOU";
+      operatorTag = tag;
+      try { localStorage.setItem(OP_KEY, tag); } catch (e) {}
+      const initials = document.getElementById("scoreInitialsInput");
+      if (initials && !initials.value) initials.value = tag;
+      const labVal = document.getElementById("operatorInput");
+      if (labVal && labVal.value.toUpperCase() !== tag) labVal.value = tag;
+      if (tag.length === 3 && tag !== "YOU") unlockTrophy("OPERATOR");
+      updateMarquee();
+      return tag;
+    }
+
+    function resetCabinetMemory() {
+      cabinetConfirm("Wipe this cabinet's memory? Favorites, notes, trophies, scores and playtime will be erased. The 125-game library stays.", () => {
+        try {
+          Object.keys(localStorage).forEach(k => {
+            if (k.indexOf("retro_vault") === 0) localStorage.removeItem(k);
+          });
+        } catch (e) {}
+        location.hash = "";
+        location.reload();
+      });
+    }
+
+    function spawnBootCoins() {
+      const layer = document.getElementById("coinLayer");
+      if (!layer) return;
+      const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (reduce) return;
+      for (let i = 0; i < 14; i++) {
+        const c = document.createElement("span");
+        c.className = "falling-coin";
+        c.textContent = "🪙";
+        c.style.left = Math.round(Math.random() * 100) + "%";
+        c.style.animationDelay = (Math.random() * 2.4) + "s";
+        c.style.animationDuration = (2.2 + Math.random() * 1.6) + "s";
+        layer.appendChild(c);
+      }
+    }
+
+    function trapOpenModalFocus(e) {
+      const open = document.querySelector(".modal-backdrop.open .modal");
+      if (!open) return;
+      if (open.contains(e.target)) return;
+      const f = open.querySelector("button, [href], input, select, textarea, [tabindex]:not([tabindex='-1'])");
+      if (f) f.focus();
+    }
+
+    function setupV41() {
+      try { cabinetTheme = localStorage.getItem(THEME_KEY) || "neon"; } catch (e) {}
+      applyCabinetTheme(cabinetTheme, false);
+      try { operatorTag = localStorage.getItem(OP_KEY) || "YOU"; } catch (e) {}
+      try {
+        const v = parseFloat(localStorage.getItem(VOL_KEY));
+        if (!isNaN(v)) radioVolume = v;
+      } catch (e) {}
+      try {
+        const d = localStorage.getItem(DUCK_KEY);
+        if (d === "0") duckBgmEnabled = false;
+      } catch (e) {}
+
+      const opIn = document.getElementById("operatorInput");
+      if (opIn) {
+        opIn.value = operatorTag;
+        opIn.addEventListener("change", () => saveOperatorTag(opIn.value));
+        opIn.addEventListener("blur", () => saveOperatorTag(opIn.value));
+      }
+      const initials = document.getElementById("scoreInitialsInput");
+      if (initials) {
+        initials.placeholder = operatorTag;
+        if (!initials.value) initials.value = operatorTag === "YOU" ? "" : operatorTag;
+      }
+
+      const vol = document.getElementById("radioVolume");
+      if (vol) {
+        vol.value = String(Math.round(radioVolume * 100));
+        vol.addEventListener("input", () => setRadioVolume(Number(vol.value) / 100));
+      }
+      setRadioVolume(radioVolume);
+
+      const duck = document.getElementById("duckBgmCheck");
+      if (duck) {
+        duck.checked = duckBgmEnabled;
+        duck.addEventListener("change", () => {
+          duckBgmEnabled = duck.checked;
+          try { localStorage.setItem(DUCK_KEY, duckBgmEnabled ? "1" : "0"); } catch (e) {}
+          duckBgm(!!activeGameId);
+        });
+      }
+
+      document.querySelectorAll(".theme-swatch").forEach(btn => {
+        btn.addEventListener("click", () => {
+          playSfx("click");
+          applyCabinetTheme(btn.getAttribute("data-theme"), true);
+        });
+      });
+
+      const lab = document.getElementById("labModal");
+      const openLab = document.getElementById("openLabBtn");
+      const closeLab = () => { if (lab) lab.classList.remove("open"); };
+      if (openLab && lab) openLab.addEventListener("click", () => { playSfx("click"); lab.classList.add("open"); });
+      ["closeLabBtn", "closeLabBtn2"].forEach(id => {
+        const b = document.getElementById(id);
+        if (b) b.addEventListener("click", closeLab);
+      });
+      if (lab) lab.addEventListener("click", (e) => { if (e.target === lab) closeLab(); });
+
+      const share = document.getElementById("shareGameBtn");
+      if (share) share.addEventListener("click", shareCurrentGame);
+      const share2 = document.getElementById("shareGameBtnLab");
+      if (share2) share2.addEventListener("click", shareCurrentGame);
+      const resetBtn = document.getElementById("resetCabinetBtn");
+      if (resetBtn) resetBtn.addEventListener("click", resetCabinetMemory);
+
+      const confirmModal = document.getElementById("confirmModal");
+      const yes = document.getElementById("confirmYes");
+      const no = document.getElementById("confirmNo");
+      const closeConfirm = () => { if (confirmModal) confirmModal.classList.remove("open"); pendingConfirm = null; };
+      if (yes) yes.addEventListener("click", () => {
+        const cb = pendingConfirm;
+        if (confirmModal) confirmModal.classList.remove("open");
+        pendingConfirm = null;
+        if (cb) cb();
+      });
+      if (no) no.addEventListener("click", closeConfirm);
+      if (confirmModal) confirmModal.addEventListener("click", (e) => { if (e.target === confirmModal) closeConfirm(); });
+
+      document.addEventListener("focusin", trapOpenModalFocus);
+
+      window.addEventListener("keydown", (e) => {
+        if ((e.ctrlKey || e.metaKey) && e.key === ",") {
+          e.preventDefault();
+          if (lab) lab.classList.add("open");
+        }
+      });
+
+      window.addEventListener("hashchange", () => {
+        const m = location.hash.match(/^#play\/(.+)/);
+        if (!m) return;
+        const id = decodeURIComponent(m[1]);
+        if (id && id !== activeGameId) selectGame(id, { restore: true });
+      });
+
+      if (toggleBgmBtn) {
+        toggleBgmBtn.addEventListener("click", () => {
+          setTimeout(() => { setRadioVolume(radioVolume); duckBgm(!!activeGameId); }, 40);
+        });
+      }
+
+      spawnBootCoins();
+      updateCollectionMeter();
+      updateContinueCard();
+      updateTrophiesBadge();
+    }
+
+    function finishBootRestore() {
+      let last = null;
+      try { last = localStorage.getItem(LAST_GAME_KEY); } catch (e) {}
+      const m = location.hash.match(/^#play\/(.+)/);
+      if (m) {
+        const id = decodeURIComponent(m[1]);
+        const g = games.find(x => x.id === id);
+        if (g) {
+          selectGame(g.id, { restore: true });
+          unlockTrophy("DEEP_LINK");
+          cabinetToast("Deep link: " + g.title, "🔗");
+          return;
+        }
+      }
+      const initial = games.find(g => g.id === last) || games.find(g => g.id === "vandal-hearts") || games[0];
+      if (initial) selectGame(initial.id, { restore: !!last });
+      else renderGameList();
+    }
+
+    function initApp() {
+      loadGames();
+      games.forEach(g => { if (g.category === "GENESIS") g.category = "SEGA"; });
+      setupEventListeners();
+      setupV4();
+      setupV41();
+      setupBootSplash();
+    }
+
+  </script>>
 </body>
 </html>

@@ -8,7 +8,7 @@
   <a href="#license"><img src="https://img.shields.io/badge/License-MIT-8b5cf6?style=for-the-badge" alt="License"></a>
   <img src="https://img.shields.io/badge/Gamepad-API%20Supported-00e5ff?style=for-the-badge&logo=target" alt="Gamepad Supported">
   <img src="https://img.shields.io/badge/Stack-Vanilla%20HTML5%2FCSS3%2FJS-ffd000?style=for-the-badge&logo=html5&logoColor=black" alt="Vanilla Stack">
-  <img src="https://img.shields.io/badge/Version-v4.0%20Cabinet-00ffcc?style=for-the-badge" alt="v4.0 Cabinet">
+  <img src="https://img.shields.io/badge/Version-v4.1%20Operator-00ffcc?style=for-the-badge" alt="v4.1 Operator">
 </p>
 
 ---
@@ -23,9 +23,17 @@ Zero dependencies. One HTML file, a handful of assets, and your save data in `lo
 
 ---
 
-## ✨ Features — Vault v4.0 Cabinet Edition
+## ✨ Features — Vault v4.1 Operator's Cut
 
-### New in v4.0
+### New in v4.1
+- **Operator's Lab**: Themes (Neon / Phosphor / Amber / Ice), radio volume, 3-letter operator tag, and a decluttered header. <kbd>Ctrl</kbd>+<kbd>,</kbd>
+- **Deep links**: Every game is `#play/chrono-trigger-snes`. Share copies a cabinet URL; arriving via hash unlocks *Linked Cabinet*.
+- **Collection meter + Continue card**: See how much of the 125 you've actually launched; resume last session in one tap.
+- **Radio ducks in-game**: Chiptune BGM drops under the emulator so it doesn't fight the soundtrack (toggle in Lab).
+- **Cabinet toasts** instead of `alert()` / `confirm()` — wipe memory, restore backup, and delete custom games stay in-universe.
+- **22 trophies**: *Floor Manager*, *Linked Cabinet*, *Cabinet Painter*, *Ten Credits* join the board.
+
+### From v4.0
 - **Insert Coin boot**: CRT scanline splash. Click / Enter / Space to start. Last game restores when you return.
 - **Command palette**: Press <kbd>Ctrl</kbd>+<kbd>K</kbd> (or <kbd>⌘</kbd>+<kbd>K</kbd>) to jump to any title, system, or publisher.
 - **Box-art binder**: Toggle the library from a list into a game-store wall of covers.
@@ -38,7 +46,7 @@ Zero dependencies. One HTML file, a handful of assets, and your save data in `lo
 - **Smarter search**: Title, system, publisher, year, and genre. Press <kbd>/</kbd> to focus.
 - **Honest backups**: Export/import round-trips notes, trophies, high scores, *and* playtime.
 - **Shaders that do something**: Scanline / bloom / vignette / curvature sliders write CSS variables the CRT overlays actually read.
-- **18 trophies**: Previous 16 plus *Contra Kid* and *Daily Credit*, with counts that match the catalog.
+- **Trophies that match the catalog**: Unlock rules are real (3 unique sound pads, all 4 filters, etc.).
 - **Installable PWA**: `manifest.webmanifest` + cabinet icon. Add to home screen on mobile.
 - **Accessibility pass**: Skip link, `:focus-visible`, `prefers-reduced-motion`, live announcements, zoomable viewport.
 
@@ -81,6 +89,7 @@ Click the **🕹️ CONTROLS** button on the top bar at any time to inspect mapp
 | :--- | :--- |
 | **Quick Search Focus** | <kbd>/</kbd> |
 | **Jump / command palette** | <kbd>Ctrl</kbd> / <kbd>⌘</kbd> + <kbd>K</kbd> |
+| **Operator's Lab** | <kbd>Ctrl</kbd> / <kbd>⌘</kbd> + <kbd>,</kbd> |
 | **Shortcut cheat sheet** | <kbd>?</kbd> |
 | **Close any overlay / exit theater / exit fullscreen** | <kbd>Esc</kbd> |
 | **Save State** | <kbd>Shift</kbd> + <kbd>F2</kbd> (in emulator) |

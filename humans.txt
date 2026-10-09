@@ -3,7 +3,7 @@ Cabinet builder: David Linacre
 Site: https://github.com/LIN4CRE/retro-arcade-vault
 
 /* SITE */
-Retro Arcade Vault v4.0 — Cabinet Edition
+Retro Arcade Vault v4.1 — Operator's Cut
 Standards: HTML5, CSS3, vanilla JS
 Language: English
 Doctype: HTML5
