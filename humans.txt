@@ -1,0 +1,14 @@
+/* TEAM */
+Cabinet builder: David Linacre
+Site: https://github.com/LIN4CRE/retro-arcade-vault
+
+/* SITE */
+Retro Arcade Vault v4.1 — Operator's Cut
+Standards: HTML5, CSS3, vanilla JS
+Language: English
+Doctype: HTML5
+Components: Web Audio API, Gamepad API, Fullscreen API, localStorage
+Last update: 2026-10-09
+
+/* EASTER EGG */
+↑ ↑ ↓ ↓ ← → ← → B A
