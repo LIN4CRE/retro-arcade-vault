@@ -4,66 +4,84 @@
 
 <p align="center">
   <a href="https://lin4cre.github.io/retro-arcade-vault/"><img src="https://img.shields.io/badge/Live%20Demo-Play%20Now-00ffcc?style=for-the-badge&logo=googlechrome&logoColor=black" alt="Live Demo"></a>
-  <a href="#-curated-game-library-125-titles"><img src="https://img.shields.io/badge/Games%20Preloaded-125%20Titles-ff2a85?style=for-the-badge&logo=gamepad" alt="Games Preloaded"></a>
+  <a href="#-curated-game-library-126-titles"><img src="https://img.shields.io/badge/Games%20Preloaded-126%20Titles-ff2a85?style=for-the-badge&logo=gamepad" alt="Games Preloaded"></a>
   <a href="#license"><img src="https://img.shields.io/badge/License-MIT-8b5cf6?style=for-the-badge" alt="License"></a>
+  <img src="https://img.shields.io/badge/Main%20Feature-COD%20Black%20Ops%20Zombies-ef4444?style=for-the-badge&logo=target" alt="COD Zombies">
   <img src="https://img.shields.io/badge/Gamepad-API%20Supported-00e5ff?style=for-the-badge&logo=target" alt="Gamepad Supported">
   <img src="https://img.shields.io/badge/Stack-Vanilla%20HTML5%2FCSS3%2FJS-ffd000?style=for-the-badge&logo=html5&logoColor=black" alt="Vanilla Stack">
-  <img src="https://img.shields.io/badge/Version-v4.1%20Operator-00ffcc?style=for-the-badge" alt="v4.1 Operator">
 </p>
 
 ---
 
 ## 📖 Overview
 
-**Retro Arcade Vault** is a standalone neon arcade cabinet that lives in your browser. Insert a coin, pick from **125 hand-curated classics** across PlayStation 1, Game Boy Advance, Nintendo DS, Super Nintendo, and Sega Genesis, and play instantly — no install, no build step, no framework.
+**Retro Arcade Vault** is an ultra-fast, standalone retro gaming hub and emulator frontend designed for instant browser play. Featuring **Call of Duty: Black Ops Zombies** as its centerpiece headline feature, alongside **125 hand-curated retro masterpieces** across PlayStation 1, Game Boy Advance, Nintendo DS, Super Nintendo, and Sega Genesis.
 
-Zero dependencies. One HTML file, a handful of assets, and your save data in `localStorage`.
+Zero installation required. Zero dependencies. Completely self-contained in a single responsive web client with zero build pipelines.
 
 👉 **Play Live**: **[https://lin4cre.github.io/retro-arcade-vault/](https://lin4cre.github.io/retro-arcade-vault/)**
 
 ---
 
-## ✨ Features — Vault v4.1 Operator's Cut
+## 🧟 ⭐ Headline Feature: Call of Duty: Black Ops Zombies
 
-### New in v4.1
-- **Operator's Lab**: Themes (Neon / Phosphor / Amber / Ice), radio volume, 3-letter operator tag, and a decluttered header. <kbd>Ctrl</kbd>+<kbd>,</kbd>
-- **Deep links**: Every game is `#play/chrono-trigger-snes`. Share copies a cabinet URL; arriving via hash unlocks *Linked Cabinet*.
-- **Collection meter + Continue card**: See how much of the 125 you've actually launched; resume last session in one tap.
-- **Radio ducks in-game**: Chiptune BGM drops under the emulator so it doesn't fight the soundtrack (toggle in Lab).
-- **Cabinet toasts** instead of `alert()` / `confirm()` — wipe memory, restore backup, and delete custom games stay in-universe.
-- **22 trophies**: *Floor Manager*, *Linked Cabinet*, *Cabinet Painter*, *Ten Credits* join the board.
+Powered by high-performance WebAssembly running in your browser, experience the authentic **Black Ops Zombies** experience with 10 legendary maps:
 
-### From v4.0
-- **Insert Coin boot**: CRT scanline splash. Click / Enter / Space to start. Last game restores when you return.
-- **Command palette**: Press <kbd>Ctrl</kbd>+<kbd>K</kbd> (or <kbd>⌘</kbd>+<kbd>K</kbd>) to jump to any title, system, or publisher.
-- **Box-art binder**: Toggle the library from a list into a game-store wall of covers.
-- **Game of the Day**: A deterministic daily pick on the cabinet, with its own trophy.
-- **Prize-wheel shuffle**: Random doesn't snap — titles spin like a slot machine before they land.
-- **CONTINUE?**: Go idle for 3 minutes mid-session and the cabinet asks if you want to continue (9…8…7…), then drops into attract mode with cycling box art.
-- **Konami code**: ↑ ↑ ↓ ↓ ← → ← → B A unlocks *Contra Kid*, a rainbow cabinet, and 30 lives of attitude.
-- **Live cabinet stats**: Launches, total playtime, favorites, and trophy count on a LED-style strip, plus a scrolling marquee.
-- **Real genre tags**: Every title is tagged (RPG, Action, Pokémon, Fighting, Racing, Adventure, Strategy) so chips actually filter.
-- **Smarter search**: Title, system, publisher, year, and genre. Press <kbd>/</kbd> to focus.
-- **Honest backups**: Export/import round-trips notes, trophies, high scores, *and* playtime.
-- **Shaders that do something**: Scanline / bloom / vignette / curvature sliders write CSS variables the CRT overlays actually read.
-- **Trophies that match the catalog**: Unlock rules are real (3 unique sound pads, all 4 filters, etc.).
-- **Installable PWA**: `manifest.webmanifest` + cabinet icon. Add to home screen on mobile.
-- **Accessibility pass**: Skip link, `:focus-visible`, `prefers-reduced-motion`, live announcements, zoomable viewport.
+- 🎭 **Kino der Toten** — Battle through the Berlin theater, link the teleporter, and trigger the secret song *"115"*.
+- 🏛️ **"Five"** — Defend the Pentagon as JFK, Nixon, Castro, and McNamara against the Thief and DEFCON panic.
+- 🏭 **Der Riese** — The birthplace of Pack-a-Punch and Nazi undead experiments.
+- 🏚️ **Nacht der Untoten** — The original, pulse-pounding airfield bunker holdout.
+- 🏥 **Verrückt** — The asylum where squads spawn separated on opposite sides.
+- 🌿 **Shi No Numa** — The treacherous Imperial swamp outpost with the Flogger trap.
+- 🚀 **Ascension** — The Soviet cosmodrome featuring lunar landers, space monkeys, and PhD Flopper.
+- 🚢 **Call of the Dead** — Siberian lighthouse, shipwreck, and George A. Romero on the prowl.
+- 🌴 **Shangri-La** — Jungle temple with geysers, minecarts, and the 31-79 JGb215 Shrink Ray.
+- 🌕 **Moon** — From Area 51 to the low-gravity lunar base with the Wave Gun and Gersh devices.
 
-### Cabinet systems (still here, now wired)
-- Universal fullscreen & mobile immersive mode (<kbd>F11</kbd>, double-tap bezel, auto-dim exit).
-- Off-canvas slide-over library on tablets/phones.
-- 3-tab Game Compendium: lore / secrets / personal logbook — every game has year, publisher, genre, and a synopsis.
-- 10-pad procedural sound test (<kbd>1</kbd>–<kbd>0</kbd>). Sound Engineer unlocks after **3** unique pads.
-- Hall of Fame ledger with 3-letter initials.
-- CRT calibrator + 4 display filters. Shader Wizard requires cycling **all four**.
-- Chiptune radio: Synthwave / 8-Bit Quest / Cyberpunk Arp.
-- Session stopwatch + persistent per-game playtime and launch counts (these actually increment now).
-- Curved CRT bezel, theater mode, CRT power-on beam.
-- Live Gamepad tester (Xbox / PlayStation / generic).
-- JSON backup & restore of the whole profile.
+### 🎮 Black Ops Zombies Controls
+| Action | Keyboard / Mouse Control |
+| :--- | :---: |
+| **Move** | <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> |
+| **Aim / Look** | **Mouse Look** (Click game canvas to lock cursor) |
+| **Fire Weapon** | **Left Mouse Click** |
+| **Aim Down Sights (ADS)** | **Right Mouse Click** |
+| **Jump / Mantle** | <kbd>Space</kbd> |
+| **Sprint** | <kbd>Left Shift</kbd> |
+| **Crouch / Prone** | <kbd>C</kbd> (Crouch) / <kbd>Ctrl</kbd> (Prone) |
+| **Reload** | <kbd>R</kbd> |
+| **Interact / Buy Wall Weapon / Open Door** | <kbd>F</kbd> |
+| **Melee / Knife** | <kbd>V</kbd> |
+| **Frag Grenade** | <kbd>G</kbd> / Middle Mouse |
+| **Switch Weapon** | <kbd>1</kbd> / <kbd>2</kbd> / Scroll Wheel |
+| **Release Mouse Pointer Lock** | <kbd>Esc</kbd> |
 
-> Games are streamed from [RetroGames.cc](https://www.retrogames.cc/) embeds. This repo is a frontend cabinet, not a ROM host. Use an ad blocker (uBlock Origin / Brave) if you want a cleaner canvas.
+---
+
+## ✨ Features & Upgrades
+
+### 🌟 Vault Features
+- **🧟 COD Black Ops Zombies Main Feature**: Seamless in-cabinet widescreen 16:9 play plus direct 1-click **🚀 Popout Window** mode.
+- **📱 Universal Fullscreen & Mobile Immersive Mode**: Seamless full-viewport edge-to-edge gaming across mobile (iOS Safari, Android Chrome) and desktop (with <kbd>F11</kbd> hotkey and floating auto-dimming exit button).
+- **📱 Off-Canvas Slide-Over Mobile Library**: Touch-optimized sidebar drawer with dark blur backdrop that automatically dismisses upon game selection.
+- **📱 Mobile Bottom-Sheet Dialogs & Scroll Tracks**: Compact single-row swipeable controls, safe area insets, double-tap bezel fullscreen, and orientation helper.
+- **🎮 Expanded 126-Game Masterpiece Vault**: 100% verified, deduplicated library featuring legendary tactical RPGs, timeless JRPGs, and iconic action platformers.
+- **📖 Game Compendium & Instruction Manuals**: Dedicated 3-tab drawer containing official retro instruction manuals, release metadata, lore synopses, pro secrets, and an auto-saved personal logbook.
+- **🎵 Arcade Sound Test Mode**: Full 10-pad procedural 8-bit/16-bit soundboard (*Insert Coin*, *1-Up*, *Power-Up*, *Laser*, *8-Bit Boom*, *Secret Chime*, *Stage Clear*, *Game Over*, *Pause*, *Warp*) with keyboard hotkeys <kbd>1</kbd>-<kbd>0</kbd>.
+- **🏅 High Score & Personal Best Hall of Fame**: Log your legendary speedruns, high scores, and milestones with 3-letter arcade initials, dates, and medal ranks.
+- **🎛️ CRT Display Shader Calibrator**: Real-time slider fine-tuning for Scanline Darkness, Phosphor Bloom Glow, Vignette Shadow, and Tube Curvature.
+- **🏆 Expanded Trophies (17 Milestones)**: Unlock retro pixel achievements (*Insert Coin*, *Master Strategist*, *Console Hopper*, *Shader Wizard*, *Sound Engineer*, *Manual Reader*, *High Roller*, *Phosphor Purist*, *Element 115*) with fanfare and toast popups.
+- **📻 Procedural 8-Bit / Synthwave Arcade BGM Radio**: Built-in client-side Web Audio synthesizer radio generating chill retro chiptune arpeggios (*Synthwave*, *8-Bit Quest*, *Cyberpunk Arp*) for authentic arcade ambiance.
+- **⏱️ Live Session Stopwatch & Total Playtime Tracker**: Real-time retro LED session stopwatch (*00:00*) plus persistent total playtime recording per game (*⏳ 25m*, *⏳ 1h 10m*).
+- **📺 Curved CRT Television Bezel Mode**: Switch between a sleek modern frameless view and an authentic dark CRT television chassis with curved glass reflections.
+- **🕹️ Arcade Attract Mode / Screensaver**: When left idle for 3 minutes, an animated retro synthwave attract mode screensaver kicks in with glowing marquee banners.
+- **🕹️ Live Gamepad Input Tester & Visualizer**: Interactive controller HUD inside the Controls dialog that illuminates buttons and analog sticks in real-time.
+- **📺 Multi-Shader Retro Filters (4 Modes)**: Instant switching between *Clean HD*, *CRT Arcade*, *CRT Trinitron Glow*, and *Handheld LCD Grid*.
+- **🎭 Cinema / Theater Focus Mode**: One-click distraction-free full-window gameplay.
+- **⚡ CRT Power-On Animation**: 200ms horizontal beam-on flare and degauss harmonic chime on every game launch.
+- **⚔️ Quick Genre Filter Chips**: One-click filtering for *Zombies*, *RPG & Tactics*, *Action / Platform*, *Pokémon*, *Fighting*, and *Racing*.
+- **↕️ Smart Library Sorting**: Sort by Curated, Title (A-Z / Z-A), Platform, *Most Played*, or *Most Time Played*.
+- **💾 JSON Backup & Restore**: Full profile export and import (library, favorites, custom notes, playtime statistics, hall of fame scores, and trophies).
+- **⌨️ Instant Search Shortcut**: Press <kbd>/</kbd> anywhere to focus search immediately; press <kbd>Esc</kbd> to close any dialog or exit theater mode.
 
 ---
 
@@ -84,29 +102,35 @@ Click the **🕹️ CONTROLS** button on the top bar at any time to inspect mapp
 | **Select / Back** | <kbd>Shift</kbd> | Back / View / Share |
 | **Start / Pause** | <kbd>Enter</kbd> | Start / Menu / Options |
 
-### Cabinet & Emulator Hotkeys
+### Emulator Hotkeys & Shortcuts
 | Action | Hotkey / Control |
 | :--- | :--- |
 | **Quick Search Focus** | <kbd>/</kbd> |
-| **Jump / command palette** | <kbd>Ctrl</kbd> / <kbd>⌘</kbd> + <kbd>K</kbd> |
-| **Operator's Lab** | <kbd>Ctrl</kbd> / <kbd>⌘</kbd> + <kbd>,</kbd> |
-| **Shortcut cheat sheet** | <kbd>?</kbd> |
-| **Close any overlay / exit theater / exit fullscreen** | <kbd>Esc</kbd> |
 | **Save State** | <kbd>Shift</kbd> + <kbd>F2</kbd> (in emulator) |
 | **Load State** | <kbd>Shift</kbd> + <kbd>F4</kbd> (in emulator) |
 | **Pause Emulator** | <kbd>P</kbd> |
-| **Fullscreen** | <kbd>F11</kbd> or ⛶ button |
-| **Cycle Display Filters** | 📺 Filter (Clean HD → CRT Arcade → Trinitron Glow → LCD Grid) |
-| **Cycle Aspect Ratio** | 📐 RATIO (Auto → 4:3 → 3:2 → 16:9) |
-| **Sound test pads** | <kbd>1</kbd>–<kbd>0</kbd> while Sound Test is open |
-| **Konami code** | ↑ ↑ ↓ ↓ ← → ← → <kbd>B</kbd> <kbd>A</kbd> |
+| **Toggle Theater Mode** | <kbd>🎭 Theater</kbd> Button / <kbd>Esc</kbd> to exit |
+| **Fullscreen** | <kbd>⛶ Fullscreen</kbd> Button / <kbd>F11</kbd> |
+| **Popout Direct Window** | <kbd>🚀 Popout Window</kbd> Button |
+| **Cycle Display Filters** | <kbd>📺 Filter</kbd> Button (Clean HD → CRT Arcade → Trinitron Glow → LCD Grid) |
+| **Cycle Aspect Ratio** | <kbd>📐 RATIO</kbd> Button (Auto → 4:3 → 3:2 → 16:9) |
+| **Sound FX** | <kbd>🔊 SFX</kbd> Button (Toggle audio synthesizer) |
 
 > [!TIP]
 > **Ad-Free Tip**: To bypass third-party video ads inside game embeds, use an ad-blocker like **uBlock Origin** or the **Brave Browser**, which blocks ad server requests before they reach the game canvas.
 
 ---
 
-## 🕹️ Curated Game Library (125 Titles)
+## 🕹️ Curated Game Library (126 Titles)
+
+<details open>
+<summary><b>🧟 Featured Showcase (1 Title)</b></summary>
+
+| Game Title | Platform | Cover Artwork |
+| :--- | :--- | :---: |
+| **Call of Duty: Black Ops Zombies** | WebAssembly / PC 1080p | <img src="https://vel.gg/bo1z/art/og-mapselect.png" width="90"> |
+
+</details>
 
 <details open>
 <summary><b>🎮 PlayStation 1 (37 Titles)</b></summary>
@@ -277,43 +301,18 @@ Click the **🕹️ CONTROLS** button on the top bar at any time to inspect mapp
 
 ## 🚀 Getting Started
 
-### Play locally
-Open `index.html` in Chrome, Edge, Firefox, Brave, or Safari. No server, no install.
-
-If a browser blocks `file://` embeds, serve the folder:
-
-```bash
-python3 -m http.server 8080
-```
-
-Then visit `http://localhost:8080`.
+### Play Locally in Browser
+Simply open `index.html` (or `Retro Arcade.html` on your Desktop) directly in any modern web browser (Chrome, Edge, Firefox, Brave, Safari). No web server or installation needed!
 
 ### Host with GitHub Pages
-1. Fork or clone:
+1. Fork or clone this repository:
    ```bash
    git clone https://github.com/LIN4CRE/retro-arcade-vault.git
    ```
-2. Repo **Settings → Pages → Deploy from a branch → `main` / `/` (root)**.
-3. The cabinet is live in about a minute.
-
-### Install as an app
-On Chromium mobile/desktop, **Install** / **Add to Home Screen**. The PWA launches standalone with the neon cabinet icon.
-
----
-
-## 🛠️ Project layout
-
-| Path | What |
-| :--- | :--- |
-| `index.html` | The whole cabinet: UI, 125-game library, Web Audio, trophies |
-| `assets/banner.svg` | README / Open Graph banner |
-| `assets/icon.svg` | Favicon / PWA / apple-touch icon |
-| `manifest.webmanifest` | Add-to-home-screen manifest |
-| `404.html` | GitHub Pages bounce back to the cabinet |
-
-Profile data (favorites, notes, playtime, trophies, scores) lives in `localStorage` under `retro_vault_*` keys. **Backup** downloads a JSON snapshot; **Restore** reads it back.
+2. In GitHub repository settings, go to **Pages** -> Source: **Deploy from a branch** -> Branch: `main` / `/root`.
+3. Your arcade is live in 60 seconds!
 
 ---
 
 ## ⚖️ License
-This project is open-source under the [MIT License](LICENSE). Game ROMs and artwork remain the property of their original publishers; embeds are provided by third-party hosts.
+This project is open-source under the [MIT License](LICENSE).
