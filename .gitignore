@@ -6,3 +6,4 @@ Thumbs.db
 .idea/
 _patch/
 .cache/
+.agents/

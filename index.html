@@ -2416,6 +2416,188 @@
       letter-spacing: 0.04em;
     }
 
+    /* ==========================================================
+       DUAL-HALL NAVIGATION STYLING
+       ========================================================== */
+    .hall-nav-bar {
+      background: rgba(15, 18, 29, 0.98);
+      border-bottom: 2px solid var(--border-color);
+      padding: 8px 1.5rem;
+      position: sticky;
+      top: 56px;
+      z-index: 95;
+      backdrop-filter: blur(10px);
+    }
+    .hall-nav-inner {
+      display: flex;
+      gap: 16px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .hall-tab-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 18px;
+      background: rgba(27, 33, 56, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      text-align: left;
+    }
+    .hall-tab-btn:hover {
+      background: rgba(38, 46, 78, 0.85);
+      border-color: rgba(0, 255, 204, 0.4);
+      color: var(--text-main);
+    }
+    .hall-tab-btn.active {
+      background: linear-gradient(135deg, rgba(27, 33, 56, 0.95), rgba(19, 23, 38, 0.95));
+      border-color: var(--accent-neon);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(0, 255, 204, 0.25), inset 0 0 12px rgba(0, 255, 204, 0.08);
+    }
+    .hall-tab-btn.active .hall-tab-indicator {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-neon);
+      box-shadow: 0 0 8px var(--accent-neon);
+    }
+    .hall-tab-icon {
+      font-size: 1.6rem;
+      filter: drop-shadow(0 0 6px rgba(0, 255, 204, 0.4));
+    }
+    .hall-tab-text {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .hall-tab-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.78rem;
+      letter-spacing: -0.3px;
+      color: #fff;
+    }
+    .hall-tab-subtitle {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+    .hall-badge {
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 700;
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .native-badge {
+      background: rgba(0, 255, 204, 0.15);
+      border: 1px solid var(--accent-neon);
+      color: var(--accent-neon);
+    }
+    .emulation-badge {
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid var(--accent-purple);
+      color: var(--accent-purple);
+    }
+
+    /* Native Arcade Canvas */
+    .arcade-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      background: #000;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      cursor: crosshair;
+    }
+
+    /* External Notice Overlay (COD Zombies HTTP 451) */
+    .external-notice-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(27, 33, 56, 0.96) 0%, rgba(11, 14, 23, 0.98) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      z-index: 15;
+    }
+    .notice-card {
+      max-width: 600px;
+      background: rgba(19, 23, 38, 0.9);
+      border: 1px solid rgba(239, 68, 68, 0.5);
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.25);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .notice-icon {
+      font-size: 3.2rem;
+      margin-bottom: 0.75rem;
+    }
+    .notice-status-badge {
+      display: inline-block;
+      background: rgba(239, 68, 68, 0.2);
+      border: 1px solid #ef4444;
+      color: #ef4444;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+    .notice-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.95rem;
+      color: #fff;
+      margin-bottom: 1rem;
+      letter-spacing: -0.5px;
+    }
+    .notice-desc {
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: #cbd5e1;
+      margin-bottom: 1.75rem;
+    }
+    .notice-desc code {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #00ffcc;
+    }
+    .notice-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .notice-popout-btn {
+      font-size: 0.9rem;
+      padding: 10px 18px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .hall-tab-subtitle { display: none; }
+      .hall-tab-title { font-size: 0.7rem; }
+      .hall-tab-btn { padding: 8px 10px; gap: 8px; }
+      .hall-nav-bar { top: 50px; padding: 6px 1rem; }
+    }
+
   </style>
 </head>
 <body>
@@ -2501,6 +2683,31 @@
     </div>
   </header>
 
+  <!-- Dual-Hall Navigation Bar -->
+  <nav class="hall-nav-bar" id="hallNavBar" role="tablist" aria-label="Arcade Halls">
+    <div class="hall-nav-inner">
+      <button class="hall-tab-btn active" id="nativeHallTab" role="tab" aria-selected="true" data-hall="native">
+        <span class="hall-tab-indicator"></span>
+        <span class="hall-tab-icon">🕹️</span>
+        <div class="hall-tab-text">
+          <span class="hall-tab-title">NATIVE ARCADE CLASSICS</span>
+          <span class="hall-tab-subtitle">5 Built-in 60 FPS Canvas Games • Zero Lag • 100% Offline</span>
+        </div>
+        <span class="hall-badge native-badge">OFFLINE CAPABLE</span>
+      </button>
+
+      <button class="hall-tab-btn" id="emulationHallTab" role="tab" aria-selected="false" data-hall="emulation">
+        <span class="hall-tab-indicator"></span>
+        <span class="hall-tab-icon">💾</span>
+        <div class="hall-tab-text">
+          <span class="hall-tab-title">CURATED EMULATION VAULT</span>
+          <span class="hall-tab-subtitle">126 Retro Classics • PS1 / GBA / NDS / SNES / Sega</span>
+        </div>
+        <span class="hall-badge emulation-badge">126 TITLES</span>
+      </button>
+    </div>
+  </nav>
+
   <!-- App Layout -->
   <div class="app-container">
     <!-- Left Sidebar: Game Library -->
@@ -2518,7 +2725,7 @@
           <div class="spotlight-badge">★ MAIN ATTRACTION</div>
           <div class="spotlight-body">
             <div class="spotlight-thumb-wrap">
-              <img src="https://vel.gg/bo1z/art/og-mapselect.png" alt="Black Ops Zombies" class="spotlight-thumb">
+              <img src="assets/covers/bo1-zombies.svg" alt="Black Ops Zombies" class="spotlight-thumb">
               <span class="spotlight-live-tag">10 MAPS</span>
             </div>
             <div class="spotlight-info">
@@ -2652,6 +2859,30 @@
         <div class="screen-container" id="screenContainer">
           <div class="crt-overlay"></div>
           <div class="crt-glow"></div>
+
+          <!-- Native HTML5 Canvas Game Stage (Active during Native Arcade Hall mode) -->
+          <canvas id="arcadeCanvas" class="arcade-canvas" width="800" height="600" style="display:none;"></canvas>
+
+          <!-- External Takedown Notice Overlay (Active when bo1-zombies is selected) -->
+          <div id="externalNoticeOverlay" class="external-notice-overlay" style="display:none;">
+            <div class="notice-card">
+              <div class="notice-icon">🧟</div>
+              <div class="notice-status-badge">HTTP 451 • UNAVAILABLE FOR LEGAL REASONS</div>
+              <h3 class="notice-title">Call of Duty: Black Ops Zombies</h3>
+              <p class="notice-desc">
+                The external host (<code>vel.gg/bo1z</code>) has returned <strong>HTTP 451</strong> and prohibits direct iframe embedding via <code>X-Frame-Options: SAMEORIGIN</code>. You can launch the game directly in a standalone window, or explore our offline Native Arcade Classics.
+              </p>
+              <div class="notice-actions">
+                <a href="https://vel.gg/bo1z" target="_blank" rel="noopener noreferrer" class="btn btn-featured-highlight notice-popout-btn">
+                  🚀 Launch in Standalone Window ↗
+                </a>
+                <button class="btn btn-outline notice-switch-native-btn" id="noticeSwitchNativeBtn">
+                  🕹️ Switch to Native Arcade Hall
+                </button>
+              </div>
+            </div>
+          </div>
+
           <iframe 
             id="gameFrame" 
             class="game-iframe"
@@ -2891,7 +3122,7 @@
     "system": "WebAssembly / PC 1080p",
     "category": "FEATURED",
     "src": "https://vel.gg/bo1z",
-    "cover": "https://vel.gg/bo1z/art/og-mapselect.png",
+    "cover": "assets/covers/bo1-zombies.svg",
     "emoji": "🧟",
     "featured": true
   },
@@ -2945,7 +3176,7 @@
     "title": "Final Fantasy Origins (FF I & II)",
     "system": "PlayStation 1",
     "category": "PS1",
-    "src": "https://www.retrogames.cc/embed/41786-final-fantasy-origins.html",
+    "src": "https://www.retrogames.cc/embed/40200-final-fantasy-origins.html",
     "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20Origins%20(USA).png",
     "emoji": "⚔️"
   },
@@ -2954,8 +3185,8 @@
     "title": "Final Fantasy Chronicles (FF IV & Chrono Trigger)",
     "system": "PlayStation 1",
     "category": "PS1",
-    "src": "https://www.retrogames.cc/embed/40145-final-fantasy-chronicles.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Final%20Fantasy%20Chronicles%20(USA).png",
+    "src": "https://www.retrogames.cc/embed/41907-final-fantasy-chronicles-final-fantasy-iv.html",
+    "cover": "assets/covers/final-fantasy-chronicles.svg",
     "emoji": "⚔️"
   },
   {
@@ -2963,7 +3194,7 @@
     "title": "Chrono Cross",
     "system": "PlayStation 1",
     "category": "PS1",
-    "src": "https://www.retrogames.cc/embed/41785-chrono-cross.html",
+    "src": "https://www.retrogames.cc/embed/43269-chrono-cross-disc-1.html",
     "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Chrono%20Cross%20(USA).png",
     "emoji": "⏳"
   },
@@ -2972,7 +3203,7 @@
     "title": "Suikoden II",
     "system": "PlayStation 1",
     "category": "PS1",
-    "src": "https://www.retrogames.cc/embed/41793-suikoden-ii.html",
+    "src": "https://www.retrogames.cc/embed/41682-suikoden-2.html",
     "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Suikoden%20II%20(USA).png",
     "emoji": "🛡️"
   },
@@ -3045,7 +3276,7 @@
     "system": "PlayStation 1",
     "category": "PS1",
     "src": "https://www.retrogames.cc/embed/40150-digimon-digital-card-battle.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Digimon%20Digital%20Card%20Battle%20(USA).png",
+    "cover": "assets/covers/digimon-digital-card-battle.svg",
     "emoji": "🦖"
   },
   {
@@ -3053,8 +3284,8 @@
     "title": "Yu-Gi-Oh! Forbidden Memories (15 Card Mod)",
     "system": "PlayStation 1",
     "category": "PS1",
-    "src": "https://www.retrogames.cc/embed/46876-yu-gi-oh-forbidden-memories-15-card-mod.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Yu-Gi-Oh!%20-%20Forbidden%20Memories%20(USA).png",
+    "src": "https://www.retrogames.cc/embed/40173-yu-gi-oh-forbidden-memories.html",
+    "cover": "assets/covers/yu-gi-oh-forbidden-memories.svg",
     "emoji": "🃏"
   },
   {
@@ -3081,7 +3312,7 @@
     "system": "PlayStation 1",
     "category": "PS1",
     "src": "https://www.retrogames.cc/embed/41687-crash-team-racing.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sony_-_PlayStation/master/Named_Boxarts/Crash%20Team%20Racing%20(USA).png",
+    "cover": "assets/covers/crash-team-racing.svg",
     "emoji": "💎"
   },
   {
@@ -3216,7 +3447,7 @@
     "system": "Game Boy Advance",
     "category": "GBA",
     "src": "https://www.retrogames.cc/embed/26543-metroid-fusion-e-flashadvance.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Metroid%20Fusion%20(USA%2C%20Australia).png",
+    "cover": "assets/covers/metroid-fusion.svg",
     "emoji": "🚀"
   },
   {
@@ -3234,7 +3465,7 @@
     "system": "Game Boy Advance",
     "category": "GBA",
     "src": "https://www.retrogames.cc/embed/29225-advance-wars-e-arrogance.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Advance%20Wars%20(USA%2C%20Australia).png",
+    "cover": "assets/covers/advance-wars.svg",
     "emoji": "🎖️"
   },
   {
@@ -3243,7 +3474,7 @@
     "system": "Game Boy Advance",
     "category": "GBA",
     "src": "https://www.retrogames.cc/embed/27948-advance-wars-2-black-hole-rising-e-surplus.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Advance%20Wars%202%20-%20Black%20Hole%20Rising%20(USA%2C%20Australia).png",
+    "cover": "assets/covers/advance-wars-2.svg",
     "emoji": "🎖️"
   },
   {
@@ -3252,7 +3483,7 @@
     "system": "Game Boy Advance",
     "category": "GBA",
     "src": "https://www.retrogames.cc/embed/26858-super-street-fighter-ii-turbo-revival-u-nobody.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Super%20Street%20Fighter%20II%20Turbo%20Revival%20(USA).png",
+    "cover": "assets/covers/super-street-fighter-ii-gba.svg",
     "emoji": "⚡"
   },
   {
@@ -3261,7 +3492,7 @@
     "system": "Nintendo DS",
     "category": "NDS",
     "src": "https://www.retrogames.cc/embed/39651-might-magic-clash-of-heroes-usa-en-fr-es.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Might%20%26%20Magic%20-%20Clash%20of%20Heroes%20(USA)%20(En%2CFr%2CEs).png",
+    "cover": "assets/covers/might-and-magic-clash-of-heroes.svg",
     "emoji": "🧩"
   },
   {
@@ -3369,7 +3600,7 @@
     "system": "Nintendo DS",
     "category": "NDS",
     "src": "https://www.retrogames.cc/embed/46291-new-mario-kart-ds.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Mario%20Kart%20DS%20(USA).png",
+    "cover": "assets/covers/mario-kart-ds.svg",
     "emoji": "🍄"
   },
   {
@@ -3540,7 +3771,7 @@
     "system": "Sega Genesis",
     "category": "SEGA",
     "src": "https://www.retrogames.cc/embed/29209-sonic-knuckles-sonic-the-hedgehog-3-world.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Sonic%20%26%20Knuckles%20(World).png",
+    "cover": "assets/covers/sonic-3-knuckles.svg",
     "emoji": "🦔"
   },
   {
@@ -3657,7 +3888,7 @@
     "system": "Sega Genesis",
     "category": "SEGA",
     "src": "https://www.retrogames.cc/embed/16687-aladdin-usa.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Disney%27s%20Aladdin%20(USA).png",
+    "cover": "assets/covers/disney-aladdin.svg",
     "emoji": "🌀"
   },
   {
@@ -3666,7 +3897,7 @@
     "system": "Sega Genesis",
     "category": "SEGA",
     "src": "https://www.retrogames.cc/embed/30167-road-rash-ii-usa-europe-v1-2.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Road%20Rash%20II%20(USA%2C%20Europe).png",
+    "cover": "assets/covers/road-rash-ii.svg",
     "emoji": "🌀"
   },
   {
@@ -3692,7 +3923,7 @@
     "title": "Mega Man Battle Network 3 Blue",
     "system": "Game Boy Advance",
     "category": "GBA",
-    "src": "https://www.retrogames.cc/embed/45318-mega-man-battle-network-3-blue-version-usa.html",
+    "src": "https://www.retrogames.cc/embed/17589-mega-man-battle-network-3-blue-version-virtual-console.html",
     "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Game_Boy_Advance/master/Named_Boxarts/Mega%20Man%20Battle%20Network%203%20-%20Blue%20Version%20(USA).png",
     "emoji": "⚡"
   },
@@ -3711,7 +3942,7 @@
     "system": "Nintendo DS",
     "category": "NDS",
     "src": "https://www.retrogames.cc/embed/35474-the-world-ends-with-you.html",
-    "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/The%20World%20Ends%20with%20You%20(USA).png",
+    "cover": "assets/covers/the-world-ends-with-you.svg",
     "emoji": "🎧"
   },
   {
@@ -3926,7 +4157,7 @@
     "title": "Dragon Quest IV: Chapters of the Chosen",
     "system": "Nintendo DS",
     "category": "NDS",
-    "src": "https://www.retrogames.cc/embed/33999-dragon-quest-iv-chapters-of-the-chosen.html",
+    "src": "https://www.retrogames.cc/embed/37812-dragon-quest-iv-chapters-of-the-chosen-usa-en-fr-es.html",
     "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Nintendo_-_Nintendo_DS/master/Named_Boxarts/Dragon%20Quest%20IV%20-%20Chapters%20of%20the%20Chosen%20(USA)%20(En%2CFr%2CEs).png",
     "emoji": "👑"
   },
@@ -3997,8 +4228,8 @@
     "id": "crusader-of-centy",
     "title": "Crusader of Centy",
     "system": "Sega Genesis",
-    "category": "GENESIS",
-    "src": "https://www.retrogames.cc/embed/16607-crusader-of-centy.html",
+    "category": "SEGA",
+    "src": "https://www.retrogames.cc/embed/30286-crusader-of-centy-usa.html",
     "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Crusader%20of%20Centy%20(USA).png",
     "emoji": "⚔️"
   },
@@ -4006,7 +4237,7 @@
     "id": "landstalker",
     "title": "Landstalker: The Treasures of King Nole",
     "system": "Sega Genesis",
-    "category": "GENESIS",
+    "category": "SEGA",
     "src": "https://www.retrogames.cc/embed/16900-landstalker-the-treasures-of-king-nole.html",
     "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Landstalker%20(USA).png",
     "emoji": "🗺️"
@@ -4015,7 +4246,7 @@
     "id": "shining-in-the-darkness",
     "title": "Shining in the Darkness",
     "system": "Sega Genesis",
-    "category": "GENESIS",
+    "category": "SEGA",
     "src": "https://www.retrogames.cc/embed/17335-shining-in-the-darkness.html",
     "cover": "https://raw.githubusercontent.com/libretro-thumbnails/Sega_-_Mega_Drive_-_Genesis/master/Named_Boxarts/Shining%20in%20the%20Darkness%20(USA%2C%20Europe).png",
     "emoji": "🕯️"
@@ -4504,23 +4735,42 @@
     }
 
     // Storage Management
+    const DELETED_DEFAULTS_KEY = "retro_vault_deleted_defaults";
+    let deletedDefaultIds = new Set();
+
+    function loadDeletedDefaults() {
+      try {
+        const stored = localStorage.getItem(DELETED_DEFAULTS_KEY);
+        if (stored) deletedDefaultIds = new Set(JSON.parse(stored));
+      } catch (e) {
+        deletedDefaultIds = new Set();
+      }
+    }
+
+    function saveDeletedDefaults() {
+      try {
+        localStorage.setItem(DELETED_DEFAULTS_KEY, JSON.stringify([...deletedDefaultIds]));
+      } catch (e) {}
+    }
+
     function loadGames() {
       try {
+        loadDeletedDefaults();
         const stored = localStorage.getItem(STORAGE_KEY);
+        const defaultIds = new Set(DEFAULT_GAMES.map(dg => dg.id));
+        const activeDefaults = DEFAULT_GAMES.filter(dg => !deletedDefaultIds.has(dg.id));
         if (stored) {
           const parsed = JSON.parse(stored);
-          const defaultIds = new Set(DEFAULT_GAMES.map(dg => dg.id));
-          // Preserve any custom games user added through "+ Add Game" modal
           const userCustom = parsed.filter(g => !defaultIds.has(g.id) && !DEFAULT_GAMES.some(dg => dg.src === g.src));
-          games = [...DEFAULT_GAMES, ...userCustom];
+          games = [...activeDefaults, ...userCustom];
           saveGames();
         } else {
-          games = [...DEFAULT_GAMES];
+          games = [...activeDefaults];
           saveGames();
         }
       } catch (e) {
         console.error("Failed to read from localStorage:", e);
-        games = [...DEFAULT_GAMES];
+        games = DEFAULT_GAMES.filter(dg => !deletedDefaultIds.has(dg.id));
       }
 
       // Load Favorites
@@ -4811,7 +5061,7 @@
       }).join('');
     }
 
-    // Select and load game
+    // Select and load game (Remediated: Session Timer, Play Stats, Trophies, & 451 Notice)
     function selectGame(id) {
       const game = games.find(g => g.id === id);
       if (!game) return;
@@ -4820,54 +5070,78 @@
       currentTitleEl.textContent = game.title;
       currentPlatformEl.textContent = game.system || "Arcade";
 
-      // Update stage star status
+      // 1. Defect Fix: Start session stopwatch and accumulate playtime
+      startSessionTimer();
+
+      // 2. Defect Fix: Increment play stats, persist, and update badges
+      playStats[id] = (playStats[id] || 0) + 1;
+      savePlayStats();
+
+      // 3. Defect Fix: Unlock foundational first game launch achievement
+      unlockTrophy("COIN_DROP");
+
+      // 4. Update stage star status
       const isStarred = favorites.has(id);
       stageStarBtn.classList.toggle("starred", isStarred);
       stageStarBtn.querySelector("span").textContent = isStarred ? "Favorited" : "Favorite";
 
-      // Track recents
+      // 5. Track recents
       recentGames = recentGames.filter(gid => gid !== id);
       recentGames.unshift(id);
       if (recentGames.length > 25) recentGames.pop();
       saveRecents();
 
-      // Dynamic Console Ambient Bias Lighting
+      // 6. Defect Fix: Evaluate passive trophies (NIGHT_OWL, ALL_CONSOLES, TACTICS_MASTER)
+      checkPassiveTrophies();
+
+      // 7. Dynamic Console Ambient Bias Lighting
       const glowColor = CONSOLE_THEMES[game.category] || "rgba(0, 255, 204, 0.35)";
       document.documentElement.style.setProperty('--console-glow', glowColor);
 
-      // Dynamic Aspect Ratio
+      // 8. Dynamic Aspect Ratio
       applyAspectRatio(game.category);
 
-      // Update popout link and FPS hint banner
+      // 9. Update popout link and FPS hint banner
       if (launchDirectBtn) {
         launchDirectBtn.href = game.src;
       }
-      if (fpsHintBanner) {
-        fpsHintBanner.style.display = (id === "bo1-zombies") ? "flex" : "none";
-      }
 
-      // Check Element 115 milestone
+      // 10. Defect Fix: COD Zombies (HTTP 451) Headline Status Notice
+      const noticeOverlay = document.getElementById("externalNoticeOverlay");
       if (id === "bo1-zombies") {
+        if (fpsHintBanner) fpsHintBanner.style.display = "none";
+        if (noticeOverlay) noticeOverlay.style.display = "flex";
+        gameFrameEl.style.display = "none";
         unlockTrophy("ZOMBIE_SURVIVOR");
+      } else {
+        if (noticeOverlay) noticeOverlay.style.display = "none";
+        gameFrameEl.style.display = "block";
+        if (fpsHintBanner) fpsHintBanner.style.display = "none";
       }
 
-      // Update artwork & emoji preview
+      // 11. Defect Fix: Resilient artwork preview with automatic onerror fallback
       if (game.cover) {
         currentCoverEl.src = game.cover;
         currentCoverEl.style.display = "block";
         currentEmojiEl.style.display = "none";
+        currentCoverEl.onerror = () => {
+          currentCoverEl.style.display = "none";
+          currentEmojiEl.style.display = "block";
+          currentEmojiEl.textContent = game.emoji || "🎮";
+        };
       } else {
         currentCoverEl.style.display = "none";
         currentEmojiEl.style.display = "block";
         currentEmojiEl.textContent = game.emoji || "🎮";
       }
 
-      // Update iframe source
-      if (gameFrameEl.src !== game.src) {
+      // 12. Update iframe source (only for reachable emulation endpoints)
+      if (id !== "bo1-zombies" && gameFrameEl.src !== game.src) {
         gameFrameEl.src = game.src;
       }
 
       renderGameList();
+      updateCounts();
     }
 
     function applyAspectRatio(category) {
@@ -4906,6 +5180,8 @@
       }
       saveFavorites();
       renderGameList();
+      updateCounts();
+      checkPassiveTrophies();
     }
 
     function pickRandomGame() {
@@ -5295,7 +5571,7 @@
 
     function updateTrophiesBadge() {
       const count = unlockedTrophies.size;
-      if (trophyBadgeCount) trophyBadgeCount.textContent = count + "/12";
+      if (trophyBadgeCount) trophyBadgeCount.textContent = count + "/" + (typeof TROPHIES_CATALOG !== "undefined" ? TROPHIES_CATALOG.length : 17);
       if (trophiesModalCount) trophiesModalCount.textContent = count;
     }
 
@@ -5486,33 +5762,36 @@
       }
     }
 
-    // Export & Backup Library
+    // Export & Backup Library (Full Schema v4.0 Symmetrical Compatibility)
     function exportLibrary() {
       playSfx('click');
       const backupData = {
         exportedAt: new Date().toISOString(),
-        version: "2.1",
+        version: "4.0",
+        schemaVersion: "4.0",
         favorites: [...favorites],
         recentGames: recentGames,
         playStats: playStats,
+        playTimes: playTimes,
         highScores: typeof highScores !== "undefined" ? highScores : [],
-        unlockedTrophies: typeof unlockedTrophies !== "undefined" ? [...unlockedTrophies] : [],
-        customNotes: typeof customNotes !== "undefined" ? customNotes : {},
-        playTimes: typeof playTimes !== "undefined" ? playTimes : {},
+        unlockedTrophies: [...unlockedTrophies],
+        userNotes: userNotes, // Fixed: was customNotes which was undefined
+        customNotes: userNotes,
+        deletedDefaultIds: [...deletedDefaultIds],
         games: games
       };
       const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "retro-arcade-vault-backup.json";
+      a.download = "retro-arcade-vault-backup-v4.json";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
 
-    // Import Library Backup
+    // Import Library Backup (Zero Data Loss Restore)
     function importLibrary(file) {
       const reader = new FileReader();
       reader.onload = (e) => {
@@ -5533,6 +5812,32 @@
           if (data.playStats && typeof data.playStats === 'object') {
             playStats = data.playStats;
             savePlayStats();
+          }
+          if (data.playTimes && typeof data.playTimes === 'object') {
+            playTimes = data.playTimes;
+            savePlayTimes();
+          }
+          if (Array.isArray(data.unlockedTrophies)) {
+            unlockedTrophies = new Set(data.unlockedTrophies);
+            saveTrophies();
+            updateTrophiesBadge();
+          } else if (Array.isArray(data.achievements)) {
+            unlockedTrophies = new Set(data.achievements);
+            saveTrophies();
+            updateTrophiesBadge();
+          }
+          if (data.userNotes || data.customNotes) {
+            userNotes = data.userNotes || data.customNotes || {};
+            saveNotes();
+          }
+          if (Array.isArray(data.highScores)) {
+            highScores = data.highScores;
+            if (typeof saveHighScores === 'function') saveHighScores();
+            if (typeof renderHighScores === 'function') renderHighScores();
+          }
+          if (Array.isArray(data.deletedDefaultIds)) {
+            deletedDefaultIds = new Set(data.deletedDefaultIds);
+            saveDeletedDefaults();
           }
           playSfx('star');
           alert("Backup successfully restored! (" + games.length + " games)");
@@ -5651,6 +5956,10 @@
           e.stopPropagation();
           const idToDelete = deleteBtn.getAttribute("data-delete-id");
           if (confirm("Are you sure you want to remove this game?")) {
+            if (DEFAULT_GAMES.some(dg => dg.id === idToDelete)) {
+              deletedDefaultIds.add(idToDelete);
+              saveDeletedDefaults();
+            }
             games = games.filter(g => g.id !== idToDelete);
             favorites.delete(idToDelete);
             saveGames();
@@ -5800,6 +6109,7 @@
         btn.classList.add("active");
         selectedCategory = btn.getAttribute("data-category");
         renderGameList();
+        checkPassiveTrophies();
       });
       // Drawer Tabs Setup
       setupDrawerTabs();
@@ -6197,10 +6507,64 @@
       }
     }
 
+    // Dual-Hall State & Mode Switcher
+    let currentHall = "emulation"; // "native" | "emulation"
+
+    function switchHall(hall) {
+      currentHall = hall;
+      const nativeTab = document.getElementById("nativeHallTab");
+      const emuTab = document.getElementById("emulationHallTab");
+      const canvasEl = document.getElementById("arcadeCanvas");
+      const noticeOverlay = document.getElementById("externalNoticeOverlay");
+
+      if (hall === "native") {
+        if (nativeTab) {
+          nativeTab.classList.add("active");
+          nativeTab.setAttribute("aria-selected", "true");
+        }
+        if (emuTab) {
+          emuTab.classList.remove("active");
+          emuTab.setAttribute("aria-selected", "false");
+        }
+        if (canvasEl) canvasEl.style.display = "block";
+        if (gameFrameEl) gameFrameEl.style.display = "none";
+        if (noticeOverlay) noticeOverlay.style.display = "none";
+      } else {
+        if (emuTab) {
+          emuTab.classList.add("active");
+          emuTab.setAttribute("aria-selected", "true");
+        }
+        if (nativeTab) {
+          nativeTab.classList.remove("active");
+          nativeTab.setAttribute("aria-selected", "false");
+        }
+        if (canvasEl) canvasEl.style.display = "none";
+        if (activeGameId === "bo1-zombies") {
+          if (noticeOverlay) noticeOverlay.style.display = "flex";
+          if (gameFrameEl) gameFrameEl.style.display = "none";
+        } else {
+          if (noticeOverlay) noticeOverlay.style.display = "none";
+          if (gameFrameEl) gameFrameEl.style.display = "block";
+        }
+      }
+      playSfx('click');
+    }
+
     // App Initialization
     function initApp() {
       loadGames();
       setupEventListeners();
+
+      // Setup Dual-Hall Tab Triggers
+      const nativeTab = document.getElementById("nativeHallTab");
+      const emuTab = document.getElementById("emulationHallTab");
+      const noticeSwitchBtn = document.getElementById("noticeSwitchNativeBtn");
+
+      if (nativeTab) nativeTab.addEventListener("click", () => switchHall("native"));
+      if (emuTab) emuTab.addEventListener("click", () => switchHall("emulation"));
+      if (noticeSwitchBtn) noticeSwitchBtn.addEventListener("click", () => switchHall("native"));
+
+      checkPassiveTrophies();
 
       // Launch default game or first game (Featured: Call of Duty: Black Ops Zombies)
       const initialGame = games.find(g => g.id === "bo1-zombies") || games[0];

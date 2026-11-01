@@ -1,0 +1,21 @@
+{
+  "name": "retro-arcade-vault",
+  "version": "4.0.0",
+  "description": "Zero-dependency retro arcade vault with native 60fps canvas games, procedural audio, and retro catalog",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "serve": "node scripts/serve.js",
+    "start": "node scripts/serve.js"
+  },
+  "keywords": [
+    "retro",
+    "arcade",
+    "canvas",
+    "web-audio",
+    "chiptune",
+    "games"
+  ],
+  "author": "Retro Arcade Vault Team",
+  "license": "MIT"
+}
